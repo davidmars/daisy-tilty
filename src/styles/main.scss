@@ -1,0 +1,23 @@
+@use './reset';
+@use './typography';
+@use './components-all.scss';
+@use './layout-all.scss';
+
+body {
+  font-family: 'Sharpie', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  flex-grow: 1;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+}
+

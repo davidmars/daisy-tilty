@@ -1,0 +1,40 @@
+/**
+* @license
+*
+* Font Family: Sharpie
+* Designed by: Théo Guillard
+* URL: https://www.fontshare.com/fonts/sharpie
+* © 2025 Indian Type Foundry
+*
+* Sharpie Light 
+* Sharpie Regular 
+* Sharpie Bold 
+* Sharpie Extrabold 
+* Sharpie Black 
+* Sharpie Variable (Variable font)
+
+*
+*/
+
+body{
+    --font-sharpie: 'Sharpie-Variable-yo';
+}
+
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 900.0;
+*
+* available axes:
+'wght' (range from 300.0 to 900.0
+*/
+@font-face {
+  font-family: 'Sharpie-Variable-yo';
+  src: url('/fonts/sharpie/Sharpie-Variable.woff2') format('woff2'),
+       url('/fonts/sharpie/Sharpie-Variable.woff') format('woff'),
+       url('/fonts/sharpie/Sharpie-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+

@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.icon-item {
+    font-size: 12px;
+    width: 400px;
+    text-align: center;
+}
+
+/* .icon-item svg, .icon-item img {
+    width: 32px;
+    height: 32px;
+} */
+
+code {
+    font-size: 0.9em;
+    background: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 4px;
+    display: block;
+}
+
+code.copied {
+    background: #d4ffd4;
+}
+
+.icon-name { display: block; }

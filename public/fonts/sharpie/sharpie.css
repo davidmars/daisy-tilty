@@ -1,0 +1,68 @@
+/**
+* @license
+*
+* Font Family: Sharpie
+* Designed by: Théo Guillard
+* URL: https://www.fontshare.com/fonts/sharpie
+* © 2025 Indian Type Foundry
+*
+* Sharpie Light 
+* Sharpie Regular 
+* Sharpie Bold 
+* Sharpie Extrabold 
+* Sharpie Black 
+* Sharpie Variable (Variable font)
+
+*
+*/
+
+body{
+    --font-sharpie: 'Sharpie-yo';
+}
+
+@font-face {
+  font-family: 'Sharpie-yo';
+  src: url('/fonts/Sharpie-Light.woff2') format('woff2'),
+       url('/fonts/Sharpie-Light.woff') format('woff'),
+       url('/fonts/Sharpie-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sharpie-yo';
+  src: url('/fonts/sharpie/Sharpie-Regular.woff2') format('woff2'),
+       url('/fonts/sharpie/Sharpie-Regular.woff') format('woff'),
+       url('/fonts/sharpie/Sharpie-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sharpie-yo';
+  src: url('/fonts/sharpie/Sharpie-Bold.woff2') format('woff2'),
+       url('/fonts/sharpie/Sharpie-Bold.woff') format('woff'),
+       url('/fonts/sharpie/Sharpie-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sharpie-yo';
+  src: url('/fonts/sharpie/Sharpie-Extrabold.woff2') format('woff2'),
+       url('/fonts/sharpie/Sharpie-Extrabold.woff') format('woff'),
+       url('/fonts/sharpie/Sharpie-Extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sharpie-yo';
+  src: url('/fonts/sharpie/Sharpie-Black.woff2') format('woff2'),
+       url('/fonts/sharpie/Sharpie-Black.woff') format('woff'),
+       url('/fonts/sharpie/Sharpie-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+

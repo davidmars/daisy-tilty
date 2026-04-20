@@ -1,0 +1,200 @@
+<include file="/src/layout/common.html" $title="Icons Gallery">
+  <style>
+body {
+    font-family: sans-serif;
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.icon-item {
+    font-size: 12px;
+    width: 400px;
+    text-align: center;
+}
+
+/* .icon-item svg, .icon-item img {
+    width: 32px;
+    height: 32px;
+} */
+
+code {
+    font-size: 0.9em;
+    background: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 4px;
+    display: block;
+}
+
+code.copied {
+    background: #d4ffd4;
+}
+
+.icon-name { display: block; }
+  </style>
+  <div style="padding: 1em;">
+    <label style="display:block;margin-bottom:1em;">
+      Icon size: <input id="icon-size-input" type="range" min="16" max="128" value="32" style="vertical-align:middle;" />
+      <input id="icon-size-number" type="number" min="8" max="256" value="32" style="width:3em;" /> px
+      &nbsp;|&nbsp; Color: <input id="icon-color-input" type="color" value="#ff3399" />
+      <input id="icon-color-text" type="text" value="#ff3399" style="width:6em;" />
+    </label>
+    <h2>lucide</h2>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="lucide/heart-pulse.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="heart-pulse">heart-pulse.svg</span>
+        <code>&lt;include file="/src/icons/lucide/heart-pulse.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='lucide/heart-pulse.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="lucide/heart-pulse.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="lucide/squirrel.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="squirrel">squirrel.svg</span>
+        <code>&lt;include file="/src/icons/lucide/squirrel.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='lucide/squirrel.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="lucide/squirrel.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+    </div>    <h2>lucide-thin</h2>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="lucide-thin/heart-pulse.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="heart-pulse">heart-pulse.svg</span>
+        <code>&lt;include file="/src/icons/lucide-thin/heart-pulse.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='lucide-thin/heart-pulse.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="lucide-thin/heart-pulse.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="lucide-thin/squirrel.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="squirrel">squirrel.svg</span>
+        <code>&lt;include file="/src/icons/lucide-thin/squirrel.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='lucide-thin/squirrel.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="lucide-thin/squirrel.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="lucide-thin/tent-tree.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="tent-tree">tent-tree.svg</span>
+        <code>&lt;include file="/src/icons/lucide-thin/tent-tree.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='lucide-thin/tent-tree.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="lucide-thin/tent-tree.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+    </div>    <h2>mdi</h2>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="mdi/account-circle.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="account-circle">account-circle.svg</span>
+        <code>&lt;include file="/src/icons/mdi/account-circle.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='mdi/account-circle.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="mdi/account-circle.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="mdi/material-design.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="material-design">material-design.svg</span>
+        <code>&lt;include file="/src/icons/mdi/material-design.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='mdi/material-design.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="mdi/material-design.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+    </div>    <h2>phosphor</h2>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="phosphor/cat-thin.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="cat-thin">cat-thin.svg</span>
+        <code>&lt;include file="/src/icons/phosphor/cat-thin.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='phosphor/cat-thin.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="phosphor/cat-thin.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="phosphor/person-simple-snowboard-duotone.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="person-simple-snowboard-duotone">person-simple-snowboard-duotone.svg</span>
+        <code>&lt;include file="/src/icons/phosphor/person-simple-snowboard-duotone.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='phosphor/person-simple-snowboard-duotone.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="phosphor/person-simple-snowboard-duotone.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="phosphor/phosphor-logo-duotone.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="phosphor-logo-duotone">phosphor-logo-duotone.svg</span>
+        <code>&lt;include file="/src/icons/phosphor/phosphor-logo-duotone.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='phosphor/phosphor-logo-duotone.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="phosphor/phosphor-logo-duotone.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="phosphor/phosphor-logo-light.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="phosphor-logo-light">phosphor-logo-light.svg</span>
+        <code>&lt;include file="/src/icons/phosphor/phosphor-logo-light.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='phosphor/phosphor-logo-light.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="phosphor/phosphor-logo-light.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+      <div class="icon-item">
+        <include file="/src/components/icon.html" $icon="phosphor/phosphor-logo.svg" $size="32" $color="#ff3399" style="--size:32px; color:#ff3399;" />
+        <span class="icon-name" data-name="phosphor-logo">phosphor-logo.svg</span>
+        <code>&lt;include file="/src/icons/phosphor/phosphor-logo.svg" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='phosphor/phosphor-logo.svg' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="phosphor/phosphor-logo.svg" $size="32" $color="#ff3399" /&gt;</code>
+      </div>
+    </div>
+  </div>
+  <script>
+  const sizeInput = document.getElementById('icon-size-input');
+  const sizeNumber = document.getElementById('icon-size-number');
+  const colorInput = document.getElementById('icon-color-input');
+  const colorText = document.getElementById('icon-color-text');
+  function updateIconSize(val) {
+    document.querySelectorAll('.icon-item > svg').forEach(function(svg) {
+      svg.style.setProperty('--size', val + 'px');
+    });
+    sizeInput.value = val;
+    sizeNumber.value = val;
+    document.querySelectorAll('.icon-component').forEach(function(code) {
+      var template = code.getAttribute('data-template');
+      code.textContent = template.replace('{size}', val).replace('{color}', colorInput.value);
+    });
+  }
+  function updateIconColor(val) {
+    document.querySelectorAll('.icon-item > svg').forEach(function(svg) {
+      svg.style.color = val;
+    });
+    colorInput.value = val;
+    colorText.value = val;
+    document.querySelectorAll('.icon-component').forEach(function(code) {
+      var template = code.getAttribute('data-template');
+      code.textContent = template.replace('{size}', sizeInput.value).replace('{color}', val);
+    });
+  }
+  sizeInput.addEventListener('input', function(e) { updateIconSize(e.target.value); });
+  sizeNumber.addEventListener('input', function(e) { updateIconSize(e.target.value); });
+  colorInput.addEventListener('input', function(e) { updateIconColor(e.target.value); });
+  colorText.addEventListener('input', function(e) { updateIconColor(e.target.value); });
+  updateIconSize(sizeInput.value);
+  updateIconColor(colorInput.value);
+  document.querySelectorAll('code').forEach(function(code) {
+    code.addEventListener('click', async function() {
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+        code.classList.add('copied');
+        var old = code.textContent;
+        code.textContent = 'Copied!';
+        setTimeout(function() {
+          code.classList.remove('copied');
+          code.textContent = old;
+        }, 900);
+      } catch (e) {
+        alert('Copy failed');
+      }
+    });
+  });
+  document.querySelectorAll('.icon-name').forEach(function(span) {
+    span.addEventListener('click', async function() {
+      try {
+        await navigator.clipboard.writeText(span.dataset.name);
+        span.classList.add('copied');
+        var old = span.textContent;
+        span.textContent = 'Copied!';
+        setTimeout(function() {
+          span.classList.remove('copied');
+          span.textContent = old;
+        }, 900);
+      } catch (e) {
+        alert('Copy failed');
+      }
+    });
+  });
+  </script>
+</include>

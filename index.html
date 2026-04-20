@@ -1,0 +1,98 @@
+<include file="@layout/common.html" $title="Raw HTML Starter">
+  <include file="@comp/heading.html" $tag="h2">
+    Raw HTML Starter
+  </include>
+
+  <p>
+    <b>A modern starter for building websites in <u>plain HTML</u> — no React, no Vue, no heavy JS frameworks.</b><br>
+    Enjoy the simplicity of HTML with the power of Vite, SCSS, includes, and modular components.
+  </p>
+
+  <ul>
+    <li>Ultra-fast development with Vite</li>
+    <li>Native SCSS and auto-import of components</li>
+    <li>Reusable HTML component system with variables and slots</li>
+    <li>Multi-page ready</li>
+    <li>Hot Module Replacement (HMR)</li>
+    <li>TypeScript support</li>
+    <li><a href="https://tilty-io.github.io/raw-html-starter/icons-gallery.html">Fluid icon management with interactive icon gallery</a></li>
+    <li><a href="https://tilty-io.github.io/raw-html-starter/" target="_blank">Live demo</a></li>
+
+
+  </ul>
+
+  <br>
+
+  <include file="@comp/card.html">
+    <template slot="title">vite-plugin-html-include</template>
+    <template slot="content">
+      <b>vite-plugin-html-include</b> is the secret sauce of this starter.<br>
+      It lets you use HTML includes, slots, and variables in your pages and components.<br>
+      <span style="color: #2b90d9; font-weight: bold;">It's just awesome for building modular HTML!</span>
+    </template>
+    <template slot="footer">
+      <include file="@comp/button.html" class="success" href="https://github.com/Tilty-io/vite-plugin-html-include" target="_blank">
+        See documentation
+      </include>
+    </template>
+  </include>
+
+  <include file="@comp/card.html">
+    <template slot="title">Font embedding example</template>
+    <template slot="content">
+      The starter includes an example of font embedding with the
+      <span style="font-family: var(--font-sharpie), cursive; font-size: 1.3em;">Sharpie</span>
+      font (see <code>public/fonts/</code> and <code>src/styles/typography.scss</code>).
+    </template>
+  </include>
+
+  <include file="@comp/card.html">
+    <template slot="title">SVG icons</template>
+    <template slot="content">
+      All your SVG icons are organized by family in <code>src/icons/</code>.<br>
+      Use the <code>icon.html</code> component to embed any icon with size and color control.<br>
+      <pre><code>&lt;include file="@comp/icon.html" $icon="lucide/heart-pulse.svg" $size="48" $color="#ff3399" /&gt;</code></pre>
+      <div style="display: flex; gap: 1.5em; align-items: center; margin: 1em 0;">
+        <include file="@comp/icon.html" $icon="lucide/heart-pulse.svg" $size="36" $color="#ff3399" />
+        <include file="@comp/icon.html" $icon="lucide/squirrel.svg" $size="36" $color="#2b90d9" />
+        <include file="@comp/icon.html" $icon="phosphor/cat-thin.svg" $size="36" $color="#222" />
+        <include file="@comp/icon.html" $icon="phosphor/phosphor-logo-duotone.svg" $size="36" $color="#ffb300" />
+      </div>
+    </template>
+    <template slot="footer">
+      <include file="@comp/button.html" class="success" href="./icons-gallery.html">
+        See interactive icon gallery
+      </include>
+    </template>
+  </include>
+
+
+
+  <include file="@comp/card.html">
+    <template slot="title">Project structure</template>
+    <template slot="content">
+      <pre><code>src/
+  components/   <span class="comment"># Reusable HTML/SCSS components</span>
+  layout/       <span class="comment"># Layouts and global structure (common.html, nav, footer...)</span>
+  styles/       <span class="comment"># Global SCSS (auto-imported)</span>
+  icons/        <span class="comment"># SVG icon sets (by family)</span>
+public/
+  images/       <span class="comment"># Site images</span>
+  fonts/        <span class="comment"># Fonts (e.g. Sharpie)</span>
+vite/
+  getHtmlEntryPoints.ts   <span class="comment"># HTML entry points for Vite</span>
+  viteAutoImportScss.ts   <span class="comment"># SCSS auto-import plugin</span>
+  iconsGalleryPlugin.ts   <span class="comment"># Icon gallery generator plugin</span>
+  icons-gallery.css       <span class="comment"># Icon gallery styles</span>
+dist/           <span class="comment"># Build output</span>
+</code></pre>
+      <style>
+        pre code .comment {
+          color: #b0b0b1;
+        }
+      </style>
+    </template>
+  </include>
+
+</include>
+

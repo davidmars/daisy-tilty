@@ -1,0 +1,48 @@
+.icon{
+    --size: 24px;
+
+    &.icon-16{
+        --size: 16px;
+    }
+    &.icon-24{
+        --size: 24px;
+    }
+    &.icon-32{
+        --size: 32px;
+    }
+    &.icon-48{
+        --size: 48px;
+    }
+    &.icon-64{
+        --size: 64px;
+    }
+    &.icon-128{
+        --size: 128px;
+    }
+    &.icon-256{
+        --size: 256px;
+    }
+    &.icon-512{
+        --size: 512px;
+    }
+
+    width: var(--size);
+    height: var(--size);
+
+    &[data-icon*="mdi/"],
+    &.mdi{
+        fill: currentColor;
+    }
+
+    &[data-icon*="lucide/"],
+    &.lucide{
+     // color is already managed in svg file
+    }
+
+    &[data-icon*="phosphor/"],
+    &.phosphor,
+    &.pho{
+        fill: currentColor;
+    }
+
+}
