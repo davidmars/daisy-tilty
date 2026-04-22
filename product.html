@@ -1,0 +1,412 @@
+<include file="@layout/common.html" $title="Daisy Tilty - Produit">
+  <section class="w-full">
+    <div class="relative" data-product-carousel>
+      <div class="carousel w-full" data-carousel-track>
+      <div id="slide1" class="carousel-item relative w-full" data-carousel-slide>
+        <img src="/images/test.jpg" class="h-[42vh] min-h-80 w-full object-cover lg:h-[58vh]" alt="Lampe Daisy sur une table basse dans un salon lumineux" />
+        <div class="absolute inset-0 bg-linear-to-r from-black/65 via-black/30 to-transparent"></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="mx-auto w-full max-w-6xl px-4 lg:px-8">
+            <div class="max-w-2xl text-white">
+              <div class="badge badge-primary badge-outline border-white/40 bg-white/10 text-white">Collection 2026</div>
+              <h2 class="mt-4 text-4xl font-black lg:text-6xl">Une lumière douce qui habille toute la pièce</h2>
+              <p class="mt-4 text-base text-white/85 lg:text-lg">La Lampe Daisy associe matière, chaleur et simplicité pour créer une ambiance apaisante dès le premier regard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="slide2" class="carousel-item relative w-full" data-carousel-slide>
+        <img src="/images/test.jpg" class="h-[42vh] min-h-80 w-full object-cover lg:h-[58vh]" alt="Lampe Daisy éclairant un bureau moderne" />
+        <div class="absolute inset-0 bg-linear-to-r from-black/65 via-black/30 to-transparent"></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="mx-auto w-full max-w-6xl px-4 lg:px-8">
+            <div class="max-w-2xl text-white">
+              <div class="badge badge-secondary badge-outline border-white/40 bg-white/10 text-white">Confort quotidien</div>
+              <h2 class="mt-4 text-4xl font-black lg:text-6xl">Pensée pour le bureau, parfaite pour le soir</h2>
+              <p class="mt-4 text-base text-white/85 lg:text-lg">Trois ambiances lumineuses, une prise en main tactile et une présence discrète qui valorise votre espace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="slide3" class="carousel-item relative w-full" data-carousel-slide>
+        <img src="/images/test.jpg" class="h-[42vh] min-h-80 w-full object-cover lg:h-[58vh]" alt="Lampe Daisy en détail avec sa base en bois" />
+        <div class="absolute inset-0 bg-linear-to-r from-black/65 via-black/30 to-transparent"></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="mx-auto w-full max-w-6xl px-4 lg:px-8">
+            <div class="max-w-2xl text-white">
+              <div class="badge badge-accent badge-outline border-white/40 bg-white/10 text-white">Matériaux responsables</div>
+              <h2 class="mt-4 text-4xl font-black lg:text-6xl">Un objet durable, conçu pour rester</h2>
+              <p class="mt-4 text-base text-white/85 lg:text-lg">Verre recyclé, base en bois certifié et composants réparables : une pièce utile, belle et durable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pointer-events-none absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-4 lg:px-8">
+        <button type="button" class="btn btn-circle btn-sm pointer-events-auto border-white/30 bg-black/35 text-white backdrop-blur-sm" data-carousel-direction="prev" aria-label="Diapositive précédente">❮</button>
+        <button type="button" class="btn btn-circle btn-sm pointer-events-auto border-white/30 bg-black/35 text-white backdrop-blur-sm" data-carousel-direction="next" aria-label="Diapositive suivante">❯</button>
+      </div>
+    </div>
+
+    <div class="flex w-full justify-center gap-3 bg-base-200 py-4">
+      <button type="button" aria-label="Aller à la diapositive 1" class="h-3 w-3 rounded-full bg-primary opacity-100 shadow-sm transition hover:scale-110" data-carousel-go-to="0"></button>
+      <button type="button" aria-label="Aller à la diapositive 2" class="h-3 w-3 rounded-full bg-secondary opacity-50 shadow-sm transition hover:scale-110" data-carousel-go-to="1"></button>
+      <button type="button" aria-label="Aller à la diapositive 3" class="h-3 w-3 rounded-full bg-accent opacity-50 shadow-sm transition hover:scale-110" data-carousel-go-to="2"></button>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-8 lg:px-8">
+    <div class="breadcrumbs text-sm">
+      <ul>
+        <li><a href="./index.html">Accueil</a></li>
+        <li><a href="./product.html">Produit</a></li>
+        <li>Lampe Daisy</li>
+      </ul>
+    </div>
+
+    <div class="rounded-box bg-base-200 mt-4 p-6 shadow-sm lg:p-8">
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+        <div>
+          <div class="mb-4 flex flex-wrap items-center gap-2">
+            <div class="badge badge-primary badge-outline">Nouveau</div>
+            <div class="badge badge-secondary badge-outline">Meilleure vente</div>
+            <div class="badge badge-accent badge-outline">Éco-conçu</div>
+          </div>
+
+          <h1 class="text-4xl font-bold lg:text-5xl">Lampe Daisy</h1>
+          <p class="mt-4 text-base-content/75 text-lg">
+            Une lampe chaleureuse et sculpturale, pensée pour adoucir instantanément une pièce.
+            Idéale pour les bureaux modernes, les coins lecture et les soirées apaisantes.
+          </p>
+
+          <div class="mt-6 flex items-center gap-3">
+            <div class="rating rating-md">
+              <label aria-label="1 étoile">
+                <input type="radio" name="rating-daisy-lamp" class="mask mask-star-2 bg-orange-400" checked />
+              </label>
+              <label aria-label="2 étoiles">
+                <input type="radio" name="rating-daisy-lamp" class="mask mask-star-2 bg-orange-400" checked />
+              </label>
+              <label aria-label="3 étoiles">
+                <input type="radio" name="rating-daisy-lamp" class="mask mask-star-2 bg-orange-400" checked />
+              </label>
+              <label aria-label="4 étoiles">
+                <input type="radio" name="rating-daisy-lamp" class="mask mask-star-2 bg-orange-400" checked />
+              </label>
+              <label aria-label="5 étoiles">
+                <input type="radio" name="rating-daisy-lamp" class="mask mask-star-2 bg-orange-400" checked />
+              </label>
+            </div>
+            <span class="text-sm text-base-content/60">4,9/5 · 248 avis</span>
+          </div>
+
+          <div class="stats stats-vertical lg:stats-horizontal mt-6 w-full shadow">
+            <div class="stat">
+              <div class="stat-title">Luminosité</div>
+              <div class="stat-value text-primary">800 lm</div>
+              <div class="stat-desc">Mode ambiance douce inclus</div>
+            </div>
+            <div class="stat">
+              <div class="stat-title">Autonomie</div>
+              <div class="stat-value text-secondary">18h</div>
+              <div class="stat-desc">Utilisation sans fil en soirée</div>
+            </div>
+            <div class="stat">
+              <div class="stat-title">Matériaux</div>
+              <div class="stat-value text-accent">3</div>
+              <div class="stat-desc">Bois, aluminium, verre recyclé</div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-box bg-base-100 border border-base-300 p-4 shadow-sm">
+              <p class="text-sm font-semibold text-primary">Ambiance instantanée</p>
+              <p class="mt-2 text-sm text-base-content/70">Une lumière douce et enveloppante qui met en valeur la pièce sans l'écraser.</p>
+            </div>
+            <div class="rounded-box bg-base-100 border border-base-300 p-4 shadow-sm">
+              <p class="text-sm font-semibold text-secondary">Utilisation intuitive</p>
+              <p class="mt-2 text-sm text-base-content/70">Réglages tactiles simples pour alterner entre lecture, travail et détente.</p>
+            </div>
+            <div class="rounded-box bg-base-100 border border-base-300 p-4 shadow-sm">
+              <p class="text-sm font-semibold text-accent">Fabrication durable</p>
+              <p class="mt-2 text-sm text-base-content/70">Des matériaux responsables et des composants pensés pour durer dans le temps.</p>
+            </div>
+          </div>
+        </div>
+
+          <div class="card bg-base-100 mt-6 border border-base-300 shadow-xl">
+            <div class="card-body gap-4">
+              <div class="flex items-baseline gap-3">
+                <span class="text-4xl font-black">€129</span>
+                <span class="text-base-content/50 line-through">€159</span>
+                <span class="badge badge-success">-19%</span>
+              </div>
+
+              <div class="form-control w-full">
+                <label class="label" for="product-finish">
+                  <span class="label-text">Finition</span>
+                </label>
+                <select id="product-finish" class="select select-bordered w-full">
+                  <option>Sable</option>
+                  <option>Graphite</option>
+                  <option>Forêt</option>
+                </select>
+              </div>
+
+              <div class="form-control w-full">
+                <label class="label" for="product-engraving">
+                  <span class="label-text">Ajouter une gravure</span>
+                </label>
+                <input id="product-engraving" type="text" placeholder="Message optionnel" class="input input-bordered w-full" />
+              </div>
+
+              <div class="flex flex-col gap-3 sm:flex-row">
+                <button class="btn btn-primary flex-1">Ajouter au panier</button>
+                <button class="btn btn-outline flex-1">Acheter maintenant</button>
+              </div>
+
+              <div class="alert alert-info">
+                <span>Livraison offerte sous 48h et retours sous 30 jours.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-4 lg:px-8">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="card bg-base-100 border border-base-300 shadow-md">
+        <div class="card-body">
+          <div class="badge badge-primary badge-outline w-fit">Ambiance</div>
+          <h2 class="card-title">Une lumière douce, sans éblouissement</h2>
+          <p>Créez une atmosphère sereine pour travailler tard, lire le soir ou commencer la journée en douceur.</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 border border-base-300 shadow-md">
+        <div class="card-body">
+          <div class="badge badge-secondary badge-outline w-fit">Contrôle tactile</div>
+          <h2 class="card-title">Trois ambiances au bout des doigts</h2>
+          <p>Passez d'une lumière de concentration à une lueur tamisée en un seul geste, sans application.</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 border border-base-300 shadow-md">
+        <div class="card-body">
+          <div class="badge badge-accent badge-outline w-fit">Durable</div>
+          <h2 class="card-title">Conçue avec des matériaux responsables</h2>
+          <p>Abat-jour en verre recyclé, base en bois certifié FSC et pièces internes réparables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-8 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div class="card bg-base-100 border border-base-300 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-2xl">Ce qui la rend unique</h2>
+          <div class="mt-4 space-y-4">
+            <div>
+              <div class="mb-2 flex justify-between text-sm">
+                <span>Confort lumineux</span>
+                <span>95%</span>
+              </div>
+              <progress class="progress progress-primary w-full" value="95" max="100"></progress>
+            </div>
+            <div>
+              <div class="mb-2 flex justify-between text-sm">
+                <span>Éclairage de bureau</span>
+                <span>88%</span>
+              </div>
+              <progress class="progress progress-secondary w-full" value="88" max="100"></progress>
+            </div>
+            <div>
+              <div class="mb-2 flex justify-between text-sm">
+                <span>Facilité de transport</span>
+                <span>76%</span>
+              </div>
+              <progress class="progress progress-accent w-full" value="76" max="100"></progress>
+            </div>
+          </div>
+
+          <div class="divider">Contenu de la boîte</div>
+
+          <ul class="list bg-base-200 rounded-box">
+            <li class="list-row">
+              <div>
+                <div class="font-semibold">Lampe Daisy</div>
+                <div class="text-sm text-base-content/60">Assemblée et prête à l'emploi</div>
+              </div>
+            </li>
+            <li class="list-row">
+              <div>
+                <div class="font-semibold">Câble tressé USB-C</div>
+                <div class="text-sm text-base-content/60">Recharge rapide avec guide-câble</div>
+              </div>
+            </li>
+            <li class="list-row">
+              <div>
+                <div class="font-semibold">Guide d'entretien et de réparation</div>
+                <div class="text-sm text-base-content/60">Conseils de maintenance et références de pièces</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 border border-base-300 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-2xl">Caractéristiques techniques</h2>
+          <div class="overflow-x-auto">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Hauteur</th>
+                  <td>34 cm</td>
+                </tr>
+                <tr>
+                  <th>Poids</th>
+                  <td>1.2 kg</td>
+                </tr>
+                <tr>
+                  <th>Recharge</th>
+                  <td>USB-C</td>
+                </tr>
+                <tr>
+                  <th>Température</th>
+                  <td>2700K / 3400K / 4200K</td>
+                </tr>
+                <tr>
+                  <th>Garantie</th>
+                  <td>2 ans</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="alert alert-success mt-4">
+            <span>Designée à Paris. Assemblée en petites séries.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-8 lg:px-8">
+    <div class="flex items-end justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="text-3xl font-bold">Adoptée par les amateurs d'intérieurs apaisants</h2>
+        <p class="mt-2 text-base-content/70">Quelques mots de clientes et clients qui utilisent la Lampe Daisy au quotidien.</p>
+      </div>
+      <a href="#buy" class="btn btn-ghost">Voir les options d'achat</a>
+    </div>
+
+    <div class="mt-6 grid gap-6 md:grid-cols-3">
+      <div class="card bg-base-100 border border-base-300 shadow-md">
+        <div class="card-body">
+          <div class="flex items-center gap-3">
+            <div class="avatar placeholder">
+              <div class="bg-primary text-primary-content w-12 rounded-full">
+                <span>AL</span>
+              </div>
+            </div>
+            <div>
+              <p class="font-semibold">Alice L.</p>
+              <p class="text-sm text-base-content/60">Architecte d'intérieur</p>
+            </div>
+          </div>
+          <p>« La finition est superbe, et la lumière est incroyablement douce le soir. Mon bureau paraît tout de suite plus soigné. »</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 border border-base-300 shadow-md">
+        <div class="card-body">
+          <div class="flex items-center gap-3">
+            <div class="avatar placeholder">
+              <div class="bg-secondary text-secondary-content w-12 rounded-full">
+                <span>MR</span>
+              </div>
+            </div>
+            <div>
+              <p class="font-semibold">Marc R.</p>
+              <p class="text-sm text-base-content/60">Télétravailleur</p>
+            </div>
+          </div>
+          <p>« Je voulais une seule lampe pour travailler et lire. Elle fait parfaitement les deux, et le mode batterie est vraiment utile. »</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 border border-base-300 shadow-md">
+        <div class="card-body">
+          <div class="flex items-center gap-3">
+            <div class="avatar placeholder">
+              <div class="bg-accent text-accent-content w-12 rounded-full">
+                <span>SK</span>
+              </div>
+            </div>
+            <div>
+              <p class="font-semibold">Sofia K.</p>
+              <p class="text-sm text-base-content/60">Gérante de boutique</p>
+            </div>
+          </div>
+          <p>« Bel objet, commandes simples et livraison rapide. J'en ai commandé deux de plus pour notre concept store. »</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-8 lg:px-8">
+    <div class="card bg-base-100 border border-base-300 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">Questions fréquentes</h2>
+
+        <div tabindex="0" class="collapse collapse-plus bg-base-200 mt-4">
+          <div class="collapse-title font-semibold">Puis-je l'utiliser pendant la charge ?</div>
+          <div class="collapse-content text-sm">
+            Oui — la lampe fonctionne aussi bien branchée qu'en mode sans fil, sans perte de luminosité.
+          </div>
+        </div>
+
+        <div tabindex="0" class="collapse collapse-plus bg-base-200">
+          <div class="collapse-title font-semibold">L'abat-jour en verre est-il remplaçable ?</div>
+          <div class="collapse-content text-sm">
+            Oui. Des pièces de rechange sont disponibles, et le guide d'entretien explique les étapes d'installation.
+          </div>
+        </div>
+
+        <div tabindex="0" class="collapse collapse-plus bg-base-200">
+          <div class="collapse-title font-semibold">Livrez-vous à l'international ?</div>
+          <div class="collapse-content text-sm">
+            La livraison est actuellement disponible dans la plupart des pays de l'Union européenne, avec une extension prévue prochainement.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy" class="mx-auto max-w-6xl px-4 pb-12 pt-4 lg:px-8">
+    <div class="hero rounded-box bg-primary text-primary-content">
+      <div class="hero-content py-10 text-center">
+        <div class="max-w-2xl">
+          <h2 class="text-4xl font-black">Prêt à transformer votre lumière du soir ?</h2>
+          <p class="py-4 text-primary-content/80">
+            Apportez douceur, matière et personnalité à votre intérieur avec un objet pensé pour durer.
+          </p>
+          <div class="flex flex-col justify-center gap-3 sm:flex-row">
+            <button class="btn btn-neutral">Ajouter la Lampe Daisy au panier</button>
+            <a href="./index.html" class="btn btn-outline btn-secondary">Retour à l'accueil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</include>
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<include file="@layout/common.html" $title="Diaporama with embla">
+    <div class="container mx-auto px-4 py-10">
+
+        <h1 class="text-4xl font-bold my-3">On utilise Embla Carousel</h1>
+        <a href="https://www.embla-carousel.com/" class="link link-hover" target="_blank">
+            https://www.embla-carousel.com/
+        </a>
+
+        <div class="bg-base-content/10 my-10 h-[var(--border)]"></div>
+
+        <!-- embla card -->
+
+
+        <div class="card bg-base-100 w-96 shadow-sm" x-data="embla({autoplay: true, loop: true})">
+            <div class="embla__viewport">
+            <div class="embla__container">
+                <div class="embla__slide">
+                    <figure>
+                        <img src="https://picsum.photos/id/900/800/400" alt="" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Card Diaporama 1/2</h2>
+                        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    </div>
+                </div>
+                <div class="embla__slide">
+                    <figure>
+                        <img src="https://picsum.photos/id/901/800/400" alt="" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Card Diaporama 2/2</h2>
+                        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="card-footer flex items-center p-4">
+                <span class="font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <span x-text="current+1">...</span> / <span x-text="total">...</span>
+                </span>
+                <div class="ms-auto join rounded-2xl">
+                    <button class="embla__prev btn btn-link join-item" x-on:click="emblaApi.scrollPrev()">
+                        <include file='@comp/icon.html' $icon='lucide/chevron-left.svg' />
+                    </button>
+                    <button class="embla__next btn btn-link join-item" x-on:click="emblaApi.scrollNext()">
+                        <include file='@comp/icon.html' $icon='lucide/chevron-right.svg' />
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</include>
+
+
+
+
+
+
+
+

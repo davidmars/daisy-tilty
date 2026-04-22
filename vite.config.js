@@ -4,6 +4,7 @@ import { getHtmlEntryPoints } from './vite/getHtmlEntryPoints.js'
 import viteAutoImportScss from "./vite/viteAutoImportScss";
 import iconsGalleryPlugin from "./vite/iconsGalleryPlugin";
 import { fileURLToPath, URL } from 'node:url';
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
     base: './',
@@ -25,7 +26,8 @@ export default defineConfig({
         iconsGalleryPlugin({
             dirs: ['src/icons'],
             output: 'icons-gallery.html'
-        })
+        }),
+        tailwindcss()
     ],
     build: {
         rollupOptions: {

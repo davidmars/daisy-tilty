@@ -1,7 +1,7 @@
 {
   "name": "raw-html-starter",
   "version": "0.0.1",
-  "type":"module",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,13 @@
     "watch:build": "vite build --watch"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "alpinejs": "^3.15.11",
+    "daisyui": "^5.5.19",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
     "glob": "^11.0.3",
+    "tailwindcss": "^4.2.2",
     "vite-plugin-html-include": "^1.4.1"
   },
   "debug-dependencies": {
@@ -17,6 +23,7 @@
     "vite-plugin-html-include": "file:../vite-plugin-html-include"
   },
   "devDependencies": {
+    "@types/alpinejs": "^3.13.11",
     "@types/node": "^24.0.2",
     "fast-glob": "^3.3.2",
     "sass": "^1.75.0",

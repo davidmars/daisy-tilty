@@ -1,0 +1,242 @@
+<include file="@layout/common.html" $title="Many text">
+  <div class="container mx-auto px-4 py-10">
+    <article class="max-w-4xl mx-auto space-y-12">
+      <header class="space-y-4">
+        <p class="text-sm opacity-70">Demo typographique</p>
+        <h1 class="text-4xl font-bold">Grand échantillon de contenu
+          <span class="text-rotate">
+            <span>
+              <span>factice</span>
+              <span>pour tester</span>
+              <span>pour essayer</span>
+            </span>
+          </span>
+        </h1>
+
+        <p class="text-lg leading-relaxed">
+          Cette page sert de bac de test pour vérifier le rendu des styles de texte, la hiérarchie
+          visuelle, les espacements verticaux et le comportement du scroll sur un contenu dense.
+        </p>
+      </header>
+
+      <section class="space-y-6">
+        <h2 class="text-3xl font-semibold">1. Titres et paragraphes</h2>
+        <h3 class="text-2xl font-semibold">Sous-titre de niveau 3</h3>
+        <h4 class="text-xl font-semibold">Sous-titre de niveau 4</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra, lectus quis
+          scelerisque sagittis, lorem justo cursus nibh, et vestibulum leo justo et lacus. Nullam
+          posuere facilisis diam, id convallis ipsum convallis at. Praesent iaculis, risus nec
+          tincidunt varius, magna velit gravida felis, sit amet ultricies turpis lectus non elit.
+        </p>
+        <p>
+          Curabitur commodo aliquam ligula, a fermentum magna auctor nec. Fusce volutpat arcu id
+          dui pharetra, quis faucibus turpis commodo. In non nisl tincidunt, lacinia libero eu,
+          cursus ipsum. Proin in efficitur sem. Quisque hendrerit laoreet dui, vel aliquam nibh
+          hendrerit et. Integer in tempor turpis, et elementum velit.
+        </p>
+        <p>
+          Phasellus dictum velit non mi sagittis, in gravida sem congue. Sed suscipit cursus purus,
+          quis efficitur lorem sodales non. Nunc aliquet, mauris sit amet ultrices lacinia, lectus
+          justo consequat elit, non luctus eros sem a augue.
+        </p>
+      </section>
+
+      <section class="space-y-6">
+        <h2 class="text-3xl font-semibold">2. Variantes inline</h2>
+        <p>
+          Tu peux tester du <strong>gras</strong>, de l'<em>italique</em>, du <u>souligné</u>, du
+          <mark>surligné</mark>, du <small>petit texte</small>, un <abbr title="HyperText Markup Language">HTML</abbr>
+          abrégé et un extrait de code inline comme <code>npm run dev</code>.
+        </p>
+        <p>
+          Exemple de lien: <a href="#" class="link link-primary">lien principal</a>. Autre lien:
+          <a href="#" class="link link-secondary">lien secondaire</a>. Et un texte barré pour tester
+          la lecture d'états: <del>ancienne version</del> remplacée par <ins>nouvelle version</ins>.
+        </p>
+      </section>
+
+      <section class="space-y-6">
+        <h2 class="text-3xl font-semibold">3. Listes</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-3">
+            <h3 class="text-xl font-semibold">Liste non ordonnée</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Premier élément avec une phrase un peu longue pour voir la césure naturelle.</li>
+              <li>Deuxième élément qui contient un <code>code()</code> inline pour tester la police monospace.</li>
+              <li>Troisième élément avec un <a href="#" class="link">lien intégré</a>.</li>
+              <li>Quatrième élément plus court.</li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h3 class="text-xl font-semibold">Liste ordonnée</h3>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>Préparer un bloc de texte réaliste.</li>
+              <li>Vérifier les marges et interlignes selon les breakpoints.</li>
+              <li>Valider la lisibilité sur un scroll long.</li>
+              <li>Comparer les variantes avec et sans utilitaires.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <h2 class="text-3xl font-semibold">4. Citation et note</h2>
+        <blockquote class="border-l-4 border-primary pl-4 italic">
+          "La typographie n'est pas seulement une question d'esthetique. C'est une question de
+          rythme, de comprehension et de confort de lecture."
+        </blockquote>
+        <p class="opacity-80">
+          Note: cette citation est fictive et n'a qu'un but de demonstration. Elle permet surtout de
+          verifier le style des blocs cites, des marges internes et de la couleur d'accent.
+        </p>
+      </section>
+
+      <section class="space-y-6">
+        <h2 class="text-3xl font-semibold">5. Tableau</h2>
+        <div class="overflow-x-auto">
+          <table class="table table-zebra">
+            <thead>
+              <tr>
+                <th>Style</th>
+                <th>Usage</th>
+                <th>Exemple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Titre principal</td>
+                <td>Structurer la page</td>
+                <td>H1 sur 1 a 2 lignes</td>
+              </tr>
+              <tr>
+                <td>Paragraphe courant</td>
+                <td>Contenu principal</td>
+                <td>60 a 90 caracteres par ligne</td>
+              </tr>
+              <tr>
+                <td>Texte secondaire</td>
+                <td>Metadonnees et notes</td>
+                <td>Opacite reduite</td>
+              </tr>
+              <tr>
+                <td>Code</td>
+                <td>Commandes et snippets</td>
+                <td><code>pnpm build</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <h2 class="text-3xl font-semibold">6. Bloc de code</h2>
+        <pre class="bg-base-200 rounded-box p-4 overflow-x-auto"><code>&lt;article class="prose"&gt;
+  &lt;h1&gt;Titre&lt;/h1&gt;
+  &lt;p&gt;Un paragraphe de test pour valider le rendu.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Element A&lt;/li&gt;
+    &lt;li&gt;Element B&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/article&gt;</code></pre>
+      </section>
+
+      <hr class="opacity-30" />
+
+      <section class="space-y-8">
+        <h2 class="text-3xl font-semibold">7. Long flux de lecture (scroll test)</h2>
+
+        <h3 class="text-2xl font-semibold">Chapitre A - Introduction</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat eros non est congue,
+          ut pellentesque ligula interdum. Integer sollicitudin consequat leo, vitae bibendum lectus
+          posuere in. Donec eget est non justo tincidunt sodales. Sed ut vehicula velit, vitae
+          volutpat tortor. Morbi in dui vitae sem blandit pretium. Vivamus placerat purus eget
+          pellentesque mollis. Praesent malesuada efficitur nunc, vitae fermentum libero feugiat at.
+        </p>
+        <p>
+          Etiam venenatis feugiat sem, vitae elementum metus volutpat vel. Suspendisse potenti.
+          Aliquam porta mi in risus pretium feugiat. Sed luctus sem lorem, in eleifend lectus
+          condimentum nec. Integer nec arcu nec justo viverra vestibulum. Donec lacinia est in
+          fringilla tempor. Mauris sollicitudin rutrum quam, quis tristique nunc tristique ut.
+        </p>
+
+        <h3 class="text-2xl font-semibold">Chapitre B - Developpement</h3>
+        <p>
+          Cras pharetra est et lacus facilisis, vel semper metus condimentum. Nam suscipit elit non
+          augue suscipit, sed ultrices sem viverra. Integer vehicula turpis sed nisl egestas, vitae
+          tincidunt nisl semper. Nullam in ex mi. Nam suscipit efficitur lectus, eget mattis purus
+          facilisis et. Nulla a enim vel est luctus malesuada sit amet in nunc.
+        </p>
+        <p>
+          Vestibulum tincidunt felis sed tellus feugiat, et porttitor eros posuere. Phasellus ut
+          pellentesque lorem. Pellentesque tristique id ligula non volutpat. Integer id urna sed
+          tortor efficitur ullamcorper. In ut felis a dolor luctus cursus. Morbi sed elementum
+          velit. Duis ultricies eros in ligula semper, id vulputate dui feugiat.
+        </p>
+        <p>
+          Aenean volutpat, arcu ut convallis viverra, leo lectus feugiat lectus, eget bibendum arcu
+          lorem ac mauris. Fusce semper lectus sed arcu luctus, vel pellentesque magna venenatis.
+          Maecenas at sollicitudin nibh. Integer ornare pulvinar ipsum, quis ultrices est consequat
+          ac. Quisque ut ornare lacus, nec elementum nunc.
+        </p>
+
+        <h3 class="text-2xl font-semibold">Chapitre C - Exploration</h3>
+        <p>
+          Duis iaculis nibh sed semper tincidunt. Suspendisse vel lectus in velit pulvinar volutpat.
+          Morbi vestibulum nibh lacus, ac vulputate est ultricies et. In posuere metus non augue
+          congue tristique. Nullam eget congue tortor. Nunc viverra consectetur arcu, quis finibus
+          est rutrum vel. Morbi feugiat iaculis urna, nec dictum ipsum elementum non.
+        </p>
+        <p>
+          Integer iaculis lectus non mi malesuada, quis suscipit nulla malesuada. Curabitur
+          sollicitudin dignissim arcu sit amet luctus. Nulla facilisi. Aenean eu erat eu tortor
+          laoreet tempor. Curabitur semper purus sed risus feugiat, et luctus neque pellentesque.
+          Aliquam consequat pretium felis, vel placerat lectus tempor sed.
+        </p>
+
+        <h3 class="text-2xl font-semibold">Chapitre D - Variations</h3>
+        <p>
+          Proin eu viverra arcu. Quisque malesuada nunc in sapien tempor, non elementum magna
+          porttitor. Morbi malesuada aliquet justo, sed tempus massa cursus quis. Sed ac nisl
+          volutpat, varius ipsum nec, pretium purus. Cras at sapien non ipsum faucibus rhoncus nec
+          sed velit. Sed molestie lectus et dolor dignissim, quis finibus augue ultrices.
+        </p>
+        <p>
+          Pellentesque sit amet risus porta, varius arcu nec, ultricies erat. Phasellus iaculis
+          tincidunt risus, at faucibus nulla ullamcorper non. Ut bibendum nisl nec erat tempor,
+          dignissim iaculis velit pulvinar. Cras ultricies est non egestas porttitor. Vivamus
+          condimentum volutpat leo et posuere. Aenean fermentum faucibus luctus.
+        </p>
+
+        <h3 class="text-2xl font-semibold">Chapitre E - Extension</h3>
+        <p>
+          Mauris condimentum lacus in nisl tristique, ac imperdiet enim volutpat. Integer tempor
+          finibus tortor non tristique. Vestibulum posuere turpis quis leo convallis, non sagittis
+          lorem auctor. Nullam consequat lacus mi, non pellentesque ligula feugiat ac. Cras
+          ullamcorper, eros sed fermentum iaculis, diam sapien fermentum velit, at ultrices massa
+          justo et lorem. Donec tincidunt convallis velit, nec elementum neque placerat id.
+        </p>
+        <p>
+          Sed a pellentesque ligula. Vivamus et ipsum nec magna facilisis varius. Curabitur viverra
+          placerat arcu, et cursus justo feugiat eget. Morbi ut turpis nibh. Maecenas bibendum diam
+          ac ex rutrum, at lacinia ligula porttitor. Praesent ac dignissim lectus, sed volutpat
+          libero.
+        </p>
+
+        <h3 class="text-2xl font-semibold">Chapitre F - Conclusion</h3>
+        <p>
+          Integer scelerisque arcu sit amet risus congue, vitae pharetra sem dignissim. Nulla rutrum
+          diam leo, et feugiat est vestibulum at. Donec tincidunt enim sed augue ullamcorper, non
+          luctus tellus imperdiet. Vivamus aliquet tincidunt dolor, sed malesuada augue dignissim
+          vitae. Vestibulum in semper est, a volutpat justo. Suspendisse non tincidunt est.
+        </p>
+        <p>
+          En resume, cette page est volontairement longue pour valider le comportement des tailles de
+          police, les retours a la ligne, les espacements et la robustesse du theme sur une lecture
+          continue. Si tout est lisible ici, le systeme typographique est sur la bonne voie.
+        </p>
+      </section>
+    </article>
+  </div>
+</include>
