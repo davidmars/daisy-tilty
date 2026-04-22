@@ -58,10 +58,10 @@ ${css}
       const iconRel = icon.file.replace(/^src\/icons\//, '').replace(/^src\\icons\\/, '');
       const iconBaseName = icon.name.replace(/\.svg$/, '');
       html += `\n      <div class="icon-item">
-        <include file="/src/components/icon.html" $icon="${iconRel}" $size="${defaultSize}" $color="${defaultColor}" style="--size:${defaultSize}px; color:${defaultColor};" />
+        <include file="@comp/icon.html" $icon="${iconRel}" $size="${defaultSize}" $color="${defaultColor}" style="--size:${defaultSize}px; color:${defaultColor};" />
         <span class="icon-name" data-name="${escapeHtml(iconBaseName)}">${escapeHtml(icon.name)}</span>
         <code>&lt;include file=\"/src/icons/${iconRel}\" /&gt;</code>
-        <code class="icon-component" data-template="&lt;include file='/src/components/icon.html' $icon='${iconRel}' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="${iconRel}" $size="${defaultSize}" $color="${defaultColor}" /&gt;</code>
+        <code class="icon-component" data-template="&lt;include file='@comp/icon.html' $icon='${iconRel}' $size='{size}' $color='{color}' /&gt;">&lt;include file="/src/components/icon.html" $icon="${iconRel}" $size="${defaultSize}" $color="${defaultColor}" /&gt;</code>
       </div>`;
     }
     html += `\n    </div>`;
