@@ -1,0 +1,366 @@
+<include file="@layout/common.html" $title="test photo grid">
+    <div class="container mx-auto px-4 py-10">
+
+        <h1 class="text-4xl font-bold my-3">On utilise GLightbox</h1>
+        <a href="https://biati-digital.github.io/glightbox" class="link link-hover" target="_blank" rel="noopener noreferrer">
+            https://biati-digital.github.io/glightbox
+        </a>
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <!-- grille photos -->
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a href="https://picsum.photos/id/1015/5000/3000.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1015/400/300.webp" alt="Image de démonstration 1" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+            <a href="https://picsum.photos/id/1025/800/600.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1025/400/300.webp" alt="Image de démonstration 2" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+            <a href="https://picsum.photos/id/1035/800/600.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1035/400/300.webp" alt="Image de démonstration 3" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+            <a href="https://picsum.photos/id/1043/800/600.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1043/400/300.webp" alt="Image de démonstration 4" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+            <a href="https://picsum.photos/id/1050/800/600.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1050/400/300.webp" alt="Image de démonstration 5" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+            <a href="https://picsum.photos/id/1067/800/600.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1067/400/300.webp" alt="Image de démonstration 6" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+            <a href="https://picsum.photos/id/1074/800/600.webp" class="lightbox">
+                <img src="https://picsum.photos/id/1074/400/300.webp" alt="Image de démonstration 7" class="w-full h-auto object-cover rounded-lg" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+
+        <!-- grille mix photos / vidéos -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Grille mix photos / vidéos</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Démonstration d'une galerie mixte avec images et vidéos dans la même lightbox.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <a href="https://picsum.photos/id/1084/1600/1000.webp" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media">
+                <img src="https://picsum.photos/id/1084/640/420.webp" alt="Photo de démonstration paysage" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media" data-type="video">
+                <img src="https://picsum.photos/id/1011/640/420.webp" alt="Vignette de démonstration vidéo fleur" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/35 text-white">
+                    <span class="flex flex-col items-center gap-2 text-center">
+                        <span class="[&_svg]:h-14 [&_svg]:w-14">
+                            <include file="/src/icons/lucide/circle-play.svg"></include>
+                        </span>
+                        <span class="text-sm font-semibold tracking-wide">Vidéo MP4</span>
+                    </span>
+                </span>
+            </a>
+
+            <a href="https://picsum.photos/id/1060/1600/1000.webp" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media">
+                <img src="https://picsum.photos/id/1060/640/420.webp" alt="Photo de démonstration bord de mer" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media" data-type="video">
+                <img src="https://picsum.photos/id/1003/640/420.webp" alt="Vignette de démonstration vidéo nature" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/35 text-white">
+                    <span class="flex flex-col items-center gap-2 text-center">
+                        <span class="[&_svg]:h-14 [&_svg]:w-14">
+                            <include file="/src/icons/lucide/circle-play.svg"></include>
+                        </span>
+                        <span class="text-sm font-semibold tracking-wide">Vidéo WebM</span>
+                    </span>
+                </span>
+            </a>
+
+            <a href="https://picsum.photos/id/1040/1600/1000.webp" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media">
+                <img src="https://picsum.photos/id/1040/640/420.webp" alt="Photo de démonstration montagnes" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=ScMzIvxBSi4" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media" data-type="video">
+                <img src="https://picsum.photos/id/1049/640/420.webp" alt="Vignette de démonstration vidéo YouTube" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/35 text-white">
+                    <span class="flex flex-col items-center gap-2 text-center">
+                        <span class="[&_svg]:h-14 [&_svg]:w-14">
+                            <include file="/src/icons/lucide/circle-play.svg"></include>
+                        </span>
+                        <span class="text-sm font-semibold tracking-wide">Vidéo YouTube</span>
+                    </span>
+                </span>
+            </a>
+
+            <a href="https://vimeo.com/76979871" class="lightbox group relative overflow-hidden rounded-lg" data-gallery="gallery-mix-media" data-type="video">
+                <img src="https://picsum.photos/id/1057/640/420.webp" alt="Vignette de démonstration vidéo Vimeo" class="w-full h-64 object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/35 text-white">
+                    <span class="flex flex-col items-center gap-2 text-center">
+                        <span class="[&_svg]:h-14 [&_svg]:w-14">
+                            <include file="/src/icons/lucide/circle-play.svg"></include>
+                        </span>
+                        <span class="text-sm font-semibold tracking-wide">Vidéo Vimeo</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+
+        <!-- variation esthétique de grille 1 -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 1</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Une composition dense avec une grande image héro et des tuiles secondaires plus compactes.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[150px] gap-4 grid-flow-dense">
+            <a href="https://picsum.photos/id/111/1800/1400.webp" class="lightbox group relative sm:col-span-2 lg:col-span-2 lg:row-span-2 overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/111/900/700.webp" alt="Vue aérienne de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent p-5 text-white">
+                    <span class="block text-xs uppercase tracking-[0.2em] text-white/70">Édito</span>
+                    <span class="block text-xl font-semibold">Grande tuile d'ouverture</span>
+                </span>
+            </a>
+
+            <a href="https://picsum.photos/id/112/1200/900.webp" class="lightbox group relative overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/112/600/450.webp" alt="Reflets urbains de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/113/1200/900.webp" class="lightbox group relative overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/113/600/450.webp" alt="Texture de démonstration lumineuse" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/114/1200/1500.webp" class="lightbox group relative sm:row-span-2 overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/114/600/750.webp" alt="Portrait architectural de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/115/1400/900.webp" class="lightbox group relative sm:col-span-2 overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/115/700/450.webp" alt="Panorama de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/116/1200/900.webp" class="lightbox group relative overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/116/600/450.webp" alt="Végétation de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/117/1200/900.webp" class="lightbox group relative overflow-hidden rounded-3xl" data-gallery="gallery-variation-1">
+                <img src="https://picsum.photos/id/117/600/450.webp" alt="Ambiance colorée de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+        <!-- variation esthétique de grille 2 -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 2</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Une grille plus magazine, avec alternance de formats portrait, paysage et carrés.
+        </p>
+
+        <div class="grid grid-cols-2 lg:grid-cols-6 auto-rows-[120px] md:auto-rows-[140px] gap-4 grid-flow-dense">
+            <a href="https://picsum.photos/id/121/900/1400.webp" class="lightbox group relative col-span-1 row-span-2 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/121/450/700.webp" alt="Photo verticale de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/122/1400/900.webp" class="lightbox group relative col-span-1 lg:col-span-2 row-span-2 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/122/700/450.webp" alt="Photo horizontale de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/65 to-transparent p-4 text-white">
+                    <span class="block text-lg font-semibold">Rythme éditorial</span>
+                </span>
+            </a>
+
+            <a href="https://picsum.photos/id/123/900/900.webp" class="lightbox group relative col-span-1 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/123/450/450.webp" alt="Carré de démonstration minimal" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/124/900/1400.webp" class="lightbox group relative col-span-1 row-span-2 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/124/450/700.webp" alt="Colonne verticale de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/125/1400/900.webp" class="lightbox group relative col-span-2 lg:col-span-2 row-span-2 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/125/700/450.webp" alt="Bandeau graphique de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/126/900/900.webp" class="lightbox group relative col-span-1 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/126/450/450.webp" alt="Carré lumineux de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/127/1400/900.webp" class="lightbox group relative col-span-2 lg:col-span-2 row-span-2 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/127/700/450.webp" alt="Large panorama de démonstration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/128/900/900.webp" class="lightbox group relative col-span-1 overflow-hidden rounded-4xl" data-gallery="gallery-variation-2">
+                <img src="https://picsum.photos/id/128/450/450.webp" alt="Détail de démonstration graphique" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+        <!-- variation esthétique de grille 3 (gouttières de 1px) -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 3</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Une mosaïque plus nerveuse avec des gouttières fines de 1px pour un rendu très graphique.
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[120px] md:auto-rows-[150px] gap-px bg-base-content/15 p-px rounded-3xl overflow-hidden grid-flow-dense">
+            <a href="https://picsum.photos/id/131/1400/1400.webp" class="lightbox group relative col-span-1 row-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/131/700/700.webp" alt="Mosaïque graphique de démonstration 1" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/132/1400/900.webp" class="lightbox group relative col-span-1 md:col-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/132/700/450.webp" alt="Mosaïque graphique de démonstration 2" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/133/900/1400.webp" class="lightbox group relative col-span-1 row-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/133/450/700.webp" alt="Mosaïque graphique de démonstration 3" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/134/900/900.webp" class="lightbox group relative bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/134/450/450.webp" alt="Mosaïque graphique de démonstration 4" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/135/1400/900.webp" class="lightbox group relative col-span-1 md:col-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/135/700/450.webp" alt="Mosaïque graphique de démonstration 5" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/136/900/900.webp" class="lightbox group relative bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/136/450/450.webp" alt="Mosaïque graphique de démonstration 6" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/137/900/1400.webp" class="lightbox group relative row-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/137/450/700.webp" alt="Mosaïque graphique de démonstration 7" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/139/1400/900.webp" class="lightbox group relative col-span-1 md:col-span-2 row-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-3">
+                <img src="https://picsum.photos/id/139/700/450.webp" alt="Mosaïque graphique de démonstration 8" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                <span class="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/65 to-transparent p-4 text-white">
+                    <span class="block text-xs uppercase tracking-[0.2em] text-white/70">Mosaïque</span>
+                    <span class="block text-lg font-semibold">Gouttières ultra fines</span>
+                </span>
+            </a>
+        </div>
+
+
+
+        <!-- variation esthétique de grille 4 -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 4</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Une mosaïque composée de ratios 1x1 1x2 2x1 avec des gouttières fines de 1px .
+        </p>
+
+        <div class="grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 aspect-1/2 md:aspect-2/1 gap-px bg-base-content/15 p-px overflow-hidden">
+            <a href="https://picsum.photos/id/141/1200/1200.webp" class="lightbox group relative col-span-2 row-span-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-4">
+                <img src="https://picsum.photos/id/141/600/600.webp" alt="Variation 4 - mosaïque 1" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/142/900/1800.webp" class="lightbox group relative col-span-1 row-span-2 col-start-1 row-start-3 md:col-start-3 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-4">
+                <img src="https://picsum.photos/id/142/450/900.webp" alt="Variation 4 - mosaïque 2" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/143/900/900.webp" class="lightbox group relative col-span-1 row-span-1 col-start-2 row-start-3 md:col-start-4 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-4">
+                <img src="https://picsum.photos/id/143/450/450.webp" alt="Variation 4 - mosaïque 3" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/144/900/900.webp" class="lightbox group relative col-span-1 row-span-1 col-start-2 row-start-4 md:col-start-4 md:row-start-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-4">
+                <img src="https://picsum.photos/id/144/450/450.webp" alt="Variation 4 - mosaïque 4" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+
+        <!-- variation esthétique de grille 5 -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 5</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Composition 2x1 + 2x1 + 2x2 pour un rendu très éditorial et un bloc plein compact.
+        </p>
+
+        <div class="grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 aspect-1/2 md:aspect-2/1 gap-px bg-base-content/15 p-px overflow-hidden">
+            <a href="https://picsum.photos/id/151/1200/1200.webp" class="lightbox group relative col-span-2 row-span-2 col-start-1 row-start-1 md:col-start-1 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-5">
+                <img src="https://picsum.photos/id/151/600/600.webp" alt="Variation 5 - mosaïque 2x2" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/152/1200/600.webp" class="lightbox group relative col-span-2 row-span-1 col-start-1 row-start-3 md:col-start-3 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-5">
+                <img src="https://picsum.photos/id/152/600/300.webp" alt="Variation 5 - mosaïque 2x1 haut" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/153/1200/600.webp" class="lightbox group relative col-span-2 row-span-1 col-start-1 row-start-4 md:col-start-3 md:row-start-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-5">
+                <img src="https://picsum.photos/id/153/600/300.webp" alt="Variation 5 - mosaïque 2x1 bas" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+
+        <!-- variation esthétique de grille 6 -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 6</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Composition 2x2 + 2x1 + 1x1 + 1x1 avec hiérarchie visuelle nette et lecture fluide.
+        </p>
+
+        <div class="grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 aspect-1/2 md:aspect-2/1 gap-px bg-base-content/15 p-px overflow-hidden">
+            <a href="https://picsum.photos/id/155/1200/1200.webp" class="lightbox group relative col-span-2 row-span-2 col-start-1 row-start-1 md:col-start-1 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-6">
+                <img src="https://picsum.photos/id/155/600/600.webp" alt="Variation 6 - mosaïque 2x2" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/156/1200/600.webp" class="lightbox group relative col-span-2 row-span-1 col-start-1 row-start-3 md:col-start-3 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-6">
+                <img src="https://picsum.photos/id/156/600/300.webp" alt="Variation 6 - mosaïque 2x1" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/157/900/900.webp" class="lightbox group relative col-span-1 row-span-1 col-start-1 row-start-4 md:col-start-3 md:row-start-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-6">
+                <img src="https://picsum.photos/id/157/450/450.webp" alt="Variation 6 - mosaïque 1x1 gauche" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/158/900/900.webp" class="lightbox group relative col-span-1 row-span-1 col-start-2 row-start-4 md:col-start-4 md:row-start-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-6">
+                <img src="https://picsum.photos/id/158/450/450.webp" alt="Variation 6 - mosaïque 1x1 droite" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+
+        <!-- variation esthétique de grille 7 -->
+
+        <div class="bg-base-content/10 my-10 h-(--border)"></div>
+
+        <h2 class="text-3xl font-bold my-3">Variation esthétique de grille 7</h2>
+        <p class="text-base-content/70 mb-6 max-w-2xl">
+            Variation miroir: 2x2 à droite, 2x1 en appui à gauche et deux 1x1 en colonne.
+        </p>
+
+        <div class="grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 aspect-1/2 md:aspect-2/1 gap-px bg-base-content/15 p-px overflow-hidden">
+            <a href="https://picsum.photos/id/159/1200/1200.webp" class="lightbox group relative col-span-2 row-span-2 col-start-1 row-start-1 md:col-start-3 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-7">
+                <img src="https://picsum.photos/id/159/600/600.webp" alt="Variation 7 - mosaïque 2x2" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/160/1200/600.webp" class="lightbox group relative col-span-2 row-span-1 col-start-1 row-start-3 md:col-start-1 md:row-start-1 bg-base-100 overflow-hidden" data-gallery="gallery-variation-7">
+                <img src="https://picsum.photos/id/160/600/300.webp" alt="Variation 7 - mosaïque 2x1" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/161/900/900.webp" class="lightbox group relative col-span-1 row-span-1 col-start-1 row-start-4 md:col-start-1 md:row-start-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-7">
+                <img src="https://picsum.photos/id/161/450/450.webp" alt="Variation 7 - mosaïque 1x1 gauche" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+
+            <a href="https://picsum.photos/id/162/900/900.webp" class="lightbox group relative col-span-1 row-span-1 col-start-2 row-start-4 md:col-start-2 md:row-start-2 bg-base-100 overflow-hidden" data-gallery="gallery-variation-7">
+                <img src="https://picsum.photos/id/162/450/450.webp" alt="Variation 7 - mosaïque 1x1 droite" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+            </a>
+        </div>
+
+
+    </div>
+
+</include>
+
+
+
+
+
+
+
+
