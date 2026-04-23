@@ -26,3 +26,8 @@ Exemples corrects :
 
 ## Icônes
 Quand tu fais référence à des fichiers dans `@icons/*/*`, vérifie que le fichier SVG existe réellement. Ne pas inventer de noms de fichiers SVG.
+
+## HTML et images
+Quand tu génères du code HTML contenant des images d'exemple, de démonstration ou temporaires, utilise `https://picsum.photos/` pour les URLs d'images placeholder.
+Les URLs d'images `picsum.photos` doivent toujours se terminer par l'extension `.webp`.
+
