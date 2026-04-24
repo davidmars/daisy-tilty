@@ -1,0 +1,13 @@
+<div class="flex items-center p-4">
+                <span class="font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <span x-text="current+1">...</span> / <span x-text="total">...</span>
+                </span>
+  <div class="ms-auto join rounded-2xl">
+    <button class="embla__prev btn btn-link join-item" x-on:click="emblaApi.scrollPrev()">
+      <include file='@comp/icon.html' $icon='lucide/chevron-left.svg' />
+    </button>
+    <button class="embla__next btn btn-link join-item" x-on:click="emblaApi.scrollNext()">
+      <include file='@comp/icon.html' $icon='lucide/chevron-right.svg' />
+    </button>
+  </div>
+</div>
