@@ -12,6 +12,13 @@ export class Embla {
     this.total=99;
     this.current=0;
     this.updatePending = false;
+    this.autoScrollRaf = null;
+    // Propriété réactive Alpine: peut être modifiée directement via x-on
+    this.autoScrollSpeed = options?.autoScrollSpeed ?? 0.6;
+    // Vitesse initiale pour restauration après drag mobile
+    this.autoScrollInitialSpeed = this.autoScrollSpeed;
+    // Vitesse courante lerpée (interne, non réactive)
+    this._autoScrollCurrentSpeed = this.autoScrollSpeed;
   }
 
 
@@ -49,6 +56,10 @@ export class Embla {
           setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
       }
 
+      if (this.options.autoScroll) {
+          this.setupAutoScroll();
+      }
+
       u();
 
       if(this.options.autoplay){
@@ -68,6 +79,30 @@ export class Embla {
           this.current = newCurrent;
           this.total = newTotal;
       }
+  }
+
+  setupAutoScroll() {
+      const lerpFactor = this.options.autoScrollLerp ?? 0.06;
+
+      const tick = () => {
+          if (!this.emblaApi) return;
+
+          // Lerp vers la vitesse cible
+          this._autoScrollCurrentSpeed += (this.autoScrollSpeed - this._autoScrollCurrentSpeed) * lerpFactor;
+
+          if (Math.abs(this._autoScrollCurrentSpeed) > 0.001) {
+              const engine = this.emblaApi.internalEngine();
+              if (!engine.dragHandler.pointerDown()) {
+                  engine.scrollBody.useFriction(0.35).useDuration(0.7);
+                  engine.target.add(this._autoScrollCurrentSpeed);
+                  engine.animation.start();
+              }
+          }
+
+          this.autoScrollRaf = requestAnimationFrame(tick);
+      };
+
+      this.autoScrollRaf = requestAnimationFrame(tick);
   }
 }
 
