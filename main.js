@@ -5,6 +5,7 @@ import {LightBox} from "@comp/light-box/LightBox.js";
 
 
 
+
 document.addEventListener('alpine:init', () => {
     console.log("Alpine init")
     // slide show
@@ -12,10 +13,9 @@ document.addEventListener('alpine:init', () => {
 
     // light box global
     const globalLightbox = new LightBox('.lightbox, .glightbox');
-
-
     // On l'enregistre dans le store
     Alpine.store('lightbox', globalLightbox);
+
 });
 
 // ─── Alpine.js ────────────────────────────────────────────────────────────────
