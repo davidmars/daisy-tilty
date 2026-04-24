@@ -9,10 +9,12 @@ export class Embla {
      */
   constructor(options) {
     this.options = options || {};
-    this.total=99;
-    this.current=0;
+    this.total = 0;
+    this.current = 0;
     this.updatePending = false;
     this.autoScrollRaf = null;
+    this.emblaApi = null;
+    this._isInitialized = false;
     // Propriété réactive Alpine: peut être modifiée directement via x-on
     this.autoScrollSpeed = options?.autoScrollSpeed ?? 0.6;
     // Vitesse initiale pour restauration après drag mobile
@@ -25,6 +27,10 @@ export class Embla {
 
   /** @this {Embla & { $el: HTMLElement }} */
   init() {
+      if (this._isInitialized) {
+          return;
+      }
+
       const wrapperNode = this.$el;
       const viewportNode = wrapperNode.querySelector('.embla__viewport');
 
@@ -34,11 +40,13 @@ export class Embla {
           return;
         }
       }
-      this.emblaApi=EmblaCarousel(
+      this.emblaApi = EmblaCarousel(
           viewportNode, {
           loop: this.options.loop ?? false,
           dragFree: this.options.dragFree ?? false,
       }, [Autoplay()])
+
+      this._isInitialized = true;
 
       // Throttler les mises à jour Alpine avec rAF pour éviter les rendus excessifs
       const u = () => {
@@ -62,14 +70,18 @@ export class Embla {
 
       u();
 
-      if(this.options.autoplay){
+      if (this.options.autoplay) {
           this.emblaApi.plugins().autoplay.play()
-      }else{
+      } else {
           this.emblaApi.plugins().autoplay.stop()
       }
   }
 
   update() {
+      if (!this.emblaApi) {
+          return;
+      }
+
       const newCurrent = this.emblaApi.selectedScrollSnap();
       const newTotal = this.emblaApi.slideNodes().length;
 
@@ -82,6 +94,10 @@ export class Embla {
   }
 
   setupAutoScroll() {
+      if (this.autoScrollRaf) {
+          cancelAnimationFrame(this.autoScrollRaf);
+      }
+
       const lerpFactor = this.options.autoScrollLerp ?? 0.06;
 
       const tick = () => {
@@ -92,7 +108,7 @@ export class Embla {
 
           if (Math.abs(this._autoScrollCurrentSpeed) > 0.001) {
               const engine = this.emblaApi.internalEngine();
-              if (!engine.dragHandler.pointerDown()) {
+              if (engine && !engine.dragHandler.pointerDown()) {
                   engine.scrollBody.useFriction(0.35).useDuration(0.7);
                   engine.target.add(this._autoScrollCurrentSpeed);
                   engine.animation.start();
@@ -103,6 +119,21 @@ export class Embla {
       };
 
       this.autoScrollRaf = requestAnimationFrame(tick);
+  }
+
+  destroy() {
+      if (this.autoScrollRaf) {
+          cancelAnimationFrame(this.autoScrollRaf);
+          this.autoScrollRaf = null;
+      }
+
+      if (this.emblaApi) {
+          this.emblaApi.destroy();
+          this.emblaApi = null;
+      }
+
+      this._isInitialized = false;
+      this.updatePending = false;
   }
 }
 
