@@ -12,4 +12,65 @@
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
+  padding-left: var(--embla-slide-gap, 0px);
+
+  &--auto {
+    flex: 0 0 auto;
+  }
+
+  &--multi {
+
+    //background-color: #2b90d9;
+    flex: 0 0 78%;
+
+    @media (min-width: 640px) {
+      flex-basis: 48%;
+    }
+
+    @media (min-width: 1024px) {
+      flex-basis: 32%;
+    }
+  }
+
+  &--parallax {
+    flex: 0 0 86%;
+
+    @media (min-width: 640px) {
+      flex-basis: 58%;
+    }
+
+    @media (min-width: 1024px) {
+      flex-basis: 42%;
+    }
+  }
 }
+
+.embla__container--gap {
+  margin-left: calc(var(--embla-slide-gap, 0px) * -1);
+}
+
+.embla__parallax {
+  //background-color: #d4ffd4;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.embla__parallax__layer {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translateX(0);
+}
+
+.embla__parallax__img {
+  max-width: none;
+  flex: 0 0 calc(115% + (var(--embla-slide-gap, 0px) * 2));
+  object-fit: cover;
+}
+

@@ -1,5 +1,6 @@
 import EmblaCarousel from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
+import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
 
 export class Embla {
     /**
@@ -7,10 +8,10 @@ export class Embla {
      * @param {EmblaOptions} options
      */
   constructor(options) {
-    console.log("Embla constructor", options);
     this.options = options || {};
     this.total=99;
     this.current=0;
+    this.updatePending = false;
   }
 
 
@@ -20,7 +21,6 @@ export class Embla {
       const wrapperNode = this.$el;
       const viewportNode = wrapperNode.querySelector('.embla__viewport');
 
-
       for (const element of [wrapperNode, viewportNode]) {
         if (!element) {
           console.warn('EmblaCarousel: missing element', element);
@@ -29,12 +29,26 @@ export class Embla {
       }
       this.emblaApi=EmblaCarousel(
           viewportNode, {
-          loop: this.options.loop
+          loop: this.options.loop ?? false,
+          dragFree: this.options.dragFree ?? false,
       }, [Autoplay()])
-      let u = () => {
-          this.update();
+
+      // Throttler les mises à jour Alpine avec rAF pour éviter les rendus excessifs
+      const u = () => {
+          if (this.updatePending) return;
+          this.updatePending = true;
+          requestAnimationFrame(() => {
+              this.updatePending = false;
+              this.update();
+          });
       };
+
       this.emblaApi.on('select', u).on('reInit', u)
+
+      if (this.options.parallax) {
+          setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
+      }
+
       u();
 
       if(this.options.autoplay){
@@ -42,12 +56,18 @@ export class Embla {
       }else{
           this.emblaApi.plugins().autoplay.stop()
       }
-
   }
 
   update() {
-      this.current = this.emblaApi.selectedScrollSnap();
-      this.total = this.emblaApi.slideNodes().length;
+      const newCurrent = this.emblaApi.selectedScrollSnap();
+      const newTotal = this.emblaApi.slideNodes().length;
+
+      // Optimisation: ne mettre à jour que si les valeurs changent vraiment
+      // Évite de déclencher la réactivité Alpine inutilement
+      if (this.current !== newCurrent || this.total !== newTotal) {
+          this.current = newCurrent;
+          this.total = newTotal;
+      }
   }
 }
 
