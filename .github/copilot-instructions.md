@@ -4,6 +4,9 @@ Pour les messages de commit, suis les instructions définies dans #file:git-comm
 
 # Instructions GitHub Copilot
 
+## Langue et accents
+Respecte toujours les accents en français dans les exemples et dans les commentaires de code. N'écris pas de texte français sans accents.
+
 ## Messages de commit
 
 **TOUJOURS en français.** Même si le code, les variables ou les commentaires sont en anglais, le message de commit est obligatoirement en français.
@@ -26,6 +29,10 @@ Exemples corrects :
 
 ## Icônes
 Quand tu fais référence à des fichiers dans `@icons/*/*`, vérifie que le fichier SVG existe réellement. Ne pas inventer de noms de fichiers SVG.
+
+## HTML et typographie
+Quand tu écris du code HTML, priorise l'utilisation des classes typographiques définies dans `#file:typography.css` (`.h1`, `.h2`, `.p`, `.lead`, `.caption`, etc.).
+Utilise des utilitaires Tailwind bruts uniquement si aucune classe typographique dédiée n'existe pour le besoin.
 
 ## HTML et images
 Quand tu génères du code HTML contenant des images d'exemple, de démonstration ou temporaires, utilise `https://picsum.photos/` pour les URLs d'images placeholder.

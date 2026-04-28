@@ -1,0 +1,36 @@
+/*
+ * Britney (Fontshare)
+ * Déclarations @font-face explicites pour éviter les problèmes de @import externe.
+ */
+
+@font-face {
+  font-family: "Britney";
+  src:
+	url("https://cdn.fontshare.com/wf/LQSDCS2VLEHPNWT3LKFQBCKBEOZ3FYXR/HEED4QBIERSFWVO67MOWJE6SGQ267TZH/EIP2C7E6OFVUAA43X4P4U5RPJL3KZZT6.woff2") format("woff2"),
+	url("https://cdn.fontshare.com/wf/LQSDCS2VLEHPNWT3LKFQBCKBEOZ3FYXR/HEED4QBIERSFWVO67MOWJE6SGQ267TZH/EIP2C7E6OFVUAA43X4P4U5RPJL3KZZT6.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Britney";
+  src:
+	url("https://cdn.fontshare.com/wf/ZUJNGXS65F747JL4GFH2MSH25QOYBH4N/4EC74MBP2NXZZJABYQGPQPJKUIVJIT4V/TZNLC4T7WKMSFR6TU6AIXCJRIJGIMG3B.woff2") format("woff2"),
+	url("https://cdn.fontshare.com/wf/ZUJNGXS65F747JL4GFH2MSH25QOYBH4N/4EC74MBP2NXZZJABYQGPQPJKUIVJIT4V/TZNLC4T7WKMSFR6TU6AIXCJRIJGIMG3B.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Britney";
+  src:
+	url("https://cdn.fontshare.com/wf/TWFUALX67A5DZ7ARIWU64XRAROOQLUNO/AYQHRIWI7YZ5VWXR3T67OJDWXFIREGDY/ZL52X4UE6RB5KF32U5FQL4NLVM6YM4BZ.woff2") format("woff2"),
+	url("https://cdn.fontshare.com/wf/TWFUALX67A5DZ7ARIWU64XRAROOQLUNO/AYQHRIWI7YZ5VWXR3T67OJDWXFIREGDY/ZL52X4UE6RB5KF32U5FQL4NLVM6YM4BZ.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+

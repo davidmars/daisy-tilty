@@ -1,0 +1,114 @@
+/*
+ * Style guide typographique basé sur Tailwind.
+ * Chaque classe ci-dessous utilise `@apply` pour composer des utilitaires Tailwind.
+ */
+@layer components {
+
+
+  :root {
+    --font-heading: var(--font-general-sans);
+    --font-normal: var(--font-general-sans);
+    --font-quote: var(--font-britney);
+    --font-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+
+  /* Titres: hiérarchie visuelle de .h1 à .h6. */
+
+
+
+  /* titres */
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-heading), sans-serif;
+  }
+
+
+  .h1 {
+    @apply text-4xl font-bold leading-tight md:text-5xl;
+  }
+
+  .h2 {
+    @apply text-3xl font-bold leading-tight md:text-4xl;
+  }
+
+  .h3 {
+    @apply text-2xl font-semibold leading-snug md:text-3xl;
+  }
+
+  .h4 {
+    @apply text-xl font-semibold leading-snug md:text-2xl;
+  }
+
+  .h5 {
+    @apply text-lg font-semibold leading-snug md:text-xl;
+  }
+
+  .h6 {
+    @apply text-base font-semibold leading-snug md:text-lg;
+  }
+
+  /* Paragraphes et textes de contenu. */
+
+  *{
+    font-family: var(--font-normal);
+  }
+
+  .p {
+    @apply text-base leading-relaxed;
+  }
+
+  .p-sm {
+    @apply text-sm leading-relaxed;
+  }
+
+  .p-lg {
+    @apply text-lg leading-relaxed;
+  }
+
+  .lead {
+    @apply text-lg leading-relaxed text-base-content/85 md:text-xl;
+  }
+
+  .caption {
+    @apply text-sm leading-snug text-base-content/70;
+  }
+
+  .legend {
+    @apply text-xs font-medium tracking-wide uppercase text-base-content/65;
+  }
+
+  /* Éléments techniques et inline (code, clavier, annotations). */
+  .tech {
+    @apply rounded-md border border-base-300 bg-base-200/60 px-2 py-1 font-mono text-xs leading-snug text-base-content/90;
+  }
+
+  .code-inline {
+    @apply rounded bg-base-200 px-1.5 py-0.5 font-mono text-xs text-base-content;
+  }
+
+  .kbd-inline {
+    @apply rounded border border-base-300 bg-base-100 px-1.5 py-0.5 font-mono text-xs;
+  }
+
+  .quote{
+    font-family: var(--font-britney);
+    @apply font-normal leading-tight;
+  }
+
+  .quote{
+    @apply  text-3xl md:text-5xl;
+  }
+  .blockquote{
+    @apply text-xl md:text-3xl;
+  }
+
+  .guide-note {
+    @apply text-info;
+  }
+
+
+
+}
+
+
+
+

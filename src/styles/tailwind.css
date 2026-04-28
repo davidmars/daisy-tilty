@@ -1,3 +1,5 @@
 @import "tailwindcss";
+@import "./fonts/index.css";
+@import "./typography.css";
 @plugin "daisyui";
 

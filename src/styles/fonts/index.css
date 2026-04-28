@@ -1,0 +1,14 @@
+@import "./general-sans.css";
+@import "./britney.css";
+
+:root {
+  --font-general-sans: "General Sans", "Inter", "Segoe UI", Arial, sans-serif;
+  --font-britney: "Britney", "Times New Roman", serif;
+
+    --font-heading: var(--font-general-sans);
+    --font-normal: var(--font-general-sans);
+    --font-quote: var(--font-britney);
+    --font-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
