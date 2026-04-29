@@ -2,4 +2,7 @@
 @use './components-all.scss';
 @use './layout-all.scss';
 
+/* Alpine.js : masque les éléments portant x-cloak avant l'initialisation */
+[x-cloak] { display: none !important; }
+
 

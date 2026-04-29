@@ -49,7 +49,7 @@
   /* Paragraphes et textes de contenu. */
 
   *{
-    font-family: var(--font-normal);
+    /*font-family: var(--font-normal);*/
   }
 
   .p {
