@@ -81,3 +81,120 @@ Exemples corrects :
 ### Alerte non-conformité Alpine.js
 Si l'agent constate du code utilisant `@event` ou `:attribute` dans les fichiers HTML, il **doit le signaler à l'utilisateur** et proposer la correction avec `x-on:` et `x-bind:`.
 
+## Codes d'erreur
+
+Quand du code JavaScript doit signaler une erreur à l'interface (alerte, message, état d'erreur visible), **ne jamais écrire le message en clair**. Utiliser un code d'erreur opaque référencé dans `_docs/codes-erreur.md`.
+
+### Format obligatoire
+
+```
+ERR-x[MODULE][NUMÉRO]
+```
+
+Exemple : `ERR-xWF01`
+
+### Règles
+
+- Déclarer le code dans une constante JSDoc `@enum {string}` dans le fichier source concerné.
+- Référencer le code dans `_docs/codes-erreur.md` avec : cause, symptôme, résolution.
+- Ne jamais exposer de message technique lisible dans l'interface utilisateur.
+
+### Diagnostic d'un code d'erreur
+
+Quand l'utilisateur mentionne un code du format `ERR-x...`, l'agent doit **obligatoirement** :
+
+1. Consulter `_docs/codes-erreur.md` pour retrouver la fiche correspondante.
+2. Expliquer la **cause** du problème.
+3. Décrire le **symptôme** visible.
+4. Détailler les **étapes de résolution**.
+
+Ne jamais répondre "je ne connais pas ce code" sans avoir lu `_docs/codes-erreur.md` au préalable.
+
+Exemple correct :
+```js
+/** @enum {string} */
+const MON_MODULE_ERRORS = {
+    MA_NOUVELLE_ERREUR: 'ERR-xXX01',
+};
+```
+
+```html
+<!-- ✅ Correct : code opaque -->
+<span x-text="errorCode"></span>
+
+<!-- ❌ Interdit : message technique lisible -->
+<span>La clé API est absente, ajoutez VITE_MA_CLE dans .env</span>
+```
+
+## Documentation et typage JSDoc
+
+Tout le code JavaScript produit doit être **documenté avec JSDoc**. Les types doivent être précisés autant que possible via les annotations JSDoc.
+
+Règles obligatoires :
+- Chaque classe doit avoir un commentaire `/** ... */` décrivant son rôle.
+- Chaque méthode publique doit documenter ses paramètres (`@param`) et sa valeur de retour (`@returns`) si applicable.
+- Les propriétés d'instance doivent être typées avec `@type` ou déclarées dans le constructeur avec un commentaire JSDoc.
+- Utiliser les types natifs (`string`, `number`, `boolean`, `HTMLElement`, etc.) ou des types personnalisés via `@typedef` si nécessaire.
+
+Exemple correct :
+```js
+/**
+ * Gère la soumission du formulaire de contact.
+ */
+export class MonComposant {
+    constructor() {
+        /** @type {string} */
+        this.valeur = '';
+    }
+
+    /**
+     * Initialise le composant (appelé automatiquement par Alpine.js).
+     * @returns {void}
+     */
+    init() { /* ... */ }
+
+    /**
+     * Traite l'événement de soumission.
+     * @param {Event} event
+     * @returns {void}
+     */
+    handleSubmit(event) { /* ... */ }
+}
+```
+
+## Documentation dans `_docs/`
+
+Tout fichier de documentation créé dans `_docs/` doit respecter **deux niveaux de lecture distincts**, dans cet ordre :
+
+### 1. 🟢 Mise en service rapide — pour l'utilisateur du repo
+
+Cette section s'adresse à toute personne qui reprend le projet sans en connaître les détails techniques. Elle doit :
+
+- Expliquer **quoi faire** pour que la fonctionnalité marche, pas comment elle est faite.
+- Lister uniquement les **étapes concrètes** (créer un fichier, renseigner une valeur, relancer un serveur…).
+- Ne **pas mentionner** Alpine.js, les composants, le build, les imports ou toute autre notion d'implémentation.
+- Se terminer par une **checklist** des actions à effectuer.
+
+### 2. 🔧 Détail technique — pour le développeur
+
+Cette section vient **après** la mise en service rapide. Elle s'adresse aux développeurs qui veulent comprendre ou faire évoluer le code. Elle peut contenir :
+
+- L'architecture des fichiers impliqués.
+- Les explications sur les composants, classes, variables d'environnement.
+- Les exemples de code.
+- Les décisions techniques et leurs justifications.
+
+### Exemple de structure
+
+```markdown
+## 🟢 Mise en service rapide
+
+...étapes, checklist...
+
+---
+
+## 🔧 Détail technique
+
+...architecture, composants, exemples de code...
+```
+
