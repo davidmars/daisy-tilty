@@ -28,11 +28,131 @@ Exemples corrects :
 - `refactor(utils): extraction de nowHHmm dans utils/date/`
 
 ## Icônes
-Quand tu fais référence à des fichiers dans `@icons/*/*`, vérifie que le fichier SVG existe réellement. Ne pas inventer de noms de fichiers SVG.
+
+### Famille principale : Lucide
+
+**Lucide est la bibliothèque d'icônes quasi-exclusive du projet.** Avant de chercher une icône dans une autre famille (`mdi/`, `phosphor/`…), toujours vérifier qu'une icône Lucide couvre le besoin.
+
+Le catalogue complet (~1 952 icônes) est disponible dans `node_modules/lucide-static/icons/`. Les noms de fichiers sont en kebab-case (ex. `trash-2.svg`, `chevron-down.svg`).
+
+### Structure des fichiers
+
+Les icônes sont des fichiers SVG organisés par famille dans `src/icons/` :
+
+```
+src/icons/
+  lucide/          ← sous-ensemble curatif des icônes Lucide utilisées dans le projet
+    chevron-down.svg
+    heart.svg
+    ...
+  lucide-thin/     ← variante fine de Lucide
+    squirrel.svg
+  mdi/             ← Material Design Icons (usage exceptionnel)
+    material-design.svg
+  phosphor/        ← Phosphor Icons (usage exceptionnel)
+    phosphor-logo-duotone.svg
+```
+
+`src/icons/lucide/` ne contient que les icônes **réellement utilisées** dans le projet. Le catalogue source complet est dans `node_modules/lucide-static/icons/`.
+
+### Ajouter une icône Lucide
+
+Lorsqu'une icône Lucide est nécessaire et absente de `src/icons/lucide/` :
+
+1. **Vérifier l'existence** dans `node_modules/lucide-static/icons/{nom}.svg`.
+2. **Copier le fichier** vers `src/icons/lucide/{nom}.svg` (en lisant le contenu et en créant le fichier).
+3. **Référencer l'icône** via `<include>` dans le HTML.
+
+Ne jamais référencer un fichier absent de `src/icons/lucide/`. Ne jamais inventer un nom : le vérifier d'abord dans `node_modules/lucide-static/icons/`.
+
+### Utilisation dans le HTML
+
+**Ne jamais écrire de SVG inline dans le HTML.** Toute icône doit passer exclusivement par le système d'inclusion décrit ci-dessous. Même pour une icône simple ou temporaire, l'écriture directe de balises `<svg>` dans le HTML est interdite.
+
+Deux façons d'inclure une icône :
+
+**1. Inclusion directe du SVG** (taille et couleur gérées par CSS uniquement) :
+```html
+<include file="@icons/lucide/heart.svg" />
+```
+
+**2. Via le composant `icon.html`** (recommandé — taille et couleur configurables via props) :
+```html
+<include file="@comp/icon.html" $icon="lucide/heart.svg" $size="24" $color="currentColor" />
+```
+
+Les props disponibles du composant `icon.html` :
+- `$icon` — chemin relatif depuis `src/icons/` (ex. `lucide/heart.svg`)
+- `$size` — taille en pixels (défaut : `24`)
+- `$color` — couleur CSS (défaut : `currentColor`, hérite de la couleur du texte parent)
+
+### Alias Vite
+
+- `@icons` → `src/icons/` (accès direct aux SVG du projet)
+- `@comp` → `src/components/` (accès au composant `icon.html`)
+
+### Galerie des icônes
+
+Le fichier `icons-gallery.html` est **généré automatiquement** par le plugin Vite `iconsGalleryPlugin` à chaque démarrage du serveur de développement (`npm run dev`) et à chaque build.
+
+- La galerie est regénérée en temps réel si un fichier SVG est ajouté, modifié ou supprimé dans `src/icons/`.
+- Chaque icône affiche son snippet `<include>` cliquable pour copier le code.
+- Ne jamais modifier `icons-gallery.html` manuellement : ce fichier est écrasé à chaque build.
+
+Pour ajouter une nouvelle famille d'icônes, créer un sous-dossier dans `src/icons/` et y placer les fichiers `.svg`. La galerie se met à jour automatiquement.
+
+## DaisyUI en priorité
+
+**Avant d'écrire du JavaScript ou d'utiliser des utilitaires Tailwind bruts, vérifier systématiquement si DaisyUI couvre déjà le besoin.**
+
+### Ordre de priorité obligatoire
+
+1. **DaisyUI** — composants (`.btn`, `.modal`, `.alert`, `.badge`, `.tabs`, `.collapse`, etc.) et utilitaires sémantiques.
+2. **Classes typographiques du projet** — définis dans `#file:typography.css` (`.h1`, `.h2`, `.p`, `.lead`, `.caption`, etc.).
+3. **Tailwind brut** — uniquement si ni DaisyUI ni les classes typographiques du projet ne couvrent le besoin.
+4. **JavaScript personnalisé** — uniquement si le comportement ne peut pas être obtenu avec DaisyUI + Alpine.js seuls.
+
+### Règles
+
+- Ne pas recréer en JavaScript un comportement déjà géré par un composant DaisyUI (ex. : ouverture d'un modal via `.modal`, état actif d'un onglet via `.tabs`, etc.).
+- Ne pas écrire de CSS ou de classes Tailwind brutes pour styliser un élément qu'un composant DaisyUI pourrait couvrir.
+- En cas de doute, consulter la documentation DaisyUI avant d'écrire du code personnalisé.
+
+Exemples corrects :
+```html
+<!-- ✅ Correct : composant DaisyUI -->
+<div role="alert" class="alert alert-success">…</div>
+<button class="btn btn-primary">Envoyer</button>
+
+<!-- ❌ Interdit si DaisyUI couvre le besoin -->
+<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">…</div>
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Envoyer</button>
+```
 
 ## HTML et typographie
 Quand tu écris du code HTML, priorise l'utilisation des classes typographiques définies dans `#file:typography.css` (`.h1`, `.h2`, `.p`, `.lead`, `.caption`, etc.).
 Utilise des utilitaires Tailwind bruts uniquement si aucune classe typographique dédiée n'existe pour le besoin.
+
+### Citations et blockquotes
+
+Pour toute citation mise en valeur dans un article ou une page, utilise **obligatoirement** la classe `.quote` (et non `.blockquote`).
+
+- `.quote` → police Britney, `text-3xl md:text-5xl` — à utiliser pour les citations éditoriales visuellement marquantes.
+- `.blockquote` → taille `text-xl md:text-3xl`, sans changement de police — réservé aux usages plus sobres si nécessaire.
+
+Exemple correct :
+```html
+<!-- ✅ Citation éditoriale -->
+<figure class="border-l-4 border-primary pl-6">
+  <blockquote class="quote text-primary">
+    « Le repos est la mère de la créativité. »
+  </blockquote>
+  <figcaption class="caption mt-2">— Auteur inconnu</figcaption>
+</figure>
+
+<!-- ❌ Interdit pour une citation mise en avant -->
+<blockquote class="blockquote text-primary">…</blockquote>
+```
 
 ## HTML et images
 Quand tu génères du code HTML contenant des images d'exemple, de démonstration ou temporaires, utilise `https://picsum.photos/` pour les URLs d'images placeholder.
@@ -55,6 +175,27 @@ export class MonComposant {
 
 // main.js
 Alpine.data('monComposant', () => new MonComposant());
+```
+
+### x-show, x-if et x-cloak
+
+**`x-show` par défaut.** Réserver `x-if` aux cas où l'élément ne doit vraiment pas exister dans le DOM (composant lourd rarement affiché, contenu sensible non inspectable).
+
+**`x-cloak` uniquement là où c'est utile**, c'est-à-dire sur les éléments qui seraient *visibles à tort* avant l'initialisation d'Alpine — typiquement un élément avec `x-show="condition"` où la condition est `false` au démarrage.
+
+La règle CSS `[x-cloak] { display: none !important; }` est déclarée dans `src/styles/main.scss`.
+
+```html
+<!-- ✅ x-cloak utile : l'alerte serait visible avant qu'Alpine la cache -->
+<div role="alert" class="alert alert-error" x-show="keyMissing" x-cloak>…</div>
+
+<!-- ✅ x-cloak utile : le spinner flasherait avant init -->
+<span class="loading" x-show="loading" x-cloak></span>
+
+<!-- ❌ x-cloak inutile : rien n'est caché au chargement initial -->
+<div x-data="monComposant" x-cloak>
+    <button x-on:click="toggle">Ouvrir</button>
+</div>
 ```
 
 ### Syntaxe Alpine.js : x-on et x-bind obligatoires
@@ -197,4 +338,3 @@ Cette section vient **après** la mise en service rapide. Elle s'adresse aux dé
 
 ...architecture, composants, exemples de code...
 ```
-
