@@ -3,6 +3,20 @@
 Ce document liste tous les codes d'erreur affichés dans l'interface du projet.
 Ces codes sont intentionnellement opaques pour l'utilisateur final. Seul l'auteur du projet peut les interpréter via ce référentiel.
 
+> [!IMPORTANT]
+> **Périmètre de ce référentiel : erreurs de configuration uniquement.**
+> Les codes `ERR-x...` ne concernent que des problèmes d'environnement, de configuration ou d'infrastructure (clé manquante, service indisponible, etc.).
+> Les erreurs de saisie utilisateur — comme *"cet e-mail n'est pas valide"* ou *"ce champ est obligatoire"* — sont des **messages de validation** gérés directement dans l'interface, en clair, à côté du champ concerné. Elles n'ont pas de code `ERR-x` et ne figurent pas dans ce document.
+
+## Sommaire des codes
+
+| Code                                              | Module    | Description                                     |
+|---------------------------------------------------|-----------|-------------------------------------------------|
+| [`ERR-xWF01`](#err-xwf01--clé-daccès-absente)     | Web3Forms | Clé d'accès `VITE_WEB3FORMS_ACCESS_KEY` absente |
+| [`ERR-xWF02`](#err-xwf02--échec-de-la-soumission) | Web3Forms | Échec de la requête `fetch` vers l'API          |
+
+---
+
 ## Format des codes
 
 ```
@@ -50,6 +64,27 @@ ERR-x[MODULE][NUMÉRO]
 
 > [!NOTE]
 > Ce code s'affiche uniquement si la clé est absente au build ou en développement. En production, s'assurer que `.env.production.local` est bien renseigné sur le serveur de déploiement.
+
+---
+
+### `ERR-xWF02` — Échec de la soumission
+
+| Propriété          | Valeur                                 |
+|--------------------|----------------------------------------|
+| **Code**           | `ERR-xWF02`                            |
+| **Module**         | Web3Forms                              |
+| **Fichier source** | `src/components/web3-form/Web3Form.js` |
+| **Constante**      | `WEB3FORM_ERRORS.SUBMIT_ERROR`         |
+
+**Cause** : La requête `fetch` vers `https://api.web3forms.com/submit` a échoué, soit à cause d'une erreur réseau (pas de connexion, timeout), soit parce que l'API a retourné une réponse non-ok (`response.ok === false`).
+
+**Symptôme** : Une alerte rouge apparaît sous le formulaire après la tentative d'envoi. Le formulaire n'est pas réinitialisé.
+
+**Résolution** :
+1. Vérifier la connexion réseau du navigateur.
+2. Ouvrir les outils de développement → onglet **Réseau** et inspecter la requête vers `api.web3forms.com`.
+3. Vérifier que la clé `VITE_WEB3FORMS_ACCESS_KEY` est valide et active dans l'interface Web3Forms.
+4. Consulter le statut du service sur [https://web3forms.com](https://web3forms.com) en cas d'incident.
 
 ---
 

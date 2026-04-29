@@ -1,0 +1,127 @@
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     Formulaire de contact Web3Forms
+     Composant Alpine.js : x-data="web3Forms" → src/components/web3-form/Web3Form.js
+     Soumission AJAX via fetch — sans rechargement de page.
+
+     Validation :
+     - Gérée nativement par les attributs HTML5 (required, type="email"…).
+     - DaisyUI `.validator` + `.validator-hint` réagissent via CSS à :invalid :
+       la bordure devient rouge et le message d'erreur passe de visibility:hidden
+       à visibility:visible dès que l'utilisateur interagit avec un champ invalide.
+     - Alpine intervient uniquement pour bloquer la soumission (checkValidity),
+       gérer le spinner et afficher le message de succès / l'erreur de soumission.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<form x-data="web3Forms"
+      class="space-y-4"
+      novalidate
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      x-on:submit="handleSubmit">
+
+    <!-- Clé d'accès Web3Forms injectée dynamiquement depuis VITE_WEB3FORMS_ACCESS_KEY.
+         Ne jamais écrire la clé en dur ici. Voir _docs/formulaires.md. -->
+    <input type="hidden" name="access_key" x-bind:value="accessKey">
+
+    <!-- Alerte affichée si la clé d'accès est absente au chargement.
+         Le code d'erreur est résolu dans _docs/codes-erreur.md. -->
+    <div role="alert" class="alert alert-error" x-show="keyMissing" x-cloak>
+        <include file="@comp/icon.html" $icon="lucide/circle-x.svg" $size="24" $color="currentColor" />
+        <span class="p-sm">Une erreur est survenue. <code x-text="keyErrorCode"></code></span>
+    </div>
+
+    <!-- Message de succès affiché après une soumission réussie, à la place des champs -->
+    <div role="alert" class="alert alert-success" x-show="success" x-cloak>
+        <include file="@comp/icon.html" $icon="lucide/circle-check-big.svg" $size="24" $color="currentColor" />
+        <span class="p-sm">Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais.</span>
+    </div>
+
+    <!-- Alerte d'erreur de soumission (réseau ou API).
+         Le code d'erreur est résolu dans _docs/codes-erreur.md. -->
+    <div role="alert" class="alert alert-error" x-show="submitError" x-cloak>
+        <include file="@comp/icon.html" $icon="lucide/circle-x.svg" $size="24" $color="currentColor" />
+        <span class="p-sm">Une erreur est survenue lors de l'envoi. <code x-text="submitError"></code></span>
+    </div>
+
+    <!-- Champs du formulaire masqués après succès -->
+    <div x-show="!success">
+
+        <!-- Ligne 1 : Prénom / Nom -->
+        <div class="grid gap-4 md:grid-cols-2">
+            <div class="form-control w-full">
+                <span class="label-text p-sm">Prénom *</span>
+                <input class="input input-bordered w-full validator"
+                       type="text" name="prenom" placeholder="Marie" required />
+                <p class="validator-hint">Le prénom est obligatoire.</p>
+            </div>
+
+            <div class="form-control w-full">
+                <span class="label-text p-sm">Nom *</span>
+                <input class="input input-bordered w-full validator"
+                       type="text" name="nom" placeholder="Durand" required />
+                <p class="validator-hint">Le nom est obligatoire.</p>
+            </div>
+        </div>
+
+        <!-- Ligne 2 : E-mail / Téléphone (téléphone optionnel, non validé) -->
+        <div class="grid gap-4 md:grid-cols-2 mt-4">
+            <div class="form-control w-full">
+                <span class="label-text p-sm">E-mail *</span>
+                <input class="input input-bordered w-full validator"
+                       type="email" name="email" placeholder="marie@email.com" required />
+                <p class="validator-hint">Saisissez une adresse e-mail valide.</p>
+            </div>
+
+            <div class="form-control w-full">
+                <span class="label-text p-sm">Téléphone</span>
+                <!-- Champ optionnel : aucune validation déclenchée -->
+                <input class="input input-bordered w-full" type="tel" name="telephone" placeholder="06 12 34 56 78" />
+            </div>
+        </div>
+
+        <!-- Sujet : sélection obligatoire -->
+        <div class="form-control w-full mt-4">
+            <span class="label-text p-sm">Sujet *</span>
+            <select class="select select-bordered w-full validator"
+                    name="sujet" required>
+                <option value="" disabled selected>Sélectionner un sujet</option>
+                <option value="devis">Demande de devis</option>
+                <option value="rendez-vous">Prise de rendez-vous</option>
+                <option value="support">Support technique</option>
+                <option value="autre">Autre</option>
+            </select>
+            <p class="validator-hint">Veuillez sélectionner un sujet.</p>
+        </div>
+
+        <!-- Message libre -->
+        <div class="form-control w-full mt-4">
+            <span class="label-text p-sm">Message *</span>
+            <textarea class="textarea textarea-bordered min-h-36 w-full validator"
+                      name="message" placeholder="Décrivez votre besoin en quelques lignes..." required></textarea>
+            <p class="validator-hint">Le message est obligatoire.</p>
+        </div>
+
+        <!-- Consentement RGPD : case à cocher obligatoire. -->
+        <div class="form-control mt-4">
+            <input class="toggle validator"
+                   id="field-consentement"
+                   type="checkbox" name="consentement" required />
+            <label for="field-consentement" class="p-sm cursor-pointer">
+                J'accepte d'être recontacté(e) dans le cadre de ma demande.
+            </label>
+            <p class="validator-hint">Vous devez accepter pour continuer.</p>
+        </div>
+
+        <!-- Actions : réinitialisation et envoi.
+             Le bouton affiche un spinner et est désactivé pendant la soumission. -->
+        <div class="flex flex-wrap gap-3 pt-4 justify-end">
+            <button class="btn btn-ghost" type="reset" x-bind:disabled="loading">Réinitialiser</button>
+            <button class="btn btn-primary" type="submit" x-bind:disabled="loading">
+                <span class="loading loading-spinner loading-sm" x-show="loading" x-cloak></span>
+                <span x-show="!loading">Envoyer</span>
+                <span x-show="loading" x-cloak>Envoi en cours…</span>
+            </button>
+        </div>
+
+    </div>
+</form>
+
