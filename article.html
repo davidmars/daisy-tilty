@@ -1,27 +1,413 @@
-<include file="@layout/common.html" $title="article">
-  <include file="src/components/heading.html">
-    The Art of Doing Absolutely Nothing
-  </include>
-  <div>
-    <p>
-      Have you ever tried doing absolutely nothing? It's harder than it sounds. You sit on your couch, determined to be as productive as a potato, and suddenly your brain decides it's the perfect time to remember that embarrassing thing you did in third grade.
-    </p>
-    <div style="text-align:center; margin: 2em 0;">
-      <img src="/images/test.jpg" alt="Test image" style="max-width: 100%; border-radius: 12px; box-shadow: 0 2px 12px #0001;" />
-      <div style="color: #888; font-size: 0.95em; margin-top: 0.5em;">A perfect illustration of doing nothing (or maybe just a test image).</div>
+<include file="@layout/common.html" $title="L'art de ne rien faire — Daisy Tilty">
+
+  <!-- ═══════════════════════════════════════════════════════
+       Hero de l'article — image pleine largeur + titre
+       ═══════════════════════════════════════════════════════ -->
+  <section class="relative w-full">
+    <img
+      src="https://picsum.photos/1600/600.webp"
+      alt="Un coin lecture paisible avec une tasse de thé"
+      class="h-[40vh] min-h-72 w-full object-cover lg:h-[55vh]"
+    />
+    <div class="absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-black/75"></div>
+    <div class="absolute inset-0 flex items-end">
+      <div class="mx-auto w-full max-w-4xl px-4 pb-8 lg:px-8">
+        <div class="mb-3 flex flex-wrap gap-2">
+          <div class="badge badge-primary">Lifestyle</div>
+          <div class="badge badge-secondary">Bien-être</div>
+        </div>
+        <h1 class="h1 text-white">L'art de ne rien faire — et pourquoi c'est sous-estimé</h1>
+        <p class="lead mt-2 text-white/80">
+          Une exploration sincère du repos intentionnel, entre philosophie du quotidien et science du cerveau.
+        </p>
+      </div>
     </div>
-    <p>
-      Experts say doing nothing is good for creativity. Personally, I think it's just a great way to become a world-class daydreamer. Yesterday, I spent an hour imagining what my cat would say if she could talk. Spoiler: she would probably just ask for more snacks.
-    </p>
-    <p>
-      So next time someone asks what you're up to, just say, "I'm practicing the fine art of nothingness." Who knows, you might start a trend. Or at least, finally win a staring contest with your ceiling.
-    </p>
-    <blockquote>
-      "Sometimes the most productive thing you can do is relax."
-    </blockquote>
-    <p>
-      Now, if you'll excuse me, I have a very important appointment with my favorite chair and a cup of tea. Cheers!
-    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       Barre de métadonnées de l'article
+       ═══════════════════════════════════════════════════════ -->
+  <div class="border-b border-base-300 bg-base-100">
+    <div class="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-4 px-4 py-4 lg:px-8">
+
+      <!-- Auteur + date + temps de lecture -->
+      <div class="flex flex-wrap items-center gap-4">
+        <div class="flex items-center gap-2">
+          <div class="avatar">
+            <div class="w-9 rounded-full">
+              <img src="https://picsum.photos/seed/author/80/80.webp" alt="Portrait de Marie Blanc" />
+            </div>
+          </div>
+          <div>
+            <p class="p-sm font-semibold leading-tight">Marie Blanc</p>
+            <p class="caption">Rédactrice lifestyle</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1 text-base-content/60">
+          <include file="@comp/icon.html" $icon="lucide/calendar.svg" $size="16" $color="currentColor" />
+          <span class="caption">28 avril 2026</span>
+        </div>
+
+        <div class="flex items-center gap-1 text-base-content/60">
+          <include file="@comp/icon.html" $icon="lucide/clock.svg" $size="16" $color="currentColor" />
+          <span class="caption">6 min de lecture</span>
+        </div>
+      </div>
+
+      <!-- Actions : partager + enregistrer -->
+      <div class="flex items-center gap-2">
+        <button class="btn btn-ghost btn-sm gap-1">
+          <include file="@comp/icon.html" $icon="lucide/share.svg" $size="16" $color="currentColor" />
+          Partager
+        </button>
+        <button class="btn btn-ghost btn-sm gap-1">
+          <include file="@comp/icon.html" $icon="lucide/bookmark.svg" $size="16" $color="currentColor" />
+          Enregistrer
+        </button>
+      </div>
+    </div>
   </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       Corps de l'article
+       ═══════════════════════════════════════════════════════ -->
+  <div class="mx-auto max-w-4xl px-4 py-10 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start">
+
+      <!-- Colonne principale : contenu éditorial -->
+      <article class="space-y-6">
+
+        <!-- Chapô -->
+        <p class="lead">
+          Avez-vous déjà essayé de ne rien faire — vraiment rien ? Pas de podcast en fond sonore, pas de scroll
+          distrait, pas de liste de tâches mentale. Assis·e là, à simplement exister. C'est étrangement difficile.
+        </p>
+
+        <!-- Corps principal -->
+        <p class="p">
+          On vit dans une culture qui sacralise la productivité. « Occupé » est devenu un titre de gloire. Pourtant,
+          les neurosciences nous rappellent que le cerveau a besoin de phases d'inactivité pour consolider les
+          apprentissages, trouver des solutions créatives et réguler les émotions.
+        </p>
+
+        <!-- Citation mise en valeur -->
+        <figure class="my-8 border-l-4 border-primary pl-6">
+          <blockquote class="quote text-primary">
+            « Parfois, la chose la plus productive que vous puissiez faire, c'est de vous reposer. »
+          </blockquote>
+          <figcaption class="caption mt-2">— Mark Twain</figcaption>
+        </figure>
+
+        <p class="p">
+          Le concept japonais de <em>ma</em> (間) — l'espace entre les choses — illustre bien cette idée. Dans
+          l'architecture, la musique et la conversation, ce sont les silences qui donnent du sens au reste. Il en va
+          de même dans notre vie quotidienne : les pauses ne sont pas du temps perdu, elles sont le terreau d'où
+          émergent les meilleures idées.
+        </p>
+
+        <!-- Image intercalée dans l'article -->
+        <figure class="my-6">
+          <img
+            src="https://picsum.photos/seed/rest/800/420.webp"
+            alt="Un livre ouvert sur un canapé avec une tasse de thé"
+            class="w-full rounded-box object-cover shadow-md"
+          />
+          <figcaption class="caption mt-2 text-center">
+            Un environnement propice au repos intentionnel — rien de plus.
+          </figcaption>
+        </figure>
+
+        <h2 class="h3 mt-8">Trois pratiques pour s'y mettre</h2>
+
+        <!-- Liste numérotée avec DaisyUI -->
+        <ul class="list bg-base-200 rounded-box shadow-sm">
+          <li class="list-row">
+            <div class="text-4xl font-black text-primary/30">01</div>
+            <div>
+              <p class="font-semibold">La marche sans destination</p>
+              <p class="p-sm text-base-content/70">
+                Sortez sans GPS, sans itinéraire. Laissez vos pieds décider. Vingt minutes suffisent pour
+                réinitialiser votre système nerveux et libérer le mode par défaut du cerveau.
+              </p>
+            </div>
+          </li>
+          <li class="list-row">
+            <div class="text-4xl font-black text-secondary/30">02</div>
+            <div>
+              <p class="font-semibold">La contemplation active</p>
+              <p class="p-sm text-base-content/70">
+                Observez quelque chose de simple et beau — une plante, la lumière sur un mur — sans chercher à
+                l'analyser. Contentez-vous de regarder. C'est une forme de méditation accessible à tous.
+              </p>
+            </div>
+          </li>
+          <li class="list-row">
+            <div class="text-4xl font-black text-accent/30">03</div>
+            <div>
+              <p class="font-semibold">L'ennui programmé</p>
+              <p class="p-sm text-base-content/70">
+                Bloquez quinze minutes dans votre agenda avec pour unique consigne : ne pas être productif·ve.
+                Vous serez surpris de ce qui émerge naturellement de ce vide cultivé.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <h2 class="h3 mt-8">Ce que disent les études</h2>
+
+        <!-- Stats illustratives -->
+        <div class="stats stats-vertical sm:stats-horizontal w-full shadow">
+          <div class="stat">
+            <div class="stat-title">Gain de créativité</div>
+            <div class="stat-value text-primary">+33 %</div>
+            <div class="stat-desc">après une période de repos non structuré</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Réduction du stress</div>
+            <div class="stat-value text-secondary">–27 %</div>
+            <div class="stat-desc">en 4 semaines de micro-pauses quotidiennes</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Mémoire consolidée</div>
+            <div class="stat-value text-accent">× 1.8</div>
+            <div class="stat-desc">lors des phases de sommeil léger diurne</div>
+          </div>
+        </div>
+
+        <p class="p">
+          Une étude de l'Université de California publiée en 2024 a montré que les participants autorisés à
+          « ne rien faire » pendant vingt minutes après un apprentissage retenaient significativement mieux
+          l'information que ceux qui avaient immédiatement enchaîné une autre tâche cognitive.
+        </p>
+
+        <!-- Alerte / mise en avant -->
+        <div role="alert" class="alert alert-info">
+          <include file="@comp/icon.html" $icon="lucide/heart-pulse.svg" $size="20" $color="currentColor" />
+          <span class="p-sm">
+            <strong>À noter :</strong> le repos ne signifie pas l'absence d'activité, mais l'absence d'intention
+            performative. Lire par plaisir compte. Cuisiner en musique aussi.
+          </span>
+        </div>
+
+        <p class="p">
+          Alors, la prochaine fois que vous vous surprenez à regarder le plafond, résistez à l'envie de saisir votre
+          téléphone. Votre cerveau est peut-être en train de faire son travail le plus important.
+        </p>
+
+        <!-- Tags de l'article -->
+        <div class="mt-8 flex flex-wrap items-center gap-2 border-t border-base-300 pt-6">
+          <include file="@comp/icon.html" $icon="lucide/tag.svg" $size="16" $color="currentColor" />
+          <div class="badge badge-outline">Bien-être</div>
+          <div class="badge badge-outline">Neurosciences</div>
+          <div class="badge badge-outline">Slow living</div>
+          <div class="badge badge-outline">Productivité</div>
+          <div class="badge badge-outline">Philosophie</div>
+        </div>
+
+      </article>
+
+      <!-- Colonne latérale (sidebar) -->
+      <aside class="space-y-6 lg:sticky lg:top-6">
+
+        <!-- Sommaire -->
+        <div class="card bg-base-200 border border-base-300 shadow-sm">
+          <div class="card-body gap-3">
+            <h2 class="card-title h6">Dans cet article</h2>
+            <ul class="menu menu-sm p-0">
+              <li><a href="#intro">Introduction</a></li>
+              <li><a href="#pratiques">Trois pratiques</a></li>
+              <li><a href="#etudes">Ce que disent les études</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- À propos de l'autrice -->
+        <div class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body gap-3">
+            <h2 class="card-title h6">L'autrice</h2>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div class="w-14 rounded-full">
+                  <img src="https://picsum.photos/seed/author/80/80.webp" alt="Marie Blanc" />
+                </div>
+              </div>
+              <div>
+                <p class="p-sm font-semibold">Marie Blanc</p>
+                <p class="caption">Rédactrice lifestyle depuis 2019</p>
+              </div>
+            </div>
+            <p class="p-sm text-base-content/70">
+              Marie explore les liens entre environnement, rythme de vie et créativité dans ses articles hebdomadaires.
+            </p>
+          </div>
+        </div>
+
+        <!-- Articles liés -->
+        <div class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body gap-4">
+            <h2 class="card-title h6">Articles liés</h2>
+
+            <a href="#" class="flex gap-3 group">
+              <img src="https://picsum.photos/seed/related1/80/80.webp" alt="" class="h-16 w-16 rounded-lg object-cover flex-shrink-0" />
+              <div>
+                <p class="p-sm font-medium group-hover:text-primary transition-colors">Le slow design : quand les objets nous apaisent</p>
+                <p class="caption mt-1">5 min · Design</p>
+              </div>
+            </a>
+
+            <a href="#" class="flex gap-3 group">
+              <img src="https://picsum.photos/seed/related2/80/80.webp" alt="" class="h-16 w-16 rounded-lg object-cover flex-shrink-0" />
+              <div>
+                <p class="p-sm font-medium group-hover:text-primary transition-colors">Minimalisme numérique : reprendre le contrôle</p>
+                <p class="caption mt-1">8 min · Tech & vie</p>
+              </div>
+            </a>
+
+            <a href="#" class="flex gap-3 group">
+              <img src="https://picsum.photos/seed/related3/80/80.webp" alt="" class="h-16 w-16 rounded-lg object-cover flex-shrink-0" />
+              <div>
+                <p class="p-sm font-medium group-hover:text-primary transition-colors">La sieste au bureau : mythe ou réalité en France ?</p>
+                <p class="caption mt-1">4 min · Bien-être</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       Section commentaires
+       ═══════════════════════════════════════════════════════ -->
+  <section class="border-t border-base-300 bg-base-200">
+    <div class="mx-auto max-w-4xl px-4 py-10 lg:px-8">
+      <div class="mb-6 flex items-center gap-2">
+        <include file="@comp/icon.html" $icon="lucide/message-circle.svg" $size="22" $color="currentColor" />
+        <h2 class="h3">3 commentaires</h2>
+      </div>
+
+      <!-- Fil de commentaires -->
+      <div class="space-y-4">
+
+        <div class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body gap-2">
+            <div class="flex items-center gap-3">
+              <div class="avatar placeholder">
+                <div class="bg-primary text-primary-content w-10 rounded-full">
+                  <span class="text-sm">JL</span>
+                </div>
+              </div>
+              <div>
+                <p class="p-sm font-semibold">Julien L.</p>
+                <p class="caption">Il y a 2 jours</p>
+              </div>
+            </div>
+            <p class="p-sm">
+              Article formidable. J'ai testé l'ennui programmé cette semaine et j'ai eu l'idée d'un nouveau projet
+              professionnel que je repoussais depuis des mois. Coïncidence ? Je ne crois pas.
+            </p>
+            <div class="flex items-center gap-3 mt-1">
+              <button class="btn btn-ghost btn-xs gap-1">
+                <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
+                12
+              </button>
+              <button class="btn btn-ghost btn-xs">Répondre</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body gap-2">
+            <div class="flex items-center gap-3">
+              <div class="avatar placeholder">
+                <div class="bg-secondary text-secondary-content w-10 rounded-full">
+                  <span class="text-sm">CM</span>
+                </div>
+              </div>
+              <div>
+                <p class="p-sm font-semibold">Claire M.</p>
+                <p class="caption">Il y a 3 jours</p>
+              </div>
+            </div>
+            <p class="p-sm">
+              Le concept japonais de <em>ma</em> m'a complètement arrêtée. Je ne connaissais pas et j'ai passé
+              une heure à lire des articles dessus après. Merci pour la découverte !
+            </p>
+            <div class="flex items-center gap-3 mt-1">
+              <button class="btn btn-ghost btn-xs gap-1">
+                <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
+                8
+              </button>
+              <button class="btn btn-ghost btn-xs">Répondre</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body gap-2">
+            <div class="flex items-center gap-3">
+              <div class="avatar placeholder">
+                <div class="bg-accent text-accent-content w-10 rounded-full">
+                  <span class="text-sm">PH</span>
+                </div>
+              </div>
+              <div>
+                <p class="p-sm font-semibold">Pierre H.</p>
+                <p class="caption">Il y a 5 jours</p>
+              </div>
+            </div>
+            <p class="p-sm">
+              Beau texte, mais j'aurais aimé des sources précises pour les études citées. Le chiffre « +33 % de
+              créativité » mérite d'être contextualisé.
+            </p>
+            <div class="flex items-center gap-3 mt-1">
+              <button class="btn btn-ghost btn-xs gap-1">
+                <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
+                4
+              </button>
+              <button class="btn btn-ghost btn-xs">Répondre</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire de nouveau commentaire -->
+      <div class="card bg-base-100 border border-base-300 shadow-sm mt-8">
+        <div class="card-body gap-4">
+          <h3 class="h4">Laisser un commentaire</h3>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="form-control w-full">
+              <span class="label-text p-sm">Prénom *</span>
+              <input class="input input-bordered w-full" type="text" placeholder="Marie" />
+            </div>
+            <div class="form-control w-full">
+              <span class="label-text p-sm">E-mail *</span>
+              <input class="input input-bordered w-full" type="email" placeholder="marie@email.com" />
+            </div>
+          </div>
+          <div class="form-control w-full">
+            <span class="label-text p-sm">Commentaire *</span>
+            <textarea class="textarea textarea-bordered min-h-28 w-full" placeholder="Partagez votre avis…"></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button class="btn btn-primary">Publier le commentaire</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CTA bas de page — retour à l'accueil
+       ═══════════════════════════════════════════════════════ -->
+  <section class="mx-auto max-w-4xl px-4 py-10 lg:px-8">
+    <a href="./index.html" class="btn btn-ghost gap-2">
+      <include file="@comp/icon.html" $icon="lucide/arrow-left.svg" $size="18" $color="currentColor" />
+      Retour à l'accueil
+    </a>
+  </section>
 
 </include>
