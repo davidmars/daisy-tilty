@@ -1,6 +1,9 @@
 import {Embla} from "@comp/embla/embla.js";
 import Alpine from "alpinejs";
 import {LightBox} from "@comp/light-box/LightBox.js";
+import {Web3Form} from "@comp/web3-form/Web3Form.js";
+
+
 
 
 
@@ -16,6 +19,8 @@ document.addEventListener('alpine:init', () => {
     // On l'enregistre dans le store
     Alpine.store('lightbox', globalLightbox);
 
+    // Formulaire Web3Forms
+    Alpine.data('web3Forms', () => new Web3Form());
 });
 
 // ─── Alpine.js ────────────────────────────────────────────────────────────────

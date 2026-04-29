@@ -1,0 +1,111 @@
+<include file="@layout/common.html" $title="Test formulaire de contact">
+    <div class="container mx-auto max-w-3xl space-y-8 px-4 py-10">
+        <header class="space-y-3 rounded-xl border border-base-300 bg-base-100 p-6">
+            <p class="legend guide-note">page de test formulaire</p>
+            <h1 class="h1">Formulaire de contact</h1>
+            <p class="p">Cette page permet de valider la typographie, les champs DaisyUI et les états de formulaire sur un cas réel.</p>
+            <p class="caption">Les champs marqués * sont obligatoires.</p>
+        </header>
+
+        <section class="space-y-4 rounded-xl border border-base-300 bg-base-100 p-6">
+            <h2 class="h2">Contact rapide</h2>
+
+            <form x-data="web3Forms" class="space-y-4" action="https://api.web3forms.com/submit" method="POST" novalidate x-on:submit="handleSubmit">
+                <input type="hidden" name="access_key" x-bind:value="accessKey">
+
+                <div role="alert" class="alert alert-error" x-show="keyMissing">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="p-sm">Une erreur est survenue. <code x-text="keyErrorCode"></code></span>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="form-control w-full">
+                        <span class="label-text p-sm">Prénom *</span>
+                        <input class="input input-bordered w-full"
+                               x-bind:class="submitted && errors.prenom ? 'input-error' : ''"
+                               type="text" name="prenom" placeholder="Marie" />
+                        <span class="label-text-alt text-error mt-1"
+                              x-show="submitted && errors.prenom"
+                              x-text="errors.prenom"></span>
+                    </div>
+
+                    <div class="form-control w-full">
+                        <span class="label-text p-sm">Nom *</span>
+                        <input class="input input-bordered w-full"
+                               x-bind:class="submitted && errors.nom ? 'input-error' : ''"
+                               type="text" name="nom" placeholder="Durand" />
+                        <span class="label-text-alt text-error mt-1"
+                              x-show="submitted && errors.nom"
+                              x-text="errors.nom"></span>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="form-control w-full">
+                        <span class="label-text p-sm">E-mail *</span>
+                        <input class="input input-bordered w-full"
+                               x-bind:class="submitted && errors.email ? 'input-error' : ''"
+                               type="email" name="email" placeholder="marie@email.com" />
+                        <span class="label-text-alt text-error mt-1"
+                              x-show="submitted && errors.email"
+                              x-text="errors.email"></span>
+                    </div>
+
+                    <div class="form-control w-full">
+                        <span class="label-text p-sm">Téléphone</span>
+                        <input class="input input-bordered w-full" type="tel" name="telephone" placeholder="06 12 34 56 78" />
+                    </div>
+                </div>
+
+                <div class="form-control w-full">
+                    <span class="label-text p-sm">Sujet *</span>
+                    <select class="select select-bordered w-full"
+                            x-bind:class="submitted && errors.sujet ? 'select-error' : ''"
+                            name="sujet">
+                        <option value="" disabled selected>Sélectionner un sujet</option>
+                        <option value="devis">Demande de devis</option>
+                        <option value="rendez-vous">Prise de rendez-vous</option>
+                        <option value="support">Support technique</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <span class="label-text-alt text-error mt-1"
+                          x-show="submitted && errors.sujet"
+                          x-text="errors.sujet"></span>
+                </div>
+
+                <div class="form-control w-full">
+                    <span class="label-text p-sm">Message *</span>
+                    <textarea class="textarea textarea-bordered min-h-36 w-full"
+                              x-bind:class="submitted && errors.message ? 'textarea-error' : ''"
+                              name="message" placeholder="Décrivez votre besoin en quelques lignes..."></textarea>
+                    <span class="label-text-alt text-error mt-1"
+                          x-show="submitted && errors.message"
+                          x-text="errors.message"></span>
+                </div>
+
+                <div class="form-control mt-4">
+                    <label class="label cursor-pointer justify-start gap-3 items-start">
+                        <input class="checkbox checkbox-primary"
+                               x-bind:class="submitted && errors.consentement ? 'checkbox-error' : ''"
+                               type="checkbox" name="consentement" />
+                        <span class="p-sm">J'accepte d'être recontacté(e) dans le cadre de ma demande.</span>
+                    </label>
+                    <span class="label-text-alt text-error mt-1"
+                          x-show="submitted && errors.consentement"
+                          x-text="errors.consentement"></span>
+                </div>
+
+                <div class="flex flex-wrap gap-3 pt-2 justify-end">
+                    <button class="btn btn-ghost" type="reset">Réinitialiser</button>
+                    <button class="btn btn-primary" type="submit">Envoyer</button>
+                </div>
+            </form>
+        </section>
+
+    </div>
+</include>
+
+
+
