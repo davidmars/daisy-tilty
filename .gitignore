@@ -1,4 +1,14 @@
-# Fichiers SCSS auto-generes
+# Dépendances
+node_modules/
+
+# Build généré
+dist/
+
+# Fichiers SCSS auto-générés
 src/styles/components-all.scss
 src/styles/layout-all.scss
+
+# Variables d'environnement locales
+.env.local
+.env.*.local
 
