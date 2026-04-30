@@ -1,5 +1,6 @@
 import EmblaCarousel from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
+import AutoScroll from 'embla-carousel-auto-scroll'
 import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
 
 export class Embla {
@@ -16,7 +17,7 @@ export class Embla {
     this.emblaApi = null;
     this._isInitialized = false;
     // Propriété réactive Alpine: peut être modifiée directement via x-on
-    this.autoScrollSpeed = options?.autoScrollSpeed ?? 0.6;
+    this.autoScrollSpeed = options?.autoScrollSpeed ?? (options?.autoScroll ? 1 : 0.6);
     // Vitesse initiale pour restauration après drag mobile
     this.autoScrollInitialSpeed = this.autoScrollSpeed;
     // Vitesse courante lerpée (interne, non réactive)
@@ -33,18 +34,60 @@ export class Embla {
 
       const wrapperNode = this.$el;
       const viewportNode = wrapperNode.querySelector('.embla__viewport');
+      const containerNode = wrapperNode.querySelector('.embla__container');
 
-      for (const element of [wrapperNode, viewportNode]) {
+      for (const element of [wrapperNode, viewportNode, containerNode]) {
         if (!element) {
           console.warn('EmblaCarousel: missing element', element);
           return;
         }
       }
+
+      // Duplication automatique des slides pour assurer le remplissage (notamment pour AutoScroll)
+      if (this.options.autoFill && (this.options.autoScroll || this.options.loop)) {
+          const slides = Array.from(containerNode.children);
+          if (slides.length > 0) {
+              // Pour un effet infini propre, AutoScroll nécessite souvent que la largeur totale
+              // dépasse largement celle du viewport (au moins 2x ou 3x).
+              // On s'assure d'avoir au moins 30 items pour combler les grands écrans.
+              const minItems = 30;
+              if (slides.length < minItems) {
+                  const repeatCount = Math.ceil(minItems / slides.length) - 1;
+                  for (let i = 0; i < repeatCount; i++) {
+                      slides.forEach(slide => {
+                          const clone = slide.cloneNode(true);
+                          clone.setAttribute('aria-hidden', 'true');
+                          containerNode.appendChild(clone);
+                      });
+                  }
+              }
+          }
+      }
+
+      const plugins = [Autoplay({
+          stopOnMouseEnter: true,
+          stopOnInteraction: false
+      })];
+
+      if (this.options.autoScroll) {
+          const autoScrollOptions = {
+              speed: this.options.autoScrollSpeed ?? 1,
+              stopOnInteraction: false,
+              stopOnMouseEnter: this.options.stopOnMouseEnter ?? false,
+              playOnInit: true
+          };
+          console.log('Embla: activating AutoScroll with options', autoScrollOptions);
+          plugins.push(AutoScroll(autoScrollOptions));
+      }
+
       this.emblaApi = EmblaCarousel(
           viewportNode, {
           loop: this.options.loop ?? false,
           dragFree: this.options.dragFree ?? false,
-      }, [Autoplay()])
+      }, plugins)
+
+      // Conserver le nombre de slides originaux (avant duplication éventuelle via autoFill)
+      this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([aria-hidden="true"])').length;
 
       this._isInitialized = true;
 
@@ -64,9 +107,10 @@ export class Embla {
           setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
       }
 
-      if (this.options.autoScroll) {
-          this.setupAutoScroll();
-      }
+      // On n'utilise plus le setupAutoScroll fait maison si le plugin officiel est présent
+      // if (this.options.autoScroll) {
+      //    this.setupAutoScroll();
+      // }
 
       u();
 
@@ -83,7 +127,8 @@ export class Embla {
       }
 
       const newCurrent = this.emblaApi.selectedScrollSnap();
-      const newTotal = this.emblaApi.slideNodes().length;
+      // Utiliser le nombre de slides originaux au lieu du nombre total (incluant les clones)
+      const newTotal = this.originalSlidesCount || this.emblaApi.slideNodes().length;
 
       // Optimisation: ne mettre à jour que si les valeurs changent vraiment
       // Évite de déclencher la réactivité Alpine inutilement
@@ -136,4 +181,3 @@ export class Embla {
       this.updatePending = false;
   }
 }
-
