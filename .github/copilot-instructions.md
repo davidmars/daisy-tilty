@@ -7,7 +7,34 @@ Pour les messages de commit, suis les instructions définies dans #file:git-comm
 ## Langue et accents
 Respecte toujours les accents en français dans les exemples et dans les commentaires de code. N'écris pas de texte français sans accents.
 
-## Messages de commit
+## Composants Alpine.js existants à réutiliser
+
+Avant d'implémenter une fonctionnalité en JavaScript, **vérifier si un composant existe déjà** dans `src/components/`. Ne jamais recréer un composant déjà disponible.
+
+### Composants disponibles
+
+| Composant Alpine (`x-data`) | Fichier                                | Usage                                                        |
+|-----------------------------|----------------------------------------|--------------------------------------------------------------|
+| `web3Forms`                 | `src/components/web3-form/Web3Form.js` | Formulaire de contact avec soumission AJAX                   |
+| `embla`                     | `src/components/embla/embla.js`        | Carrousel / diaporama d'images                               |
+| `share`                     | `src/components/share/Share.js`        | Bouton de partage natif (Web Share API + fallback clipboard) |
+| *(store)* `lightbox`        | `src/components/light-box/LightBox.js` | Lightbox plein écran sur les images (classe `.lightbox`)     |
+
+### Utilisation du composant `share`
+
+Pour tout bouton de partage de page ou d'article, utiliser **obligatoirement** le composant `share` — ne jamais implémenter le partage manuellement. Voir `_docs/partage-natif.md`.
+
+### Utilisation du composant `lightbox`
+
+Pour toute image à afficher en plein écran au clic, utiliser **obligatoirement** la classe `lightbox` sur la balise `<a>` — ne jamais implémenter une lightbox custom. Voir `_docs/lightbox.md`.
+
+### Utilisation du composant `embla`
+
+Pour tout carrousel ou diaporama, utiliser **obligatoirement** le composant `embla` — ne jamais implémenter un carrousel custom. Voir `_docs/embla.md`.
+
+---
+
+
 
 **TOUJOURS en français.** Même si le code, les variables ou les commentaires sont en anglais, le message de commit est obligatoirement en français.
 
