@@ -1,6 +1,5 @@
 import EmblaCarousel from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
-import AutoScroll from 'embla-carousel-auto-scroll'
 import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
 
 export class Embla {
@@ -69,17 +68,6 @@ export class Embla {
           stopOnInteraction: false
       })];
 
-      if (this.options.autoScroll) {
-          const autoScrollOptions = {
-              speed: this.options.autoScrollSpeed ?? 1,
-              stopOnInteraction: false,
-              stopOnMouseEnter: this.options.stopOnMouseEnter ?? false,
-              playOnInit: true
-          };
-          console.log('Embla: activating AutoScroll with options', autoScrollOptions);
-          plugins.push(AutoScroll(autoScrollOptions));
-      }
-
       this.emblaApi = EmblaCarousel(
           viewportNode, {
           loop: this.options.loop ?? false,
@@ -145,11 +133,6 @@ export class Embla {
   setupAutoScroll() {
       if (this.autoScrollRaf) {
           cancelAnimationFrame(this.autoScrollRaf);
-      }
-
-      // Désactiver le plugin AutoScroll officiel s'il est actif pour ne pas interférer
-      if (this.emblaApi && this.emblaApi.plugins().autoScroll) {
-          this.emblaApi.plugins().autoScroll.stop();
       }
 
       const lerpFactor = this.options.autoScrollLerp ?? 0.06;
