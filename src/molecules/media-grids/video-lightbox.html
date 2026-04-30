@@ -1,0 +1,43 @@
+﻿<!---
+  Molécule : item vidéo pour grille lightbox (vignette avec overlay "play")
+  ──────────────────────────────────────────────────────────────────────────
+  Variables :
+    $href     — URL de la vidéo (MP4, WebM, YouTube, Vimeo…)
+    $src      — URL de la vignette affichée dans la grille
+    $alt      — texte alternatif de la vignette
+    $gallery  — nom du groupe lightbox (data-gallery), optionnel
+    $label    — libellé affiché sous l'icône play (ex. "Vidéo YouTube")
+    $class    — classes supplémentaires sur le <a> (ex. "rounded-3xl col-span-2")
+
+  Usage :
+    <include file="@mol/video-lightbox.html"
+      $href="https://www.youtube.com/watch?v=ScMzIvxBSi4"
+      $src="https://picsum.photos/seed/video/640/420.webp"
+      $alt="Vignette de la vidéo"
+      $gallery="ma-galerie"
+      $label="Vidéo YouTube"
+    />
+-->
+<a
+  href="{{$href=https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4}}"
+  class="lightbox group relative overflow-hidden {{$class=rounded-lg}}"
+  data-gallery="{{$gallery=}}"
+  data-type="video"
+>
+  <img
+    src="{{$src=https://picsum.photos/seed/video/640/420.webp}}"
+    alt="{{$alt=Vignette vidéo}}"
+    class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+    loading="lazy"
+    decoding="async"
+  />
+  <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/35 text-white">
+    <span class="flex flex-col items-center gap-2 text-center">
+      <span class="[&_svg]:h-14 [&_svg]:w-14">
+        <include file="../../icons/lucide/circle-play.svg" />
+      </span>
+      <span class="text-sm font-semibold tracking-wide">{{$label=Vidéo}}</span>
+    </span>
+  </span>
+</a>
+
