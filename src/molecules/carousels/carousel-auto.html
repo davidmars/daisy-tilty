@@ -4,34 +4,33 @@
   Options Embla : loop, autoScroll, dragFree
   Usage : copier ce bloc et remplacer les images/contenus des slides.
 -->
-<div x-data="embla({loop: true, autoScroll: true, autoScrollSpeed: -0.8, dragFree: true, autoScrollLerp: 0.02})"
-     x-on:mouseenter="autoScrollSpeed = 0"
-     x-on:mouseleave="autoScrollSpeed = autoScrollInitialSpeed"
-     x-on:pointerup="autoScrollSpeed = autoScrollInitialSpeed">
-  <div class="embla__viewport h-[150px]">
+<div x-data="embla({loop: true, autoScroll: true, autoScrollSpeed: -0.8, dragFree: true, autoScrollLerp: 0.02, autoFill: true, stopOnMouseEnter: true})">
+  <div class="embla__viewport h-[150px]"
+       x-on:mouseenter="if (emblaApi?.plugins().autoScroll) emblaApi.plugins().autoScroll.stop()"
+       x-on:mouseleave="if (emblaApi?.plugins().autoScroll) emblaApi.plugins().autoScroll.play()">
     <div class="embla__container embla__container--gap h-full" style="--embla-slide-gap: 0.5rem;">
-
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=alpha"    alt="Bot alpha"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=bravo"    alt="Bot bravo"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=charlie"  alt="Bot charlie"  loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=delta"    alt="Bot delta"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=echo"     alt="Bot echo"     loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=foxtrot"  alt="Bot foxtrot"  loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=golf"     alt="Bot golf"     loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"    alt="Bot hotel"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=india"    alt="Bot india"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=juliet"   alt="Bot juliet"   loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=kilo"     alt="Bot kilo"     loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=lima"     alt="Bot lima"     loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=mike"     alt="Bot mike"     loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=november" alt="Bot november" loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=oscar"   alt="Bot oscar"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=papa"     alt="Bot papa"     loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=quebec"   alt="Bot quebec"   loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=romeo"    alt="Bot romeo"    loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=sierra"   alt="Bot sierra"   loading="lazy" decoding="async" /></div>
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=tango"    alt="Bot tango"    loading="lazy" decoding="async" /></div>
-
+      <slot>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=alpha"    alt="Bot alpha"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=bravo"    alt="Bot bravo"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=charlie"  alt="Bot charlie"  loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=delta"    alt="Bot delta"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=echo"     alt="Bot echo"     loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=foxtrot"  alt="Bot foxtrot"  loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=golf"     alt="Bot golf"     loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"    alt="Bot hotel"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=india"    alt="Bot india"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=juliet"   alt="Bot juliet"   loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=kilo"     alt="Bot kilo"     loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=lima"     alt="Bot lima"     loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=mike"     alt="Bot mike"     loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=november" alt="Bot november" loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=oscar"   alt="Bot oscar"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=papa"     alt="Bot papa"     loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=quebec"   alt="Bot quebec"   loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=romeo"    alt="Bot romeo"    loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=sierra"   alt="Bot sierra"   loading="lazy" decoding="async" /></div>
+        <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=tango"    alt="Bot tango"    loading="lazy" decoding="async" /></div>
+      </slot>
     </div>
   </div>
 </div>
