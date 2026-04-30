@@ -147,6 +147,11 @@ export class Embla {
           cancelAnimationFrame(this.autoScrollRaf);
       }
 
+      // Désactiver le plugin AutoScroll officiel s'il est actif pour ne pas interférer
+      if (this.emblaApi && this.emblaApi.plugins().autoScroll) {
+          this.emblaApi.plugins().autoScroll.stop();
+      }
+
       const lerpFactor = this.options.autoScrollLerp ?? 0.06;
 
       const tick = () => {
