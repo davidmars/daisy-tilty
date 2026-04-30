@@ -4,10 +4,10 @@
   Options Embla : loop, autoScroll, dragFree
   Usage : copier ce bloc et remplacer les images/contenus des slides.
 -->
-<div x-data="embla({loop: true, autoScroll: true, autoScrollSpeed: -0.8, dragFree: true, autoScrollLerp: 0.02, autoFill: true, stopOnMouseEnter: true})">
+<div x-data="embla({loop: true, autoScroll: true, autoScrollSpeed: -0.8, dragFree: true, autoScrollLerp: 0.02, autoFill: true})">
   <div class="embla__viewport h-[150px]"
-       x-on:mouseenter="if (emblaApi?.plugins().autoScroll) emblaApi.plugins().autoScroll.stop()"
-       x-on:mouseleave="if (emblaApi?.plugins().autoScroll) emblaApi.plugins().autoScroll.play()">
+       x-on:mouseenter="autoScrollSpeed = 0"
+       x-on:mouseleave="autoScrollSpeed = autoScrollInitialSpeed">
     <div class="embla__container embla__container--gap h-full" style="--embla-slide-gap: 0.5rem;">
       <slot>
         <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=alpha"    alt="Bot alpha"    loading="lazy" decoding="async" /></div>

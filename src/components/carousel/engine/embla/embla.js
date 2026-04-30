@@ -112,6 +112,10 @@ export class Embla {
       //    this.setupAutoScroll();
       // }
 
+      if (this.options.autoScroll) {
+          this.setupAutoScroll();
+      }
+
       u();
 
       if (this.options.autoplay) {
