@@ -12,10 +12,6 @@
     <div class="absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-black/75"></div>
     <div class="absolute inset-0 flex items-end">
       <div class="mx-auto w-full max-w-4xl px-4 pb-8 lg:px-8">
-        <div class="mb-3 flex flex-wrap gap-2">
-          <div class="badge badge-primary">Lifestyle</div>
-          <div class="badge badge-secondary">Bien-être</div>
-        </div>
         <h1 class="h1 text-white">L'art de ne rien faire — et pourquoi c'est sous-estimé</h1>
         <p class="lead mt-2 text-white/80">
           Une exploration sincère du repos intentionnel, entre philosophie du quotidien et science du cerveau.
@@ -56,15 +52,15 @@
       </div>
 
       <!-- Actions : partager + enregistrer -->
-      <div class="flex items-center gap-2">
-        <button class="btn btn-ghost btn-sm gap-1">
+      <div class="flex items-center gap-2" x-data="share">
+        <button class="btn btn-ghost btn-sm gap-1" x-on:click="shareArticle">
           <include file="@comp/icon.html" $icon="lucide/share.svg" $size="16" $color="currentColor" />
           Partager
         </button>
-        <button class="btn btn-ghost btn-sm gap-1">
-          <include file="@comp/icon.html" $icon="lucide/bookmark.svg" $size="16" $color="currentColor" />
-          Enregistrer
-        </button>
+        <div role="alert" class="alert alert-success py-1 px-3 text-sm transition-all" x-show="copied" x-cloak>
+          <include file="@comp/icon.html" $icon="lucide/circle-check-big.svg" $size="16" $color="currentColor" />
+          Lien copié !
+        </div>
       </div>
     </div>
   </div>
@@ -195,15 +191,6 @@
           téléphone. Votre cerveau est peut-être en train de faire son travail le plus important.
         </p>
 
-        <!-- Tags de l'article -->
-        <div class="mt-8 flex flex-wrap items-center gap-2 border-t border-base-300 pt-6">
-          <include file="@comp/icon.html" $icon="lucide/tag.svg" $size="16" $color="currentColor" />
-          <div class="badge badge-outline">Bien-être</div>
-          <div class="badge badge-outline">Neurosciences</div>
-          <div class="badge badge-outline">Slow living</div>
-          <div class="badge badge-outline">Productivité</div>
-          <div class="badge badge-outline">Philosophie</div>
-        </div>
 
       </article>
 
@@ -232,10 +219,6 @@
                 <div class="w-14 rounded-full">
                   <img src="https://picsum.photos/seed/author/80/80.webp" alt="Marie Blanc" />
                 </div>
-              </div>
-              <div>
-                <p class="p-sm font-semibold">Marie Blanc</p>
-                <p class="caption">Rédactrice lifestyle depuis 2019</p>
               </div>
             </div>
             <p class="p-sm text-base-content/70">
@@ -279,126 +262,6 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       Section commentaires
-       ═══════════════════════════════════════════════════════ -->
-  <section class="border-t border-base-300 bg-base-200">
-    <div class="mx-auto max-w-4xl px-4 py-10 lg:px-8">
-      <div class="mb-6 flex items-center gap-2">
-        <include file="@comp/icon.html" $icon="lucide/message-circle.svg" $size="22" $color="currentColor" />
-        <h2 class="h3">3 commentaires</h2>
-      </div>
-
-      <!-- Fil de commentaires -->
-      <div class="space-y-4">
-
-        <div class="card bg-base-100 border border-base-300 shadow-sm">
-          <div class="card-body gap-2">
-            <div class="flex items-center gap-3">
-              <div class="avatar placeholder">
-                <div class="bg-primary text-primary-content w-10 rounded-full">
-                  <span class="text-sm">JL</span>
-                </div>
-              </div>
-              <div>
-                <p class="p-sm font-semibold">Julien L.</p>
-                <p class="caption">Il y a 2 jours</p>
-              </div>
-            </div>
-            <p class="p-sm">
-              Article formidable. J'ai testé l'ennui programmé cette semaine et j'ai eu l'idée d'un nouveau projet
-              professionnel que je repoussais depuis des mois. Coïncidence ? Je ne crois pas.
-            </p>
-            <div class="flex items-center gap-3 mt-1">
-              <button class="btn btn-ghost btn-xs gap-1">
-                <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
-                12
-              </button>
-              <button class="btn btn-ghost btn-xs">Répondre</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-100 border border-base-300 shadow-sm">
-          <div class="card-body gap-2">
-            <div class="flex items-center gap-3">
-              <div class="avatar placeholder">
-                <div class="bg-secondary text-secondary-content w-10 rounded-full">
-                  <span class="text-sm">CM</span>
-                </div>
-              </div>
-              <div>
-                <p class="p-sm font-semibold">Claire M.</p>
-                <p class="caption">Il y a 3 jours</p>
-              </div>
-            </div>
-            <p class="p-sm">
-              Le concept japonais de <em>ma</em> m'a complètement arrêtée. Je ne connaissais pas et j'ai passé
-              une heure à lire des articles dessus après. Merci pour la découverte !
-            </p>
-            <div class="flex items-center gap-3 mt-1">
-              <button class="btn btn-ghost btn-xs gap-1">
-                <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
-                8
-              </button>
-              <button class="btn btn-ghost btn-xs">Répondre</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-100 border border-base-300 shadow-sm">
-          <div class="card-body gap-2">
-            <div class="flex items-center gap-3">
-              <div class="avatar placeholder">
-                <div class="bg-accent text-accent-content w-10 rounded-full">
-                  <span class="text-sm">PH</span>
-                </div>
-              </div>
-              <div>
-                <p class="p-sm font-semibold">Pierre H.</p>
-                <p class="caption">Il y a 5 jours</p>
-              </div>
-            </div>
-            <p class="p-sm">
-              Beau texte, mais j'aurais aimé des sources précises pour les études citées. Le chiffre « +33 % de
-              créativité » mérite d'être contextualisé.
-            </p>
-            <div class="flex items-center gap-3 mt-1">
-              <button class="btn btn-ghost btn-xs gap-1">
-                <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
-                4
-              </button>
-              <button class="btn btn-ghost btn-xs">Répondre</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Formulaire de nouveau commentaire -->
-      <div class="card bg-base-100 border border-base-300 shadow-sm mt-8">
-        <div class="card-body gap-4">
-          <h3 class="h4">Laisser un commentaire</h3>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="form-control w-full">
-              <span class="label-text p-sm">Prénom *</span>
-              <input class="input input-bordered w-full" type="text" placeholder="Marie" />
-            </div>
-            <div class="form-control w-full">
-              <span class="label-text p-sm">E-mail *</span>
-              <input class="input input-bordered w-full" type="email" placeholder="marie@email.com" />
-            </div>
-          </div>
-          <div class="form-control w-full">
-            <span class="label-text p-sm">Commentaire *</span>
-            <textarea class="textarea textarea-bordered min-h-28 w-full" placeholder="Partagez votre avis…"></textarea>
-          </div>
-          <div class="flex justify-end">
-            <button class="btn btn-primary">Publier le commentaire</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════════════════════════════════════════════════════
        CTA bas de page — retour à l'accueil

@@ -2,6 +2,7 @@ import {Embla} from "@comp/embla/embla.js";
 import Alpine from "alpinejs";
 import {LightBox} from "@comp/light-box/LightBox.js";
 import {Web3Form} from "@comp/web3-form/Web3Form.js";
+import {Share} from "@comp/share/Share.js";
 
 
 
@@ -21,6 +22,9 @@ document.addEventListener('alpine:init', () => {
 
     // Formulaire Web3Forms
     Alpine.data('web3Forms', () => new Web3Form());
+
+    // Partage natif (Web Share API)
+    Alpine.data('share', () => new Share());
 });
 
 // ─── Alpine.js ────────────────────────────────────────────────────────────────
