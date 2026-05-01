@@ -55,6 +55,8 @@ export class Embla {
     init() {
         if (this._isInitialized) return;
 
+        console.log('Embla: Initialisation...');
+
         const viewportNode = this.$el.querySelector('.embla__viewport');
         const containerNode = this.$el.querySelector('.embla__container');
 
@@ -66,44 +68,60 @@ export class Embla {
         // 1. Gestion du remplissage automatique (autoFill) avant init Embla
         this._handleAutoFill(containerNode);
 
-        // 2. Initialisation d'Embla v9 Core
-        this.emblaApi = EmblaCarousel(viewportNode, {
-            loop: this.options.loop ?? false,
-            dragFree: this.options.dragFree ?? false,
-            containScroll: this.options.containScroll ?? 'trimSnaps',
-            align: this.options.align ?? 'center',
-            slidesToScroll: this.options.slidesToScroll ?? 1,
-            ...this.options
-        });
+        try {
+            // 2. Initialisation d'Embla v9 Core
+            this.emblaApi = EmblaCarousel(viewportNode, {
+                loop: this.options.loop ?? false,
+                dragFree: this.options.dragFree ?? false,
+                containScroll: this.options.containScroll ?? 'trimSnaps',
+                align: this.options.align ?? 'center',
+                slidesToScroll: this.options.slidesToScroll ?? 1,
+                ...this.options
+            });
 
-        // 3. Calcul du nombre de slides originaux
-        this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([aria-hidden="true"])').length;
+            if (!this.emblaApi) {
+                throw new Error('EmblaCarousel instance is null');
+            }
 
-        // 4. Événements
-        const onSelect = () => {
-            this.current = this.emblaApi.selectedScrollSnap();
-            // Utilise originalSlidesCount si autoFill est actif, sinon le nombre de snaps
-            this.total = this.originalSlidesCount || this.emblaApi.scrollSnapList().length;
-        };
+            console.log('Embla: API initialisée', this.emblaApi);
 
-        this.emblaApi.on('select', onSelect);
-        this.emblaApi.on('reInit', onSelect);
+            // 3. Calcul du nombre de slides originaux
+            this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([aria-hidden="true"])').length;
 
-        // 5. Extensions personnalisées
-        if (this.options.parallax) {
-            setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
+            // 4. Événements
+            const onSelect = () => {
+                if (!this.emblaApi) return;
+                try {
+                    this.current = this.emblaApi.selectedScrollSnap();
+                    // Utilise originalSlidesCount si autoFill est actif, sinon le nombre de snaps
+                    this.total = this.originalSlidesCount || this.emblaApi.scrollSnapList().length;
+                } catch (e) {
+                    console.error('Embla: Erreur dans onSelect', e);
+                }
+            };
+
+            this.emblaApi.on('select', onSelect);
+            this.emblaApi.on('reInit', onSelect);
+
+            // 5. Extensions personnalisées
+            if (this.options.parallax) {
+                setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
+            }
+
+            if (this.options.autoScroll) {
+                this.startAutoScroll();
+            }
+
+            if (this.autoplayEnabled) {
+                this.startAutoplay();
+            }
+
+            this._isInitialized = true;
+            onSelect(); // Synchronisation initiale
+            console.log('Embla: Initialisation terminée avec succès');
+        } catch (error) {
+            console.error('Embla: Échec de l\'initialisation', error);
         }
-
-        if (this.options.autoScroll) {
-            this.startAutoScroll();
-        }
-
-        if (this.autoplayEnabled) {
-            this.startAutoplay();
-        }
-
-        this._isInitialized = true;
-        onSelect(); // Synchronisation initiale
     }
 
     /**
@@ -187,6 +205,31 @@ export class Embla {
             clearInterval(this._autoplayTimer);
             this._autoplayTimer = null;
         }
+    }
+
+    /**
+     * Fait défiler vers le slide suivant.
+     * @returns {void}
+     */
+    scrollNext() {
+        this.emblaApi?.scrollNext();
+    }
+
+    /**
+     * Fait défiler vers le slide précédent.
+     * @returns {void}
+     */
+    scrollPrev() {
+        this.emblaApi?.scrollPrev();
+    }
+
+    /**
+     * Fait défiler vers un slide précis.
+     * @param {number} index
+     * @returns {void}
+     */
+    scrollTo(index) {
+        this.emblaApi?.scrollTo(index);
     }
 
     destroy() {
