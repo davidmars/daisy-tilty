@@ -147,4 +147,95 @@ export class Embla {
             if (Math.abs(this._autoScrollCurrentSpeed) > 0.001) {
                 const engine = this.emblaApi.internalEngine();
                 if (engine && !engine.dragHandler.pointerDown()) {
+                    engine.location.add(this._autoScrollCurrentSpeed);
+                    engine.target.set(engine.location);
+                    engine.scrollBody.useDefaultFriction();
+                    engine.animation.start();
+                }
+            }
+
+            this._autoScrollRaf = requestAnimationFrame(tick);
+        };
+
+        this._autoScrollRaf = requestAnimationFrame(tick);
+    }
+
+    /**
+     * Arrête la boucle de défilement continu.
+     * @returns {void}
+     */
+    stopAutoScroll() {
+        if (this._autoScrollRaf) {
+            cancelAnimationFrame(this._autoScrollRaf);
+            this._autoScrollRaf = null;
+        }
+    }
+
+    /**
+     * Démarre l'autoplay (défilement par étape).
+     * @returns {void}
+     */
+    startAutoplay() {
+        this.stopAutoplay();
+        this._autoplayTimer = setInterval(() => {
+            if (this.emblaApi) {
+                if (this.emblaApi.canGoToNext()) {
+                    this.emblaApi.goToNext();
+                } else {
+                    this.emblaApi.goTo(0);
+                }
+            }
+        }, this.autoplayDelay);
+    }
+
+    /**
+     * Arrête l'autoplay.
+     * @returns {void}
+     */
+    stopAutoplay() {
+        if (this._autoplayTimer) {
+            clearInterval(this._autoplayTimer);
+            this._autoplayTimer = null;
+        }
+    }
+
+    /**
+     * Fait défiler vers le slide suivant.
+     * @returns {void}
+     */
+    scrollNext() {
+        this.emblaApi?.goToNext();
+    }
+
+    /**
+     * Fait défiler vers le slide précédent.
+     * @returns {void}
+     */
+    scrollPrev() {
+        this.emblaApi?.goToPrev();
+    }
+
+    /**
+     * Fait défiler vers un slide précis.
+     * @param {number} index
+     * @returns {void}
+     */
+    scrollTo(index) {
+        this.emblaApi?.goTo(index);
+    }
+
+    /**
+     * Détruit l'instance et libère les ressources.
+     * @returns {void}
+     */
+    destroy() {
+        this.stopAutoScroll();
+        this.stopAutoplay();
+        if (this.emblaApi) {
+            this.emblaApi.destroy();
+            this.emblaApi = null;
+        }
+        this._isInitialized = false;
+    }
+}
 
