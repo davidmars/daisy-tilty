@@ -31,20 +31,28 @@ export class LightBox {
         // Délégation d'événement via cash-dom
         $(document).on('click', this.selector, (event) => {
             event.preventDefault();
+            event.stopImmediatePropagation(); // Empêche d'autres déclencheurs potentiels
+            
             const element = event.currentTarget;
             
-            // On ouvre manuellement l'élément cliqué
-            this.instance.setElements([element]);
-            this.instance.open();
-            
-            // Si l'élément appartient à une galerie, on recharge les éléments de cette galerie
-            const galleryName = $(element).attr('data-gallery');
-            if (galleryName) {
-                const galleryElements = $(`${this.selector}[data-gallery="${galleryName}"]`).get();
-                this.instance.setElements(galleryElements);
-                const index = galleryElements.indexOf(element);
-                this.instance.openAt(index);
+            // Si la lightbox est déjà ouverte, on ne fait rien
+            if (this.instance.built && this.instance.isOpen()) {
+                return;
             }
+
+            // On récupère les éléments de la galerie ou l'élément seul
+            const galleryName = $(element).attr('data-gallery');
+            let galleryElements = [element];
+            let index = 0;
+
+            if (galleryName) {
+                galleryElements = $(`${this.selector}[data-gallery="${galleryName}"]`).get();
+                index = galleryElements.indexOf(element);
+            }
+
+            // Mise à jour des éléments et ouverture
+            this.instance.setElements(galleryElements);
+            this.instance.openAt(index);
         });
 
         console.log(`LightBox prête (délégation sur : ${this.selector})`);
