@@ -1,175 +1,183 @@
 import EmblaCarousel from 'embla-carousel'
-import Autoplay from 'embla-carousel-autoplay'
 import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
 
+/**
+ * Composant Embla v9 Core - Sans plugins externes.
+ * Gère le défilement continu (AutoScroll) et par étape (Autoplay) via une logique personnalisée.
+ */
 export class Embla {
     /**
-     *
-     * @param {EmblaOptions} options
+     * @param {Object} options - Options de configuration Embla et personnalisées
      */
-  constructor(options) {
-    this.options = options || {};
-    this.total = 0;
-    this.current = 0;
-    this.updatePending = false;
-    this.autoScrollRaf = null;
-    this.emblaApi = null;
-    this._isInitialized = false;
-    // Propriété réactive Alpine: peut être modifiée directement via x-on
-    this.autoScrollSpeed = options?.autoScrollSpeed ?? (options?.autoScroll ? 1 : 0.6);
-    // Vitesse initiale pour restauration après drag mobile
-    this.autoScrollInitialSpeed = this.autoScrollSpeed;
-    // Vitesse courante lerpée (interne, non réactive)
-    this._autoScrollCurrentSpeed = this.autoScrollSpeed;
-  }
+    constructor(options = {}) {
+        this.options = options;
+        
+        // États réactifs Alpine
+        this.total = 0;
+        this.current = 0;
+        this.originalSlidesCount = 0;
+        
+        // Variables internes
+        this.emblaApi = null;
+        this._isInitialized = false;
+        this._autoScrollRaf = null;
+        this._autoplayTimer = null;
 
+        // Configuration du défilement continu (Lerp)
+        this.autoScrollSpeed = options.autoScrollSpeed ?? (options.autoScroll ? 1 : 0);
+        this.autoScrollInitialSpeed = this.autoScrollSpeed;
+        this._autoScrollCurrentSpeed = this.autoScrollSpeed;
+        this.autoScrollLerp = options.autoScrollLerp ?? 0.05;
 
+        // Configuration de l'Autoplay (étape par étape)
+        this.autoplayDelay = options.autoplayDelay ?? 4000;
+        this.autoplayEnabled = options.autoplay ?? false;
+    }
 
-  /** @this {Embla & { $el: HTMLElement }} */
-  init() {
-      if (this._isInitialized) {
-          return;
-      }
+    /** @this {Embla & { $el: HTMLElement }} */
+    init() {
+        if (this._isInitialized) return;
 
-      const wrapperNode = this.$el;
-      const viewportNode = wrapperNode.querySelector('.embla__viewport');
-      const containerNode = wrapperNode.querySelector('.embla__container');
+        const viewportNode = this.$el.querySelector('.embla__viewport');
+        const containerNode = this.$el.querySelector('.embla__container');
 
-      for (const element of [wrapperNode, viewportNode, containerNode]) {
-        if (!element) {
-          console.warn('EmblaCarousel: missing element', element);
-          return;
+        if (!viewportNode || !containerNode) {
+            console.error('Embla: Nœuds DOM manquants (.embla__viewport ou .embla__container)');
+            return;
         }
-      }
 
-      // Duplication automatique des slides pour assurer le remplissage (notamment pour AutoScroll)
-      if (this.options.autoFill && (this.options.autoScroll || this.options.loop)) {
-          const slides = Array.from(containerNode.children);
-          if (slides.length > 0) {
-              // Pour un effet infini propre, AutoScroll nécessite souvent que la largeur totale
-              // dépasse largement celle du viewport (au moins 2x ou 3x).
-              // On s'assure d'avoir au moins 30 items pour combler les grands écrans.
-              const minItems = 30;
-              if (slides.length < minItems) {
-                  const repeatCount = Math.ceil(minItems / slides.length) - 1;
-                  for (let i = 0; i < repeatCount; i++) {
-                      slides.forEach(slide => {
-                          const clone = slide.cloneNode(true);
-                          clone.setAttribute('aria-hidden', 'true');
-                          containerNode.appendChild(clone);
-                      });
-                  }
-              }
-          }
-      }
+        // 1. Gestion du remplissage automatique (autoFill) avant init Embla
+        this._handleAutoFill(containerNode);
 
-      const plugins = [Autoplay({
-          stopOnMouseEnter: true,
-          stopOnInteraction: false
-      })];
+        // 2. Initialisation d'Embla v9 Core
+        this.emblaApi = EmblaCarousel(viewportNode, {
+            loop: this.options.loop ?? false,
+            dragFree: this.options.dragFree ?? false,
+            containScroll: this.options.containScroll ?? 'trimSnaps',
+            align: this.options.align ?? 'center',
+            slidesToScroll: this.options.slidesToScroll ?? 1,
+            ...this.options
+        });
 
-      this.emblaApi = EmblaCarousel(
-          viewportNode, {
-          loop: this.options.loop ?? false,
-          dragFree: this.options.dragFree ?? false,
-      }, plugins)
+        // 3. Calcul du nombre de slides originaux
+        this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([aria-hidden="true"])').length;
 
-      // Conserver le nombre de slides originaux (avant duplication éventuelle via autoFill)
-      this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([aria-hidden="true"])').length;
+        // 4. Événements
+        const onSelect = () => {
+            this.current = this.emblaApi.selectedScrollSnap();
+            // Utilise originalSlidesCount si autoFill est actif, sinon le nombre de snaps
+            this.total = this.originalSlidesCount || this.emblaApi.scrollSnapList().length;
+        };
 
-      this._isInitialized = true;
+        this.emblaApi.on('select', onSelect);
+        this.emblaApi.on('reInit', onSelect);
 
-      // Throttler les mises à jour Alpine avec rAF pour éviter les rendus excessifs
-      const u = () => {
-          if (this.updatePending) return;
-          this.updatePending = true;
-          requestAnimationFrame(() => {
-              this.updatePending = false;
-              this.update();
-          });
-      };
+        // 5. Extensions personnalisées
+        if (this.options.parallax) {
+            setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
+        }
 
-      this.emblaApi.on('select', u).on('reInit', u)
+        if (this.options.autoScroll) {
+            this.startAutoScroll();
+        }
 
-      if (this.options.parallax) {
-          setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
-      }
+        if (this.autoplayEnabled) {
+            this.startAutoplay();
+        }
 
-      // On n'utilise plus le setupAutoScroll fait maison si le plugin officiel est présent
-      // if (this.options.autoScroll) {
-      //    this.setupAutoScroll();
-      // }
+        this._isInitialized = true;
+        onSelect(); // Synchronisation initiale
+    }
 
-      if (this.options.autoScroll) {
-          this.setupAutoScroll();
-      }
+    /**
+     * Duplique les slides pour assurer un défilement infini visuellement plein.
+     * @param {HTMLElement} container 
+     */
+    _handleAutoFill(container) {
+        if (!this.options.autoFill) return;
 
-      u();
+        const slides = Array.from(container.children);
+        if (slides.length === 0) return;
 
-      if (this.options.autoplay) {
-          this.emblaApi.plugins().autoplay.play()
-      } else {
-          this.emblaApi.plugins().autoplay.stop()
-      }
-  }
+        // On s'assure d'avoir assez de slides pour combler les grands viewports
+        const minItems = 20; 
+        if (slides.length < minItems) {
+            const repeatCount = Math.ceil(minItems / slides.length) - 1;
+            for (let i = 0; i < repeatCount; i++) {
+                slides.forEach(slide => {
+                    const clone = slide.cloneNode(true);
+                    clone.setAttribute('aria-hidden', 'true');
+                    container.appendChild(clone);
+                });
+            }
+        }
+    }
 
-  update() {
-      if (!this.emblaApi) {
-          return;
-      }
+    /**
+     * Démarre la boucle de défilement continu avec interpolation (Lerp).
+     */
+    startAutoScroll() {
+        this.stopAutoScroll();
 
-      const newCurrent = this.emblaApi.selectedScrollSnap();
-      // Utiliser le nombre de slides originaux au lieu du nombre total (incluant les clones)
-      const newTotal = this.originalSlidesCount || this.emblaApi.slideNodes().length;
+        const tick = () => {
+            if (!this.emblaApi) return;
 
-      // Optimisation: ne mettre à jour que si les valeurs changent vraiment
-      // Évite de déclencher la réactivité Alpine inutilement
-      if (this.current !== newCurrent || this.total !== newTotal) {
-          this.current = newCurrent;
-          this.total = newTotal;
-      }
-  }
+            // Interpolation vers la vitesse cible
+            this._autoScrollCurrentSpeed += (this.autoScrollSpeed - this._autoScrollCurrentSpeed) * this.autoScrollLerp;
 
-  setupAutoScroll() {
-      if (this.autoScrollRaf) {
-          cancelAnimationFrame(this.autoScrollRaf);
-      }
+            if (Math.abs(this._autoScrollCurrentSpeed) > 0.001) {
+                const engine = this.emblaApi.internalEngine();
+                // On n'applique le mouvement que si l'utilisateur ne drag pas
+                if (engine && !engine.dragHandler.pointerDown()) {
+                    engine.location.add(this._autoScrollCurrentSpeed);
+                    engine.target.set(engine.location);
+                    engine.scrollBody.useDefaultFriction();
+                    engine.animation.start();
+                }
+            }
 
-      const lerpFactor = this.options.autoScrollLerp ?? 0.06;
+            this._autoScrollRaf = requestAnimationFrame(tick);
+        };
 
-      const tick = () => {
-          if (!this.emblaApi) return;
+        this._autoScrollRaf = requestAnimationFrame(tick);
+    }
 
-          // Lerp vers la vitesse cible
-          this._autoScrollCurrentSpeed += (this.autoScrollSpeed - this._autoScrollCurrentSpeed) * lerpFactor;
+    stopAutoScroll() {
+        if (this._autoScrollRaf) {
+            cancelAnimationFrame(this._autoScrollRaf);
+            this._autoScrollRaf = null;
+        }
+    }
 
-          if (Math.abs(this._autoScrollCurrentSpeed) > 0.001) {
-              const engine = this.emblaApi.internalEngine();
-              if (engine && !engine.dragHandler.pointerDown()) {
-                  engine.scrollBody.useFriction(0.35).useDuration(0.7);
-                  engine.target.add(this._autoScrollCurrentSpeed);
-                  engine.animation.start();
-              }
-          }
+    /**
+     * Démarre l'autoplay (défilement par étape).
+     */
+    startAutoplay() {
+        this.stopAutoplay();
+        this._autoplayTimer = setInterval(() => {
+            if (this.emblaApi && !this.emblaApi.internalEngine().dragHandler.pointerDown()) {
+                if (this.emblaApi.canScrollNext()) {
+                    this.emblaApi.scrollNext();
+                } else {
+                    this.emblaApi.scrollTo(0);
+                }
+            }
+        }, this.autoplayDelay);
+    }
 
-          this.autoScrollRaf = requestAnimationFrame(tick);
-      };
+    stopAutoplay() {
+        if (this._autoplayTimer) {
+            clearInterval(this._autoplayTimer);
+            this._autoplayTimer = null;
+        }
+    }
 
-      this.autoScrollRaf = requestAnimationFrame(tick);
-  }
-
-  destroy() {
-      if (this.autoScrollRaf) {
-          cancelAnimationFrame(this.autoScrollRaf);
-          this.autoScrollRaf = null;
-      }
-
-      if (this.emblaApi) {
-          this.emblaApi.destroy();
-          this.emblaApi = null;
-      }
-
-      this._isInitialized = false;
-      this.updatePending = false;
-  }
+    destroy() {
+        this.stopAutoScroll();
+        this.stopAutoplay();
+        if (this.emblaApi) {
+            this.emblaApi.destroy();
+        }
+        this._isInitialized = false;
+    }
 }
