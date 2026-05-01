@@ -2,12 +2,29 @@ import EmblaCarousel from 'embla-carousel'
 import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
 
 /**
+ * @typedef {Object} EmblaOptions
+ * @property {boolean} [loop=false] - Active le défilement infini.
+ * @property {boolean} [dragFree=false] - Permet de lancer le carrousel librement sans s'arrêter sur des snaps.
+ * @property {string} [containScroll='trimSnaps'] - Politique de confinement du défilement ('trimSnaps', 'keepSnaps', '').
+ * @property {string} [align='center'] - Alignement des slides dans le viewport ('start', 'center', 'end').
+ * @property {number} [slidesToScroll=1] - Nombre de slides à faire défiler par action.
+ * @property {boolean} [autoFill=false] - Duplique automatiquement les slides pour remplir le viewport (utile pour AutoScroll/Loop).
+ * @property {boolean} [autoScroll=false] - Active le défilement continu personnalisé (notre moteur interne).
+ * @property {number} [autoScrollSpeed=1] - Vitesse du défilement continu. Une valeur négative inverse le sens.
+ * @property {number} [autoScrollLerp=0.05] - Facteur d'interpolation (0 à 1) pour la fluidité du freinage/accélération. 0.05 par défaut.
+ * @property {boolean} [autoplay=false] - Active le défilement automatique par étape.
+ * @property {number} [autoplayDelay=4000] - Délai entre deux étapes d'autoplay (en ms).
+ * @property {boolean} [parallax=false] - Active l'effet de parallaxe sur les slides.
+ * @property {number} [parallaxFactor] - Intensité de l'effet parallaxe.
+ */
+
+/**
  * Composant Embla v9 Core - Sans plugins externes.
  * Gère le défilement continu (AutoScroll) et par étape (Autoplay) via une logique personnalisée.
  */
 export class Embla {
     /**
-     * @param {Object} options - Options de configuration Embla et personnalisées
+     * @param {EmblaOptions} options - Options de configuration Embla et personnalisées
      */
     constructor(options = {}) {
         this.options = options;
