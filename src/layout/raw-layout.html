@@ -9,7 +9,23 @@
     <slot name="header" />
   </head>
   <body class="min-h-svh flex flex-col">
-    <slot />
+
+    <!-- Drawer molécules (drawer-end = panneau droit) -->
+    <div class="drawer drawer-end">
+      <input id="drawer-molecules-catalog" type="checkbox" class="drawer-toggle" />
+
+      <!-- Contenu principal de la page -->
+      <div class="drawer-content flex min-h-svh flex-col">
+        <slot />
+      </div>
+
+      <!-- Panneau latéral molécules -->
+      <div class="drawer-side z-50">
+        <label for="drawer-molecules-catalog" aria-label="Fermer le panneau" class="drawer-overlay"></label>
+        <include file="@layout/drawer-molecules-catalog.html" />
+      </div>
+    </div>
+
   </body>
   <slot name="after-body" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
