@@ -1,16 +1,24 @@
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     Formulaire de contact Web3Forms
-     Composant Alpine.js : x-data="web3Forms" → src/components/web3-form/Web3Form.js
-     Soumission AJAX via fetch — sans rechargement de page.
+<!---
+  form-contact.html — Formulaire de contact Web3Forms
+  ──────────────────────────────────────────────────────
+  Composant Alpine.js : x-data="web3Forms" → src/components/web3-form/Web3Form.js
+  Soumission AJAX via fetch — sans rechargement de page.
 
-     Validation :
-     - Gérée nativement par les attributs HTML5 (required, type="email"…).
-     - DaisyUI `.validator` + `.validator-hint` réagissent via CSS à :invalid :
-       la bordure devient rouge et le message d'erreur passe de visibility:hidden
-       à visibility:visible dès que l'utilisateur interagit avec un champ invalide.
-     - Alpine intervient uniquement pour bloquer la soumission (checkValidity),
-       gérer le spinner et afficher le message de succès / l'erreur de soumission.
-     ═══════════════════════════════════════════════════════════════════════════ -->
+  Validation :
+  - Gérée nativement par les attributs HTML5 (required, type="email"…).
+  - DaisyUI `.validator` + `.validator-hint` réagissent via CSS à :invalid :
+    la bordure devient rouge et le message d'erreur passe de visibility:hidden
+    à visibility:visible dès que l'utilisateur interagit avec un champ invalide.
+  - Alpine intervient uniquement pour bloquer la soumission (checkValidity),
+    gérer le spinner et afficher le message de succès / l'erreur de soumission.
+
+  Prérequis :
+  - Variable d'environnement VITE_WEB3FORMS_ACCESS_KEY définie dans .env
+  - Voir _docs/formulaires.md
+
+  Usage :
+    <include file="@comp/web3-form/form-contact.html" />
+-->
 <form x-data="web3Forms"
       class="space-y-4"
       novalidate

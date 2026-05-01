@@ -7,6 +7,23 @@ Pour les messages de commit, suis les instructions définies dans #file:git-comm
 ## Langue et accents
 Respecte toujours les accents en français dans les exemples et dans les commentaires de code. N'écris pas de texte français sans accents.
 
+## Commentaires HTML dans les composants
+
+Pour documenter l'usage d'un composant ou d'une molécule HTML, utiliser **obligatoirement** la syntaxe `<!---` (3 tirets) :
+
+```html
+<!---
+  nom-du-composant.html — Description courte
+  Variables : $var1, $var2
+-->
+```
+
+- `<!---` est du HTML valide (les navigateurs l'ignorent comme un commentaire normal).
+- Le plugin Vite `stripDevComments` **supprime automatiquement** tous les `<!--- … -->` lors du build — ils ne sont jamais livrés en production.
+- Les commentaires `<!-- -->` (2 tirets) sont eux **conservés** dans le HTML final.
+
+Ne jamais utiliser `{{!-- --}}` (syntaxe non supportée dans ce projet).
+
 ## Composants Alpine.js existants à réutiliser
 
 Avant d'implémenter une fonctionnalité en JavaScript, **vérifier si un composant existe déjà** dans `src/components/`. Ne jamais recréer un composant déjà disponible.

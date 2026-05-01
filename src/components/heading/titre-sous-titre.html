@@ -1,3 +1,16 @@
+<!---
+  titre-sous-titre.html — Séparateur visuel + titre de section + sous-titre
+  ──────────────────────────────────────────────────────────────────────────
+  Variables :
+    $titre     — texte du titre h2 (défaut : "titre")
+    $sousTitre — texte du sous-titre (défaut : "sous titre")
+
+  Usage :
+    <include file="@comp/heading/titre-sous-titre.html"
+      $titre="Ma section"
+      $sousTitre="Description courte de la section"
+    />
+-->
 <div class="bg-base-content/10 my-10 h-(--border)"></div>
 
 <h2 class="h2 my-3">{{$titre=titre}}</h2>

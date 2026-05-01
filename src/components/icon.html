@@ -1,3 +1,14 @@
+<!---
+  icon.html — Inclusion d'une icône SVG avec taille et couleur configurables
+  ───────────────────────────────────────────────────────────────────────────
+  Variables :
+    $icon  — chemin relatif depuis src/icons/ (ex. "lucide/heart.svg")
+    $size  — taille en pixels (défaut : 24)
+    $color — couleur CSS (défaut : currentColor)
+
+  Usage :
+    <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="24" $color="currentColor" />
+-->
 <include
         file="@icons/{{$icon=mdi/account-circle.svg}}"
         style="--size: {{$size=24}}px; color: {{$color='currentColor'}};"

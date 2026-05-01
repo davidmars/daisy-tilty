@@ -5,12 +5,14 @@ import viteAutoImportScss from "./vite/viteAutoImportScss";
 import iconsGalleryPlugin from "./vite/iconsGalleryPlugin";
 import { fileURLToPath, URL } from 'node:url';
 import tailwindcss from "@tailwindcss/vite";
+import stripDevComments from "./vite/stripDevComments.ts";
 
 export default defineConfig({
     base: './',
     plugins: [
         // Plugin to include HTML files in the build process with slots and variables
         htmlInclude(),
+        stripDevComments(),
         // Automatically import all SCSS files from specified directories
         viteAutoImportScss([
             {
@@ -40,6 +42,7 @@ export default defineConfig({
             '@layout': fileURLToPath(new URL('./src/layout/', import.meta.url)),
             '@icons': fileURLToPath(new URL('./src/icons/', import.meta.url)),
             '@style': fileURLToPath(new URL('./src/styles/', import.meta.url)),
+            '@mol': fileURLToPath(new URL('./src/molecules/', import.meta.url)),
             // ...others alias
         }
     }
