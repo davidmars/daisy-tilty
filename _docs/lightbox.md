@@ -47,9 +47,9 @@ main.js              ← instanciation globale via Alpine.store('lightbox', …)
 
 ### Fonctionnement
 
-La lightbox est instanciée **une seule fois** dans `main.js` et enregistrée dans le store Alpine (`Alpine.store('lightbox')`). Elle écoute les clics sur tous les éléments correspondant au sélecteur `.lightbox, .glightbox` présents dans le DOM au moment du chargement.
+La lightbox est instanciée **une seule fois** dans `main.js` et enregistrée dans le store Alpine (`Alpine.store('lightbox')`). Elle utilise la **délégation d'événements** via `cash-dom` : les clics sont interceptés sur le document, ce qui permet de supporter automatiquement les éléments ajoutés dynamiquement.
 
-> **Important :** les éléments ajoutés dynamiquement après le chargement ne sont pas automatiquement pris en charge. Appeler `Alpine.store('lightbox').init()` pour réinitialiser si nécessaire.
+> **Note :** contrairement aux versions précédentes, il n'est plus nécessaire de réinitialiser la lightbox après une injection de contenu dynamique.
 
 ### Options actives
 
@@ -77,9 +77,6 @@ Les surcharges CSS sont dans `src/components/light-box/light-box.scss` :
 ```js
 // Fermer la lightbox depuis un composant Alpine
 this.$store.lightbox.instance.close();
-
-// Réinitialiser après injection dynamique de contenu
-this.$store.lightbox.init();
 ```
 
 ### Dépendance
@@ -89,4 +86,3 @@ La lightbox repose sur la bibliothèque [GLightbox](https://biati-digital.github
 ```js
 import 'glightbox/dist/css/glightbox.min.css';
 ```
-
