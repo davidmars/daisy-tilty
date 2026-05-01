@@ -7,7 +7,7 @@
 <div x-data="embla({loop: true, dragFree: true, parallax: true, parallaxFactor: 0.08})">
   <div class="embla__viewport h-[280px] md:h-[320px]">
     <div class="embla__container embla__container--gap h-full" style="--embla-slide-gap: 0.75rem;">
-
+      <slot name="slides">
       <div class="embla__slide embla__slide--multi embla__slide--parallax">
         <a class="lightbox embla__parallax" href="https://picsum.photos/id/130/1400/900.webp" data-gallery="carousel-parallaxe">
           <span class="embla__parallax__layer">
@@ -55,9 +55,11 @@
           </span>
         </a>
       </div>
-
+      </slot>
     </div>
   </div>
-  <include file="@comp/carousel/nav/indicator-prev-next.html" />
+  <slot name="nav">
+    <include file="@comp/carousel/nav/indicator-prev-next.html" />
+  </slot>
 </div>
 

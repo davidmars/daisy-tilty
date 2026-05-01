@@ -2,6 +2,8 @@
 // https://www.embla-carousel.com/docs/v8/get-started/module
 .embla__viewport {
   overflow: hidden;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .embla__container {
@@ -73,4 +75,3 @@
   flex: 0 0 calc(115% + (var(--embla-slide-gap, 0px) * 2));
   object-fit: cover;
 }
-
