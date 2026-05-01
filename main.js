@@ -1,4 +1,4 @@
-import {Embla} from "@comp/embla/embla.js";
+import {Embla} from "@comp/carousel/engine/embla/embla.js";
 import Alpine from "alpinejs";
 import {LightBox} from "@comp/light-box/LightBox.js";
 import {Web3Form} from "@comp/web3-form/Web3Form.js";
