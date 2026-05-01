@@ -3,12 +3,11 @@ import Alpine from "alpinejs";
 import {LightBox} from "@comp/light-box/LightBox.js";
 import {Web3Form} from "@comp/web3-form/Web3Form.js";
 import {Share} from "@comp/share/Share.js";
+import $ from "cash-dom";
 
-
-
-
-
-
+// On expose cash au besoin dans le window
+window.$ = $;
+window.cash = $;
 
 document.addEventListener('alpine:init', () => {
     console.log("Alpine init")
