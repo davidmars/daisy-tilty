@@ -382,3 +382,46 @@ Cette section vient **après** la mise en service rapide. Elle s'adresse aux dé
 
 ...architecture, composants, exemples de code...
 ```
+
+### Règle sur la rétrocompatibilité (Breaking changes)
+Ce projet n'a pas de contrainte de rétrocompatibilité. Lors d'une amélioration ou d'une refonte :
+- Ne jamais mentionner les anciennes méthodes ou les comportements passés dans la documentation ou les commentaires.
+- Supprimer toute trace d'anciennes versions (instructions, fonctions obsolètes).
+- Décrire uniquement le fonctionnement actuel.
+- Les messages type "> Note : contrairement aux versions précédentes..." sont formellement interdits.
+
+## Documentation dans `_docs/`
+
+Tout fichier de documentation créé dans `_docs/` doit respecter **deux niveaux de lecture distincts**, dans cet ordre :
+
+### 1. 🟢 Mise en service rapide — pour l'utilisateur du repo
+
+Cette section s'adresse à toute personne qui reprend le projet sans en connaître les détails techniques. Elle doit :
+
+- Expliquer **quoi faire** pour que la fonctionnalité marche, pas comment elle est faite.
+- Lister uniquement les **étapes concrètes** (créer un fichier, renseigner une valeur, relancer un serveur…).
+- Ne **pas mentionner** Alpine.js, les composants, le build, les imports ou toute autre notion d'implémentation.
+- Se terminer par une **checklist** des actions à effectuer.
+
+### 2. 🔧 Détail technique — pour le développeur
+
+Cette section vient **après** la mise en service rapide. Elle s'adresse aux développeurs qui veulent comprendre ou faire évoluer le code. Elle peut contenir :
+
+- L'architecture des fichiers impliqués.
+- Les explications sur les composants, classes, variables d'environnement.
+- Les exemples de code.
+- Les décisions techniques et leurs justifications.
+
+### Exemple de structure
+
+```markdown
+## 🟢 Mise en service rapide
+
+...étapes, checklist...
+
+---
+
+## 🔧 Détail technique
+
+...architecture, composants, exemples de code...
+```
