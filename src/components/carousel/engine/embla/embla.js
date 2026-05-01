@@ -7,6 +7,7 @@ import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
  * @property {boolean} [dragFree=false] - (Native) Permet de lancer le carrousel librement sans s'arrêter sur des snaps.
  * @property {string} [containScroll='trimSnaps'] - (Native) Politique de confinement du défilement ('trimSnaps', 'keepSnaps', '').
  * @property {string} [align='center'] - (Native) Alignement des slides dans le viewport ('start', 'center', 'end').
+ * @property {boolean} [forceAlignCenter=false] - (Locale) Force l'alignement des slides dans le viewport au centre s'il n'y a pas assez de slides pour le remplir
  * @property {number} [slidesToScroll=1] - (Native) Nombre de slides à faire défiler par action.
  * @property {boolean} [autoFill=false] - (Locale) Duplique automatiquement les slides pour remplir le viewport (utile pour AutoScroll/Loop).
  * @property {boolean} [autoScroll=false] - (Locale) Active le défilement continu personnalisé (notre moteur interne).
@@ -49,13 +50,21 @@ export class Embla {
         // Configuration de l'Autoplay (étape par étape)
         this.autoplayDelay = options.autoplayDelay ?? 4000;
         this.autoplayEnabled = options.autoplay ?? false;
+
+
+        if(!this.options.forceAlign){
+            this.options.forceAlign = '';
+        }
     }
 
     /** @this {Embla & { $el: HTMLElement }} */
     init() {
+        console.log("init embla", this.$el)
         if (this._isInitialized) return;
-
+        console.log("init embla",this.options)
+        /** @type {HTMLDivElement} */
         const viewportNode = this.$el.querySelector('.embla__viewport');
+        /** @type {HTMLDivElement} */
         const containerNode = this.$el.querySelector('.embla__container');
 
         if (!viewportNode || !containerNode) {
@@ -65,6 +74,20 @@ export class Embla {
 
         // 1. Gestion du remplissage automatique (autoFill) avant init Embla
         this._handleAutoFill(containerNode);
+
+
+        // forceAlignCenter === true
+        if(this.options.forceAlignCenter){
+            console.log("forceAlignCenter");
+            this.options.containScroll=''
+            this.options.align=(viewSize, snapSize, index)=> {
+                console.log("align center", {viewSize, snapSize, index}, containerNode);
+                return viewSize / 2;
+            }
+        }
+
+
+
 
         // 2. Initialisation d'Embla v9 Core
         // On ne passe que les options natives d'Embla (on exclut les options locales)
@@ -106,6 +129,10 @@ export class Embla {
 
         this._isInitialized = true;
         onSelect(); // Synchronisation initiale
+
+
+
+
     }
 
     /**
@@ -115,7 +142,7 @@ export class Embla {
      */
     _handleAutoFill(container) {
         if (!this.options.autoFill) return;
-
+        this.options.forceAlignCenter=false;
         const slides = Array.from(container.children);
         if (slides.length === 0) return;
 
@@ -225,6 +252,15 @@ export class Embla {
     }
 
     /**
+     * Indique si le contenu des slides dépasse la largeur du viewport.
+     * Utile pour conditionner l'affichage des boutons de navigation.
+     * @returns {boolean}
+     */
+    get needsScroll() {
+        return (this.emblaApi?.snapList().length ?? 0) > 1;
+    }
+
+    /**
      * Détruit l'instance et libère les ressources.
      * @returns {void}
      */
@@ -238,4 +274,3 @@ export class Embla {
         this._isInitialized = false;
     }
 }
-
