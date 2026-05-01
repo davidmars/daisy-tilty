@@ -79,8 +79,8 @@ export class Embla {
         // forceAlignCenter === true
         if(this.options.forceAlignCenter){
             console.log("forceAlignCenter");
-            this.options.containScroll=''
-            this.options.startSnap= 1
+            //this.options.containScroll=''
+            //this.options.startSnap= 1
 
             /*
             this.options.align=(viewSize, snapSize, index)=> {
@@ -263,9 +263,8 @@ export class Embla {
      */
     get needsScroll() {
         if (!this.emblaApi) return false;
-        const viewport = this.emblaApi.rootNode();
-        const container = this.emblaApi.containerNode();
-        return container.scrollWidth > viewport.clientWidth;
+        if (this.options.loop) return true;
+        return this.emblaApi.canGoToNext();
     }
 
     /**
