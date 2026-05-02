@@ -115,32 +115,32 @@ Docs officielles :
 
 Cette section couvre les briques orientées usage métier/UI.
 
-### 5.1 Embla Carousel (`embla-carousel` + `embla-carousel-autoplay`)
+### 5.1 Swiper Carousel (`swiper`)
 
-But : gérer des diaporamas/carrousels robustes (slides, navigation, autoplay).
+But : gérer des diaporamas/carrousels robustes (slides, navigation, autoplay, free mode).
 
 Ce que le module fait dans ce repo :
 
-- encapsule Embla dans une classe `Embla` (`src/components/embla/embla.js`) ;
-- initialise le carrousel sur `.embla__viewport` ;
-- active/désactive autoplay selon les options ;
-- met à jour l'état `current` / `total` pour l'UI.
+- instancie Swiper via la classe `SwiperCarousel` (`src/components/carousel/swiper/SwiperCarousel.js`) ;
+- charge d'office les modules `FreeMode`, `Autoplay`, `Navigation`, `Pagination` ;
+- transfère directement toutes les options natives Swiper à l'instance.
 
 Activation côté HTML :
 
-- via Alpine : `x-data="embla({ autoplay: true, loop: true })"`
-- exemple complet dans `test-diaporama.html`.
+- via Alpine : `<div x-data="swiper({ loop: true })" class="swiper">`
+- composants d'exemple dans `src/molecules/carousels/swiper-*.html`.
+- démo complète dans `test-molecules-swiper.html`.
 
 Fichiers clés :
 
-- `src/components/embla/embla.js`
-- `src/components/embla/embla.scss`
-- `test-diaporama.html`
+- `src/components/carousel/swiper/SwiperCarousel.js`
+- `src/molecules/carousels/_all-swiper.html`
+- `test-molecules-swiper.html`
 
 Docs officielles :
 
-- Embla : https://www.embla-carousel.com/get-started/
-- Autoplay plugin : https://www.embla-carousel.com/plugins/autoplay/
+- Swiper : https://swiperjs.com/
+- API des options Swiper : https://swiperjs.com/swiper-api
 
 ### 5.2 GLightbox (`glightbox`)
 
@@ -200,8 +200,7 @@ Source des versions : `package.json`.
 | `@tailwindcss/vite` | `^4.2.2` | Intégration Tailwind dans Vite | https://tailwindcss.com/docs/installation/using-vite |
 | `daisyui` | `^5.5.19` | Composants UI Tailwind | https://daisyui.com/docs/install/ |
 | `alpinejs` | `^3.15.11` | Orchestration front légère | https://alpinejs.dev/start-here |
-| `embla-carousel` | `^8.6.0` | Moteur de carrousel | https://www.embla-carousel.com/get-started/ |
-| `embla-carousel-autoplay` | `^8.6.0` | Autoplay Embla | https://www.embla-carousel.com/plugins/autoplay/ |
+| `swiper` | `^11.0.0` | Moteur de carrousel (slides, navigation, autoplay) | https://swiperjs.com/ |
 | `glightbox` | `^3.3.1` | Lightbox images/vidéos | https://biati-digital.github.io/glightbox/ |
 
 ### Dépendances techniques de build
@@ -218,7 +217,7 @@ Source des versions : `package.json`.
 
 - **Identité visuelle** : `src/styles/main.scss`, `src/styles/typography.scss`.
 - **Composants UI globaux** : `src/layout/nav.html`, `src/layout/footer.html`.
-- **Diaporamas** : `src/components/embla/*` + markup dans les pages.
+- **Diaporamas** : `src/molecules/carousels/*-swiper.html` + markup direct (classes `.swiper`).
 - **Galeries lightbox** : `src/components/light-box/*` + classes `.lightbox` dans les pages.
 - **Icônes** : `src/icons/*/*` + aperçu dans `icons-gallery.html`.
 
