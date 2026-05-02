@@ -1,70 +1,44 @@
 import EmblaCarousel from 'embla-carousel'
-import { setupTweenParallax } from './EmblaCarouselTweenParallax.js'
 
 /**
  * @typedef {Object} EmblaOptions
- * @property {boolean} [loop=false] - (Native) Active le défilement infini.
- * @property {boolean} [dragFree=false] - (Native) Permet de lancer le carrousel librement sans s'arrêter sur des snaps.
- * @property {string} [containScroll='trimSnaps'] - (Native) Politique de confinement du défilement ('trimSnaps', 'keepSnaps', '').
- * @property {string} [align='center'] - (Native) Alignement des slides dans le viewport ('start', 'center', 'end').
- * @property {boolean} [forceAlignCenter=false] - (Locale) Force l'alignement des slides dans le viewport au centre s'il n'y a pas assez de slides pour le remplir
- * @property {number} [slidesToScroll=1] - (Native) Nombre de slides à faire défiler par action.
- * @property {boolean} [autoFill=false] - (Locale) Duplique automatiquement les slides pour remplir le viewport (utile pour AutoScroll/Loop).
- * @property {boolean} [autoScroll=false] - (Locale) Active le défilement continu personnalisé (notre moteur interne).
- * @property {number} [autoScrollSpeed=1] - (Locale) Vitesse du défilement continu. Une valeur négative inverse le sens.
- * @property {number} [autoScrollLerp=0.05] - (Locale) Facteur d'interpolation (0 à 1) pour la fluidité du freinage/accélération.
- * @property {boolean} [autoplay=false] - (Locale) Active le défilement automatique par étape.
- * @property {number} [autoplayDelay=4000] - (Locale) Délai entre deux étapes d'autoplay (en ms).
- * @property {boolean} [parallax=false] - (Locale) Active l'effet de parallaxe sur les slides (via module externe local).
- * @property {number} [parallaxFactor] - (Locale) Intensité de l'effet parallaxe.
+ * @property {boolean} [loop=false]
+ * @property {boolean} [dragFree=false]
+ * @property {'trimSnaps'|'keepSnaps'|''} [containScroll='trimSnaps']
+ * @property {'start'|'center'|'end'|((viewSize: number, snapSize: number, index: number) => number)} [align='center']
+ * @property {number} [slidesToScroll=1]
+ * @property {boolean} [autoFill=false] - (Locale) Duplique les slides pour remplir le viewport.
  */
 
 /**
- * Composant Embla v9 Core - Sans plugins externes.
- * Gère le défilement continu (AutoScroll) et par étape (Autoplay) via une logique personnalisée.
+ * Composant Embla v9 Core.
  */
 export class Embla {
     /**
-     * @param {EmblaOptions} options - Options de configuration Embla et personnalisées
+     * @param {EmblaOptions} options
      */
     constructor(options = {}) {
+        /** @type {EmblaOptions} */
         this.options = options;
 
-        // États réactifs Alpine
+        /** @type {number} */
         this.total = 0;
+        /** @type {number} */
         this.current = 0;
-        this.originalSlidesCount = 0;
-
-        // Variables internes
+        /** @type {import('embla-carousel').EmblaCarouselType | null} */
         this.emblaApi = null;
+
+        /** @type {boolean} */
         this._isInitialized = false;
-        this._autoScrollRaf = null;
-        this._autoplayTimer = null;
-
-        // Configuration du défilement continu (Lerp)
-        this.autoScrollSpeed = options.autoScrollSpeed ?? (options.autoScroll ? 1 : 0);
-        this.autoScrollInitialSpeed = this.autoScrollSpeed;
-        this._autoScrollCurrentSpeed = this.autoScrollSpeed;
-        this.autoScrollLerp = options.autoScrollLerp ?? 0.05;
-
-        // Configuration de l'Autoplay (étape par étape)
-        this.autoplayDelay = options.autoplayDelay ?? 4000;
-        this.autoplayEnabled = options.autoplay ?? false;
-
-
-        if(!this.options.forceAlign){
-            this.options.forceAlign = '';
-        }
+        /** @type {number} */
+        this.originalSlidesCount = 0;
     }
 
     /** @this {Embla & { $el: HTMLElement }} */
     init() {
-        console.log("init embla", this.$el)
         if (this._isInitialized) return;
-        console.log("init embla",this.options)
-        /** @type {HTMLDivElement} */
+
         const viewportNode = this.$el.querySelector('.embla__viewport');
-        /** @type {HTMLDivElement} */
         const containerNode = this.$el.querySelector('.embla__container');
 
         if (!viewportNode || !containerNode) {
@@ -72,45 +46,21 @@ export class Embla {
             return;
         }
 
-        // 1. Gestion du remplissage automatique (autoFill) avant init Embla
         this._handleAutoFill(containerNode);
 
-
-        // forceAlignCenter === true
-        if(this.options.forceAlignCenter){
-            console.log("forceAlignCenter");
-            //this.options.containScroll=''
-            //this.options.startSnap= 1
-
-            /*
-            this.options.align=(viewSize, snapSize, index)=> {
-                console.log("align center", {viewSize, snapSize, index}, containerNode);
-                return viewSize / 2;
-            }
-
-             */
-        }
-
-
-
-
-        // 2. Initialisation d'Embla v9 Core
-        // On ne passe que les options natives d'Embla (on exclut les options locales)
-        const { autoFill, autoScroll, autoScrollSpeed, autoScrollLerp, autoplay, autoplayDelay, parallax, parallaxFactor, ...emblaOptions } = this.options;
+        const { autoFill, ...emblaOptions } = this.options;
 
         this.emblaApi = EmblaCarousel(viewportNode, {
-            loop: emblaOptions.loop ?? false,
-            dragFree: emblaOptions.dragFree ?? false,
-            containScroll: emblaOptions.containScroll ?? 'trimSnaps',
-            align: emblaOptions.align ?? 'center',
-            slidesToScroll: emblaOptions.slidesToScroll ?? 1,
+            loop: false,
+            dragFree: false,
+            containScroll: 'trimSnaps',
+            align: 'center',
+            slidesToScroll: 1,
             ...emblaOptions,
         });
 
-        // 3. Calcul du nombre de slides originaux
-        this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([aria-hidden="true"])').length;
+        this.originalSlidesCount = containerNode.querySelectorAll(':scope > *:not([inert])').length;
 
-        // 4. Mise à jour réactive (select + reinit)
         const onSelect = () => {
             this.current = this.emblaApi.selectedSnap();
             this.total = this.originalSlidesCount || this.emblaApi.snapList().length;
@@ -119,25 +69,8 @@ export class Embla {
         this.emblaApi.on('select', onSelect);
         this.emblaApi.on('reinit', onSelect);
 
-        // 5. Extensions personnalisées
-        if (this.options.parallax) {
-            setupTweenParallax(this.emblaApi, this.options.parallaxFactor);
-        }
-
-        if (this.options.autoScroll) {
-            this.startAutoScroll();
-        }
-
-        if (this.autoplayEnabled) {
-            this.startAutoplay();
-        }
-
         this._isInitialized = true;
-        onSelect(); // Synchronisation initiale
-
-
-
-
+        onSelect();
     }
 
     /**
@@ -147,7 +80,7 @@ export class Embla {
      */
     _handleAutoFill(container) {
         if (!this.options.autoFill) return;
-        this.options.forceAlignCenter=false;
+
         const slides = Array.from(container.children);
         if (slides.length === 0) return;
 
@@ -156,8 +89,8 @@ export class Embla {
             const repeatCount = Math.ceil(minItems / slides.length) - 1;
             for (let i = 0; i < repeatCount; i++) {
                 slides.forEach(slide => {
-                    const clone = slide.cloneNode(true);
-                    clone.setAttribute('aria-hidden', 'true');
+                    const clone = /** @type {HTMLElement} */ (slide.cloneNode(true));
+                    clone.inert = true;
                     container.appendChild(clone);
                 });
             }
@@ -165,100 +98,7 @@ export class Embla {
     }
 
     /**
-     * Démarre la boucle de défilement continu avec interpolation (Lerp).
-     * @returns {void}
-     */
-    startAutoScroll() {
-        this.stopAutoScroll();
-
-        const tick = () => {
-            if (!this.emblaApi) return;
-
-            this._autoScrollCurrentSpeed += (this.autoScrollSpeed - this._autoScrollCurrentSpeed) * this.autoScrollLerp;
-
-            if (Math.abs(this._autoScrollCurrentSpeed) > 0.001) {
-                const engine = this.emblaApi.internalEngine();
-                if (engine && !engine.dragHandler.pointerDown()) {
-                    engine.location.add(this._autoScrollCurrentSpeed);
-                    engine.target.set(engine.location);
-                    engine.scrollBody.useDefaultFriction();
-                    engine.animation.start();
-                }
-            }
-
-            this._autoScrollRaf = requestAnimationFrame(tick);
-        };
-
-        this._autoScrollRaf = requestAnimationFrame(tick);
-    }
-
-    /**
-     * Arrête la boucle de défilement continu.
-     * @returns {void}
-     */
-    stopAutoScroll() {
-        if (this._autoScrollRaf) {
-            cancelAnimationFrame(this._autoScrollRaf);
-            this._autoScrollRaf = null;
-        }
-    }
-
-    /**
-     * Démarre l'autoplay (défilement par étape).
-     * @returns {void}
-     */
-    startAutoplay() {
-        this.stopAutoplay();
-        this._autoplayTimer = setInterval(() => {
-            if (this.emblaApi) {
-                if (this.emblaApi.canGoToNext()) {
-                    this.emblaApi.goToNext();
-                } else {
-                    this.emblaApi.goTo(0);
-                }
-            }
-        }, this.autoplayDelay);
-    }
-
-    /**
-     * Arrête l'autoplay.
-     * @returns {void}
-     */
-    stopAutoplay() {
-        if (this._autoplayTimer) {
-            clearInterval(this._autoplayTimer);
-            this._autoplayTimer = null;
-        }
-    }
-
-    /**
-     * Fait défiler vers le slide suivant.
-     * @returns {void}
-     */
-    scrollNext() {
-        this.emblaApi?.goToNext();
-    }
-
-    /**
-     * Fait défiler vers le slide précédent.
-     * @returns {void}
-     */
-    scrollPrev() {
-        this.emblaApi?.goToPrev();
-    }
-
-    /**
-     * Fait défiler vers un slide précis.
-     * @param {number} index
-     * @returns {void}
-     */
-    scrollTo(index) {
-        this.emblaApi?.goTo(index);
-    }
-
-    /**
      * Indique si le contenu des slides dépasse la largeur du viewport.
-     * Utile pour conditionner l'affichage des boutons de navigation.
      * @returns {boolean}
      */
     get needsScroll() {
@@ -267,13 +107,20 @@ export class Embla {
         return this.emblaApi.canGoToNext();
     }
 
+    /** @returns {void} */
+    scrollNext() { this.emblaApi?.goToNext(); }
+
+    /** @returns {void} */
+    scrollPrev() { this.emblaApi?.goToPrev(); }
+
     /**
-     * Détruit l'instance et libère les ressources.
+     * @param {number} index
      * @returns {void}
      */
+    scrollTo(index) { this.emblaApi?.goTo(index); }
+
+    /** @returns {void} */
     destroy() {
-        this.stopAutoScroll();
-        this.stopAutoplay();
         if (this.emblaApi) {
             this.emblaApi.destroy();
             this.emblaApi = null;
