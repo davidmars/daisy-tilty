@@ -2,7 +2,9 @@
   swiper-logos.html — Carrousel de logos auto-infini, N&B -> Couleur au hover (Swiper)
   Usage : copier ce bloc et remplacer les URLs + liens.
 -->
-<div x-data="swiper({loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 64, speed: 4000, autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }})" class="swiper h-24">
+<div x-data="swiper({
+  centerInsufficientSlides: true,
+  loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 64, speed: 4000, autoplay: { delay: 0, disableOnInteraction: true, pauseOnMouseEnter: true }})" class="swiper h-24">
   <div class="swiper-wrapper items-center" style="transition-timing-function: linear;">
     <slot name="slides">
       <div class="swiper-slide !w-auto">

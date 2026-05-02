@@ -33,7 +33,7 @@ Avant d'implémenter une fonctionnalité en JavaScript, **vérifier si un compos
 | Composant Alpine (`x-data`) | Fichier                                | Usage                                                        |
 |-----------------------------|----------------------------------------|--------------------------------------------------------------|
 | `web3Forms`                 | `src/components/web3-form/Web3Form.js` | Formulaire de contact avec soumission AJAX                   |
-| `embla`                     | `src/components/embla/embla.js`        | Carrousel / diaporama d'images                               |
+| `swiper`                    | `src/components/carousel/swiper/SwiperCarousel.js`| Carrousel / diaporama d'images (Swiper)                      |
 | `share`                     | `src/components/share/Share.js`        | Bouton de partage natif (Web Share API + fallback clipboard) |
 | *(store)* `lightbox`        | `src/components/light-box/LightBox.js` | Lightbox plein écran sur les images (classe `.lightbox`)     |
 
@@ -45,9 +45,9 @@ Pour tout bouton de partage de page ou d'article, utiliser **obligatoirement** l
 
 Pour toute image à afficher en plein écran au clic, utiliser **obligatoirement** la classe `lightbox` sur la balise `<a>` — ne jamais implémenter une lightbox custom. Voir `_docs/lightbox.md`.
 
-### Utilisation du composant `embla`
+### Utilisation du composant `swiper`
 
-Pour tout carrousel ou diaporama, utiliser **obligatoirement** le composant `embla` — ne jamais implémenter un carrousel custom. Voir `_docs/embla.md`.
+Pour tout carrousel ou diaporama, utiliser **obligatoirement** le composant `swiper` — ne jamais implémenter un carrousel custom. Voir `_docs/swiper.md`.
 
 ---
 

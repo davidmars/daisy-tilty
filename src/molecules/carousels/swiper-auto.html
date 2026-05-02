@@ -2,7 +2,16 @@
   swiper-auto.html — Carrousel à défilement automatique infini (Swiper)
   Usage : copier ce bloc et remplacer les images des slides.
 -->
-<div x-data="swiper({loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 8, speed: 3000, autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }})" class="swiper h-[150px]">
+<div x-data="swiper({
+centerInsufficientSlides:true,
+loop: true,
+freeMode: true,
+slidesPerView: 'auto',
+spaceBetween: 8,
+speed: 1000,
+autoplay: {
+  delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }
+})" class="swiper h-[150px]">
   <div class="swiper-wrapper" style="transition-timing-function: linear;">
     <slot name="slides">
       <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=alpha"   alt="alpha"   loading="lazy" decoding="async" /></div>
@@ -12,6 +21,13 @@
       <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=echo"    alt="echo"    loading="lazy" decoding="async" /></div>
       <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=foxtrot" alt="foxtrot" loading="lazy" decoding="async" /></div>
       <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=golf"    alt="golf"    loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
+      <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
       <div class="swiper-slide !w-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=hotel"   alt="hotel"   loading="lazy" decoding="async" /></div>
     </slot>
   </div>
