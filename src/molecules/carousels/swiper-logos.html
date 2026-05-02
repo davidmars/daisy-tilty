@@ -1,0 +1,25 @@
+﻿<!---
+  swiper-logos.html — Carrousel de logos auto-infini, N&B -> Couleur au hover (Swiper)
+  Usage : copier ce bloc et remplacer les URLs + liens.
+-->
+<div x-data="swiper({loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 64, speed: 4000, autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }})" class="swiper h-24">
+  <div class="swiper-wrapper items-center" style="transition-timing-function: linear;">
+    <slot name="slides">
+      <div class="swiper-slide !w-auto">
+        <a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100">
+          <img class="h-10 w-auto object-contain" src="https://api.dicebear.com/9.x/bottts/svg?backgroundColor=transparent&seed=1" alt="Logo 1" loading="lazy" decoding="async" />
+        </a>
+      </div>
+      <div class="swiper-slide !w-auto">
+        <a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100">
+          <img class="h-10 w-auto object-contain" src="https://api.dicebear.com/9.x/bottts/svg?backgroundColor=transparent&seed=2" alt="Logo 2" loading="lazy" decoding="async" />
+        </a>
+      </div>
+      <div class="swiper-slide !w-auto">
+        <a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100">
+          <img class="h-10 w-auto object-contain" src="https://api.dicebear.com/9.x/bottts/svg?backgroundColor=transparent&seed=3" alt="Logo 3" loading="lazy" decoding="async" />
+        </a>
+      </div>
+    </slot>
+  </div>
+</div>

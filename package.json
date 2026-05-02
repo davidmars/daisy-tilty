@@ -17,6 +17,7 @@
     "embla-carousel": "^9.0.0-rc02",
     "glightbox": "^3.3.1",
     "glob": "^11.0.3",
+    "swiper": "^12.1.4",
     "tailwindcss": "^4.2.2",
     "vite-plugin-html-include": "^1.4.1"
   },

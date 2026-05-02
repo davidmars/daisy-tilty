@@ -80,7 +80,7 @@ main.js                          ← enregistrement via Alpine.data('embla', …
 | Classe | Description |
 |---|---|
 | `embla__slide` | Slide pleine largeur (100%) |
-| `embla__slide--auto` | Slide à largeur automatique (contenu) |
+| `` | Slide à largeur automatique (contenu) |
 | `embla__slide--multi` | Slide multi-colonnes responsive (78% → 48% → 32%) |
 | `embla__slide--parallax` | Slide avec effet parallaxe (86% → 58% → 42%) |
 
@@ -105,7 +105,7 @@ Pour espacer les slides, définir la variable CSS `--embla-slide-gap` sur `.embl
 <div x-data="embla({ loop: true, dragFree: true })">
   <div class="embla__viewport h-[200px]">
     <div class="embla__container embla__container--gap h-full" style="--embla-slide-gap: 0.5rem;">
-      <div class="embla__slide embla__slide--auto">
+      <div class="embla__slide ">
         <img class="h-full w-auto rounded-xl object-cover" src="…" alt="…" />
       </div>
     </div>
@@ -140,7 +140,7 @@ Pour espacer les slides, définir la variable CSS `--embla-slide-gap` sur `.embl
      x-on:pointerup="autoScrollSpeed = autoScrollInitialSpeed">
   <div class="embla__viewport h-[150px]">
     <div class="embla__container embla__container--gap h-full" style="--embla-slide-gap: 0.5rem;">
-      <div class="embla__slide embla__slide--auto w-[150px] h-[150px]">…</div>
+      <div class="embla__slide  w-[150px] h-[150px]">…</div>
     </div>
   </div>
 </div>
