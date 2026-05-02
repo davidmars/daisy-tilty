@@ -66,14 +66,14 @@ Rôle d'Alpine ici :
 
 Exemple concret dans `main.js` :
 
-- `Alpine.data('embla', (args) => new Embla(args));` pour brancher le carrousel ;
+- `Alpine.data('swiper', (args) => new SwiperCarousel(args));` pour brancher le carrousel ;
 - création d'une instance globale `LightBox` stockée dans `Alpine.store('lightbox', ...)`.
 
 Pourquoi c'est utile pour la customisation :
 
 - tu gardes du HTML lisible ;
 - tu ajoutes de l'interactivité sans basculer vers un framework SPA ;
-- les modules (Embla, GLightbox, futurs modules) restent découplés.
+- les modules (Swiper, GLightbox, futurs modules) restent découplés.
 
 À retenir :
 
