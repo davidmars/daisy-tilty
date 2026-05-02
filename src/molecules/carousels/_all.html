@@ -13,29 +13,11 @@
 
 <div class="bg-base-content/10 my-10 h-px"></div>
 
-<!-- ─── carousel-parallaxe ───────────────────────────────────── -->
-<section class="space-y-4">
-  <h2 class="h3">carousel-parallaxe</h2>
-  <p class="caption text-base-content/60">Photos avec effet parallaxe + lightbox · <code class="code-inline">@mol/carousels/carousel-parallaxe.html</code></p>
-  <include file="@mol/carousels/carousel-parallaxe.html" />
-</section>
-
-<div class="bg-base-content/10 my-10 h-px"></div>
-
 <!-- ─── carousel-auto ────────────────────────────────────────── -->
 <section class="space-y-4">
   <h2 class="h3">carousel-auto</h2>
   <p class="caption text-base-content/60">Défilement automatique infini, pause au survol · <code class="code-inline">@mol/carousels/carousel-auto.html</code></p>
   <include file="@mol/carousels/carousel-auto.html" />
-
-  <p class="caption text-base-content/60">Le même avec seulement 2 items pour démontrer la duplication</p>
-  <div role="alert" class="alert alert-error inline-flex">TODO tester avec tilty cette histoire de duplication</div>
-  <include file="@mol/carousels/carousel-auto.html" $options="{loop: true, autoScroll: true, autoScrollSpeed: -0.8, dragFree: true, autoScrollLerp: 0.02, autoFill: true}">
-     <template slot="slides">
-    <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=alpha"    alt="Bot alpha"    loading="lazy" decoding="async" /></div>
-    <div class="embla__slide embla__slide--auto w-[150px] h-[150px]"><img class="w-full h-full rounded-lg bg-base-200 p-2" src="https://api.dicebear.com/9.x/bottts/svg?seed=bravo"    alt="Bot bravo"    loading="lazy" decoding="async" /></div>
-    </template>
-  </include>
 </section>
 
 <div class="bg-base-content/10 my-10 h-px"></div>

@@ -4,7 +4,7 @@
   Options Embla : loop, dragFree
   Usage : copier ce bloc et remplacer les URLs + textes alt.
 -->
-<div x-data="embla({loop: true, dragFree: false,zzautoFill:true, align:'center'})">
+<div x-data="embla({loop: true, dragFree: true,autoFill:true,forceAlignCenter:true})">
   <div class="embla__viewport h-[200px]">
     <div class="embla__container embla__container--gap h-full" style="--embla-slide-gap: 0.5rem;">
      <slot name="slides">

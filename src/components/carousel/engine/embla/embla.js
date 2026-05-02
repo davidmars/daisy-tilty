@@ -7,7 +7,7 @@ import EmblaCarousel from 'embla-carousel'
  * @property {'trimSnaps'|'keepSnaps'|''} [containScroll='trimSnaps']
  * @property {'start'|'center'|'end'|((viewSize: number, snapSize: number, index: number) => number)} [align='center']
  * @property {number} [slidesToScroll=1]
- * @property {boolean} [autoFill=false] - (Locale) Duplique les slides pour remplir le viewport.
+ * @property {boolean} [autoFill=false] - (implémentation maison) Duplique les slides pour remplir le viewport.
  */
 
 /**
@@ -95,16 +95,6 @@ export class Embla {
                 });
             }
         }
-    }
-
-    /**
-     * Indique si le contenu des slides dépasse la largeur du viewport.
-     * @returns {boolean}
-     */
-    get needsScroll() {
-        if (!this.emblaApi) return false;
-        if (this.options.loop) return true;
-        return this.emblaApi.canGoToNext();
     }
 
     /** @returns {void} */
