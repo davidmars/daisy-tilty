@@ -1,0 +1,57 @@
+<!---
+  hero-D.html — Héros minimaliste : grande typographie, fond base-100, ligne décorative
+  ──────────────────────────────────────────────────────────────────────────────────────
+  Variables : aucune (remplacer les textes directement)
+  Usage : copier ce bloc et personnaliser titre, accroche et CTA.
+  Variante éditoriale sobre, sans image — idéale en ouverture d'article ou de rubrique.
+-->
+<section class="bg-base-100">
+  <div class="container mx-auto px-6 py-20 md:py-28">
+
+    <!-- Ligne supérieure : label + date -->
+    <div class="mb-10 flex items-center gap-4">
+      <span class="h-px flex-1 bg-base-content/15"></span>
+      <p class="legend">programmation 2025</p>
+      <span class="h-px flex-1 bg-base-content/15"></span>
+    </div>
+
+    <!-- Titre très grand -->
+    <div class="mx-auto max-w-4xl space-y-8 text-center">
+      <h1 class="h1 text-5xl leading-none md:text-7xl lg:text-8xl">
+        Musique,<br />liberté, présence.
+      </h1>
+
+      <p class="lead mx-auto max-w-xl">
+        Un festival pensé pour ceux qui aiment les rencontres vraies, la musique sans filtre et les nuits qui durent.
+      </p>
+    </div>
+
+    <!-- Séparateur décoratif -->
+    <div class="my-12 flex items-center justify-center gap-3 text-base-content/30">
+      <span class="h-px w-16 bg-current"></span>
+      <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="16" $color="currentColor" />
+      <span class="h-px w-16 bg-current"></span>
+    </div>
+
+    <!-- CTA groupé + infos complémentaires -->
+    <div class="flex flex-col items-center gap-6">
+      <a href="#" class="btn btn-primary btn-lg gap-2 px-10">
+        Découvrir l'édition 2025
+        <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="18" />
+      </a>
+      <p class="caption">
+        Du <strong>18 au 20 juillet 2025</strong> · Parc des Confluences, Lyon
+      </p>
+    </div>
+
+    <!-- Quote éditoriale -->
+    <figure class="mx-auto mt-16 max-w-2xl border-l-4 border-primary pl-6">
+      <blockquote class="quote text-primary">
+        « Le repos est la mère de la créativité. »
+      </blockquote>
+      <figcaption class="caption mt-3">— Devise du festival</figcaption>
+    </figure>
+
+  </div>
+</section>
+

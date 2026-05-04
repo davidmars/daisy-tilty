@@ -1,0 +1,65 @@
+<!---
+  hero-B.html — Héros bicolonne : texte à gauche, image à droite
+  ───────────────────────────────────────────────────────────────
+  Variables : aucune (remplacer les textes et l'URL de l'image directement)
+  Usage : copier ce bloc et personnaliser titre, accroche, CTA et l'image.
+-->
+<section class="bg-base-200">
+  <div class="container mx-auto grid min-h-[80vh] grid-cols-1 items-center gap-0 md:grid-cols-2">
+
+    <!-- Colonne texte -->
+    <div class="flex flex-col justify-center space-y-8 px-8 py-16 md:px-12 lg:px-16">
+
+      <div class="space-y-2">
+        <span class="badge badge-secondary gap-1.5">
+          <include file="@comp/icon.html" $icon="lucide/sparkles.svg" $size="12" />
+          Nouvelle édition
+        </span>
+      </div>
+
+      <div class="space-y-5">
+        <h1 class="h1">Chaque note raconte une histoire</h1>
+        <p class="lead max-w-md">
+          Du jazz intimiste aux riffs électriques, découvrez une programmation qui repousse les frontières du live.
+        </p>
+      </div>
+
+      <ul class="space-y-3">
+        <li class="flex items-center gap-3 text-base-content/80">
+          <include file="@comp/icon.html" $icon="lucide/circle-check-big.svg" $size="18" $color="var(--color-primary)" />
+          <span class="p">Plus de 40 artistes sur 5 scènes</span>
+        </li>
+        <li class="flex items-center gap-3 text-base-content/80">
+          <include file="@comp/icon.html" $icon="lucide/circle-check-big.svg" $size="18" $color="var(--color-primary)" />
+          <span class="p">Accès libre aux ateliers et expositions</span>
+        </li>
+        <li class="flex items-center gap-3 text-base-content/80">
+          <include file="@comp/icon.html" $icon="lucide/circle-check-big.svg" $size="18" $color="var(--color-primary)" />
+          <span class="p">Restauration locale et artisanale sur site</span>
+        </li>
+      </ul>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#" class="btn btn-primary gap-2">
+          Découvrir le programme
+          <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="16" />
+        </a>
+        <a href="#" class="btn btn-ghost">En savoir plus</a>
+      </div>
+
+    </div>
+
+    <!-- Colonne image -->
+    <div class="relative h-72 overflow-hidden md:h-full md:min-h-[80vh]">
+      <img
+        src="https://picsum.photos/id/167/900/1200.webp"
+        alt="Scène de concert en plein air"
+        class="h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
+  </div>
+</section>
+

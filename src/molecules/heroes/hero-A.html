@@ -1,0 +1,61 @@
+<!---
+  hero-A.html — Héros plein écran, fond vidéo en boucle avec overlay sombre, contenu centré
+  ────────────────────────────────────────────────────────────────────────────────────────────
+  Variables : aucune (remplacer l'URL de la vidéo, l'image de poster et les textes directement)
+  Usage : copier ce bloc et personnaliser titre, accroche, CTA, la vidéo et l'image de poster.
+-->
+<section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+
+  <!-- Vidéo de fond en boucle — remplacer src par l'URL de votre vidéo -->
+  <video
+    class="absolute inset-0 h-full w-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-hidden="true"
+    poster="https://picsum.photos/id/11/1920/1080.webp"
+  >
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+    <!-- Fallback image si la vidéo n'est pas supportée -->
+    <img
+      src="https://picsum.photos/id/11/1920/1080.webp"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </video>
+
+  <!-- Overlay sombre dégradé -->
+  <div class="absolute inset-0 bg-gradient-to-b from-neutral/70 via-neutral/50 to-neutral/80"></div>
+
+  <!-- Contenu centré -->
+  <div class="relative z-10 mx-auto max-w-3xl space-y-8 px-6 py-20 text-center text-neutral-content">
+
+    <div class="space-y-4">
+      <p class="legend tracking-widest text-neutral-content/70">festival · été 2025</p>
+      <h1 class="h1 text-5xl md:text-7xl">La scène prend vie ce soir</h1>
+      <p class="lead mx-auto max-w-xl text-neutral-content/85">
+        Trois jours de musique, d'énergie brute et d'émotions collectives au cœur de la ville.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="#" class="btn btn-primary btn-lg gap-2">
+        Réserver ma place
+        <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="18" />
+      </a>
+      <a href="#" class="btn btn-outline btn-lg border-neutral-content/40 text-neutral-content hover:bg-neutral-content/10 hover:border-neutral-content">
+        Voir la programmation
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Indicateur de défilement -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-neutral-content/50 animate-bounce">
+    <include file="@comp/icon.html" $icon="lucide/chevron-down.svg" $size="28" $color="currentColor" />
+  </div>
+
+</section>
+

@@ -1,0 +1,55 @@
+<!---
+  hero-C.html — Héros fond primary, centré, sans image — variante couleur pleine
+  ───────────────────────────────────────────────────────────────────────────────
+  Variables : aucune (remplacer les textes directement)
+  Usage : copier ce bloc et personnaliser titre, accroche et CTAs.
+-->
+<section class="bg-primary text-primary-content">
+  <div class="container mx-auto flex min-h-[70vh] flex-col items-center justify-center gap-10 px-6 py-20 text-center">
+
+    <!-- Badge décoratif -->
+    <div class="flex items-center gap-2 rounded-full border border-primary-content/25 bg-primary-content/10 px-4 py-1.5">
+      <include file="@comp/icon.html" $icon="lucide/flame.svg" $size="14" $color="currentColor" />
+      <span class="legend text-primary-content/80 normal-case tracking-normal">Ouverture des portes — 18 juillet</span>
+    </div>
+
+    <!-- Texte principal -->
+    <div class="space-y-6 max-w-2xl">
+      <h1 class="h1 text-5xl md:text-6xl lg:text-7xl">
+        Le son qui<br />fait vibrer la ville
+      </h1>
+      <p class="lead text-primary-content/80 mx-auto max-w-lg">
+        Un événement unique, imprégné de culture locale, où chaque artiste apporte sa vision du monde.
+      </p>
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex flex-col items-center gap-4 sm:flex-row">
+      <a href="#" class="btn btn-neutral btn-lg min-w-48 gap-2">
+        Prendre mes billets
+        <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="18" />
+      </a>
+      <a href="#" class="btn btn-ghost btn-lg text-primary-content underline-offset-4 hover:underline hover:bg-primary-content/10">
+        Voir tous les artistes
+      </a>
+    </div>
+
+    <!-- Métriques / chiffres clés -->
+    <div class="mt-4 grid grid-cols-3 gap-8 border-t border-primary-content/20 pt-10">
+      <div class="space-y-1 text-center">
+        <p class="h2 text-4xl">40+</p>
+        <p class="caption text-primary-content/70">Artistes</p>
+      </div>
+      <div class="space-y-1 text-center">
+        <p class="h2 text-4xl">3</p>
+        <p class="caption text-primary-content/70">Jours</p>
+      </div>
+      <div class="space-y-1 text-center">
+        <p class="h2 text-4xl">5</p>
+        <p class="caption text-primary-content/70">Scènes</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
