@@ -1,0 +1,48 @@
+<!---
+  card-C.html — Card lieu / événement : fond image plein, overlay au hover, localisation
+  ────────────────────────────────────────────────────────────────────────────────────────
+  Usage : intégrer dans une grille, remplacer l'image de fond, le titre et la localisation.
+  Note : la card est entièrement cliquable.
+-->
+<article class="relative overflow-hidden rounded-box aspect-[3/4] group cursor-pointer shadow-md">
+
+  <!-- Image de fond -->
+  <img
+    src="https://picsum.photos/id/392/600/800.webp"
+    alt="Scène grande salle"
+    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <!-- Overlay permanent en bas -->
+  <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-neutral/30 to-transparent"></div>
+
+  <!-- Overlay hover -->
+  <div class="absolute inset-0 bg-neutral/30 opacity-0 transition duration-300 group-hover:opacity-100"></div>
+
+  <!-- Contenu bas de carte -->
+  <div class="absolute inset-x-0 bottom-0 z-10 p-5 space-y-2">
+
+    <div class="flex items-center gap-1.5 text-neutral-content/70">
+      <include file="@comp/icon.html" $icon="lucide/map-pin.svg" $size="13" $color="currentColor" />
+      <span class="caption">Lyon · Parc des Confluences</span>
+    </div>
+
+    <h2 class="h4 text-neutral-content">Grande Scène — Soirée d'ouverture</h2>
+
+    <div class="flex items-center justify-between">
+      <span class="badge badge-primary">18 juil. 2025</span>
+      <a href="#" class="btn btn-circle btn-sm bg-neutral-content/15 border-0 backdrop-blur-sm text-neutral-content hover:bg-neutral-content/30"
+         x-on:click.stop="">
+        <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="16" $color="currentColor" />
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Lien pleine carte -->
+  <a href="#" class="absolute inset-0 z-0" aria-label="Voir l'événement : Grande Scène Soirée d'ouverture"></a>
+
+</article>
+

@@ -1,0 +1,65 @@
+<!---
+  card-B.html — Card produit / offre : image, badge promo, prix, note étoiles
+  ─────────────────────────────────────────────────────────────────────────────
+  Usage : intégrer dans une grille, remplacer l'image, le titre, le prix et la note.
+-->
+<article class="card bg-base-100 shadow-md overflow-hidden group w-full">
+
+  <!-- Image + badge -->
+  <figure class="relative overflow-hidden aspect-square">
+    <a href="#" tabindex="-1">
+      <img
+        src="https://picsum.photos/id/96/600/600.webp"
+        alt="Pass festival 3 jours"
+        class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <span class="badge badge-error absolute top-3 left-3">−20 %</span>
+    <button class="btn btn-circle btn-sm bg-base-100/80 backdrop-blur-sm absolute top-3 right-3 border-0 hover:bg-base-100">
+      <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="16" $color="currentColor" />
+    </button>
+  </figure>
+
+  <div class="card-body gap-3 pt-4">
+
+    <!-- Catégorie -->
+    <p class="legend">Pass festival</p>
+
+    <!-- Titre -->
+    <h2 class="card-title h5 leading-snug">
+      <a href="#" class="hover:text-primary transition-colors">
+        Pass 3 jours — Édition Prestige
+      </a>
+    </h2>
+
+    <!-- Note étoiles -->
+    <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-0.5 text-warning">
+        <include file="@comp/icon.html" $icon="lucide/star.svg" $size="13" $color="currentColor" />
+        <include file="@comp/icon.html" $icon="lucide/star.svg" $size="13" $color="currentColor" />
+        <include file="@comp/icon.html" $icon="lucide/star.svg" $size="13" $color="currentColor" />
+        <include file="@comp/icon.html" $icon="lucide/star.svg" $size="13" $color="currentColor" />
+        <include file="@comp/icon.html" $icon="lucide/star.svg" $size="13" $color="currentColor" />
+      </div>
+      <span class="caption text-base-content/50">(142 avis)</span>
+    </div>
+
+    <!-- Prix -->
+    <div class="flex items-baseline gap-2 mt-1">
+      <span class="h4 text-primary">119 €</span>
+      <span class="caption line-through text-base-content/40">149 €</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="card-actions mt-1">
+      <button class="btn btn-primary btn-sm w-full gap-2">
+        Ajouter au panier
+        <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="15" />
+      </button>
+    </div>
+
+  </div>
+</article>
+

@@ -1,0 +1,31 @@
+<!---
+  card-D.html — Card fonctionnalité / service : icône centré, fond base-200, sans image
+  ───────────────────────────────────────────────────────────────────────────────────────
+  Usage : intégrer dans une grille 3 ou 4 colonnes, remplacer l'icône, le titre et la description.
+  Variante minimaliste — idéale pour présenter des offres ou des arguments clés.
+-->
+<article class="card bg-base-200 border border-base-300 group hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+  <div class="card-body items-center text-center gap-5">
+
+    <!-- Icône dans un cercle coloré -->
+    <div class="flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary transition duration-300 group-hover:bg-primary group-hover:text-primary-content">
+      <include file="@comp/icon.html" $icon="lucide/layers.svg" $size="26" $color="currentColor" />
+    </div>
+
+    <!-- Titre + description -->
+    <div class="space-y-2">
+      <h2 class="card-title h5 justify-center">Programmation multicouche</h2>
+      <p class="p-sm text-base-content/70">
+        Cinq scènes simultanées pour naviguer librement entre les genres, du jazz au métal en passant par l'électro.
+      </p>
+    </div>
+
+    <!-- Lien -->
+    <a href="#" class="btn btn-ghost btn-sm gap-1.5 text-primary hover:text-primary mt-1">
+      En savoir plus
+      <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="14" $color="currentColor" />
+    </a>
+
+  </div>
+</article>
+

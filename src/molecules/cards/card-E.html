@@ -1,0 +1,90 @@
+<!---
+  card-E.html — Carrousel de produits artisan : image portrait, nom, prix, lien acheter
+  ──────────────────────────────────────────────────────────────────────────────────────
+  Usage : intégrer directement — affiche 3 cards en carrousel (1 sur mobile, 2 tablette, 3 desktop).
+  Style : épuré, sans fond ni ombre — conçu pour les univers artisan / maison.
+-->
+<div x-cloak
+     x-data="swiper({ loop: true, slidesPerView: 1.2, spaceBetween: 16, navigation: true, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 24 } } })"
+     class="swiper pb-4">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide">
+      <article>
+        <a href="#" class="block overflow-hidden rounded-2xl">
+          <img src="https://picsum.photos/id/593/450/600.webp" alt="Planche à découper — bois chêne" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+        <div class="mt-3 flex items-baseline justify-between gap-4">
+          <div>
+            <p class="p-sm font-medium">Planche à découper</p>
+            <a href="#" class="caption link link-hover mt-0.5 block">acheter</a>
+          </div>
+          <span class="p-sm whitespace-nowrap">40 €</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article>
+        <a href="#" class="block overflow-hidden rounded-2xl">
+          <img src="https://picsum.photos/id/225/450/600.webp" alt="Plateau de service — bois noyer" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+        <div class="mt-3 flex items-baseline justify-between gap-4">
+          <div>
+            <p class="p-sm font-medium">Plateau de service</p>
+            <a href="#" class="caption link link-hover mt-0.5 block">acheter</a>
+          </div>
+          <span class="p-sm whitespace-nowrap">65 €</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article>
+        <a href="#" class="block overflow-hidden rounded-2xl">
+          <img src="https://picsum.photos/id/606/450/600.webp" alt="Cuillère de cuisine — bois olivier" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+        <div class="mt-3 flex items-baseline justify-between gap-4">
+          <div>
+            <p class="p-sm font-medium">Cuillère de cuisine</p>
+            <a href="#" class="caption link link-hover mt-0.5 block">acheter</a>
+          </div>
+          <span class="p-sm whitespace-nowrap">18 €</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article>
+        <a href="#" class="block overflow-hidden rounded-2xl">
+          <img src="https://picsum.photos/id/599/450/600.webp" alt="Bol tournée — bois frêne" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+        <div class="mt-3 flex items-baseline justify-between gap-4">
+          <div>
+            <p class="p-sm font-medium">Bol tournée</p>
+            <a href="#" class="caption link link-hover mt-0.5 block">acheter</a>
+          </div>
+          <span class="p-sm whitespace-nowrap">55 €</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article>
+        <a href="#" class="block overflow-hidden rounded-2xl">
+          <img src="https://picsum.photos/id/612/450/600.webp" alt="Spatule de cuisine — bois cerisier" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+        <div class="mt-3 flex items-baseline justify-between gap-4">
+          <div>
+            <p class="p-sm font-medium">Spatule de cuisine</p>
+            <a href="#" class="caption link link-hover mt-0.5 block">acheter</a>
+          </div>
+          <span class="p-sm whitespace-nowrap">22 €</span>
+        </div>
+      </article>
+    </div>
+
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>

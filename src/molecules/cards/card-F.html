@@ -1,0 +1,66 @@
+<!---
+  card-F.html — Carrousel de cards éditoriales : catégorie, grand titre bas aligné, texte, image paysage
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────
+  Usage : intégrer directement — affiche 2 cards en carrousel (1 sur mobile, 2 à partir de 640px).
+  Style : fond base-200, titre Crimson Pro aligné en bas — conçu pour les univers culturels / événementiels.
+-->
+<div x-cloak
+     x-data="swiper({ loop: true, slidesPerView: 1.1, spaceBetween: 24, navigation: true, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 32 }, 1024: { slidesPerView: 2, spaceBetween: 48 } } })"
+     class="swiper pb-4">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide">
+      <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
+        <p class="legend">Exposition</p>
+        <div class="flex-1"></div>
+        <h2 class="h1">Hidden Brillaud</h2>
+        <p class="p-sm text-base-content/70">Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis parcens nec urbium primatibus nec plebeïis.</p>
+        <a href="#" class="block overflow-hidden rounded-xl">
+          <img src="https://picsum.photos/id/310/470/630.webp" alt="Exposition Hidden Brillaud" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
+        <p class="legend">Popup store</p>
+        <div class="flex-1"></div>
+        <h2 class="h1">Oh!Me</h2>
+        <p class="p-sm text-base-content/70">Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis parcens nec urbium primatibus nec plebeïis.</p>
+        <a href="#" class="block overflow-hidden rounded-xl">
+          <img src="https://picsum.photos/id/316/470/630.webp" alt="Popup store Oh!Me" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
+        <p class="legend">Marché artisan</p>
+        <div class="flex-1"></div>
+        <h2 class="h1">Terroir & Savoir</h2>
+        <p class="p-sm text-base-content/70">Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis parcens nec urbium primatibus nec plebeïis.</p>
+        <a href="#" class="block overflow-hidden rounded-xl">
+          <img src="https://picsum.photos/id/292/470/630.webp" alt="Marché Terroir et Savoir" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+      </article>
+    </div>
+
+    <div class="swiper-slide">
+      <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
+        <p class="legend">Résidence d'artiste</p>
+        <div class="flex-1"></div>
+        <h2 class="h1">Atelier Ouvert</h2>
+        <p class="p-sm text-base-content/70">Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis parcens nec urbium primatibus nec plebeïis.</p>
+        <a href="#" class="block overflow-hidden rounded-xl">
+          <img src="https://picsum.photos/id/175/470/630.webp" alt="Résidence Atelier Ouvert" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
+        </a>
+      </article>
+    </div>
+
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+
+

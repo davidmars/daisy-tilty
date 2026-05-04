@@ -1,0 +1,59 @@
+<!---
+  card-A.html — Card article / blog : image + catégorie + titre + extrait + auteur
+  ──────────────────────────────────────────────────────────────────────────────────
+  Usage : intégrer dans une grille, remplacer les textes, l'image et les métadonnées.
+-->
+<article class="card bg-base-100 shadow-md overflow-hidden group">
+
+  <!-- Image -->
+  <figure class="overflow-hidden aspect-video">
+    <a href="#">
+      <img
+        src="https://picsum.photos/id/29/800/450.webp"
+        alt="Photo de l'article"
+        class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  </figure>
+
+  <div class="card-body gap-4">
+
+    <!-- Catégorie + date -->
+    <div class="flex items-center justify-between">
+      <span class="badge badge-secondary">Musique</span>
+      <time class="caption" datetime="2025-07-18">18 juillet 2025</time>
+    </div>
+
+    <!-- Titre -->
+    <h2 class="card-title h4">
+      <a href="#" class="hover:text-primary transition-colors">
+        Arctic Monkeys : retour triomphal sur la grande scène
+      </a>
+    </h2>
+
+    <!-- Extrait -->
+    <p class="p-sm text-base-content/70 line-clamp-3">
+      Trois ans après leur dernier album studio, le groupe de Sheffield revient en force avec une setlist inédite qui mêle classiques et inédits, pour le plus grand bonheur des 60 000 spectateurs présents.
+    </p>
+
+    <!-- Auteur -->
+    <div class="flex items-center gap-2 pt-2 border-t border-base-200">
+      <div class="avatar">
+        <div class="w-7 rounded-full">
+          <img src="https://picsum.photos/id/64/64/64.webp" alt="Avatar auteur" />
+        </div>
+      </div>
+      <div>
+        <p class="caption font-medium text-base-content">Sophie Marceau</p>
+        <p class="caption text-base-content/50">Rédactrice culture</p>
+      </div>
+      <a href="#" class="ml-auto text-base-content/40 hover:text-primary transition-colors">
+        <include file="@comp/icon.html" $icon="lucide/external-link.svg" $size="15" $color="currentColor" />
+      </a>
+    </div>
+
+  </div>
+</article>
+
