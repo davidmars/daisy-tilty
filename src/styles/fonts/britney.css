@@ -33,4 +33,6 @@
   font-display: swap;
 }
 
-
+:root {
+  --font-britney: "Britney", "Times New Roman", serif;
+}

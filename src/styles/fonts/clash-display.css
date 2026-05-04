@@ -63,3 +63,6 @@
   font-display: swap;
 }
 
+:root {
+  --font-clash-display: "Clash Display", "Inter", Arial, sans-serif;
+}

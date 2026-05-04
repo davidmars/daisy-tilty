@@ -2,6 +2,28 @@
  * Style guide typographique basé sur Tailwind.
  * Chaque classe ci-dessous utilise `@apply` pour composer des utilitaires Tailwind.
  */
+
+/* Polices actives */
+@import "./fonts/general-sans.css";
+@import "./fonts/britney.css";
+@import "./fonts/crimson-pro.css";
+
+/*
+@import "./fonts/clash-display.css";
+@import "./fonts/satoshi.css";
+@import "./fonts/sora.css";
+@import "./fonts/poppins.css";
+@import "./fonts/anton.css";
+@import "./fonts/outfit.css";
+@import "./fonts/jetbrains-mono.css";
+@import "./fonts/space-grotesk.css";
+@import "./fonts/roboto.css";
+@import "./fonts/roboto-mono.css";
+@import "./fonts/open-sans.css";
+@import "./fonts/roboto-slab.css";
+@import "./fonts/ibm-plex-sans.css";
+*/
+
 @layer components {
 
 
@@ -108,7 +130,3 @@
 
 
 }
-
-
-
-
