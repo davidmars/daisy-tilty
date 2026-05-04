@@ -1,0 +1,38 @@
+<!---
+  swiper-slide.html — Diaporama plein format avec barre de progression et navigation (Swiper)
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  Usage : copier ce bloc et remplacer les URLs + textes alt.
+-->
+<div x-data="swiper({ loop: true, slidesPerView: 1, spaceBetween: 0, autoplay: true,
+  pagination: { el: '.swiper-pagination', type: 'progressbar' },
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', addIcons: false } })"
+     class="swiper swiper--progress-bottom aspect-video w-full relative [--swiper-navigation-color:white]">
+  <div class="swiper-wrapper">
+    <slot name="slides">
+      <div class="swiper-slide relative">
+        <img class="h-full w-full object-cover" src="https://picsum.photos/id/10/1600/900.webp" alt="Photo 1" loading="lazy" decoding="async" />
+        <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la première photo</figcaption>
+      </div>
+      <div class="swiper-slide relative">
+        <img class="h-full w-full object-cover" src="https://picsum.photos/id/20/1600/900.webp" alt="Photo 2" loading="lazy" decoding="async" />
+        <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la deuxième photo</figcaption>
+      </div>
+      <div class="swiper-slide relative">
+        <img class="h-full w-full object-cover" src="https://picsum.photos/id/30/1600/900.webp" alt="Photo 3" loading="lazy" decoding="async" />
+        <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la troisième photo</figcaption>
+      </div>
+      <div class="swiper-slide relative">
+        <img class="h-full w-full object-cover" src="https://picsum.photos/id/40/1600/900.webp" alt="Photo 4" loading="lazy" decoding="async" />
+        <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la quatrième photo</figcaption>
+      </div>
+    </slot>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev">
+    <include file="@comp/icon.html" $icon="lucide/chevron-left.svg" class="icon--thin" />
+  </div>
+  <div class="swiper-button-next">
+    <include file="@comp/icon.html" $icon="lucide/chevron-right.svg" class="icon--thin" />
+  </div>
+</div>
+
