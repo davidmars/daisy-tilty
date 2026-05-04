@@ -1,15 +1,23 @@
 .swiper {
   user-select: none;
   //--swiper-navigation-color:var(--color-base-content);
-  --swiper-theme-color:var(--color-base-content);
+  --swiper-theme-color: var(--color-base-content);
+  --swiper-pagination-color: var(--color-primary);
+
   .swiper-button-prev, .swiper-button-next {
-    &:hover{
+    &:hover {
       opacity: 0.2;
     }
     svg.comp-icon {
-      fill: none; // fix swiper qui se permet un peut trop de choses sur les icônes
+      fill: none; // fix swiper qui se permet un peu trop de choses sur les icônes
     }
   }
 
-
+  // Variante : barre de progression positionnée en bas
+  &.swiper--progress-bottom {
+    .swiper-pagination-progressbar {
+      top: auto;
+      bottom: 0;
+    }
+  }
 }

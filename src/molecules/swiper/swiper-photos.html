@@ -4,46 +4,46 @@
   Usage : copier ce bloc et remplacer les URLs + textes alt.
 -->
 <div x-cloak x-data="swiper({ loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 8,
-  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', addIcons: false } })"
-     class="swiper h-[200px] ">
+  pagination: { el: '.swiper-pagination', clickable: true } })"
+     class="swiper h-[320px]" >
   <div class="swiper-wrapper">
     <slot name="slides">
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/10/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/10/576/400.webp" alt="Photo 1" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/20/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/20/640/400.webp" alt="Photo 2" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/30/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/30/480/400.webp" alt="Photo 3" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/40/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/40/600/400.webp" alt="Photo 4" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/50/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/50/512/400.webp" alt="Photo 5" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/60/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/60/560/400.webp" alt="Photo 6" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/70/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/70/620/400.webp" alt="Photo 7" loading="lazy" decoding="async" />
         </a>
       </div>
-      <div class="swiper-slide !w-auto">
+      <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/80/1200/800.webp" data-gallery="swiper-photos">
           <img class="h-full w-auto rounded-xl object-cover" src="https://picsum.photos/id/80/500/400.webp" alt="Photo 8" loading="lazy" decoding="async" />
         </a>
@@ -51,12 +51,7 @@
     </slot>
   </div>
   <slot name="nav">
-    <div class="swiper-button-prev text-secondary">
-      <include file="@comp/icon.html" $icon="lucide/chevron-left.svg" />
-    </div>
-    <div class="swiper-button-next">
-      <include file="@comp/icon.html" $icon="lucide/chevron-right.svg" />
-    </div>
+    <div class="swiper-pagination"></div>
   </slot>
 </div>
 

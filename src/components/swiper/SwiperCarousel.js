@@ -2,6 +2,7 @@ import Swiper from 'swiper'
 import { FreeMode, Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 /**
  * Composant Alpine.js pour Swiper.
