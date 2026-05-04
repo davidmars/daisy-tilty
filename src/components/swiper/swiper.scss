@@ -1,0 +1,15 @@
+.swiper {
+  user-select: none;
+  //--swiper-navigation-color:var(--color-base-content);
+  --swiper-theme-color:var(--color-base-content);
+  .swiper-button-prev, .swiper-button-next {
+    &:hover{
+      opacity: 0.2;
+    }
+    svg.comp-icon {
+      fill: none; // fix swiper qui se permet un peut trop de choses sur les icônes
+    }
+  }
+
+
+}

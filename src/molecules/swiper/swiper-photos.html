@@ -3,8 +3,9 @@
   ──────────────────────────────────────────────────────────────────────────────────
   Usage : copier ce bloc et remplacer les URLs + textes alt.
 -->
-<div x-data="swiper({ loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 8 })"
-     class="swiper h-[200px]">
+<div x-cloak x-data="swiper({ loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 8,
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', addIcons: false } })"
+     class="swiper h-[200px] ">
   <div class="swiper-wrapper">
     <slot name="slides">
       <div class="swiper-slide !w-auto">
@@ -50,8 +51,12 @@
     </slot>
   </div>
   <slot name="nav">
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev text-secondary">
+      <include file="@comp/icon.html" $icon="lucide/chevron-left.svg" />
+    </div>
+    <div class="swiper-button-next">
+      <include file="@comp/icon.html" $icon="lucide/chevron-right.svg" />
+    </div>
   </slot>
 </div>
 

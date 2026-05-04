@@ -20,6 +20,15 @@
             </PendingDiffInfo>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/components/swiper/SwiperCarousel.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/components/swiper/SwiperCarousel.js" />
+              <option name="originalContent" value="import Swiper from 'swiper'&#10;import { FreeMode, Autoplay, Navigation, Pagination } from 'swiper/modules'&#10;import 'swiper/css'&#10;&#10;/**&#10; * Composant Alpine.js pour Swiper.&#10; * Accepte toutes les options natives Swiper.&#10; * La navigation et la pagination sont gérées nativement par Swiper&#10; * via les éléments `.swiper-button-prev`, `.swiper-button-next`, `.swiper-pagination`.&#10; */&#10;export class SwiperCarousel {&#10;    /** @param {import('swiper/types').SwiperOptions} options */&#10;    constructor(options = {}) {&#10;        this.options = options;&#10;    }&#10;&#10;    /** @this {SwiperCarousel &amp; { $el: HTMLElement }} */&#10;    init() {&#10;        new Swiper(this.$el, {&#10;            modules: [FreeMode, Autoplay, Navigation, Pagination],&#10;            grabCursor: true,&#10;            ...this.options,&#10;        });&#10;    }&#10;}&#10;&#10;" />
+              <option name="updatedContent" value="import Swiper from 'swiper'&#10;import { FreeMode, Autoplay, Navigation, Pagination } from 'swiper/modules'&#10;import 'swiper/css'&#10;import 'swiper/css/navigation'&#10;&#10;/**&#10; * Composant Alpine.js pour Swiper.&#10; * Accepte toutes les options natives Swiper.&#10; * La navigation et la pagination sont gérées nativement par Swiper&#10; * via les éléments `.swiper-button-prev`, `.swiper-button-next`, `.swiper-pagination`.&#10; */&#10;export class SwiperCarousel {&#10;    /** @param {import('swiper/types').SwiperOptions} options */&#10;    constructor(options = {}) {&#10;        this.options = options;&#10;    }&#10;&#10;    /** @this {SwiperCarousel &amp; { $el: HTMLElement }} */&#10;    init() {&#10;        new Swiper(this.$el, {&#10;            modules: [FreeMode, Autoplay, Navigation, Pagination],&#10;            grabCursor: true,&#10;            ...this.options,&#10;        });&#10;    }&#10;}&#10;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/molecules/grille-edito-1.html">
           <value>
             <PendingDiffInfo>
