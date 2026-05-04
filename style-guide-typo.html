@@ -1,0 +1,165 @@
+<include file="@layout/common.html" $title="Style guide — Typographie">
+    <div class="container mx-auto max-w-5xl space-y-16 px-4 py-10">
+
+        <!-- En-tête -->
+        <header class="space-y-4">
+            <p class="legend">style guide typographique</p>
+            <h1 class="h1">Typographie</h1>
+            <p class="lead">Cette page documente les classes CSS de typographie, leur rôle visuel et leurs usages recommandés.</p>
+            <nav class="flex flex-wrap gap-2">
+                <a class="kbd-inline" href="#titres">Titres</a>
+                <a class="kbd-inline" href="#paragraphes">Paragraphes</a>
+                <a class="kbd-inline" href="#citations">Citations</a>
+                <a class="kbd-inline" href="#technique">Technique</a>
+            </nav>
+        </header>
+
+        <!-- ─── Titres ─── -->
+        <section id="titres" class="space-y-4">
+            <div>
+                <h2 class="h2">Titres</h2>
+                <p class="caption">Hiérarchie visuelle de .h1 à .h6 — police de titre, toutes graisses normales.</p>
+            </div>
+
+            <div class="space-y-px shadow-lg">
+                <article class="bg-base-100 px-8 py-10">
+                    <p class="h1">Arctic Monkeys ouvre la scène avec "Do I Wanna Know?"</p>
+                    <span data-typo-meta="h1" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <p class="h2">Queen et "Bohemian Rhapsody" en ouverture de set</p>
+                    <span data-typo-meta="h2" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-100 px-8 py-10">
+                    <p class="h3">Nirvana passe sur "Smells Like Teen Spirit"</p>
+                    <span data-typo-meta="h3" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <p class="h4">The Strokes relancent le tempo avec "Reptilia"</p>
+                    <span data-typo-meta="h4" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-100 px-8 py-10">
+                    <p class="h5">Muse monte en tension sur "Hysteria"</p>
+                    <span data-typo-meta="h5" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <p class="h6">Foo Fighters termine fort avec "Everlong"</p>
+                    <span data-typo-meta="h6" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+            </div>
+        </section>
+
+        <!-- ─── Paragraphes ─── -->
+        <section id="paragraphes" class="space-y-4">
+            <div>
+                <h2 class="h2">Paragraphes et légendes</h2>
+                <p class="caption">Classes de corps de texte, introduction et annotations.</p>
+            </div>
+
+            <div class="space-y-px shadow-lg">
+                <article class="bg-base-100 px-8 py-10">
+                    <p class="lead">Dans ce guide, chaque style raconte un moment de live, du premier riff au dernier rappel, pour montrer comment la hiérarchie typographique organise naturellement l'information et guide le regard dans une page riche en contenu.</p>
+                    <span data-typo-meta="lead" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <p class="p">Imagine Dragons, Radiohead et The Killers partagent la même affiche dans un récit de concert détaillé : ouverture au coucher du soleil, montée progressive des lumières, puis enchaînement de morceaux qui installent une ambiance dense et collective avant le premier rappel.</p>
+                    <span data-typo-meta="p" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-100 px-8 py-10">
+                    <p class="p-lg">Le public reprend les refrains de "Mr. Brightside" pendant que la scénographie passe en mode néon, avec un mur de lumière bleu-violet qui accompagne les guitares.</p>
+                    <span data-typo-meta="p-lg" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <p class="p-sm">Note rapide : balance lumière finalisée, batterie vérifiée, micros testés une dernière fois, et rappel prévu après "Uprising" si le timing de scène reste conforme.</p>
+                    <span data-typo-meta="p-sm" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-100 px-8 py-10">
+                    <p class="caption">Légende : "Stairway to Heaven" sert ici de référence visuelle pour la hero banner.</p>
+                    <span data-typo-meta="caption" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <p class="legend">setlist du soir</p>
+                    <span data-typo-meta="legend" class="mt-3 block font-mono text-xs text-base-content/40"></span>
+                </article>
+            </div>
+        </section>
+
+        <!-- ─── Citations ─── -->
+        <section id="citations" class="space-y-4">
+            <div>
+                <h2 class="h2">Citations</h2>
+                <p class="caption">Classe .quote pour les citations éditoriales visuellement marquantes.</p>
+            </div>
+
+            <div class="space-y-px shadow-lg">
+                <article class="bg-base-100 px-8 py-12">
+                    <blockquote class="quote">« Sous les néons Y2K et les paillettes, la scène devient un manifeste de confiance : chaque pas affirme une liberté retrouvée. »</blockquote>
+                    <span data-typo-meta="quote" class="mt-4 block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10">
+                    <blockquote class="blockquote">« Le silence après le dernier accord est la plus longue ovation. »</blockquote>
+                    <span data-typo-meta="blockquote" class="mt-4 block font-mono text-xs text-base-content/40"></span>
+                </article>
+            </div>
+        </section>
+
+        <!-- ─── Technique ─── -->
+        <section id="technique" class="space-y-4">
+            <div>
+                <h2 class="h2">Texte technique et inline</h2>
+                <p class="caption">Classes pour le code, les raccourcis clavier et les annotations techniques.</p>
+            </div>
+
+            <div class="space-y-px shadow-lg">
+                <article class="bg-base-100 px-8 py-10 space-y-4">
+                    <p class="tech">setlist v2.4.1 | stage A | intro: "Seven Nation Army" | outro: "Paranoid"</p>
+                    <span data-typo-meta="tech" class="block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-200 px-8 py-10 space-y-3">
+                    <p class="p">Pour tester la page, lance <span class="code-inline">npm run build</span>, puis vérifie le rendu dans la prévisualisation locale.</p>
+                    <p class="caption">Usage : fragments de commandes, noms de variables, morceaux de code courts.</p>
+                    <span data-typo-meta="code-inline" class="block font-mono text-xs text-base-content/40"></span>
+                </article>
+                <article class="bg-base-100 px-8 py-10 space-y-3">
+                    <p class="p-sm">Raccourcis utiles : <span class="kbd-inline">Ctrl+S</span> pour sauvegarder, <span class="kbd-inline">Ctrl+F</span> pour rechercher.</p>
+                    <p class="caption">Usage : touches clavier, séquences d'actions utilisateur.</p>
+                    <span data-typo-meta="kbd-inline" class="block font-mono text-xs text-base-content/40"></span>
+                </article>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tmp = document.createElement('p');
+            tmp.style.cssText = 'position:fixed;top:-9999px;opacity:0;pointer-events:none;max-width:600px';
+            document.body.appendChild(tmp);
+
+            document.querySelectorAll('[data-typo-meta]').forEach(el => {
+                const cls = el.dataset.typoMeta;
+                tmp.className = cls;
+                const cs = getComputedStyle(tmp);
+
+                const family = cs.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
+                const size = Math.round(parseFloat(cs.fontSize)) + 'px';
+                const weight = cs.fontWeight;
+                const lh = parseFloat(cs.lineHeight) > 0
+                    ? (parseFloat(cs.lineHeight) / parseFloat(cs.fontSize)).toFixed(2)
+                    : '—';
+
+                el.textContent = `.${cls} — ${family} · ${size} · weight ${weight} · line-height ${lh}`;
+            });
+
+            document.body.removeChild(tmp);
+        });
+    </script>
+</include>
+
+
+
+
+
+
+
+

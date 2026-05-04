@@ -1,0 +1,308 @@
+<include file="@layout/common.html" $title="Style guide — Couleurs">
+    <div class="container mx-auto max-w-5xl space-y-16 px-4 py-10">
+
+        <!-- En-tête -->
+        <header class="space-y-4">
+            <p class="legend">style guide couleurs</p>
+            <h1 class="h1">Palette de couleurs DaisyUI</h1>
+            <p class="lead">Cette page documente toutes les couleurs sémantiques du thème, leur rôle et leurs usages recommandés via les classes DaisyUI.</p>
+            <nav class="flex flex-wrap gap-2">
+                <a class="kbd-inline" href="#base">Base</a>
+                <a class="kbd-inline" href="#marque">Marque</a>
+                <a class="kbd-inline" href="#etats">États</a>
+                <a class="kbd-inline" href="#composants">Composants</a>
+                <a class="kbd-inline" href="https://daisyui.com/theme-generator/" target="_blank" rel="noopener">Générateur de thème ↗</a>
+            </nav>
+        </header>
+
+        <!-- ─── Mosaïque d'intro ─── -->
+        <div class="space-y-8">
+            <!-- Marque & Base -->
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-px bg-base-300 overflow-hidden shadow-lg">
+                <div class="aspect-square bg-primary flex items-end p-2"><span class="legend text-primary-content">primary</span></div>
+                <div class="aspect-square bg-secondary flex items-end p-2"><span class="legend text-secondary-content">secondary</span></div>
+                <div class="aspect-square bg-accent flex items-end p-2"><span class="legend text-accent-content">accent</span></div>
+                <div class="aspect-square bg-neutral flex items-end p-2"><span class="legend text-neutral-content">neutral</span></div>
+                <div class="aspect-square bg-base-content flex items-end p-2"><span class="legend text-base-100">base-content</span></div>
+                <div class="aspect-square bg-base-100 flex items-end p-2"><span class="legend text-base-content">base-100</span></div>
+                <div class="aspect-square bg-base-200 flex items-end p-2"><span class="legend text-base-content">base-200</span></div>
+                <div class="aspect-square bg-base-300 flex items-end p-2"><span class="legend text-base-content">base-300</span></div>
+
+            </div>
+
+            <!-- États -->
+            <div class="grid grid-cols-4 gap-px bg-base-300 overflow-hidden shadow-lg sm:w-4/7">
+                <div class="aspect-[4/1] bg-info flex items-end p-2"><span class="legend text-info-content">info</span></div>
+                <div class="aspect-[4/1] bg-success flex items-end p-2"><span class="legend text-success-content">success</span></div>
+                <div class="aspect-[4/1] bg-warning flex items-end p-2"><span class="legend text-warning-content">warning</span></div>
+                <div class="aspect-[4/1] bg-error flex items-end p-2"><span class="legend text-error-content">error</span></div>
+            </div>
+        </div>
+
+        <!-- ─── Couleurs de base ─── -->
+        <section id="base" class="space-y-4">
+            <div>
+                <h2 class="h1">Couleurs de base</h2>
+                <p class="caption">Les surfaces neutres qui structurent les mises en page.</p>
+            </div>
+
+            <div class="space-y-px shadow-lg">
+
+                <article>
+                    <div class="h-44 w-full bg-base-100 flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-base-content/60">Surface principale. Fond des pages et cartes.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-base-content">base-100</span>
+                            <span class="font-mono text-xs text-base-content/60" data-color-var="--color-base-100"></span>
+                            <span class="font-mono text-xs text-base-content/60">bg-base-100 / text-base-content</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-base-200 flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-base-content/60">Surface légèrement assombrie. Fonds de sections alternées.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-base-content">base-200</span>
+                            <span class="font-mono text-xs text-base-content/60" data-color-var="--color-base-200"></span>
+                            <span class="font-mono text-xs text-base-content/60">bg-base-200 / text-base-content</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-base-300 flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-base-content/60">Bordures, séparateurs, fonds de champs désactivés.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-base-content">base-300</span>
+                            <span class="font-mono text-xs text-base-content/60" data-color-var="--color-base-300"></span>
+                            <span class="font-mono text-xs text-base-content/60">bg-base-300 / text-base-content</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ─── Couleurs de marque ─── -->
+        <section id="marque" class="space-y-2">
+            <h2 class="h2">Couleurs de marque</h2>
+            <p class="caption">Les couleurs identitaires du projet : primary, secondary, accent et neutral.</p>
+
+            <div class="space-y-px shadow-lg">
+
+                <article>
+                    <div class="h-44 w-full bg-primary flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-primary-content/60">Couleur principale. Boutons, liens, éléments actifs.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-primary-content">primary</span>
+                            <span class="font-mono text-xs text-primary-content/60" data-color-var="--color-primary"></span>
+                            <span class="font-mono text-xs text-primary-content/60">bg-primary / text-primary</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-secondary flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-secondary-content/60">Couleur secondaire. Tags, accents complémentaires.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-secondary-content">secondary</span>
+                            <span class="font-mono text-xs text-secondary-content/60" data-color-var="--color-secondary"></span>
+                            <span class="font-mono text-xs text-secondary-content/60">bg-secondary / text-secondary</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-accent flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-accent-content/60">Accent vif. Mise en valeur ponctuelle, badges, highlights.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-accent-content">accent</span>
+                            <span class="font-mono text-xs text-accent-content/60" data-color-var="--color-accent"></span>
+                            <span class="font-mono text-xs text-accent-content/60">bg-accent / text-accent</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-neutral flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-neutral-content/60">Neutre profond. Barres de navigation, footers.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-neutral-content">neutral</span>
+                            <span class="font-mono text-xs text-neutral-content/60" data-color-var="--color-neutral"></span>
+                            <span class="font-mono text-xs text-neutral-content/60">bg-neutral / text-neutral</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ─── Couleurs d'état ─── -->
+        <section id="etats" class="space-y-2">
+            <h2 class="h2">Couleurs d'état</h2>
+            <p class="caption">Réservées aux retours système : information, succès, avertissement, erreur.</p>
+
+            <div class="space-y-px shadow-lg">
+
+                <article>
+                    <div class="h-44 w-full bg-info flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-info-content/60">Information neutre. Notifications, bulles d'aide.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-info-content">info</span>
+                            <span class="font-mono text-xs text-info-content/60" data-color-var="--color-info"></span>
+                            <span class="font-mono text-xs text-info-content/60">bg-info / text-info</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-success flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-success-content/60">Confirmation d'action réussie. Formulaires validés.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-success-content">success</span>
+                            <span class="font-mono text-xs text-success-content/60" data-color-var="--color-success"></span>
+                            <span class="font-mono text-xs text-success-content/60">bg-success / text-success</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-warning flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-warning-content/60">Avertissement non bloquant. Alertes de précaution.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-warning-content">warning</span>
+                            <span class="font-mono text-xs text-warning-content/60" data-color-var="--color-warning"></span>
+                            <span class="font-mono text-xs text-warning-content/60">bg-warning / text-warning</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="h-44 w-full bg-error flex flex-col justify-end px-6 pb-5 gap-1">
+                        <p class="caption text-error-content/60">Erreur bloquante. Validation échouée, états critiques.</p>
+                        <div class="flex flex-wrap items-baseline gap-x-4">
+                            <span class="h3 text-error-content">error</span>
+                            <span class="font-mono text-xs text-error-content/60" data-color-var="--color-error"></span>
+                            <span class="font-mono text-xs text-error-content/60">bg-error / text-error</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ─── Couleurs en contexte (composants DaisyUI) ─── -->
+        <section id="composants" class="space-y-8">
+            <div class="space-y-1">
+                <h2 class="h2">Couleurs en contexte</h2>
+                <p class="caption">Exemples concrets d'application des couleurs via les composants DaisyUI.</p>
+            </div>
+
+            <div class="space-y-3">
+                <p class="tech">Boutons — .btn</p>
+                <div class="flex flex-wrap gap-3">
+                    <button class="btn btn-primary">Primary</button>
+                    <button class="btn btn-secondary">Secondary</button>
+                    <button class="btn btn-accent">Accent</button>
+                    <button class="btn btn-neutral">Neutral</button>
+                    <button class="btn btn-ghost">Ghost</button>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <p class="tech">Badges — .badge</p>
+                <div class="flex flex-wrap gap-3 items-center">
+                    <span class="badge badge-primary">primary</span>
+                    <span class="badge badge-secondary">secondary</span>
+                    <span class="badge badge-accent">accent</span>
+                    <span class="badge badge-neutral">neutral</span>
+                    <span class="badge badge-info">info</span>
+                    <span class="badge badge-success">success</span>
+                    <span class="badge badge-warning">warning</span>
+                    <span class="badge badge-error">error</span>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <p class="tech">Alertes — .alert</p>
+                <div class="space-y-2">
+                    <div role="alert" class="alert alert-info">
+                        <span class="p-sm">Information : la configuration a bien été chargée.</span>
+                    </div>
+                    <div role="alert" class="alert alert-success">
+                        <span class="p-sm">Succès : le formulaire a été envoyé avec succès.</span>
+                    </div>
+                    <div role="alert" class="alert alert-warning">
+                        <span class="p-sm">Avertissement : certaines données sont incomplètes.</span>
+                    </div>
+                    <div role="alert" class="alert alert-error">
+                        <span class="p-sm">Erreur : la connexion au serveur a échoué.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <p class="tech">Textes colorés — text-{couleur}</p>
+                <div class="space-y-1">
+                    <p class="p text-primary">text-primary — Couleur principale de l'interface.</p>
+                    <p class="p text-secondary">text-secondary — Couleur secondaire, accents complémentaires.</p>
+                    <p class="p text-accent">text-accent — Accent vif pour les mises en valeur.</p>
+                    <p class="p text-neutral">text-neutral — Teinte neutre profonde.</p>
+                    <p class="p text-info">text-info — Information neutre.</p>
+                    <p class="p text-success">text-success — État de succès.</p>
+                    <p class="p text-warning">text-warning — État d'avertissement.</p>
+                    <p class="p text-error">text-error — État d'erreur.</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <p class="tech">Variables CSS — var(--color-{nom})</p>
+                <p class="caption">Toutes ces couleurs sont exposées comme variables CSS et peuvent être utilisées dans du CSS personnalisé.</p>
+                <div class="grid grid-cols-1 gap-1 md:grid-cols-2">
+                    <p class="code-inline">var(--color-primary)</p>
+                    <p class="code-inline">var(--color-primary-content)</p>
+                    <p class="code-inline">var(--color-secondary)</p>
+                    <p class="code-inline">var(--color-secondary-content)</p>
+                    <p class="code-inline">var(--color-accent)</p>
+                    <p class="code-inline">var(--color-accent-content)</p>
+                    <p class="code-inline">var(--color-neutral)</p>
+                    <p class="code-inline">var(--color-neutral-content)</p>
+                    <p class="code-inline">var(--color-base-100)</p>
+                    <p class="code-inline">var(--color-base-200)</p>
+                    <p class="code-inline">var(--color-base-300)</p>
+                    <p class="code-inline">var(--color-base-content)</p>
+                    <p class="code-inline">var(--color-info)</p>
+                    <p class="code-inline">var(--color-info-content)</p>
+                    <p class="code-inline">var(--color-success)</p>
+                    <p class="code-inline">var(--color-success-content)</p>
+                    <p class="code-inline">var(--color-warning)</p>
+                    <p class="code-inline">var(--color-warning-content)</p>
+                    <p class="code-inline">var(--color-error)</p>
+                    <p class="code-inline">var(--color-error-content)</p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tmp = document.createElement('span');
+            tmp.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+            document.body.appendChild(tmp);
+
+            document.querySelectorAll('[data-color-var]').forEach(el => {
+                tmp.style.backgroundColor = `var(${el.dataset.colorVar})`;
+                const rgb = getComputedStyle(tmp).backgroundColor.match(/\d+/g);
+                if (rgb) {
+                    el.textContent = '#' + rgb.slice(0, 3)
+                        .map(n => parseInt(n).toString(16).padStart(2, '0').toUpperCase())
+                        .join('');
+                }
+            });
+
+            document.body.removeChild(tmp);
+        });
+    </script>
+</include>
