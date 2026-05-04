@@ -1,0 +1,40 @@
+<!---
+  parallax-2-imgs.html — Duo d'images décalées verticalement avec légende
+  ─────────────────────────────────────────────────────────────────────────
+  Usage : 2 images portrait, la droite décalée vers le bas. Remplacer les URLs, alt et légendes.
+  Variables : image gauche, image droite, légende gauche, légende droite.
+-->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 mx-auto">
+
+  <!-- Image gauche — alignée en haut -->
+  <figure class="flex flex-col gap-3">
+    <a href="https://picsum.photos/id/310/900/1200.webp" class="lightbox block overflow-hidden rounded-2xl" data-gallery="parallax-2-imgs">
+      <img
+        src="https://picsum.photos/id/310/450/600.webp"
+        alt="Château rose — vue d'ensemble"
+        class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <figcaption class="caption text-base-content/60">Château rose — huile sur toile — 105×88cm — 2023</figcaption>
+  </figure>
+
+  <!-- Image droite — décalée vers le bas -->
+  <figure class="flex flex-col gap-3 mt-16 md:mt-24">
+    <a href="https://picsum.photos/id/175/900/1200.webp" class="lightbox block overflow-hidden rounded-2xl" data-gallery="parallax-2-imgs">
+      <img
+        src="https://picsum.photos/id/175/450/600.webp"
+        alt="Château rose — détail"
+        class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <figcaption class="caption text-base-content/60">Château rose — huile sur toile — 105×88cm — 2023</figcaption>
+  </figure>
+
+</div>
+
+
+

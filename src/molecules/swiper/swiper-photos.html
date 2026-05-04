@@ -3,10 +3,11 @@
   ──────────────────────────────────────────────────────────────────────────────────
   Usage : copier ce bloc et remplacer les URLs + textes alt.
 -->
-<div x-cloak x-data="swiper({ loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 8,
+<div x-cloak x-data="swiper({ loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 8, speed: 3000,
+  autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
   pagination: { el: '.swiper-pagination', clickable: true } })"
-     class="swiper h-[320px]" >
-  <div class="swiper-wrapper">
+     class="swiper h-[clamp(320px,32.5vw,500px)]" style="transition-timing-function: linear;">
+  <div class="swiper-wrapper" style="transition-timing-function: linear;">
     <slot name="slides">
       <div class="swiper-slide !w-auto pb-10">
         <a class="lightbox h-full block" href="https://picsum.photos/id/10/1200/800.webp" data-gallery="swiper-photos">
