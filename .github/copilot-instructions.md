@@ -145,6 +145,17 @@ Le fichier `icons-gallery.html` est **généré automatiquement** par le plugin 
 
 Pour ajouter une nouvelle famille d'icônes, créer un sous-dossier dans `src/icons/` et y placer les fichiers `.svg`. La galerie se met à jour automatiquement.
 
+## Polices de caractères (Fonts)
+
+Lorsque l'utilisateur demande d'utiliser ou d'installer une nouvelle police de caractères (ex. via Google Fonts), **ne jamais** utiliser la directive externe `@import url(...)` qui pose des problèmes avec le bundler Vite.
+
+Il faut **obligatoirement** s'inspirer des fichiers de polices déjà présents locaux dans le projet (ex. `src/styles/fonts/general-sans.css`) :
+1. Récupérer les déclarations `@font-face` complètes avec les URLs directes vers les fichiers de police (ex: `.woff2`). *(Astuce pour Google Fonts : utiliser une requête curl avec un User-Agent de navigateur moderne pour qu'il retourne le CSS contenant les WOFF2).*
+2. Créer un nouveau fichier CSS local dans `src/styles/fonts/nom-police.css` contenant ces règles `@font-face` explicites.
+3. Importer ce fichier dans `src/styles/fonts/index.css` via `@import "./nom-police.css";`.
+4. Déclarer la variable CSS correspondante dans la section `:root` de `src/styles/fonts/index.css` ET dans `src/styles/typography.css`, puis l'utiliser dans la hiérarchie typographique si demandé (`typography.css`).
+5. **Vérifier dans `src/styles/typography.css`** si l'ajout rend d'anciennes polices totalement obsolètes. Si c'est le cas (et seulement si elles ne sont plus du tout référencées dans les règles CSS), **proposer systématiquement à l'utilisateur de retirer les imports et fichiers inutilisés** afin d'optimiser les performances. Ne jamais proposer de supprimer une police dont la variable est encore appliquée à des classes.
+
 ## Couleurs — Règles absolues
 
 **Ne jamais utiliser de couleurs Tailwind brutes ni de valeurs hexadécimales inline.** Toutes les couleurs du projet passent exclusivement par le système sémantique DaisyUI.
@@ -327,7 +338,7 @@ Quand l'utilisateur mentionne un code du format `ERR-x...`, l'agent doit **oblig
 1. Consulter `_docs/codes-erreur.md` pour retrouver la fiche correspondante.
 2. Expliquer la **cause** du problème.
 3. Décrire le **symptôme** visible.
-4. Détailler les **étapes de résolution**.
+4. Detailler les **étapes de résolution**.
 
 Ne jamais répondre "je ne connais pas ce code" sans avoir lu `_docs/codes-erreur.md` au préalable.
 
