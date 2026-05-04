@@ -5,11 +5,11 @@
   Style : fond base-200, titre Crimson Pro aligné en bas — conçu pour les univers culturels / événementiels.
 -->
 <div x-cloak
-     x-data="swiper({ loop: true, slidesPerView: 1.1, spaceBetween: 24, navigation: true, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 32 }, 1024: { slidesPerView: 2, spaceBetween: 48 } } })"
-     class="swiper pb-4">
+     x-data="swiper({ loop: true, slidesPerView: 1.1, spaceBetween: 24, navigation: true, pagination: { el: '.swiper-pagination', clickable: true }, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 32 }, 1024: { slidesPerView: 2, spaceBetween: 48 } } })"
+     class="swiper pb-10">
   <div class="swiper-wrapper">
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
         <p class="legend">Exposition</p>
         <div class="flex-1"></div>
@@ -21,7 +21,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
         <p class="legend">Popup store</p>
         <div class="flex-1"></div>
@@ -33,7 +33,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
         <p class="legend">Marché artisan</p>
         <div class="flex-1"></div>
@@ -45,7 +45,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article class="bg-base-200 rounded-2xl p-6 flex flex-col gap-6 h-full">
         <p class="legend">Résidence d'artiste</p>
         <div class="flex-1"></div>
@@ -60,6 +60,7 @@
   </div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div>
 </div>
 
 

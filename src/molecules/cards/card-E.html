@@ -5,11 +5,11 @@
   Style : épuré, sans fond ni ombre — conçu pour les univers artisan / maison.
 -->
 <div x-cloak
-     x-data="swiper({ loop: true, slidesPerView: 1.2, spaceBetween: 16, navigation: true, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 24 } } })"
-     class="swiper pb-4">
+     x-data="swiper({ loop: true, slidesPerView: 1.2, spaceBetween: 16, navigation: true, pagination: { el: '.swiper-pagination', clickable: true }, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 24 } } })"
+     class="swiper pb-10">
   <div class="swiper-wrapper">
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article>
         <a href="#" class="block overflow-hidden rounded-2xl">
           <img src="https://picsum.photos/id/593/450/600.webp" alt="Planche à découper — bois chêne" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
@@ -24,7 +24,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article>
         <a href="#" class="block overflow-hidden rounded-2xl">
           <img src="https://picsum.photos/id/225/450/600.webp" alt="Plateau de service — bois noyer" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
@@ -39,7 +39,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article>
         <a href="#" class="block overflow-hidden rounded-2xl">
           <img src="https://picsum.photos/id/606/450/600.webp" alt="Cuillère de cuisine — bois olivier" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
@@ -54,7 +54,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article>
         <a href="#" class="block overflow-hidden rounded-2xl">
           <img src="https://picsum.photos/id/599/450/600.webp" alt="Bol tournée — bois frêne" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
@@ -69,7 +69,7 @@
       </article>
     </div>
 
-    <div class="swiper-slide">
+    <div class="swiper-slide pb-14">
       <article>
         <a href="#" class="block overflow-hidden rounded-2xl">
           <img src="https://picsum.photos/id/612/450/600.webp" alt="Spatule de cuisine — bois cerisier" class="w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" loading="lazy" decoding="async" />
@@ -87,4 +87,5 @@
   </div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div>
 </div>
