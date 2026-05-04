@@ -39,6 +39,11 @@
      // color is already managed in svg file
     }
 
+    &.icon--thin {
+        // testé uniquement sur lucide
+        stroke-width: 0.5;
+    }
+
     &[data-icon*="phosphor/"],
     &.phosphor,
     &.pho{
