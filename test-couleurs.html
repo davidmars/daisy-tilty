@@ -11,27 +11,32 @@
                 <a class="kbd-inline" href="#marque">Marque</a>
                 <a class="kbd-inline" href="#etats">États</a>
                 <a class="kbd-inline" href="#composants">Composants</a>
+                <a class="kbd-inline" href="https://daisyui.com/theme-generator/" target="_blank" rel="noopener">Générateur de thème ↗</a>
             </nav>
         </header>
 
         <!-- ─── Mosaïque d'intro ─── -->
-        <div class="grid grid-cols-4 sm:grid-cols-8 gap-px bg-base-300 overflow-hidden">
-            <div class="aspect-square bg-primary flex items-end p-2"><span class="legend text-primary-content">primary</span></div>
-            <div class="aspect-square bg-primary-content flex items-end p-2"><span class="legend text-primary">primary-content</span></div>
-            <div class="aspect-square bg-secondary flex items-end p-2"><span class="legend text-secondary-content">secondary</span></div>
-            <div class="aspect-square bg-secondary-content flex items-end p-2"><span class="legend text-secondary">secondary-content</span></div>
-            <div class="aspect-square bg-accent flex items-end p-2"><span class="legend text-accent-content">accent</span></div>
-            <div class="aspect-square bg-accent-content flex items-end p-2"><span class="legend text-accent">accent-content</span></div>
-            <div class="aspect-square bg-neutral flex items-end p-2"><span class="legend text-neutral-content">neutral</span></div>
-            <div class="aspect-square bg-neutral-content flex items-end p-2"><span class="legend text-neutral">neutral-content</span></div>
-            <div class="aspect-square bg-base-100 flex items-end p-2"><span class="legend text-base-content">base-100</span></div>
-            <div class="aspect-square bg-base-200 flex items-end p-2"><span class="legend text-base-content">base-200</span></div>
-            <div class="aspect-square bg-base-300 flex items-end p-2"><span class="legend text-base-content">base-300</span></div>
-            <div class="aspect-square bg-base-content flex items-end p-2"><span class="legend text-neutral-content">base-content</span></div>
-            <div class="aspect-square bg-info flex items-end p-2"><span class="legend text-info-content">info</span></div>
-            <div class="aspect-square bg-success flex items-end p-2"><span class="legend text-success-content">success</span></div>
-            <div class="aspect-square bg-warning flex items-end p-2"><span class="legend text-warning-content">warning</span></div>
-            <div class="aspect-square bg-error flex items-end p-2"><span class="legend text-error-content">error</span></div>
+        <div class="space-y-8">
+            <!-- Marque & Base -->
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-px bg-base-300 overflow-hidden shadow-lg">
+                <div class="aspect-square bg-primary flex items-end p-2"><span class="legend text-primary-content">primary</span></div>
+                <div class="aspect-square bg-secondary flex items-end p-2"><span class="legend text-secondary-content">secondary</span></div>
+                <div class="aspect-square bg-accent flex items-end p-2"><span class="legend text-accent-content">accent</span></div>
+                <div class="aspect-square bg-neutral flex items-end p-2"><span class="legend text-neutral-content">neutral</span></div>
+                <div class="aspect-square bg-base-content flex items-end p-2"><span class="legend text-base-100">base-content</span></div>
+                <div class="aspect-square bg-base-100 flex items-end p-2"><span class="legend text-base-content">base-100</span></div>
+                <div class="aspect-square bg-base-200 flex items-end p-2"><span class="legend text-base-content">base-200</span></div>
+                <div class="aspect-square bg-base-300 flex items-end p-2"><span class="legend text-base-content">base-300</span></div>
+
+            </div>
+
+            <!-- États -->
+            <div class="grid grid-cols-4 gap-px bg-base-300 overflow-hidden shadow-lg sm:w-4/7">
+                <div class="aspect-[4/1] bg-info flex items-end p-2"><span class="legend text-info-content">info</span></div>
+                <div class="aspect-[4/1] bg-success flex items-end p-2"><span class="legend text-success-content">success</span></div>
+                <div class="aspect-[4/1] bg-warning flex items-end p-2"><span class="legend text-warning-content">warning</span></div>
+                <div class="aspect-[4/1] bg-error flex items-end p-2"><span class="legend text-error-content">error</span></div>
+            </div>
         </div>
 
         <!-- ─── Couleurs de base ─── -->
@@ -49,7 +54,7 @@
                         <div class="flex flex-wrap items-baseline gap-x-4">
                             <span class="h3 text-base-content">base-100</span>
                             <span class="font-mono text-xs text-base-content/60" data-color-var="--color-base-100"></span>
-                            <span class="font-mono text-xs text-base-content/60">bg-base-100</span>
+                            <span class="font-mono text-xs text-base-content/60">bg-base-100 / text-base-content</span>
                         </div>
                     </div>
                 </article>
@@ -60,7 +65,7 @@
                         <div class="flex flex-wrap items-baseline gap-x-4">
                             <span class="h3 text-base-content">base-200</span>
                             <span class="font-mono text-xs text-base-content/60" data-color-var="--color-base-200"></span>
-                            <span class="font-mono text-xs text-base-content/60">bg-base-200</span>
+                            <span class="font-mono text-xs text-base-content/60">bg-base-200 / text-base-content</span>
                         </div>
                     </div>
                 </article>
@@ -71,18 +76,7 @@
                         <div class="flex flex-wrap items-baseline gap-x-4">
                             <span class="h3 text-base-content">base-300</span>
                             <span class="font-mono text-xs text-base-content/60" data-color-var="--color-base-300"></span>
-                            <span class="font-mono text-xs text-base-content/60">bg-base-300</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="h-44 w-full bg-base-content flex flex-col justify-end px-6 pb-5 gap-1">
-                        <p class="caption text-neutral-content/60">Couleur de texte principale sur fond base.</p>
-                        <div class="flex flex-wrap items-baseline gap-x-4">
-                            <span class="h3 text-neutral-content">base-content</span>
-                            <span class="font-mono text-xs text-neutral-content/60" data-color-var="--color-base-content"></span>
-                            <span class="font-mono text-xs text-neutral-content/60">text-base-content</span>
+                            <span class="font-mono text-xs text-base-content/60">bg-base-300 / text-base-content</span>
                         </div>
                     </div>
                 </article>
@@ -109,34 +103,12 @@
                 </article>
 
                 <article>
-                    <div class="h-44 w-full bg-primary-content flex flex-col justify-end px-6 pb-5 gap-1">
-                        <p class="caption text-primary/60">Texte et icônes posés sur fond primary.</p>
-                        <div class="flex flex-wrap items-baseline gap-x-4">
-                            <span class="h3 text-primary">primary-content</span>
-                            <span class="font-mono text-xs text-primary/60" data-color-var="--color-primary-content"></span>
-                            <span class="font-mono text-xs text-primary/60">bg-primary-content / text-primary-content</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
                     <div class="h-44 w-full bg-secondary flex flex-col justify-end px-6 pb-5 gap-1">
                         <p class="caption text-secondary-content/60">Couleur secondaire. Tags, accents complémentaires.</p>
                         <div class="flex flex-wrap items-baseline gap-x-4">
                             <span class="h3 text-secondary-content">secondary</span>
                             <span class="font-mono text-xs text-secondary-content/60" data-color-var="--color-secondary"></span>
                             <span class="font-mono text-xs text-secondary-content/60">bg-secondary / text-secondary</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="h-44 w-full bg-secondary-content flex flex-col justify-end px-6 pb-5 gap-1">
-                        <p class="caption text-secondary/60">Texte et icônes posés sur fond secondary.</p>
-                        <div class="flex flex-wrap items-baseline gap-x-4">
-                            <span class="h3 text-secondary">secondary-content</span>
-                            <span class="font-mono text-xs text-secondary/60" data-color-var="--color-secondary-content"></span>
-                            <span class="font-mono text-xs text-secondary/60">bg-secondary-content / text-secondary-content</span>
                         </div>
                     </div>
                 </article>
@@ -153,34 +125,12 @@
                 </article>
 
                 <article>
-                    <div class="h-44 w-full bg-accent-content flex flex-col justify-end px-6 pb-5 gap-1">
-                        <p class="caption text-accent/60">Texte et icônes posés sur fond accent.</p>
-                        <div class="flex flex-wrap items-baseline gap-x-4">
-                            <span class="h3 text-accent">accent-content</span>
-                            <span class="font-mono text-xs text-accent/60" data-color-var="--color-accent-content"></span>
-                            <span class="font-mono text-xs text-accent/60">bg-accent-content / text-accent-content</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
                     <div class="h-44 w-full bg-neutral flex flex-col justify-end px-6 pb-5 gap-1">
                         <p class="caption text-neutral-content/60">Neutre profond. Barres de navigation, footers.</p>
                         <div class="flex flex-wrap items-baseline gap-x-4">
                             <span class="h3 text-neutral-content">neutral</span>
                             <span class="font-mono text-xs text-neutral-content/60" data-color-var="--color-neutral"></span>
                             <span class="font-mono text-xs text-neutral-content/60">bg-neutral / text-neutral</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="h-44 w-full bg-neutral-content flex flex-col justify-end px-6 pb-5 gap-1">
-                        <p class="caption text-neutral/60">Texte et icônes posés sur fond neutral.</p>
-                        <div class="flex flex-wrap items-baseline gap-x-4">
-                            <span class="h3 text-neutral">neutral-content</span>
-                            <span class="font-mono text-xs text-neutral/60" data-color-var="--color-neutral-content"></span>
-                            <span class="font-mono text-xs text-neutral/60">bg-neutral-content / text-neutral-content</span>
                         </div>
                     </div>
                 </article>

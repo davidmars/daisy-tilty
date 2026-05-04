@@ -145,6 +145,42 @@ Le fichier `icons-gallery.html` est **généré automatiquement** par le plugin 
 
 Pour ajouter une nouvelle famille d'icônes, créer un sous-dossier dans `src/icons/` et y placer les fichiers `.svg`. La galerie se met à jour automatiquement.
 
+## Couleurs — Règles absolues
+
+**Ne jamais utiliser de couleurs Tailwind brutes ni de valeurs hexadécimales inline.** Toutes les couleurs du projet passent exclusivement par le système sémantique DaisyUI.
+
+### Règle fondamentale
+
+| ✅ Autorisé | ❌ Interdit |
+|---|---|
+| `bg-primary`, `text-secondary`, `bg-error` | `bg-red-500`, `text-blue-200`, `bg-gray-100` |
+| `text-primary-content` sur `bg-primary` | `text-white` ou `text-black` sur fond coloré |
+| `var(--color-primary)` en CSS | `#A5998B`, `oklch(...)`, valeur brute inline |
+
+### Système paire couleur / contenu
+
+Chaque couleur sémantique a une contrepartie `*-content` garantie lisible par-dessus. Ce binôme est **toujours** utilisé ensemble :
+
+```html
+<!-- ✅ Correct -->
+<div class="bg-primary text-primary-content">…</div>
+<div class="bg-error text-error-content">…</div>
+
+<!-- ❌ Interdit -->
+<div class="bg-primary text-white">…</div>
+```
+
+### Couleurs disponibles dans le thème
+
+- **Base** : `base-100`, `base-200`, `base-300`, `base-content`
+- **Marque** : `primary`, `secondary`, `accent`, `neutral` (+ leurs `*-content`)
+- **États** : `info`, `success`, `warning`, `error` (+ leurs `*-content`)
+
+Pour modifier les couleurs : éditer `src/styles/custom-daisy-ui-theme.css`.
+Documentation complète : **`_docs/couleurs.md`**
+
+---
+
 ## DaisyUI en priorité
 
 **Avant d'écrire du JavaScript ou d'utiliser des utilitaires Tailwind bruts, vérifier systématiquement si DaisyUI couvre déjà le besoin.**
