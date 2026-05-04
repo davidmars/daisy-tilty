@@ -10,10 +10,10 @@
     --color-base-content: #4B4446;
     --color-primary: #A5998B;
     --color-primary-content: hsl(210 27.3% 99.5%);
-    --color-secondary: oklch(65% 0.241 354.308);
-    --color-secondary-content: oklch(94% 0.028 342.258);
-    --color-accent: oklch(77% 0.152 181.912);
-    --color-accent-content: oklch(38% 0.063 188.416);
+    --color-secondary: #9A8A85;
+    --color-secondary-content: #FBFBFB;
+    --color-accent: #8A9286;
+    --color-accent-content: #FBFBFB;
     --color-neutral: #4B4446;
     --color-neutral-content: #FBFBFB;
     --color-info: oklch(74% 0.16 232.661);
