@@ -39,10 +39,12 @@ export default defineConfig({
     resolve: {
         alias: {
             '@comp': fileURLToPath(new URL('./src/components/', import.meta.url)),
+            '@components': fileURLToPath(new URL('./src/components/', import.meta.url)),
             '@layout': fileURLToPath(new URL('./src/layout/', import.meta.url)),
             '@icons': fileURLToPath(new URL('./src/icons/', import.meta.url)),
             '@style': fileURLToPath(new URL('./src/styles/', import.meta.url)),
             '@mol': fileURLToPath(new URL('./src/molecules/', import.meta.url)),
+            '@molecules': fileURLToPath(new URL('./src/molecules/', import.meta.url)),
             // ...others alias
         }
     }
