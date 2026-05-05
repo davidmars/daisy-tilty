@@ -4,71 +4,72 @@
   Usage : inclure dans un panneau de navigation (ex. rideau plein écran, drawer, sidebar).
   Personnalisation : remplacer les textes et href des <a>.
 -->
-<ul class="flex flex-col">
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Let it be</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Programme</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Artistes</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Infos pratiques</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Actualités</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Contact</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Billetterie</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Partenaires</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Presse</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">FAQ</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-    <li>
-        <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
-            <span class="h2">Accessibilité</span>
-            <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
-        </a>
-    </li>
-</ul>
+
+    <ul class="flex flex-col" data-reveal="stagger" data-reveal-preset="maskDown" data-reveal-stagger="0.05">
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Let it be</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Programme</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Artistes</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Infos pratiques</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Actualités</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Contact</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Billetterie</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Partenaires</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Presse</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">FAQ</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center justify-between py-5 border-b border-base-200 hover:text-primary transition-colors">
+                <span class="h2">Accessibilité</span>
+                <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="32" $color="currentColor" />
+            </a>
+        </li>
+    </ul>

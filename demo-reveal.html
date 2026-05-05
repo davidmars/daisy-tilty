@@ -1,0 +1,279 @@
+<include file="@layout/common.html" $title="Demo — Animations data-reveal">
+
+  <!-- ─── Hero ──────────────────────────────────────────────────────────── -->
+  <header class="bg-base-200 border-b border-base-300 py-20">
+    <div class="container mx-auto max-w-5xl px-4 space-y-4">
+      <p class="legend" data-reveal="fade">animations au défilement</p>
+      <h1 class="h1" data-reveal="maskDown">data-reveal</h1>
+      <p class="lead max-w-2xl" data-reveal="fadeUp" data-reveal-delay="0.1">
+        Tous les presets et modes de stagger — actif si <code class="code-inline">VITE_AOS=true</code> dans <code class="code-inline">.env.local</code>.</p>
+      <nav class="flex flex-wrap gap-2 pt-2" data-reveal="fadeUp" data-reveal-delay="0.2">
+        <a class="kbd-inline" href="#presets-fade">Fade</a>
+        <a class="kbd-inline" href="#presets-mask">Mask</a>
+        <a class="kbd-inline" href="#presets-zoom">Zoom</a>
+        <a class="kbd-inline" href="#stagger">Stagger</a>
+        <a class="kbd-inline" href="#attributs">Attributs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container mx-auto max-w-5xl px-4 py-16 space-y-[40vh]">
+
+    <!-- ─── Presets Fade ──────────────────────────────────────────────── -->
+    <section id="presets-fade" class="space-y-12">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.15" data-reveal-duration="1.2">
+        <h2 class="h2">Presets Fade</h2>
+        <p class="caption text-base-content/60">Fondu avec translation — <code class="code-inline">opacity: 0 → 1</code></p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="card bg-base-200" data-reveal="fade" data-reveal-duration="1.5" data-reveal-delay="0.2">
+          <div class="card-body gap-2">
+            <p class="legend">fade</p>
+            <p class="p-sm text-base-content/70">Opacité seule, sans déplacement.</p>
+            <code class="code-inline text-xs mt-auto">data-reveal="fade"</code>
+          </div>
+        </div>
+
+        <div class="card bg-base-200" data-reveal="fadeBlur" data-reveal-duration="1.5" data-reveal-delay="0.3">
+          <div class="card-body gap-2">
+            <p class="legend">fadeBlur</p>
+            <p class="p-sm text-base-content/70">Fondu + dissolution du flou.</p>
+            <code class="code-inline text-xs mt-auto">data-reveal="fadeBlur"</code>
+          </div>
+        </div>
+
+        <div class="card bg-base-200" data-reveal="fadeUp" data-reveal-duration="1.5" data-reveal-delay="0.4">
+          <div class="card-body gap-2">
+            <p class="legend">fadeUp <span class="badge badge-neutral badge-xs ml-1">défaut</span></p>
+            <p class="p-sm text-base-content/70">Fondu + glissement vers le haut.</p>
+            <code class="code-inline text-xs mt-auto">data-reveal="fadeUp"</code>
+          </div>
+        </div>
+
+        <div class="card bg-base-200" data-reveal="fadeDown" data-reveal-duration="1.5" data-reveal-delay="0.5">
+          <div class="card-body gap-2">
+            <p class="legend">fadeDown</p>
+            <p class="p-sm text-base-content/70">Fondu + glissement vers le bas.</p>
+            <code class="code-inline text-xs mt-auto">data-reveal="fadeDown"</code>
+          </div>
+        </div>
+
+        <div class="card bg-base-200" data-reveal="fadeLeft" data-reveal-duration="1.5" data-reveal-delay="0.6">
+          <div class="card-body gap-2">
+            <p class="legend">fadeLeft</p>
+            <p class="p-sm text-base-content/70">Fondu + glissement depuis la droite.</p>
+            <code class="code-inline text-xs mt-auto">data-reveal="fadeLeft"</code>
+          </div>
+        </div>
+
+        <div class="card bg-base-200" data-reveal="fadeRight" data-reveal-duration="1.5" data-reveal-delay="0.7">
+          <div class="card-body gap-2">
+            <p class="legend">fadeRight</p>
+            <p class="p-sm text-base-content/70">Fondu + glissement depuis la gauche.</p>
+            <code class="code-inline text-xs mt-auto">data-reveal="fadeRight"</code>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Presets Mask ──────────────────────────────────────────────── -->
+    <section id="presets-mask" class="space-y-12">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.15" data-reveal-duration="1.2">
+        <h2 class="h2">Presets Mask</h2>
+        <p class="caption text-base-content/60">Révélation par masque clip-path — l'opacité reste à 1.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="card bg-primary text-primary-content" data-reveal="maskUp" data-reveal-duration="1.5" data-reveal-delay="0.2">
+          <div class="card-body gap-2">
+            <p class="legend text-primary-content/60">maskUp</p>
+            <p class="p-sm">Du bas vers le haut.</p>
+            <code class="code-inline text-xs mt-auto bg-primary-content/10 text-primary-content">data-reveal="maskUp"</code>
+          </div>
+        </div>
+
+        <div class="card bg-primary text-primary-content" data-reveal="maskDown" data-reveal-duration="1.5" data-reveal-delay="0.4">
+          <div class="card-body gap-2">
+            <p class="legend text-primary-content/60">maskDown</p>
+            <p class="p-sm">Du haut vers le bas.</p>
+            <code class="code-inline text-xs mt-auto bg-primary-content/10 text-primary-content">data-reveal="maskDown"</code>
+          </div>
+        </div>
+
+        <div class="card bg-primary text-primary-content" data-reveal="maskLeft" data-reveal-duration="1.5" data-reveal-delay="0.6">
+          <div class="card-body gap-2">
+            <p class="legend text-primary-content/60">maskLeft</p>
+            <p class="p-sm">De droite à gauche.</p>
+            <code class="code-inline text-xs mt-auto bg-primary-content/10 text-primary-content">data-reveal="maskLeft"</code>
+          </div>
+        </div>
+
+        <div class="card bg-primary text-primary-content" data-reveal="maskRight" data-reveal-duration="1.5" data-reveal-delay="0.8">
+          <div class="card-body gap-2">
+            <p class="legend text-primary-content/60">maskRight</p>
+            <p class="p-sm">De gauche à droite.</p>
+            <code class="code-inline text-xs mt-auto bg-primary-content/10 text-primary-content">data-reveal="maskRight"</code>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Presets Zoom ──────────────────────────────────────────────── -->
+    <section id="presets-zoom" class="space-y-12">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.15" data-reveal-duration="1.2">
+        <h2 class="h2">Presets Zoom</h2>
+        <p class="caption text-base-content/60">Fondu + mise à l'échelle.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+        <div class="overflow-hidden rounded-2xl" data-reveal="zoomIn" data-reveal-duration="1.5" data-reveal-delay="0.2">
+          <img src="https://picsum.photos/id/1018/800/500.webp" alt="zoomIn" class="w-full aspect-video object-cover" loading="lazy" decoding="async" />
+          <div class="bg-base-200 px-4 py-3">
+            <p class="legend">zoomIn</p>
+            <code class="code-inline text-xs">data-reveal="zoomIn"</code>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl" data-reveal="zoomOut" data-reveal-duration="1.5" data-reveal-delay="0.5">
+          <img src="https://picsum.photos/id/1043/800/500.webp" alt="zoomOut" class="w-full aspect-video object-cover" loading="lazy" decoding="async" />
+          <div class="bg-base-200 px-4 py-3">
+            <p class="legend">zoomOut</p>
+            <code class="code-inline text-xs">data-reveal="zoomOut"</code>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Stagger ───────────────────────────────────────────────────── -->
+    <section id="stagger" class="space-y-16">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.15" data-reveal-duration="1.2">
+        <h2 class="h2">Stagger — cascade d'éléments</h2>
+        <p class="caption text-base-content/60">Porter <code class="code-inline">data-reveal="stagger.*"</code> sur le <strong>conteneur parent</strong>. Choisir le preset via <code class="code-inline">data-reveal-preset</code>.</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-16">
+
+        <!-- stagger.asc -->
+        <div class="space-y-3 p-8 bg-base-200 rounded-2xl w-full">
+          <p class="legend" data-reveal="fade" data-reveal-duration="1.2">stagger / stagger.asc</p>
+          <ul class="grid grid-cols-4 md:grid-cols-8 gap-4" data-reveal="stagger.asc" data-reveal-preset="fade" data-reveal-stagger="0.1" data-reveal-duration="1.2">
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">1</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">2</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">3</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">4</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">5</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">6</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">7</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">8</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">9</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">10</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">11</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">12</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">13</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">14</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">15</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">16</li>
+          </ul>
+          <code class="code-inline text-xs block mt-2">data-reveal="stagger.asc"</code>
+        </div>
+
+        <!-- stagger.desc -->
+        <div class="space-y-3 p-8 bg-base-200 rounded-2xl w-full">
+          <p class="legend" data-reveal="fade" data-reveal-duration="1.2">stagger.desc</p>
+          <ul class="grid grid-cols-4 md:grid-cols-8 gap-4" data-reveal="stagger.desc" data-reveal-preset="fade" data-reveal-stagger="0.1" data-reveal-duration="1.2">
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">1</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">2</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">3</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">4</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">5</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">6</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">7</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">8</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">9</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">10</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">11</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">12</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">13</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">14</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">15</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">16</li>
+          </ul>
+          <code class="code-inline text-xs block mt-2">data-reveal="stagger.desc"</code>
+        </div>
+
+        <!-- stagger.random -->
+        <div class="space-y-3 p-8 bg-base-200 rounded-2xl w-full">
+          <div class="flex items-baseline gap-4">
+            <p class="legend" data-reveal="fade" data-reveal-duration="1.2">stagger.random</p>
+            <p class="caption text-base-content/50" data-reveal="fade">Ordre différent à chaque déclenchement.</p>
+          </div>
+          <ul class="grid grid-cols-4 md:grid-cols-8 gap-4" data-reveal="stagger.random" data-reveal-preset="fade" data-reveal-stagger="0.1" data-reveal-duration="1.2">
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">1</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">2</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">3</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">4</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">5</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">6</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">7</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">8</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">9</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">10</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">11</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">12</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">13</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">14</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">15</li>
+            <li class="bg-info text-info-content rounded-lg py-4 flex items-center justify-center font-medium">16</li>
+          </ul>
+          <code class="code-inline text-xs block mt-2">data-reveal="stagger.random"</code>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Attributs ─────────────────────────────────────────────────── -->
+    <section id="attributs" class="space-y-12">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.15" data-reveal-duration="1.2">
+        <h2 class="h2">Attributs</h2>
+        <p class="caption text-base-content/60">Tous les <code class="code-inline">data-reveal-*</code> disponibles.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-base-300" data-reveal="fadeUp" data-reveal-duration="1.5" data-reveal-delay="0.4">
+        <table class="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>Attribut</th>
+              <th>Valeurs</th>
+              <th>Défaut</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code class="code-inline text-xs">data-reveal</code></td><td>preset, <code class="code-inline text-xs">stagger[.asc|.desc|.random]</code></td><td>—</td><td>Preset d'animation ou mode cascade.</td></tr>
+            <tr><td><code class="code-inline text-xs">data-reveal-preset</code></td><td>nom d'un preset</td><td><code class="code-inline text-xs">fadeUp</code></td><td>Preset pour le mode stagger.</td></tr>
+            <tr><td><code class="code-inline text-xs">data-reveal-delay</code></td><td>nombre (s)</td><td><code class="code-inline text-xs">0</code></td><td>Délai avant le démarrage.</td></tr>
+            <tr><td><code class="code-inline text-xs">data-reveal-duration</code></td><td>nombre (s)</td><td><code class="code-inline text-xs">0.7</code></td><td>Durée de l'animation.</td></tr>
+            <tr><td><code class="code-inline text-xs">data-reveal-stagger</code></td><td>nombre (s)</td><td><code class="code-inline text-xs">0.05</code></td><td>Intervalle entre enfants (stagger).</td></tr>
+            <tr><td><code class="code-inline text-xs">data-reveal-selector</code></td><td>sélecteur CSS</td><td><code class="code-inline text-xs">> *</code></td><td>Filtre les enfants à animer (stagger).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</include>
+
+
+
+
+
+
+
+

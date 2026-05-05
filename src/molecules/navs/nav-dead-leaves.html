@@ -33,7 +33,7 @@
     </div>
   </header>
   <!-- Rideau plein écran — glisse depuis le haut, z-40 (sous la nav z-50) -->
-  <div class="fixed inset-0 z-40 bg-base-100 text-base-content overflow-y-auto"
+  <div class="fixed inset-0 z-40 bg-base-100 text-base-content overflow-y-auto" data-lenis-prevent
        x-show="drawerOpen === true"
        x-effect="if (drawerOpen === false){$el.scrollTop = 0;}"
        x-transition:enter="transition-[clip-path] duration-700 ease-in-out"

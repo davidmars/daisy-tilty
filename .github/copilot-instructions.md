@@ -430,6 +430,24 @@ Cette section vient **après** la mise en service rapide. Elle s'adresse aux dé
 ...architecture, composants, exemples de code...
 ```
 
+---
+
+## Lenis (scroll fluide) — Règle `data-lenis-prevent`
+
+Lorsque Lenis est actif (`VITE_SMOOTH_SCROLL=true`), il intercepte **tous** les événements de scroll natifs sur la page, y compris à l'intérieur des éléments avec `overflow-y-auto` ou `overflow-y-scroll` (drawers, modales, sidebars…).
+
+**Tout élément scrollable indépendamment de la page doit porter l'attribut `data-lenis-prevent`**, sans quoi son scroll interne ne fonctionnera plus.
+
+```html
+<!-- ��� Correct — drawer, modale ou sidebar scrollable -->
+<div class="overflow-y-auto" data-lenis-prevent>…</div>
+
+<!-- ❌ Interdit si Lenis est actif — le scroll interne sera cassé -->
+<div class="overflow-y-auto">…</div>
+```
+
+Cette règle s'applique à **tous les composants** du projet : navs, modales DaisyUI, drawers, panels latéraux, etc. Vérifier systématiquement la présence de `data-lenis-prevent` sur tout nouvel élément scrollable ajouté au projet.
+
 ### Règle sur la rétrocompatibilité (Breaking changes)
 Ce projet n'a pas de contrainte de rétrocompatibilité. Lors d'une amélioration ou d'une refonte :
 - Ne jamais mentionner les anciennes méthodes ou les comportements passés dans la documentation ou les commentaires.

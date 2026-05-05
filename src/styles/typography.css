@@ -87,28 +87,28 @@
   }
 
   .lead {
-    @apply text-lg leading-relaxed text-base-content/85 md:text-xl;
+    @apply text-lg leading-relaxed md:text-xl;
   }
 
   .caption {
-    @apply text-sm leading-snug text-base-content/70;
+    @apply text-sm leading-snug;
   }
 
   .legend {
-    @apply text-xs font-medium tracking-wide uppercase text-base-content/65;
+    @apply text-xs font-medium tracking-wide uppercase;
   }
 
   /* Éléments techniques et inline (code, clavier, annotations). */
   .tech {
-    @apply rounded-md border border-base-300 bg-base-200/60 px-2 py-1 font-mono text-xs leading-snug text-base-content/90;
+    @apply rounded-md border px-2 py-1 font-mono text-xs leading-snug;
   }
 
   .code-inline {
-    @apply rounded bg-base-200 px-1.5 py-0.5 font-mono text-xs text-base-content;
+    @apply rounded px-1.5 py-0.5 font-mono text-xs;
   }
 
   .kbd-inline {
-    @apply rounded border border-base-300 bg-base-100 px-1.5 py-0.5 font-mono text-xs;
+    @apply rounded border px-1.5 py-0.5 font-mono text-xs;
   }
 
   .quote{
@@ -124,7 +124,7 @@
   }
 
   .guide-note {
-    @apply text-info;
+    @apply text-sm italic;
   }
 
 

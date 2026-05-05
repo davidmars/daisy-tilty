@@ -1,0 +1,31 @@
+/* Masquage initial des éléments [data-reveal] — évite le flash de contenu (FOUC).
+   Distinct de x-cloak : s'applique dès le rendu CSS, avant tout JavaScript.
+   Le mode stagger est entièrement pré-masqué par RevealManager.js (pas de règle CSS ici). */
+
+/* ── Presets fade & zoom : masquage via opacity ──────────────────────────── */
+[data-reveal="fadeUp"],
+[data-reveal="fadeDown"],
+[data-reveal="fadeLeft"],
+[data-reveal="fadeRight"],
+[data-reveal="zoomIn"],
+[data-reveal="zoomOut"],
+[data-reveal=""] ,
+[data-reveal]:not(
+    [data-reveal="maskUp"],
+    [data-reveal="maskDown"],
+    [data-reveal="maskLeft"],
+    [data-reveal="maskRight"],
+    [data-reveal^="stagger"]
+) {
+    opacity: 0;
+}
+
+/* ── Presets mask : masquage via clip-path (opacity reste à 1) ──────────── */
+[data-reveal="maskUp"]    { clip-path: inset(100% 0 0 0); }
+[data-reveal="maskDown"]  { clip-path: inset(0 0 100% 0); }
+[data-reveal="maskLeft"]  { clip-path: inset(0 0 0 100%); }
+[data-reveal="maskRight"] { clip-path: inset(0 100% 0 0); }
+
+/* ── Preset fadeBlur : blur initial (opacity déjà à 0 via la règle générique) ── */
+[data-reveal="fadeBlur"] { filter: blur(12px); }
+

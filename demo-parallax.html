@@ -1,0 +1,109 @@
+<include file="@layout/common.html" $title="Demo — Parallaxe data-speed">
+
+  <!-- ─── Hero parallax plein écran ──────────────────────────────────── -->
+  <div class="relative h-[90vh] overflow-hidden flex items-end">
+    <img
+      data-speed="0.4"
+      src="https://picsum.photos/id/1053/1920/1080.webp"
+      alt="Forêt — hero parallaxe"
+      class="absolute inset-0 w-full h-[130%] -top-[15%] object-cover"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+    <div class="relative z-10 container mx-auto px-6 pb-20 text-white space-y-3">
+      <p class="legend text-white/60">demo</p>
+      <h1 class="h1">Parallaxe<br>data-speed</h1>
+      <p class="lead max-w-xl text-white/60">Scrollez pour voir l'image se déplacer à une vitesse différente du contenu. Actif si <code class="code-inline bg-white/10 text-white border-white/20">VITE_PARALLAX=true</code>.</p>
+    </div>
+  </div>
+
+  <div class="container mx-auto max-w-5xl px-4 py-16 space-y-28">
+
+    <!-- ─── Comparaison de vitesses ───────────────────────────────────── -->
+    <section class="space-y-8">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.08">
+        <h2 class="h2">Comparaison de vitesses</h2>
+        <p class="caption text-base-content/60">Plus la valeur est élevée, plus l'image se déplace. Valeur négative = sens inverse.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" data-reveal="stagger" data-reveal-preset="fadeUp" data-reveal-stagger="0.1">
+
+        <figure class="space-y-2">
+          <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
+            <img data-speed="0.15" src="https://picsum.photos/id/10/600/800.webp" alt="speed 0.15"
+              class="absolute inset-0 w-full h-[115%] -top-[7.5%] object-cover" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="space-y-1">
+            <code class="code-inline text-xs">data-speed="0.15"</code>
+            <p class="caption text-base-content/60">Subtil — ±22px</p>
+          </figcaption>
+        </figure>
+
+        <figure class="space-y-2">
+          <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
+            <img data-speed="0.5" src="https://picsum.photos/id/29/600/800.webp" alt="speed 0.5"
+              class="absolute inset-0 w-full h-[130%] -top-[15%] object-cover" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="space-y-1">
+            <code class="code-inline text-xs">data-speed="0.5"</code>
+            <p class="caption text-base-content/60">Moyen — ±75px</p>
+          </figcaption>
+        </figure>
+
+        <figure class="space-y-2">
+          <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
+            <img data-speed="-0.4" src="https://picsum.photos/id/64/600/800.webp" alt="speed -0.4"
+              class="absolute inset-0 w-full h-[130%] -top-[15%] object-cover" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="space-y-1">
+            <code class="code-inline text-xs">data-speed="-0.4"</code>
+            <p class="caption text-base-content/60">Sens inverse — ±60px</p>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ─── Duo opposé (parallax-2-imgs) ─────────────────────────────── -->
+    <section class="space-y-8">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.08">
+        <h2 class="h2">Duo en parallaxe opposé</h2>
+        <p class="caption text-base-content/60">Deux images avec vitesses symétriques <code class="code-inline">+0.5</code> / <code class="code-inline">-0.5</code> — l'écart se creuse au scroll.</p>
+      </div>
+      <include file="@mol/media-grids/parallax-2-imgs.html" />
+    </section>
+
+    <!-- ─── Attribut ──────────────────────────────────────────────────── -->
+    <section class="space-y-6">
+      <div data-reveal="stagger" data-reveal-preset="maskLeft" data-reveal-stagger="0.08">
+        <h2 class="h2">Référence</h2>
+        <p class="caption text-base-content/60">Un seul attribut à poser, directement sur l'image.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-base-300" data-reveal="fadeUp">
+        <table class="table table-zebra w-full">
+          <thead>
+            <tr><th>Attribut</th><th>Valeur</th><th>Effet</th><th>Déplacement</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="6"><code class="code-inline text-xs">data-speed</code></td><td><code class="code-inline text-xs">0.1</code> – <code class="code-inline text-xs">0.3</code></td><td>Subtil</td><td>±15 – ±45px</td></tr>
+            <tr><td><code class="code-inline text-xs">0.4</code> – <code class="code-inline text-xs">0.6</code></td><td>Visible</td><td>±60 – ±90px</td></tr>
+            <tr><td><code class="code-inline text-xs">0.7</code> – <code class="code-inline text-xs">1.0</code></td><td>Prononcé</td><td>±105 – ±150px</td></tr>
+            <tr><td><code class="code-inline text-xs">-0.1</code> – <code class="code-inline text-xs">-1.0</code></td><td>Sens inverse</td><td>Idem en négatif</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div role="alert" class="alert" data-reveal="fadeUp">
+        <include file="@comp/icon.html" $icon="lucide/info.svg" $size="18" />
+        <div class="space-y-1">
+          <p class="p-sm font-medium">L'image doit déborder de son conteneur</p>
+          <p class="caption text-base-content/70">Le conteneur a <code class="code-inline text-xs">overflow-hidden</code>. L'image utilise <code class="code-inline text-xs">h-[130%] -top-[15%]</code> pour absorber le déplacement sans montrer de bord vide. Adapter le pourcentage si <code class="code-inline text-xs">data-speed > 0.6</code>.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</include>
+

@@ -4,6 +4,9 @@ import {Web3Form} from "@comp/web3-form/Web3Form.js";
 import {Share} from "@comp/share/Share.js";
 import {SwiperCarousel} from "@comp/swiper/SwiperCarousel.js";
 import {NavScrolled} from "@comp/nav-scrolled/NavScrolled.js";
+import {ScrollManager} from "@comp/scroll/ScrollManager.js";
+import {ParallaxManager} from "@comp/scroll/ParallaxManager.js";
+import {RevealManager} from "@comp/scroll/RevealManager.js";
 import $ from "cash-dom";
 
 // On expose cash au besoin dans le window
@@ -26,6 +29,13 @@ document.addEventListener('alpine:init', () => {
 
     // Navbar transparente au scroll
     Alpine.data('navScrolled', () => new NavScrolled());
+
+    // Scroll fluide (Lenis) — actif si VITE_SMOOTH_SCROLL=true
+    if (import.meta.env.VITE_SMOOTH_SCROLL === 'true') {
+        const scrollManager = new ScrollManager();
+        scrollManager.init();
+        Alpine.store('scroll', scrollManager);
+    }
 });
 
 // ─── Alpine.js ────────────────────────────────────────────────────────────────
@@ -33,3 +43,15 @@ document.addEventListener('alpine:init', () => {
 globalThis.Alpine = Alpine;
 window.Alpine = Alpine;
 Alpine.start();
+
+// ─── Animations au scroll ─────────────────────────────────────────────────────
+// Les scripts type="module" (Vite) s'exécutent après le parsing du DOM :
+// DOMContentLoaded est déjà passé, on appelle directement.
+
+if (import.meta.env.VITE_PARALLAX === 'true') {
+    new ParallaxManager().init();
+}
+
+const aosEnabled = import.meta.env.VITE_AOS === 'true';
+new RevealManager().init(aosEnabled);
+
