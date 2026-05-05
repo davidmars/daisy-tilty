@@ -1,0 +1,18 @@
+<!---
+  burger-arrow-right.html — Burger → flèche → : barres réduites de moitié + V depuis la gauche + cercle SVG
+  Source : https://grafikart.fr/demo/CSS3/hamburger/index.html (menu-icon-arrow, variante droite)
+  Usage : hérite de currentColor. Pas de rotation du bouton — le chevron > s'ouvre directement.
+-->
+<div class="burger-button burger-button-arrow-right"
+     x-data="{ open: null }"
+     x-on:click="open = open === null ? true : !open"
+     x-bind:class="{ 'is-opened': open === true, 'is-closed': open === false }"
+     role="button"
+     aria-label="Menu">
+  <span></span>
+  <svg x="0" y="0" width="54px" height="54px" viewBox="0 0 54 54">
+    <circle cx="27" cy="27" r="26"></circle>
+  </svg>
+</div>
+
+

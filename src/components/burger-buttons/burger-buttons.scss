@@ -1,0 +1,244 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Burger buttons — animations fidèles à la démo Grafikart
+// https://grafikart.fr/demo/CSS3/hamburger/index.html
+// Adaptations : currentColor (couleur héritée du parent) + var(--color-base-100)
+// pour le fill SVG à la place des valeurs hardcodées d'origine.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ─── Base commune ─────────────────────────────────────────────────────────────
+.burger-button {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+
+  // Le SVG du cercle est masqué par défaut — visible uniquement si
+  // la classe .burger-button-circle est ajoutée sur l'élément.
+  svg { display: none; }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    transform: translateX(-50%) translateY(-50%);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: currentColor;
+      transform: translateY(-6px);
+      transition: transform 0.5s;
+    }
+
+    &::after {
+      transform: translateY(6px);
+    }
+  }
+
+  &:hover span::before { transform: translateY(-8px); }
+  &:hover span::after  { transform: translateY(8px); }
+}
+
+// ─── Cercle SVG mutualisé ─────────────────────────────────────────────────────
+// Ajouter cette classe sur n'importe quel burger pour activer l'animation du
+// cercle SVG. Sans elle, le SVG reste invisible (display: none hérité de .burger-button).
+.burger-button-circle {
+  svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    fill: var(--color-base-100);
+    stroke-width: 2px;
+    stroke: currentColor;
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    transition: stroke-dashoffset 0.5s;
+  }
+
+  &.is-opened svg {
+    stroke-dashoffset: 0;
+    // Le SVG pivote en sens inverse pour rester fixe visuellement pendant la rotation du bouton
+    transform: rotate(-180deg);
+  }
+}
+
+// ─── Cross ────────────────────────────────────────────────────────────────────
+.menu-icon-cross {
+  transition: transform 0.5s;
+
+  span::before,
+  span::after {
+    transform-origin: 50% 50%;
+  }
+
+  span {
+    z-index: 2;
+    transition: background 0.5s, transform 0.5s;
+  }
+
+  &.is-opened {
+    transform: rotate(180deg);
+
+    span {
+      background: transparent;
+    }
+
+    span::before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    span::after {
+      transform: translateY(0) rotate(-45deg);
+    }
+
+
+  }
+}
+
+// ─── Arrow left ───────────────────────────────────────────────────────────────
+.burger-button-arrow-left {
+  transition: transform 0.5s;
+
+  span::before,
+  span::after {
+    right: 0;
+    left: auto;
+    transform-origin: 100% 50%;
+  }
+
+  span,
+  span::before,
+  span::after {
+    z-index: 2;
+    transition: transform 0.5s, width 0.5s;
+  }
+
+  &.is-opened {
+    transform: rotate(180deg);
+
+    span::before {
+      width: 50%;
+      transform: translateY(0) rotate(45deg);
+    }
+
+    span::after {
+      width: 50%;
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
+}
+
+// ─── Arrow right ──────────────────────────────────────────────────────────────
+
+.burger-button-arrow-right {
+  transition: transform 0.5s;
+
+  span::before,
+  span::after {
+    left: 0;
+    right: auto;
+    transform-origin: 0% 50%;
+  }
+
+  span,
+  span::before,
+  span::after {
+    z-index: 2;
+    transition: transform 0.5s, width 0.5s;
+  }
+
+  &.is-opened {
+    transform: rotate(180deg);
+
+    span::before {
+      width: 50%;
+      transform: translateY(0) rotate(-45deg);
+    }
+
+    span::after {
+      width: 50%;
+      transform: translateY(0) rotate(45deg);
+    }
+  }
+}
+
+// ─── Swing circle ─────────────────────────────────────────────────────────────
+// Animation d'un tracé SVG complexe (boucle en forme de cercle) qui se dessine
+// pendant que les barres extérieures pivotent → X décalé. Animation de remise
+// en état à la fermeture via la classe .is-closed.
+.burger-button-swing-circle {
+  span {
+    transition: background 0.5s steps(1, end);
+  }
+
+  span::before,
+  span::after {
+    transform-origin: 100% 50%;
+  }
+
+  svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: currentColor;
+    stroke-dasharray: 22 230;
+    transition: stroke-dasharray 0.5s, stroke-dashoffset 0.5s, opacity 0.5s steps(1, end);
+  }
+
+  &.is-opened {
+    span {
+      transition: background 0.5s steps(1, start);
+      background-color: transparent;
+    }
+
+    span::before {
+      transform: translateX(-3px) translateY(-8px) rotate(-45deg);
+    }
+
+    span::after {
+      transform: translateX(-3px) translateY(8px) rotate(45deg);
+    }
+
+    svg {
+      opacity: 1;
+      transition: opacity 0.5s steps(1, start);
+      animation: burger-swing-circle 0.5s linear forwards;
+    }
+  }
+
+  &.is-closed svg {
+    animation: burger-swing-circle-out 0.5s linear;
+  }
+}
+
+@keyframes burger-swing-circle {
+  40%  { stroke-dasharray: 22 230; }
+  60%  { stroke-dashoffset: -65; }
+  100% { stroke-dashoffset: -65; stroke-dasharray: 160; }
+}
+
+@keyframes burger-swing-circle-out {
+  0%   { stroke-dashoffset: -65; stroke-dasharray: 160; }
+  40%  { stroke-dashoffset: -65; }
+  60%  { stroke-dasharray: 22 230; }
+  100% { stroke-dashoffset: 0; }
+}

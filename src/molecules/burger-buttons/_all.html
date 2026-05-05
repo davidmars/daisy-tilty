@@ -1,0 +1,93 @@
+<!---
+  _all.html — Showcase des molécules burger-buttons (Grafikart)
+-->
+<div class="space-y-10">
+
+  <h3 class="legend ">Sans cercles</h3>
+  <div class="flex flex-wrap gap-12 items-start">
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-cross.html" />
+      <p class="caption">Cross</p>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-arrow-left.html" />
+      <p class="caption">Arrow left</p>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-arrow-right.html" />
+      <p class="caption">Arrow right</p>
+    </div>
+  </div>
+
+  <h3 class="legend ">Avec cercles</h3>
+  <div class="flex flex-wrap gap-12 items-start">
+
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-cross.html" class="burger-button-circle"/>
+      <p class="caption">Cross</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-arrow-left.html" class="burger-button-circle"/>
+      <p class="caption">Arrow left</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-arrow-right.html" class="burger-button-circle"/>
+      <p class="caption">Arrow right</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-3">
+      <include file="@molecules/burger-buttons/burger-swing-circle.html" />
+      <p class="caption">Swing circle</p>
+    </div>
+
+  </div>
+
+
+  <!-- ─── Usage HTML ───────────────────────────────────────────────────── -->
+  <section>
+    <h2 class="h3 mb-6">Snippets HTML</h2>
+    <div class="overflow-x-auto">
+      <table class="table table-zebra">
+        <thead>
+        <tr>
+          <th>Variante</th>
+          <th>Include</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="caption font-medium">Cross</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-cross.html" /&gt;</code></td>
+        </tr>
+        <tr>
+          <td class="caption font-medium">Cross + circle</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-cross.html" class="burger-button-circle" /&gt;</code></td>
+        </tr>
+        <tr>
+          <td class="caption font-medium">Arrow left</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-arrow-left.html" /&gt;</code></td>
+        </tr>
+        <tr>
+          <td class="caption font-medium">Arrow left + circle</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-arrow-left.html" class="burger-button-circle" /&gt;</code></td>
+        </tr>
+        <tr>
+          <td class="caption font-medium">Arrow right</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-arrow-right.html" /&gt;</code></td>
+        </tr>
+        <tr>
+          <td class="caption font-medium">Arrow right + circle</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-arrow-right.html" class="burger-button-circle" /&gt;</code></td>
+        </tr>
+        <tr>
+          <td class="caption font-medium">Swing circle</td>
+          <td><code class="code-inline">&lt;include file="@mol/burger-buttons/burger-swing-circle.html" /&gt;</code></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
