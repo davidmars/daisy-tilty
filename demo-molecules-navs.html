@@ -5,7 +5,7 @@
     <header class="mb-12 space-y-3">
       <p class="legend">molécules</p>
       <h1 class="h1">Navs</h1>
-      <p class="lead max-w-xl">Cinq variantes de navigation — sticky classique, logo centré avec méga-menu, transparente au scroll, smart nav avec drawer, et rideau plein écran. Chaque variante dispose d'une page de démo isolée avec du contenu scrollable.</p>
+      <p class="lead max-w-xl">Variantes de navigation — sticky, fixed, transparente, smart nav, rideau plein écran. Chaque variante dispose d'une page de démo isolée avec du contenu scrollable.</p>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -60,7 +60,10 @@
               <p class="legend mb-1">Blue Orchid</p>
               <h2 class="h4">Sticky classique</h2>
             </div>
-            <span class="badge badge-neutral badge-sm font-mono">sticky</span>
+            <div class="flex flex-col items-end gap-1">
+              <span class="badge badge-neutral badge-sm font-mono">sticky</span>
+              <span class="badge badge-warning badge-sm">à revoir</span>
+            </div>
           </div>
           <p class="p text-base-content/70">Logo + liens desktop + barre de recherche extensible + CTA billetterie. Drawer DaisyUI latéral droit sur mobile.</p>
           <p class="caption text-base-content/40 font-mono">@mol/navs/nav-blue-orchid.html</p>
@@ -81,7 +84,10 @@
               <p class="legend mb-1">Hardest Button</p>
               <h2 class="h4">Logo centré + méga-menu</h2>
             </div>
-            <span class="badge badge-neutral badge-sm font-mono">sticky</span>
+            <div class="flex flex-col items-end gap-1">
+              <span class="badge badge-neutral badge-sm font-mono">sticky</span>
+              <span class="badge badge-warning badge-sm">à revoir</span>
+            </div>
           </div>
           <p class="p text-base-content/70">Logo centré, dropdowns par catégorie avec liens groupés de chaque côté. Implémenté avec <code class="code-inline">details/summary</code> — aucun JavaScript requis.</p>
           <p class="caption text-base-content/40 font-mono">@mol/navs/nav-hardest-button.html</p>
@@ -106,10 +112,6 @@
           </div>
           <p class="p text-base-content/70">Dégradé sombre en haut pour lisibilité sur hero. Burger arrow-right permanent ouvre un rideau plein écran depuis la droite avec grands liens centrés et barre de liens secondaires en pied.</p>
           <p class="caption text-base-content/40 font-mono">@mol/navs/nav-fell-in-love.html</p>
-          <div role="alert" class="alert alert-info py-2">
-            <include file="@comp/icon.html" $icon="lucide/info.svg" $size="16" />
-            <span class="p-sm">Composant Alpine.js <code class="code-inline">navScrolled</code> requis dans <code class="code-inline">main.js</code>.</span>
-          </div>
           <div class="card-actions mt-2">
             <a href="demo-molecules-nav-fell-in-love.html" class="btn btn-primary btn-sm gap-2">
               <include file="@comp/icon.html" $icon="lucide/circle-play.svg" $size="15" />
