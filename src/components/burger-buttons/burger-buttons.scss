@@ -1,8 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Burger buttons — animations fidèles à la démo Grafikart
 // https://grafikart.fr/demo/CSS3/hamburger/index.html
-// Adaptations : currentColor (couleur héritée du parent) + var(--color-base-100)
-// pour le fill SVG à la place des valeurs hardcodées d'origine.
+// Adaptations : currentColor (couleur héritée du parent), fill: none sur les SVG.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ─── Base commune ─────────────────────────────────────────────────────────────
@@ -62,7 +61,7 @@
     top: 0;
     left: 0;
     z-index: 1;
-    fill: var(--color-base-100);
+    fill: none;
     stroke-width: 2px;
     stroke: currentColor;
     stroke-dasharray: 170;
