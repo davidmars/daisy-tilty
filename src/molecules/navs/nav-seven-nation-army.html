@@ -1,0 +1,106 @@
+<!---
+  nav-seven-nation-army.html — Navbar smart (disparaît au scroll down, réapparaît au up)
+  ────────────────────────────────────────────────────────────────────────────────
+  Usage : copier ce bloc en haut de page, remplacer le nom du logo et les liens.
+  Comportement : fixed, géré par NavScrolled (x-data="navScrolled") sur le wrapper.
+  Z-index : nav z-50 (toujours au-dessus), drawer z-40 (en dessous).
+  Le contenu du drawer a un pt-24 pour ne pas être masqué par la nav fixe.
+-->
+<div x-data="navScrolled">
+
+  <header
+          x-bind:class="{
+              '-translate-y-full': isHidden,
+              'bg-base-100 shadow-sm text-base-content': scrolled,
+              'bg-transparent text-neutral-content': !scrolled
+          }"
+          class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out">
+    <div class="navbar container mx-auto px-4 transition-all duration-300"
+         x-bind:class="scrolled ? 'py-2' : 'py-4'">
+
+      <!-- Logo -->
+      <div class="navbar-start">
+        <a href="#"
+           class="flex items-center gap-3 hover:text-primary transition-colors">
+          <include file="@comp/icon.html" $icon="lucide/music.svg" $size="28" $color="currentColor" />
+          <span class="h4 leading-none">Seven Nation Army</span>
+        </a>
+      </div>
+
+      <!-- Liens desktop -->
+      <nav class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal gap-2 px-0"
+            x-bind:class="scrolled ? '[&_a]:hover:bg-base-200' : '[&_a]:hover:bg-neutral-content/10'">
+          <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Programme</a></li>
+          <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Artistes</a></li>
+          <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Infos pratiques</a></li>
+          <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Actualités</a></li>
+        </ul>
+      </nav>
+
+      <!-- Actions droite -->
+      <div class="navbar-end flex items-center gap-2">
+
+        <!-- CTA Contact (Desktop : plein, Mobile : icône simple sans fond) -->
+        <a href="#" class="btn btn-primary hidden lg:flex gap-2" aria-label="Contact">
+          <include file="@comp/icon.html" $icon="lucide/message-circle.svg" $size="18" />
+          <span>Contact</span>
+        </a>
+        <a href="#" class="btn btn-ghost btn-circle lg:hidden" aria-label="Contact">
+          <include file="@comp/icon.html" $icon="lucide/message-circle.svg" $size="22" />
+        </a>
+
+        <!-- Burger arrow-right -->
+        <div class="lg:hidden flex">
+          <div class="burger-button burger-button-arrow-right burger-button-circle"
+               x-bind:class="{
+                   'is-opened': drawerOpen === true,
+                   'is-closed': drawerOpen === false,
+                   'text-base-content': scrolled || drawerOpen,
+               }"
+               x-on:click="toggleDrawer()"
+               role="button"
+               aria-label="Menu">
+            <span></span>
+            <svg x="0" y="0" width="54px" height="54px" viewBox="0 0 54 54">
+              <circle cx="27" cy="27" r="26"></circle>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer latéral droit — z-40 (sous la nav z-50) -->
+  <div class="drawer drawer-end relative z-40">
+    <input id="nav-seven-drawer" type="checkbox" class="drawer-toggle"
+           x-effect="$el.checked = (drawerOpen === true)"
+           x-on:change="drawerOpen = $el.checked ? true : false" />
+    <div class="drawer-side">
+      <label for="nav-seven-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+      <aside class="bg-base-100 text-base-content min-h-full w-80 flex flex-col shadow-2xl">
+
+        <!-- Navigation — pt-24 pour ne pas être caché derrière la nav fixe -->
+        <nav class="flex-1 p-6 pt-24">
+          <ul class="menu w-full gap-2 p-0 text-lg">
+            <li><a href="#" class="py-3">Programme</a></li>
+            <li><a href="#" class="py-3">Artistes</a></li>
+            <li><a href="#" class="py-3">Infos pratiques</a></li>
+            <li><a href="#" class="py-3">Actualités</a></li>
+          </ul>
+        </nav>
+
+        <!-- Pied du drawer -->
+        <div class="p-5 border-t border-base-200">
+          <a href="#" class="btn btn-primary w-full gap-2 btn-lg">
+            <include file="@comp/icon.html" $icon="lucide/message-circle.svg" $size="20" />
+            Contact
+          </a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+</div>

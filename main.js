@@ -3,6 +3,7 @@ import {LightBox} from "@comp/light-box/LightBox.js";
 import {Web3Form} from "@comp/web3-form/Web3Form.js";
 import {Share} from "@comp/share/Share.js";
 import {SwiperCarousel} from "@comp/swiper/SwiperCarousel.js";
+import {NavScrolled} from "@comp/nav-scrolled/NavScrolled.js";
 import $ from "cash-dom";
 
 // On expose cash au besoin dans le window
@@ -22,6 +23,9 @@ document.addEventListener('alpine:init', () => {
 
     // Composant Swiper
     Alpine.data('swiper', (args) => new SwiperCarousel(args));
+
+    // Navbar transparente au scroll
+    Alpine.data('navScrolled', () => new NavScrolled());
 });
 
 // ─── Alpine.js ────────────────────────────────────────────────────────────────

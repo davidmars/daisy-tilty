@@ -1,0 +1,90 @@
+<!---
+  nav-blue-orchid.html — Navbar sticky classique : logo + liens + barre de recherche + CTA
+  ────────────────────────────────────────────────────────────────────────────────
+  Usage : copier ce bloc en haut de page, remplacer le nom du logo et les liens.
+  Comportement : sticky en haut, ombre légère, drawer mobile intégré.
+-->
+<header class="sticky top-0 z-30 bg-base-100 shadow-sm">
+  <div class="navbar container mx-auto px-4">
+
+    <!-- Logo -->
+    <div class="navbar-start">
+      <a href="#" class="flex items-center gap-2 text-base-content hover:text-primary transition-colors">
+        <include file="@comp/icon.html" $icon="lucide/music.svg" $size="22" $color="currentColor" />
+        <span class="h5 leading-none">Blue Orchid</span>
+      </a>
+    </div>
+
+    <!-- Liens desktop -->
+    <nav class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal gap-1 px-0">
+        <li><a href="#" class="p-sm rounded-btn font-medium">Programme</a></li>
+        <li><a href="#" class="p-sm rounded-btn font-medium">Artistes</a></li>
+        <li><a href="#" class="p-sm rounded-btn font-medium">Infos pratiques</a></li>
+        <li><a href="#" class="p-sm rounded-btn font-medium">Actualités</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions droite -->
+    <div class="navbar-end flex items-center gap-2">
+
+      <!-- Recherche (desktop) -->
+      <label class="input input-sm hidden md:flex items-center gap-2 bg-base-200 border-0 focus-within:outline-2 focus-within:outline-primary">
+        <include file="@comp/icon.html" $icon="lucide/search.svg" $size="15" $color="currentColor" />
+        <input type="search" placeholder="Rechercher…" class="w-28 focus:w-40 transition-all duration-300" />
+      </label>
+
+      <!-- CTA billetterie (desktop) -->
+      <a href="#" class="btn btn-primary btn-sm hidden sm:flex gap-1.5">
+        <include file="@comp/icon.html" $icon="lucide/ticket.svg" $size="15" />
+        Billetterie
+      </a>
+
+      <!-- Menu hamburger mobile (Drawer toggle) -->
+      <label for="nav-blue-drawer" class="btn btn-ghost btn-circle lg:hidden">
+        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="24" $color="currentColor" />
+      </label>
+
+    </div>
+  </div>
+</header>
+
+<!-- Drawer latéral droit pour mobile -->
+<div class="drawer drawer-end relative z-50">
+  <input id="nav-blue-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-side">
+    <label for="nav-blue-drawer" aria-label="Fermer le menu" class="drawer-overlay"></label>
+    <aside class="bg-base-100 text-base-content min-h-full w-80 flex flex-col shadow-2xl">
+
+      <!-- En-tête drawer -->
+      <div class="flex items-center justify-between p-5 border-b border-base-200">
+        <a href="#" class="flex items-center gap-2 hover:text-primary transition-colors">
+          <include file="@comp/icon.html" $icon="lucide/music.svg" $size="24" $color="currentColor" />
+          <span class="h5 leading-none">Blue Orchid</span>
+        </a>
+        <label for="nav-blue-drawer" class="btn btn-ghost btn-sm btn-circle">
+          <include file="@comp/icon.html" $icon="lucide/x.svg" $size="20" $color="currentColor" />
+        </label>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="menu w-full gap-2 p-0 text-lg">
+          <li><a href="#" class="py-3">Programme</a></li>
+          <li><a href="#" class="py-3">Artistes</a></li>
+          <li><a href="#" class="py-3">Infos pratiques</a></li>
+          <li><a href="#" class="py-3">Actualités</a></li>
+        </ul>
+      </nav>
+
+      <!-- Pied du drawer -->
+      <div class="p-5 border-t border-base-200">
+        <a href="#" class="btn btn-primary w-full gap-2 btn-lg">
+          <include file="@comp/icon.html" $icon="lucide/ticket.svg" $size="20" />
+          Billetterie
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<!---
+  nav-B.html — Navbar compacte et centrée (logo au milieu)
+  ───────────────────────────────────────────────────────────
+  Usage : copier ce bloc, remplacer les sections et liens du méga-menu.
+  Comportement : dropdown DaisyUI natif (details/summary), sans JavaScript.
+-->
+<header class="sticky top-0 z-30 bg-base-100 border-b border-base-200">
+  <div class="navbar container mx-auto px-4">
+
+    <!-- Menu desktop (Dropdown) -->
+    <div class="navbar-start w-1/3">
+      <ul class="menu menu-horizontal px-0 hidden lg:flex">
+        <!-- Lien simple -->
+        <li><a href="#" class="font-medium">Accueil</a></li>
+
+        <!-- Dropdown : Programme -->
+        <li>
+          <details name="hardest-button-desktop">
+            <summary class="font-medium">Programme</summary>
+            <ul class="bg-base-100 rounded-box shadow-xl p-4 w-64 z-50 mt-4">
+              <li class="menu-title">
+                <span class="legend">Par scène</span>
+              </li>
+              <li>
+                <a href="#" class="gap-2">
+                  <include file="@comp/icon.html" $icon="lucide/music.svg" $size="15" $color="currentColor" />
+                  Grande Scène
+                </a>
+              </li>
+              <li>
+                <a href="#" class="gap-2">
+                  <include file="@comp/icon.html" $icon="lucide/radio.svg" $size="15" $color="currentColor" />
+                  Scène électro
+                </a>
+              </li>
+              <li>
+                <a href="#" class="gap-2">
+                  <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="15" $color="currentColor" />
+                  Scène intimiste
+                </a>
+              </li>
+              <div class="divider my-1"></div>
+              <li>
+                <a href="#" class="gap-2 text-primary font-medium">
+                  <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="15" $color="currentColor" />
+                  Voir la programmation complète
+                </a>
+              </li>
+            </ul>
+          </details>
+        </li>
+
+        <!-- Dropdown : Artistes -->
+        <li>
+          <details name="hardest-button-desktop">
+            <summary class="font-medium">Artistes</summary>
+            <ul class="bg-base-100 rounded-box shadow-xl p-4 w-56 z-50 mt-4">
+              <li><a href="#">Têtes d'affiche</a></li>
+              <li><a href="#">Scène locale</a></li>
+              <li><a href="#">Coups de cœur</a></li>
+              <div class="divider my-1"></div>
+              <li>
+                <a href="#" class="text-primary font-medium gap-2">
+                  <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="15" $color="currentColor" />
+                  Tous les artistes
+                </a>
+              </li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+
+      <!-- Hamburger mobile (left side for centered logo) -->
+      <div class="dropdown lg:hidden">
+        <button tabindex="0" class="btn btn-ghost btn-circle">
+          <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="20" $color="currentColor" />
+        </button>
+        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box shadow-lg w-60 p-2 mt-2 z-50">
+          <li><a href="#">Accueil</a></li>
+          <li>
+            <details name="hardest-button-mobile">
+              <summary>Programme</summary>
+              <ul>
+                <li><a href="#">Grande Scène</a></li>
+                <li><a href="#">Scène électro</a></li>
+                <li><a href="#">Scène intimiste</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details name="hardest-button-mobile">
+              <summary>Artistes</summary>
+              <ul>
+                <li><a href="#">Têtes d'affiche</a></li>
+                <li><a href="#">Scène locale</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a href="#">Infos pratiques</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Logo central -->
+    <div class="navbar-center w-1/3 justify-center">
+      <a href="#" class="btn btn-ghost normal-case h-auto min-h-0 py-1 hover:bg-transparent">
+        <span class="h4 tracking-widest uppercase">Hardest Button</span>
+      </a>
+    </div>
+
+    <!-- Actions droite (Recherche + Icônes) -->
+    <div class="navbar-end flex items-center justify-end w-1/3 gap-2">
+      <button class="btn btn-ghost btn-circle hidden md:flex">
+        <include file="@comp/icon.html" $icon="lucide/search.svg" $size="18" $color="currentColor" />
+      </button>
+      <a href="#" class="btn btn-primary btn-sm gap-1.5 hidden sm:flex">
+        <include file="@comp/icon.html" $icon="lucide/ticket.svg" $size="15" />
+        Billetterie
+      </a>
+    </div>
+
+  </div>
+</header>

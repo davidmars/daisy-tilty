@@ -1,0 +1,55 @@
+<!---
+  nav-dead-leaves.html — Navbar smart + rideau plein écran depuis le haut
+  ────────────────────────────────────────────────────────────────────────────────
+  Comportement : fixed, géré par NavScrolled (x-data="navScrolled") sur le wrapper.
+  Le menu s'ouvre en rideau depuis le haut, plein écran, scrollable.
+-->
+
+<div x-data="navScrolled"
+     x-effect="document.body.classList.toggle('overflow-hidden', drawerOpen === true)">
+  <!-- Nav — z-50, toujours au-dessus du rideau -->
+  <header
+          x-bind:class="{
+              '-translate-y-full': isHidden,
+              'bg-base-100 shadow-sm text-base-content': scrolled || drawerOpen,
+              'bg-transparent text-neutral-content': !scrolled && !drawerOpen
+          }"
+          class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ease-in-out">
+    <div class="navbar container mx-auto px-4 transition-all duration-300"
+         x-bind:class="scrolled ? 'py-2' : 'py-4'">
+      <!-- Logo -->
+      <div class="navbar-start">
+        <a href="#" class="flex items-center gap-3 hover:text-primary transition-colors">
+          <include file="@comp/icon.html" $icon="lucide/sun.svg" $size="28" $color="currentColor" />
+          <span class="h4 leading-none">Dead Leaves</span>
+        </a>
+      </div>
+      <!-- Burger swing circle -->
+      <div class="navbar-end">
+        <include file="@molecules/burger-buttons/burger-swing-circle.html"
+                 x-bind:class="{ 'is-opened': drawerOpen === true, 'is-closed': drawerOpen === false }"
+                 x-on:click="toggleDrawer()"/>
+      </div>
+    </div>
+  </header>
+  <!-- Rideau plein écran — glisse depuis le haut, z-40 (sous la nav z-50) -->
+  <div class="fixed inset-0 z-40 bg-base-100 text-base-content overflow-y-auto"
+       x-show="drawerOpen === true"
+       x-effect="if (drawerOpen === false){$el.scrollTop = 0;}"
+       x-transition:enter="transition-[clip-path] duration-700 ease-in-out"
+       x-transition:enter-start="[clip-path:inset(0_0_100%_0)]"
+       x-transition:enter-end="[clip-path:inset(0_0_0%_0)]"
+       x-transition:leave="transition-[clip-path] duration-500 ease-in-out"
+       x-transition:leave-start="[clip-path:inset(0_0_0%_0)]"
+       x-transition:leave-end="[clip-path:inset(0_0_100%_0)]"
+       x-cloak>
+    <div class="container mx-auto px-6 pt-28 pb-16 min-h-full flex flex-col">
+      <!-- Navigation principale — grands liens -->
+      <nav class="flex-1">
+        <include file="@molecules/lists/let-it-be.html" />
+      </nav>
+      <!-- Pied du rideau -->
+      <include file="@molecules/lists/yellow-submarine.html" class="mt-12 "/>
+    </div>
+  </div>
+</div>

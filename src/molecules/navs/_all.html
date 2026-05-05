@@ -1,0 +1,41 @@
+<!---
+  _all.html — Showcase de toutes les molécules navs
+  ───────────────────────────────────────────────────
+  Usage : <include file="@mol/navs/_all.html" />
+-->
+
+<include file="@molecules/navs/nav-seven-nation-army.html" />
+
+<!-- Espace pour simuler un peu de contenu -->
+<div class="container mx-auto p-8 my-8 bg-base-200 rounded-box">
+  <div class="h2">Nav B - Blue Orchid</div>
+  <p>Compacte, centrée, dropdowns desktop.</p>
+</div>
+<include file="@molecules/navs/nav-blue-orchid.html" />
+
+
+<!-- Espace -->
+<div class="container mx-auto p-8 my-8 bg-base-200 rounded-box">
+  <div class="h2">Nav C - Hardest Button</div>
+  <p>Transparente puis opaque au scroll. (Voir Hero ci-dessous pour l'effet).</p>
+</div>
+
+<!-- On simule un hero en dessous de la navbar transparente -->
+<div class="relative min-h-[500px] flex items-center justify-center bg-primary text-primary-content">
+  <include file="@molecules/navs/nav-hardest-button.html" />
+  <div class="h1 text-center font-bold">Le Festival commence !<br>Scrollez pour voir la navbar transiter.</div>
+</div>
+
+<div class="container mx-auto p-8 my-8 bg-base-200 rounded-box">
+  <div class="h2">Nav D - Fell In Love</div>
+  <p>Barre latérale (Drawer).</p>
+</div>
+<include file="@molecules/navs/nav-fell-in-love.html" />
+
+<div class="container mx-auto p-8 my-8 bg-base-200 rounded-box">
+  <div class="h2">Nav E - Dead Leaves</div>
+  <p>Recherche en barre.</p>
+</div>
+<include file="@molecules/navs/nav-dead-leaves.html" />
+
+<!-- Espace supplémentaire pour scroller -->

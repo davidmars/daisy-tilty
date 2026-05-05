@@ -1,0 +1,202 @@
+<!---
+  demo-layout-nav.html — Layout de démonstration isolée pour une molécule de navigation
+  ──────────────────────────────────────────────────────────────────────────────────────
+  Variables : $title (titre de la page), $navLabel (ex. "nav-C")
+  Slot : la molécule de nav à tester (nav-A, nav-B, nav-C ou nav-D)
+  Contenu : faux contenu scrollable pour tester le comportement au défilement.
+  Navigation : bouton flottant (bas droite) ouvrant un drawer listant les 4 variantes.
+-->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{$title}} — Démo nav</title>
+    <link rel="stylesheet" href="/src/styles/tailwind.css" />
+    <link rel="stylesheet" href="/src/styles/main.scss" />
+  </head>
+
+  <body class="min-h-svh">
+
+    <!-- Drawer de navigation entre variantes (côté droit) -->
+    <div class="drawer drawer-end">
+      <input id="demo-nav-drawer" type="checkbox" class="drawer-toggle" />
+
+      <div class="drawer-content flex min-h-svh flex-col">
+
+        <!-- Molécule de nav testée — sticky ou fixed, se positionne seule -->
+        <slot/>
+
+        <!-- Bouton flottant pour ouvrir le drawer des exemples -->
+        <label
+          for="demo-nav-drawer"
+          class="fixed bottom-6 left-6 z-40 btn btn-info shadow-xl gap-2"
+          aria-label="Naviguer entre les exemples"
+        >
+          <include file="@comp/icon.html" $icon="lucide/panel-right-open.svg" $size="18" $color="currentColor" />
+          <span class="hidden sm:inline text-sm">Exemples</span>
+        </label>
+
+        <!-- ─── Hero plein écran ────────────────────────────────────────────── -->
+        <section class="relative flex h-svh items-center justify-center overflow-hidden bg-neutral">
+          <img
+            src="https://picsum.photos/id/10/1920/1080.webp"
+            alt=""
+            aria-hidden="true"
+            class="absolute inset-0 h-full w-full object-cover opacity-50"
+          />
+          <div class="relative z-10 px-4 text-center space-y-4">
+            <p class="legend text-neutral-content/60">Démonstration · {{$navLabel}}</p>
+            <h1 class="h1 text-neutral-content">{{$title}}</h1>
+            <p class="lead text-neutral-content/80 max-w-xl mx-auto">Faites défiler la page pour tester le comportement de la navigation au scroll.</p>
+            <div class="pt-4 flex justify-center text-neutral-content">
+              <include file="@comp/icon.html" $icon="lucide/chevron-down.svg" $size="32" $color="currentColor" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ─── Section 1 : texte ──────────────────────────────────────────── -->
+        <section class="container mx-auto max-w-3xl px-4 py-24">
+          <h2 class="h2 mb-6">Premier acte</h2>
+          <p class="p mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p class="p mb-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="p">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+        </section>
+
+        <!-- ─── Section 2 : image pleine largeur ──────────────────────────── -->
+        <section class="w-full h-80 overflow-hidden">
+          <img
+            src="https://picsum.photos/id/20/1920/600.webp"
+            alt=""
+            aria-hidden="true"
+            class="w-full h-full object-cover"
+          />
+        </section>
+
+        <!-- ─── Section 3 : texte + citation ─────────────────────────────── -->
+        <section class="container mx-auto max-w-3xl px-4 py-24">
+          <h2 class="h2 mb-6">Second acte</h2>
+          <p class="p mb-4">Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.</p>
+          <figure class="border-l-4 border-primary pl-6 my-10">
+            <blockquote class="quote text-primary">
+              « La navigation est l'épine dorsale de toute expérience digitale. »
+            </blockquote>
+            <figcaption class="caption mt-2">— Design Patterns, 2024</figcaption>
+          </figure>
+          <p class="p">Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</p>
+        </section>
+
+        <!-- ─── Section 4 : grille d'images ───────────────────────────────── -->
+        <section class="container mx-auto px-4 pb-24">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <img src="https://picsum.photos/id/30/600/400.webp" alt="" aria-hidden="true" class="w-full h-48 object-cover rounded-box" />
+            <img src="https://picsum.photos/id/40/600/400.webp" alt="" aria-hidden="true" class="w-full h-48 object-cover rounded-box" />
+            <img src="https://picsum.photos/id/50/600/400.webp" alt="" aria-hidden="true" class="w-full h-48 object-cover rounded-box" />
+            <img src="https://picsum.photos/id/60/600/400.webp" alt="" aria-hidden="true" class="w-full h-48 object-cover rounded-box md:col-span-2" />
+            <img src="https://picsum.photos/id/70/600/400.webp" alt="" aria-hidden="true" class="w-full h-48 object-cover rounded-box" />
+          </div>
+        </section>
+
+        <!-- ─── Section 5 : texte de clôture ─────────────────────────────── -->
+        <section class="container mx-auto max-w-3xl px-4 py-24">
+          <h2 class="h2 mb-6">Épilogue</h2>
+          <p class="p mb-4">Integer in felis. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante.</p>
+          <p class="p">Cras commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        </section>
+
+        <!-- ─── Footer minimal ────────────────────────────────────────────── -->
+        <footer class="bg-base-200 py-8 text-center mt-auto">
+          <p class="caption text-base-content/50">
+            Page de démonstration &mdash;
+            <a href="../../demo-molecules-navs.html" class="link">Vue d'ensemble des navs</a>
+          </p>
+        </footer>
+
+      </div><!-- /drawer-content -->
+
+      <!-- ─── Panneau drawer : navigation entre variantes ────────────────── -->
+      <div class="drawer-side z-50">
+        <label for="demo-nav-drawer" aria-label="Fermer le panneau" class="drawer-overlay"></label>
+
+        <aside class="bg-base-100 text-base-content flex h-full w-72 flex-col p-6 shadow-xl">
+
+          <!-- En-tête -->
+          <div class="mb-6 flex items-start justify-between">
+            <div>
+              <p class="legend mb-0.5">En cours de test</p>
+              <h2 class="h5">{{$navLabel}}</h2>
+            </div>
+            <label for="demo-nav-drawer" aria-label="Fermer" class="btn btn-ghost btn-sm btn-circle">
+              <include file="@comp/icon.html" $icon="lucide/x.svg" $size="18" $color="currentColor" />
+            </label>
+          </div>
+
+          <!-- Liste des variantes -->
+          <p class="legend mb-3">Variantes de nav</p>
+          <nav class="flex flex-col gap-1">
+
+            <a href="/demo-molecules-nav-seven-nation-army.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+              <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+              <div class="text-left">
+                <div class="font-medium leading-none mb-0.5">Seven Nation Army</div>
+                <div class="text-xs text-base-content/60 font-normal">Smart Nav + drawer latéral</div>
+              </div>
+            </a>
+
+            <a href="/demo-molecules-nav-blue-orchid.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+              <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+              <div class="text-left">
+                <div class="font-medium leading-none mb-0.5">Blue Orchid</div>
+                <div class="text-xs text-base-content/60 font-normal">
+                  <span class="badge badge-xs badge-warning">à revoir</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="/demo-molecules-nav-hardest-button.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+              <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+              <div class="text-left">
+                <div class="font-medium leading-none mb-0.5">Hardest Button</div>
+                <span class="badge badge-xs badge-warning">à revoir</span>
+                <div class="text-xs text-base-content/60 font-normal">Méga menu</div>
+              </div>
+            </a>
+
+            <a href="/demo-molecules-nav-fell-in-love.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+              <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+              <div class="text-left">
+                <div class="font-medium leading-none mb-0.5">Fell In Love</div>
+                <div class="text-xs text-base-content/60 font-normal">Dégradé + rideau depuis la droite</div>
+              </div>
+            </a>
+
+            <a href="/demo-molecules-nav-dead-leaves.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+              <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+              <div class="text-left">
+                <div class="font-medium leading-none mb-0.5">Dead Leaves</div>
+                <div class="text-xs text-base-content/60 font-normal">Rideau plein écran</div>
+              </div>
+            </a>
+
+          </nav>
+
+          <div class="divider my-4"></div>
+
+          <a href="../../demo-molecules-navs.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal text-base-content/70">
+            <include file="@comp/icon.html" $icon="lucide/arrow-left.svg" $size="16" $color="currentColor" />
+            Vue d'ensemble des navs
+          </a>
+
+          <div class="mt-auto pt-6">
+            <p class="caption text-base-content/40">Démo isolée — une seule nav active à la fois.</p>
+          </div>
+
+        </aside>
+      </div><!-- /drawer-side -->
+
+    </div><!-- /drawer -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

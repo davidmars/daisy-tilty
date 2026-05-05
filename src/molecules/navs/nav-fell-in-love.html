@@ -1,0 +1,77 @@
+<!---
+  nav-fell-in-love.html — Navbar fixe sur hero, rideau plein écran depuis la droite
+  ──────────────────────────────────────────────────────────────
+  Usage : placer AVANT un hero plein écran, sans espace entre les deux.
+  Requiert : composant Alpine.js `navScrolled` (enregistré dans main.js) — utilisé pour drawerOpen/toggleDrawer.
+  Comportement nav : dégradé from-black/50 + texte blanc au repos ; bg-base-100 + text-base-content quand le rideau est ouvert.
+  Comportement rideau : s'ouvre depuis la droite (clip-path), plein écran, grands liens centrés + yellow-submarine en pied.
+  Burger arrow-right toujours visible (desktop + mobile).
+-->
+<div x-data="navScrolled"
+     x-effect="document.body.classList.toggle('overflow-hidden', drawerOpen === true)">
+
+  <header
+    x-bind:class="drawerOpen ? 'bg-base-100 text-base-content border-b' : 'bg-gradient-to-b from-black/50 to-transparent text-white'"
+    class="fixed top-0 inset-x-0 z-[9999] transition-all duration-300">
+    <div class="navbar container mx-auto px-4">
+
+      <!-- Logo -->
+      <div class="navbar-start">
+        <a href="#" class="h4 leading-none">Fell In Love</a>
+      </div>
+
+      <!-- Liens desktop + burger (droite) -->
+      <div class="navbar-end flex items-center gap-1">
+        <ul class="menu menu-horizontal gap-1 px-0 hidden lg:flex">
+          <li><a href="#" class="p-sm font-medium bg-transparent hover:bg-transparent hover:underline">Programme</a></li>
+          <li><a href="#" class="p-sm font-medium bg-transparent hover:bg-transparent hover:underline">Artistes</a></li>
+          <li><a href="#" class="p-sm font-medium bg-transparent hover:bg-transparent hover:underline">Accès</a></li>
+          <li><a href="#" class="p-sm font-medium bg-transparent hover:bg-transparent hover:underline">Contact</a></li>
+        </ul>
+
+        <!-- Burger arrow-right (sans x-data — contrôlé par le scope parent navScrolled) -->
+        <div class="burger-button burger-button-arrow-right"
+             x-bind:class="{ 'is-opened': drawerOpen === true, 'is-closed': drawerOpen === false }"
+             x-on:click="toggleDrawer()"
+             role="button"
+             aria-label="Menu">
+          <span></span>
+          <svg x="0" y="0" width="54px" height="54px" viewBox="0 0 54 54">
+            <circle cx="27" cy="27" r="26"></circle>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Rideau plein écran — glisse depuis la droite, z-40 (sous la nav z-[9999]) -->
+  <div class="fixed inset-0 z-40 bg-base-100 text-base-content overflow-y-auto"
+       x-show="drawerOpen === true"
+       x-effect="if (drawerOpen === false){$el.scrollTop = 0;}"
+       x-transition:enter="transition-[clip-path] duration-700 ease-in-out"
+       x-transition:enter-start="[clip-path:inset(0_0_0_100%)]"
+       x-transition:enter-end="[clip-path:inset(0_0_0_0%)]"
+       x-transition:leave="transition-[clip-path] duration-500 ease-in-out"
+       x-transition:leave-start="[clip-path:inset(0_0_0_0%)]"
+       x-transition:leave-end="[clip-path:inset(0_0_0_100%)]"
+       x-cloak>
+    <div class="container mx-auto px-6 pt-28 pb-16 min-h-full flex flex-col">
+      <!-- Navigation principale -->
+      <nav class="flex-1 flex items-center justify-center">
+        <ul class="flex flex-col items-center gap-2">
+          <li><a href="#" class="h1 hover:text-primary transition-colors">Come Together</a></li>
+          <li><a href="#" class="h1 hover:text-primary transition-colors">Programme</a></li>
+          <li><a href="#" class="h1 hover:text-primary transition-colors">Artistes</a></li>
+          <li><a href="#" class="h1 hover:text-primary transition-colors">Accès</a></li>
+          <li><a href="#" class="h1 hover:text-primary transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Pied du rideau -->
+      <div class="mt-12 flex justify-end">
+        <include file="@molecules/lists/yellow-submarine.html" />
+      </div>
+    </div>
+  </div>
+
+</div>
