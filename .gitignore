@@ -12,3 +12,6 @@ src/styles/layout-all.scss
 .env.local
 .env.*.local
 
+# IDE JetBrains
+.idea/
+
