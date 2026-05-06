@@ -2,7 +2,7 @@
   drawer-molecules-catalog.html — Panneau latéral des pages de test molécules
   Déclenché par : <label for="drawer-molecules-catalog">
 -->
-<aside class="bg-base-200 text-base-content flex h-full w-72 flex-col p-6 shadow-xl">
+<aside class="bg-base-200 text-base-content flex h-full w-80 md:w-96 flex-col p-6 shadow-xl overflow-y-auto" data-lenis-prevent>
 
   <div class="mb-6 flex items-center justify-between">
     <h2 class="h5">Style guide & Molécules</h2>
@@ -52,10 +52,6 @@
       <include file="@comp/icon.html" $icon="lucide/layers.svg" $size="16" $color="currentColor" />
       Cards
     </a>
-    <a href="demo-molecules-navs.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
-      Navs
-    </a>
     <a href="demo-molecules-burger.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
       <include file="@comp/icon.html" $icon="lucide/align-justify.svg" $size="16" $color="currentColor" />
       Burger buttons
@@ -71,23 +67,60 @@
       Parallaxe
     </a>
 
-    <!-- MENU DE DÉMONSTRATION -->
-    <div class="h3 flex gap-2 items-center text-primary border-b border-primary pb-2 mb-4 mt-8 px-4">
-      <include file="@comp/icon.html" $icon="lucide/layout-template.svg" $size="22" />
-      Démos des Navs
+
+    <!--- navs -->
+
+    <div class="divider my-2"></div>
+    <p class="legend my-2">Navs</p>
+    <div class="mt-auto">
+      <p class="caption text-base-content/40">Démos de nav isolées — une seule nav active à la fois.</p>
     </div>
-    <ul class="menu w-full mb-4">
-      <li><a href="demo-molecules-nav-seven-nation-army.html">Seven Nation Army (Smart Nav)</a></li>
-      <li><a href="demo-molecules-nav-blue-orchid.html">Blue Orchid (Sticky classique)</a></li>
-      <li><a href="../../demo-molecules-nav-hardest-button.html">Hardest Button (Logo centré)</a></li>
-      <li><a href="demo-molecules-nav-fell-in-love.html">Fell In Love (Transparente)</a></li>
-      <li><a href="demo-molecules-nav-dead-leaves.html">Dead Leaves (Rideau plein écran)</a></li>
-    </ul>
 
+    <nav class="flex flex-col gap-1">
+
+      <a href="/demo-molecules-nav-seven-nation-army.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+        <div class="text-left">
+          <div class="font-medium leading-none mb-0.5">Seven Nation Army</div>
+          <div class="text-xs text-base-content/60 font-normal">Smart Nav + drawer latéral</div>
+        </div>
+      </a>
+
+      <a href="/demo-molecules-nav-blue-orchid.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+        <div class="text-left">
+          <div class="font-medium leading-none mb-0.5">Blue Orchid</div>
+          <div class="text-xs text-base-content/60 font-normal">
+            <span class="badge badge-xs badge-warning">à revoir</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/demo-molecules-nav-hardest-button.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+        <div class="text-left">
+          <div class="font-medium leading-none mb-0.5">Hardest Button</div>
+          <span class="badge badge-xs badge-warning">à revoir</span>
+          <div class="text-xs text-base-content/60 font-normal">Méga menu</div>
+        </div>
+      </a>
+
+      <a href="/demo-molecules-nav-fell-in-love.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+        <div class="text-left">
+          <div class="font-medium leading-none mb-0.5">Fell In Love</div>
+          <div class="text-xs text-base-content/60 font-normal">Dégradé + rideau depuis la droite</div>
+        </div>
+      </a>
+
+      <a href="/demo-molecules-nav-dead-leaves.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+        <div class="text-left">
+          <div class="font-medium leading-none mb-0.5">Dead Leaves</div>
+          <div class="text-xs text-base-content/60 font-normal">Rideau plein écran</div>
+        </div>
+      </a>
+
+    </nav>
   </nav>
-
-  <div class="mt-auto pt-6">
-    <p class="caption text-base-content/50">Pages de démonstration des molécules du projet.</p>
-  </div>
-
 </aside>
