@@ -1,9 +1,9 @@
 <!---
-  accordion-D.html — Accordéon bicolonne : métadonnées structurées + visuel carré
+  accordion-D.html — Accordéon bicolonne : métadonnées + swiper carré
   ──────────────────────────────────────────────────────────────────────────────────
   Usage : fiche de référence enrichie — décor, projet, production, équipe.
-  Colonne droite : espace réservé au swiper (étape suivante).
-  Personnalisation : remplacer les valeurs des métadonnées, la miniature et l'image.
+  Colonne gauche : métadonnées + compteur de slides (fraction). Colonne droite : swiper.
+  Personnalisation : remplacer les valeurs, les slides et les IDs si plusieurs instances sur une même page.
   Animation : gérée nativement par DaisyUI .collapse (grid-template-rows).
 -->
 <div class="border-t border-base-content/15">
@@ -18,88 +18,60 @@
     class="collapse-title flex items-center gap-4 md:gap-6 py-5 text-left group !p-0 min-h-0"
     x-bind:aria-expanded="open"
   >
-
-    <!-- Miniature carrée -->
     <div class="shrink-0 w-16 md:w-20 aspect-square overflow-hidden">
-      <img
-        src="https://picsum.photos/id/110/200/200.webp"
-        alt="Miniature du projet"
-        class="w-full h-full object-cover"
-        loading="lazy"
-        decoding="async"
-      />
+      <img src="https://picsum.photos/id/110/200/200.webp" alt="Miniature du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
     </div>
-
-    <!-- Titre -->
     <h3 class="h2 flex-1 leading-none group-hover:text-primary transition-colors">Capion</h3>
-
-    <!-- Catégorie + toggle -->
     <div class="flex items-center gap-3 shrink-0">
       <span class="legend text-base-content/60 hidden sm:block">Indoor + Outdoor</span>
-      <span x-show="!open">
-        <include file="@comp/icon.html" $icon="lucide/plus.svg" $size="20" $color="currentColor" />
-      </span>
-      <span x-show="open" x-cloak>
-        <include file="@comp/icon.html" $icon="lucide/minus.svg" $size="20" $color="currentColor" />
-      </span>
+      <span x-show="!open"><include file="@comp/icon.html" $icon="lucide/plus.svg" $size="20" $color="currentColor" /></span>
+      <span x-show="open" x-cloak><include file="@comp/icon.html" $icon="lucide/minus.svg" $size="20" $color="currentColor" /></span>
     </div>
-
   </button>
 
   <div class="collapse-content !px-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2">
 
-      <!-- Colonne gauche : métadonnées -->
-      <div class="py-4 pr-0 md:pr-10">
+      <!-- Colonne gauche : métadonnées + compteur -->
+      <div class="py-4 pr-0 md:pr-10 flex flex-col">
         <dl class="space-y-4">
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Décor</dt>
-            <dd class="p-sm text-base-content/70">nom du décor</dd>
-          </div>
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Projet</dt>
-            <dd class="p-sm text-base-content/70">nom du projet</dd>
-          </div>
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Production</dt>
-            <dd class="p-sm text-base-content/70">nom de la prod</dd>
-          </div>
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Année</dt>
-            <dd class="p-sm text-base-content/70">2024</dd>
-          </div>
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Rôle</dt>
-            <dd class="p-sm text-base-content/70">poste</dd>
-          </div>
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt>
-            <dd class="p-sm text-base-content/70">description possible de quelques mots si le projet s'y prête</dd>
-          </div>
-
-          <div>
-            <dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt>
-            <dd class="p-sm text-base-content/70">postes clefs — chef décorateur, ensemblier, accessoiriste…</dd>
-          </div>
-
+          <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70">nom du décor</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70">nom du projet</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Production</dt><dd class="p-sm text-base-content/70">nom de la prod</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Année</dt><dd class="p-sm text-base-content/70">2024</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Rôle</dt><dd class="p-sm text-base-content/70">poste</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70">description possible de quelques mots si le projet s'y prête</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70">postes clefs — chef décorateur, ensemblier, accessoiriste…</dd></div>
         </dl>
+        <!-- Compteur de slides -->
+        <div id="swiper-pag-1" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
 
-      <!-- Colonne droite : visuel carré (futur swiper) -->
-      <div class="aspect-square w-full overflow-hidden">
-        <img
-          src="https://picsum.photos/id/120/800/800.webp"
-          alt="Visuel du projet"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+      <!-- Colonne droite : Swiper carré -->
+      <div class="relative aspect-square w-full overflow-hidden">
+        <div
+          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-1' }, pagination: { el: '#swiper-pag-1', type: 'fraction' } })"
+          class="swiper absolute inset-0"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://picsum.photos/id/120/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="swiper-slide">
+              <img src="https://picsum.photos/id/180/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="swiper-slide">
+              <img src="https://picsum.photos/id/240/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="swiper-slide">
+              <img src="https://picsum.photos/id/300/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+        <!-- Bouton next -->
+        <button id="swiper-next-1" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
+          <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="20" $color="currentColor" />
+        </button>
       </div>
 
     </div>
@@ -128,8 +100,8 @@
   </button>
 
   <div class="collapse-content !px-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 pb-10">
-      <div class="py-4 pr-0 md:pr-10">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="py-4 pr-0 md:pr-10 flex flex-col">
         <dl class="space-y-4">
           <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70">Villa Ferret — Arcachon</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70">Série documentaire Arte</dd></div>
@@ -139,9 +111,23 @@
           <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70">6 semaines de tournage, 3 lieux distincts</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70">ensemblier, régisseur décors, peintre</dd></div>
         </dl>
+        <div id="swiper-pag-2" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
-      <div class="aspect-square w-full overflow-hidden">
-        <img src="https://picsum.photos/id/130/800/800.webp" alt="Visuel du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+      <div class="relative aspect-square w-full overflow-hidden">
+        <div
+          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-2' }, pagination: { el: '#swiper-pag-2', type: 'fraction' } })"
+          class="swiper absolute inset-0"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://picsum.photos/id/130/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/190/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/250/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/310/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+        <button id="swiper-next-2" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
+          <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="20" $color="currentColor" />
+        </button>
       </div>
     </div>
   </div>
@@ -169,8 +155,8 @@
   </button>
 
   <div class="collapse-content !px-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 pb-10">
-      <div class="py-4 pr-0 md:pr-10">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="py-4 pr-0 md:pr-10 flex flex-col">
         <dl class="space-y-4">
           <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70">Moulin de la Galette — Montmartre</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70">Long-métrage fiction</dd></div>
@@ -180,9 +166,23 @@
           <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70">Tournage nuit, éclairage période 1900</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70">accessoiriste, tapissier, forgeron décors</dd></div>
         </dl>
+        <div id="swiper-pag-3" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
-      <div class="aspect-square w-full overflow-hidden">
-        <img src="https://picsum.photos/id/140/800/800.webp" alt="Visuel du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+      <div class="relative aspect-square w-full overflow-hidden">
+        <div
+          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-3' }, pagination: { el: '#swiper-pag-3', type: 'fraction' } })"
+          class="swiper absolute inset-0"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://picsum.photos/id/140/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/200/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/260/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/320/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+        <button id="swiper-next-3" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
+          <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="20" $color="currentColor" />
+        </button>
       </div>
     </div>
   </div>
@@ -210,8 +210,8 @@
   </button>
 
   <div class="collapse-content !px-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 pb-10">
-      <div class="py-4 pr-0 md:pr-10">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="py-4 pr-0 md:pr-10 flex flex-col">
         <dl class="space-y-4">
           <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70">Château Rivard — Bourgogne</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70">Publicité institutionnelle</dd></div>
@@ -221,9 +221,23 @@
           <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70">Aménagement parc + 12 pièces intérieures</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70">ensemblier, jardinier décors, peintre</dd></div>
         </dl>
+        <div id="swiper-pag-4" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
-      <div class="aspect-square w-full overflow-hidden">
-        <img src="https://picsum.photos/id/151/800/800.webp" alt="Visuel du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+      <div class="relative aspect-square w-full overflow-hidden">
+        <div
+          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-4' }, pagination: { el: '#swiper-pag-4', type: 'fraction' } })"
+          class="swiper absolute inset-0"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://picsum.photos/id/151/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/210/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/270/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/330/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+        <button id="swiper-next-4" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
+          <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="20" $color="currentColor" />
+        </button>
       </div>
     </div>
   </div>
@@ -251,8 +265,8 @@
   </button>
 
   <div class="collapse-content !px-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 pb-10">
-      <div class="py-4 pr-0 md:pr-10">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="py-4 pr-0 md:pr-10 flex flex-col">
         <dl class="space-y-4">
           <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70">Atelier Lumière — Lyon 7e</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70">Court-métrage expérimental</dd></div>
@@ -262,9 +276,23 @@
           <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70">Tournage 2 jours, lumière naturelle exclusive</dd></div>
           <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70">réalisateur, directeur photo, décorateur</dd></div>
         </dl>
+        <div id="swiper-pag-5" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
-      <div class="aspect-square w-full overflow-hidden">
-        <img src="https://picsum.photos/id/160/800/800.webp" alt="Visuel du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+      <div class="relative aspect-square w-full overflow-hidden">
+        <div
+          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-5' }, pagination: { el: '#swiper-pag-5', type: 'fraction' } })"
+          class="swiper absolute inset-0"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://picsum.photos/id/160/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/220/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/280/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/id/340/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+        <button id="swiper-next-5" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
+          <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="20" $color="currentColor" />
+        </button>
       </div>
     </div>
   </div>
