@@ -1,43 +1,17 @@
 <!---
-  come-together.html — Nuage de liens pill — tags, catégories, communauté
+  come-together.html — Liste de navigation verticale centrée avec très grands liens (h1)
+  Usage : menu plein écran, section de navigation (hero).
   Personnalisation : ajuster les labels et les href.
 -->
-<ul class="flex flex-wrap gap-2">
-    <li>
-        <a href="#" class="badge badge-outline badge-lg gap-1.5 hover:badge-primary transition-colors py-4 px-4">
-            <include file="@comp/icon.html" $icon="lucide/users.svg" $size="14" $color="currentColor" />
-            Communauté
-        </a>
-    </li>
-    <li>
-        <a href="#" class="badge badge-outline badge-lg gap-1.5 hover:badge-primary transition-colors py-4 px-4">
-            <include file="@comp/icon.html" $icon="lucide/music.svg" $size="14" $color="currentColor" />
-            Scène principale
-        </a>
-    </li>
-    <li>
-        <a href="#" class="badge badge-outline badge-lg gap-1.5 hover:badge-primary transition-colors py-4 px-4">
-            <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="14" $color="currentColor" />
-            Coups de cœur
-        </a>
-    </li>
-    <li>
-        <a href="#" class="badge badge-outline badge-lg gap-1.5 hover:badge-primary transition-colors py-4 px-4">
-            <include file="@comp/icon.html" $icon="lucide/radio.svg" $size="14" $color="currentColor" />
-            Scène électro
-        </a>
-    </li>
-    <li>
-        <a href="#" class="badge badge-outline badge-lg gap-1.5 hover:badge-primary transition-colors py-4 px-4">
-            <include file="@comp/icon.html" $icon="lucide/star.svg" $size="14" $color="currentColor" />
-            Têtes d'affiche
-        </a>
-    </li>
-    <li>
-        <a href="#" class="badge badge-outline badge-lg gap-1.5 hover:badge-primary transition-colors py-4 px-4">
-            <include file="@comp/icon.html" $icon="lucide/map-pin.svg" $size="14" $color="currentColor" />
-            Accès & infos
-        </a>
-    </li>
+<ul class="flex flex-col items-center gap-2"
+    data-reveal="stagger.random"
+    data-reveal-preset="fadeBlur"
+    data-reveal-stagger="0.1"
+    data-reveal-delay="0.25"
+    data-reveal-duration="0.5">
+    <li><a href="#" class="h1 hover:text-primary transition-colors">Come Together</a></li>
+    <li><a href="#" class="h1 hover:text-primary transition-colors">Right now</a></li>
+    <li><a href="#" class="h1 hover:text-primary transition-colors">Over me</a></li>
+    <li><a href="#" class="h1 hover:text-primary transition-colors">Here come old flattop</a></li>
+    <li><a href="#" class="h1 hover:text-primary transition-colors">He come groovin' up slowly</a></li>
 </ul>
-
