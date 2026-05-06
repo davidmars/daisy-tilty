@@ -1,0 +1,55 @@
+<!---
+  accordion-B.html — Accordéon enrichi : icône + badge + contenu structuré
+  ──────────────────────────────────────────────────────────────────────────
+  Usage : présentation de services, d'offres ou de fonctionnalités.
+  Personnalisation : remplacer icônes ($icon), badges, titres et contenus.
+-->
+<div class="space-y-3 max-w-2xl">
+
+  <div class="collapse collapse-plus bg-primary/10 rounded-box">
+    <input type="checkbox" checked="checked" />
+    <div class="collapse-title flex items-center gap-3">
+      <span class="text-primary">
+        <include file="@comp/icon.html" $icon="lucide/music-2.svg" $size="20" $color="currentColor" />
+      </span>
+      <span class="h5 flex-1">Concerts & Festivals</span>
+      <span class="badge badge-primary badge-sm">Nouveau</span>
+    </div>
+    <div class="collapse-content">
+      <p class="p-sm text-base-content/70 mb-3">Accédez à la programmation complète de la saison : plus de 200 événements live répartis sur toute l'année, des petites salles aux grands festivals en plein air.</p>
+      <a href="#" class="btn btn-primary btn-sm">Voir la programmation</a>
+    </div>
+  </div>
+
+  <div class="collapse collapse-plus bg-secondary/10 rounded-box">
+    <input type="checkbox" />
+    <div class="collapse-title flex items-center gap-3">
+      <span class="text-secondary">
+        <include file="@comp/icon.html" $icon="lucide/ticket.svg" $size="20" $color="currentColor" />
+      </span>
+      <span class="h5 flex-1">Billetterie premium</span>
+      <span class="badge badge-secondary badge-sm">Populaire</span>
+    </div>
+    <div class="collapse-content">
+      <p class="p-sm text-base-content/70 mb-3">Les membres premium bénéficient d'un accès prioritaire aux préventes, d'une remise de 15 % sur tous les billets et d'une assistance dédiée 7 j/7.</p>
+      <a href="#" class="btn btn-secondary btn-sm">Devenir membre</a>
+    </div>
+  </div>
+
+  <div class="collapse collapse-plus bg-accent/10 rounded-box">
+    <input type="checkbox" />
+    <div class="collapse-title flex items-center gap-3">
+      <span class="text-accent">
+        <include file="@comp/icon.html" $icon="lucide/users.svg" $size="20" $color="currentColor" />
+      </span>
+      <span class="h5 flex-1">Groupes & Associations</span>
+      <span class="badge badge-accent badge-sm">-20 %</span>
+    </div>
+    <div class="collapse-content">
+      <p class="p-sm text-base-content/70 mb-3">Tarifs préférentiels pour les groupes à partir de 10 personnes. Un coordinateur vous accompagne de la réservation jusqu'au jour J pour simplifier l'organisation.</p>
+      <a href="#" class="btn btn-accent btn-sm">Demander un devis</a>
+    </div>
+  </div>
+
+</div>
+
