@@ -443,6 +443,47 @@ Cette section vient **après** la mise en service rapide. Elle s'adresse aux dé
 
 ---
 
+## Tiltyfication
+
+La **tiltyfication** consiste à transformer du HTML statique en template dynamique Tilty en y ajoutant des attributs `ty-*`. La documentation complète est dans `.github/agent-instructions-to-understand-tilty.md`.
+
+### Règles de tiltyfication
+
+- Utiliser `ty-list-item="nomDuTemplate"` sur le **premier** élément d'une liste répétée. Les suivants portent `ty-list-item="ignore"`.
+- **Ne jamais combiner `ty-scope` et `ty-list-item` sur la même balise** : `ty-list-item` crée implicitement le scope de l'élément courant — `ty-scope` est redondant et interdit dans ce cas.
+- Pour tout attribut HTML sans équivalent `ty-*` dédié, utiliser obligatoirement `ty-attr="nomAttribut:variable"`.
+- Ne jamais supprimer de balises HTML lors d'une tiltyfication — l'objectif est de dynamiser l'existant, pas de le réécrire.
+
+### Message de commit associé
+
+Utiliser le préfixe `tiltyfication:` suivi du nom du fichier (voir `git-commit-instructions.md`).
+
+---
+
+## Fichier `.tiltyignore`
+
+Le fichier `.tiltyignore` exclut des fichiers et dossiers de la synchronisation entre le projet local et le serveur Tilty. Il fonctionne exactement comme un `.gitignore`.
+
+### Emplacement dans ce projet (Vite)
+
+Le fichier est dans `public/.tiltyignore` — Vite le copie automatiquement dans `dist/` au build, là où Tilty le lit.
+
+### Ce que fait notre `.tiltyignore`
+
+Le fichier exclut de Tilty tout ce qui ne doit jamais être livré en production :
+
+- `demo-*.html` — les pages de démonstration des molécules
+- `test-*.html` — les pages de tests divers
+- `style-guide-*.html` — les style guides (typographie, couleurs…)
+
+Ces fichiers sont des outils de développement local, ils n'ont aucune utilité dans un projet Tilty client.
+
+### Modifier les exclusions
+
+Pour ajouter une exclusion, éditer `public/.tiltyignore` en suivant la syntaxe `.gitignore` standard. Le changement sera pris en compte après le prochain build (`npm run build`).
+
+---
+
 ## Lenis (scroll fluide) — Règle `data-lenis-prevent`
 
 Lorsque Lenis est actif (`VITE_SMOOTH_SCROLL=true`), il intercepte **tous** les événements de scroll natifs sur la page, y compris à l'intérieur des éléments avec `overflow-y-auto` ou `overflow-y-scroll` (drawers, modales, sidebars…).

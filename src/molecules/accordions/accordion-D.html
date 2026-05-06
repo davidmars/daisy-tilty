@@ -6,12 +6,13 @@
   Personnalisation : remplacer les valeurs, les slides et les IDs si plusieurs instances sur une même page.
   Animation : gérée nativement par DaisyUI .collapse (grid-template-rows).
 -->
-<div class="border-t border-base-content/15">
+<div class="border-t border-base-content/15" ty-list="projets">
 
 <!-- ─── Ligne 1 ──────────────────────────────────────────────────── -->
 <div x-data="{ open: false }"
      class="collapse rounded-none border-b border-base-content/15"
-     x-bind:class="{ 'collapse-open': open }">
+     x-bind:class="{ 'collapse-open': open }"
+     ty-list-item="projet">
 
   <button
     x-on:click="open = !open"
@@ -19,11 +20,11 @@
     x-bind:aria-expanded="open"
   >
     <div class="shrink-0 w-16 md:w-20 aspect-square overflow-hidden">
-      <img src="https://picsum.photos/id/110/200/200.webp" alt="Miniature du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+      <img ty-src="miniature.resize(160,160)" ty-alt="titre" src="https://picsum.photos/id/110/200/200.webp" alt="Miniature du projet" class="w-full h-full object-cover" loading="lazy" decoding="async" />
     </div>
-    <h3 class="h2 flex-1 leading-none group-hover:text-primary transition-colors">Capion</h3>
+    <h3 class="h2 flex-1 leading-none group-hover:text-primary transition-colors" ty-text="titre">Capion</h3>
     <div class="flex items-center gap-3 shrink-0">
-      <span class="legend text-base-content/60 hidden sm:block">Indoor + Outdoor</span>
+      <span class="legend text-base-content/60 hidden sm:block" ty-text="type">Indoor + Outdoor</span>
       <span x-show="!open"><include file="@comp/icon.html" $icon="lucide/plus.svg" $size="20" $color="currentColor" /></span>
       <span x-show="open" x-cloak><include file="@comp/icon.html" $icon="lucide/minus.svg" $size="20" $color="currentColor" /></span>
     </div>
@@ -35,43 +36,53 @@
       <!-- Colonne gauche : métadonnées + compteur -->
       <div class="py-4 pr-0 md:pr-10 flex flex-col">
         <dl class="space-y-4">
-          <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70">nom du décor</dd></div>
-          <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70">nom du projet</dd></div>
-          <div><dt class="legend font-mono text-base-content mb-0.5">Production</dt><dd class="p-sm text-base-content/70">nom de la prod</dd></div>
-          <div><dt class="legend font-mono text-base-content mb-0.5">Année</dt><dd class="p-sm text-base-content/70">2024</dd></div>
-          <div><dt class="legend font-mono text-base-content mb-0.5">Rôle</dt><dd class="p-sm text-base-content/70">poste</dd></div>
-          <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70">description possible de quelques mots si le projet s'y prête</dd></div>
-          <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70">postes clefs — chef décorateur, ensemblier, accessoiriste…</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Décor</dt><dd class="p-sm text-base-content/70" ty-text="decor">nom du décor</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Projet</dt><dd class="p-sm text-base-content/70" ty-text="nomProjet">nom du projet</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Production</dt><dd class="p-sm text-base-content/70" ty-text="production">nom de la prod</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Année</dt><dd class="p-sm text-base-content/70" ty-text="annee">2024</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Rôle</dt><dd class="p-sm text-base-content/70" ty-text="role">poste</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Donnée technique</dt><dd class="p-sm text-base-content/70" ty-text="parametresTechniques">description possible de quelques mots si le projet s'y prête</dd></div>
+          <div><dt class="legend font-mono text-base-content mb-0.5">Composition de l'équipe</dt><dd class="p-sm text-base-content/70" ty-text="equipe">postes clefs — chef décorateur, ensemblier, accessoiriste…</dd></div>
         </dl>
         <!-- Compteur de slides -->
-        <div id="swiper-pag-1" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
+        <div ty-id="'swiper-pag-' + uid" id="swiper-pag-1" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
 
       <!-- Colonne droite : Swiper carré -->
       <div class="relative aspect-square w-full overflow-hidden">
         <div
+          ty-attr="x-data:'swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: \'#swiper-next-\' + uid + \'\' }, pagination: { el: \'#swiper-pag-\' + uid + \'\', type: \'fraction\' } })'"
           x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-1' }, pagination: { el: '#swiper-pag-1', type: 'fraction' } })"
           class="swiper absolute inset-0"
         >
-          <div class="swiper-wrapper">
-            <div class="swiper-slide aspect-square bg-black">
-              <img src="https://picsum.photos/id/120/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+          <div class="swiper-wrapper" ty-list="slides">
+
+            <!-- ─ imageSlide ─ -->
+            <div class="swiper-slide aspect-square bg-black" ty-list-item="imageSlide">
+              <img ty-src="src.resize(800,800)" ty-alt="alt" src="https://picsum.photos/id/120/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div class="swiper-slide aspect-square bg-black">
+
+            <!-- ─ imageSlide (ignore) ─ -->
+            <div class="swiper-slide aspect-square bg-black" ty-list-item="ignore">
               <img src="https://picsum.photos/id/180/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div class="swiper-slide aspect-square overflow-hidden bg-black">
-              <video class="block w-full h-full object-cover" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/240/800/800.webp">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+
+            <!-- ─ videoSlide ─ -->
+            <div class="swiper-slide aspect-square overflow-hidden bg-black" ty-list-item="videoSlide">
+              <video class="block w-full h-full object-cover" ty-attr="poster:poster" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/240/800/800.webp">
+                <source ty-src="src" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
               </video>
             </div>
-            <div class="swiper-slide aspect-square bg-black">
+
+            <!-- ─ imageSlide (ignore) ─ -->
+            <div class="swiper-slide aspect-square bg-black" ty-list-item="ignore">
               <img src="https://picsum.photos/id/300/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
+
           </div>
         </div>
         <!-- Bouton next -->
-        <button id="swiper-next-1" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
+        <button ty-id="'swiper-next-' + uid" id="swiper-next-1" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
           <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="20" $color="currentColor" />
         </button>
       </div>
@@ -83,7 +94,8 @@
 <!-- ─── Ligne 2 ──────────────────────────────────────────────────── -->
 <div x-data="{ open: false }"
      class="collapse rounded-none border-b border-base-content/15"
-     x-bind:class="{ 'collapse-open': open }">
+     x-bind:class="{ 'collapse-open': open }"
+     ty-list-item="ignore">
 
   <button
     x-on:click="open = !open"
@@ -116,10 +128,7 @@
         <div id="swiper-pag-2" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
-        <div
-          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-2' }, pagination: { el: '#swiper-pag-2', type: 'fraction' } })"
-          class="swiper absolute inset-0"
-        >
+        <div x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-2' }, pagination: { el: '#swiper-pag-2', type: 'fraction' } })" class="swiper absolute inset-0">
           <div class="swiper-wrapper">
             <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/130/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
             <div class="swiper-slide aspect-square overflow-hidden bg-black">
@@ -142,7 +151,8 @@
 <!-- ─── Ligne 3 ──────────────────────────────────────────────────── -->
 <div x-data="{ open: false }"
      class="collapse rounded-none border-b border-base-content/15"
-     x-bind:class="{ 'collapse-open': open }">
+     x-bind:class="{ 'collapse-open': open }"
+     ty-list-item="ignore">
 
   <button
     x-on:click="open = !open"
@@ -175,10 +185,7 @@
         <div id="swiper-pag-3" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
-        <div
-          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-3' }, pagination: { el: '#swiper-pag-3', type: 'fraction' } })"
-          class="swiper absolute inset-0"
-        >
+        <div x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-3' }, pagination: { el: '#swiper-pag-3', type: 'fraction' } })" class="swiper absolute inset-0">
           <div class="swiper-wrapper">
             <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/140/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
             <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/200/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
@@ -201,7 +208,8 @@
 <!-- ─── Ligne 4 ──────────────────────────────────────────────────── -->
 <div x-data="{ open: false }"
      class="collapse rounded-none border-b border-base-content/15"
-     x-bind:class="{ 'collapse-open': open }">
+     x-bind:class="{ 'collapse-open': open }"
+     ty-list-item="ignore">
 
   <button
     x-on:click="open = !open"
@@ -234,10 +242,7 @@
         <div id="swiper-pag-4" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
-        <div
-          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-4' }, pagination: { el: '#swiper-pag-4', type: 'fraction' } })"
-          class="swiper absolute inset-0"
-        >
+        <div x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-4' }, pagination: { el: '#swiper-pag-4', type: 'fraction' } })" class="swiper absolute inset-0">
           <div class="swiper-wrapper">
             <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/151/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
             <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/210/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
@@ -260,7 +265,8 @@
 <!-- ─── Ligne 5 ──────────────────────────────────────────────────── -->
 <div x-data="{ open: false }"
      class="collapse rounded-none border-b border-base-content/15"
-     x-bind:class="{ 'collapse-open': open }">
+     x-bind:class="{ 'collapse-open': open }"
+     ty-list-item="ignore">
 
   <button
     x-on:click="open = !open"
@@ -293,10 +299,7 @@
         <div id="swiper-pag-5" class="mt-auto pt-8 caption font-mono text-base-content/50"></div>
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
-        <div
-          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-5' }, pagination: { el: '#swiper-pag-5', type: 'fraction' } })"
-          class="swiper absolute inset-0"
-        >
+        <div x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-5' }, pagination: { el: '#swiper-pag-5', type: 'fraction' } })" class="swiper absolute inset-0">
           <div class="swiper-wrapper">
             <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/160/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
             <div class="swiper-slide aspect-square overflow-hidden bg-black">
@@ -317,11 +320,6 @@
 </div>
 
 </div>
-
-
-
-
-
 
 
 

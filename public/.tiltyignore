@@ -1,0 +1,13 @@
+#
+# Fonctionne comme un .gitignore, mais pour Tilty
+# permet de dire quels fichiers/dossiers ne doivent pas être synchronisés dans tilty
+#
+
+# les pages de démo
+demo-*.html
+
+# les pages de test
+test-*.html
+
+# les style guides
+style-guide-*.html
