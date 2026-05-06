@@ -50,20 +50,22 @@
       <!-- Colonne droite : Swiper carré -->
       <div class="relative aspect-square w-full overflow-hidden">
         <div
-          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-1' }, pagination: { el: '#swiper-pag-1', type: 'fraction' } })"
+          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-1' }, pagination: { el: '#swiper-pag-1', type: 'fraction' } })"
           class="swiper absolute inset-0"
         >
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide aspect-square bg-black">
               <img src="https://picsum.photos/id/120/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide aspect-square bg-black">
               <img src="https://picsum.photos/id/180/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div class="swiper-slide">
-              <img src="https://picsum.photos/id/240/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <div class="swiper-slide aspect-square overflow-hidden bg-black">
+              <video class="block w-full h-full object-cover" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/240/800/800.webp">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              </video>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide aspect-square bg-black">
               <img src="https://picsum.photos/id/300/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
@@ -115,14 +117,18 @@
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
         <div
-          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-2' }, pagination: { el: '#swiper-pag-2', type: 'fraction' } })"
+          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-2' }, pagination: { el: '#swiper-pag-2', type: 'fraction' } })"
           class="swiper absolute inset-0"
         >
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://picsum.photos/id/130/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/190/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/250/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/310/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/130/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square overflow-hidden bg-black">
+              <video class="block w-full h-full object-cover" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/190/800/800.webp">
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/250/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/310/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
           </div>
         </div>
         <button id="swiper-next-2" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
@@ -170,14 +176,18 @@
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
         <div
-          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-3' }, pagination: { el: '#swiper-pag-3', type: 'fraction' } })"
+          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-3' }, pagination: { el: '#swiper-pag-3', type: 'fraction' } })"
           class="swiper absolute inset-0"
         >
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://picsum.photos/id/140/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/200/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/260/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/320/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/140/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/200/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square overflow-hidden bg-black">
+              <video class="block w-full h-full object-cover" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/260/800/800.webp">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/320/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
           </div>
         </div>
         <button id="swiper-next-3" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
@@ -225,14 +235,18 @@
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
         <div
-          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-4' }, pagination: { el: '#swiper-pag-4', type: 'fraction' } })"
+          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-4' }, pagination: { el: '#swiper-pag-4', type: 'fraction' } })"
           class="swiper absolute inset-0"
         >
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://picsum.photos/id/151/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/210/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/270/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/330/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/151/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/210/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/270/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square overflow-hidden bg-black">
+              <video class="block w-full h-full object-cover" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/330/800/800.webp">
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
         <button id="swiper-next-4" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
@@ -280,14 +294,18 @@
       </div>
       <div class="relative aspect-square w-full overflow-hidden">
         <div
-          x-data="swiper({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-5' }, pagination: { el: '#swiper-pag-5', type: 'fraction' } })"
+          x-data="swiperVideo({ loop: true, observer: true, observeParents: true, navigation: { nextEl: '#swiper-next-5' }, pagination: { el: '#swiper-pag-5', type: 'fraction' } })"
           class="swiper absolute inset-0"
         >
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://picsum.photos/id/160/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/220/800/800.webp" alt="Visuel 2" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/280/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
-            <div class="swiper-slide"><img src="https://picsum.photos/id/340/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/160/800/800.webp" alt="Visuel 1" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square overflow-hidden bg-black">
+              <video class="block w-full h-full object-cover" playsinline loop muted preload="metadata" poster="https://picsum.photos/id/220/800/800.webp">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/280/800/800.webp" alt="Visuel 3" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
+            <div class="swiper-slide aspect-square bg-black"><img src="https://picsum.photos/id/340/800/800.webp" alt="Visuel 4" class="w-full h-full object-cover" loading="lazy" decoding="async" /></div>
           </div>
         </div>
         <button id="swiper-next-5" class="absolute bottom-6 left-6 z-10 btn btn-circle bg-base-100 border-0 shadow-md hover:bg-base-200">
@@ -299,4 +317,11 @@
 </div>
 
 </div>
+
+
+
+
+
+
+
 

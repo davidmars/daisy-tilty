@@ -1,0 +1,54 @@
+<!---
+  swiper-video.html — Diaporama plein format avec slides images et vidéos HTML5 embarquées
+  ─────────────────────────────────────────────────────────────────────────────────────────
+  Usage : copier ce bloc et remplacer les URLs d'images, sources vidéo et attributs poster.
+  Les <video> sont mis en pause et remis à zéro automatiquement sur les slides inactives.
+  L'autoplay Swiper (si activé) se suspend pendant la lecture d'une vidéo et reprend à la fin.
+-->
+<div x-data="swiperVideo({ loop: false, slidesPerView: 1, spaceBetween: 0,
+  pagination: { el: '.swiper-pagination', type: 'progressbar' },
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', addIcons: false } })"
+     class="swiper swiper--progress-bottom aspect-video w-full relative [--swiper-navigation-color:white]">
+  <div class="swiper-wrapper">
+
+    <!-- Slide image -->
+    <div class="swiper-slide relative">
+      <img class="h-full w-full object-cover" src="https://picsum.photos/id/10/1600/900.webp" alt="Photo 1" loading="lazy" decoding="async" />
+      <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la première photo</figcaption>
+    </div>
+
+    <!-- Slide vidéo -->
+    <div class="swiper-slide relative">
+      <video class="absolute inset-0 w-full h-full object-cover" controls playsinline preload="metadata"
+             poster="https://picsum.photos/id/20/1600/900.webp">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Slide image -->
+    <div class="swiper-slide relative">
+      <img class="h-full w-full object-cover" src="https://picsum.photos/id/30/1600/900.webp" alt="Photo 3" loading="lazy" decoding="async" />
+      <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la troisième photo</figcaption>
+    </div>
+
+    <!-- Slide vidéo -->
+    <div class="swiper-slide relative">
+      <video class="absolute inset-0 w-full h-full object-cover" controls playsinline preload="metadata"
+             poster="https://picsum.photos/id/40/1600/900.webp">
+        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev">
+    <include file="@comp/icon.html" $icon="lucide/chevron-left.svg" class="icon--thin" />
+  </div>
+  <div class="swiper-button-next">
+    <include file="@comp/icon.html" $icon="lucide/chevron-right.svg" class="icon--thin" />
+  </div>
+</div>
+
+
+
+

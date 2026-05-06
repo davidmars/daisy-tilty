@@ -32,13 +32,16 @@ Supporte le défilement libre, l autoplay infini, la pagination et la navigation
 ### Fichiers impliqués
 ```
 src/components/carousel/swiper/
-  SwiperCarousel.js    ← classe ES6, pont Alpine/Swiper
+  SwiperCarousel.js      ← classe ES6, pont Alpine/Swiper (images, logos, auto)
+  SwiperVideoCarousel.js ← variante avec gestion lecture/pause des <video> embarquées
 src/molecules/carousels/
   swiper-photos.html   ← galerie photos à défilement libre + lightbox
+  swiper-slide.html    ← diaporama plein format, navigation + barre de progression
+  swiper-video.html    ← diaporama mixte images + vidéos HTML5 embarquées
   swiper-auto.html     ← défilement automatique infini (pause au survol)
   swiper-logos.html    ← logos N&B -> couleur au hover
   _all-swiper.html     ← showcase de toutes les molécules
-main.js                ← enregistrement via Alpine.data( swiper ,  )
+main.js                ← enregistrement via Alpine.data( swiper , ) et Alpine.data( swiperVideo , )
 ```
 ### Fonctionnement
 `SwiperCarousel` est un pont minimal entre Alpine et Swiper. La classe
@@ -74,7 +77,37 @@ Pour un défilement sans interruption (logos, avatars…), combiner :
 | Fichier | Usage |
 |---|---|
 | `swiper-photos.html` | Galerie photos + lightbox, défilement libre |
+| `swiper-slide.html` | Diaporama plein format, navigation + barre de progression |
+| `swiper-video.html` | Diaporama mixte images + vidéos HTML5 embarquées |
 | `swiper-auto.html` | Défilement automatique infini, pause au survol |
 | `swiper-logos.html` | Logos auto-infini, N&B -> couleur au hover |
 ### Page de démonstration
 `test-molecules-swiper.html`
+
+---
+
+### Composant `swiperVideo` — slides vidéo HTML5 embarquées
+
+Utiliser `x-data="swiperVideo({…})"` à la place de `swiper` pour un diaporama contenant des `<video>`. Il accepte les mêmes options que `swiper`.
+
+**Comportements automatiques :**
+- À chaque changement de slide, les `<video>` des slides inactives sont mises en pause et remises à zéro (`currentTime = 0`).
+- Si la slide active contient une `<video>` et que l'autoplay Swiper est actif, celui-ci est suspendu pendant la lecture et reprend à la fin de la vidéo.
+
+**Bonnes pratiques pour les slides vidéo :**
+```html
+<div class="swiper-slide relative bg-black">
+  <video class="h-full w-full object-contain" controls playsinline preload="metadata"
+         poster="https://picsum.photos/id/20/1600/900.webp">
+    <source src="/videos/ma-video.mp4" type="video/mp4" />
+  </video>
+</div>
+```
+
+- `controls` — affiche les contrôles natifs du navigateur
+- `playsinline` — évite le passage en plein écran automatique sur iOS
+- `preload="metadata"` — charge uniquement la durée et le poster, pas la vidéo entière
+- `poster` — image affichée avant lecture (recommandé)
+- `object-contain` recommandé sur les slides vidéo pour éviter le recadrage
+
+> **Vidéos self-hosted uniquement.** Ce composant gère les éléments `<video>` HTML5 natifs. Les iframes YouTube/Vimeo ne sont pas supportées.
