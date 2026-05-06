@@ -7,6 +7,17 @@ Pour les messages de commit, suis les instructions définies dans #file:git-comm
 ## Langue et accents
 Respecte toujours les accents en français dans les exemples et dans les commentaires de code. N'écris pas de texte français sans accents.
 
+## Textes descriptifs des pages de démo
+
+Dans les pages de démonstration (`demo-molecules-*.html`) et dans tout texte introductif d'un catalogue de molécules, **ne jamais quantifier les variantes** (ex. « trois variantes », « six cards »…). Utiliser uniquement des formulations génériques qui restent valides quel que soit le nombre d'exemples présents.
+
+| ✅ Correct | ❌ Interdit |
+|---|---|
+| `Variantes de card — article, produit…` | `Six variantes de card — article, produit…` |
+| `Variantes de liste — liens horizontaux…` | `Trois variantes de liste — liens horizontaux…` |
+
+Cette règle évite d'avoir à modifier le texte à chaque ajout de nouvelle molécule.
+
 ## Commentaires HTML dans les composants
 
 Pour documenter l'usage d'un composant ou d'une molécule HTML, utiliser **obligatoirement** la syntaxe `<!---` (3 tirets) :
