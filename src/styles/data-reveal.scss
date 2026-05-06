@@ -25,7 +25,5 @@
 [data-reveal="maskDown"]  { clip-path: inset(0 0 100% 0); }
 [data-reveal="maskLeft"]  { clip-path: inset(0 0 0 100%); }
 [data-reveal="maskRight"] { clip-path: inset(0 100% 0 0); }
-
-/* ── Preset fadeBlur : blur initial (opacity déjà à 0 via la règle générique) ── */
 [data-reveal="fadeBlur"] { filter: blur(12px); }
 

@@ -48,7 +48,7 @@
   <!-- Rideau plein écran — glisse depuis la droite, z-40 (sous la nav z-[9999]) -->
   <div class="fixed inset-0 z-40 bg-base-100 text-base-content overflow-y-auto" data-lenis-prevent
        x-show="drawerOpen === true"
-       x-effect="if (drawerOpen === false){$el.scrollTop = 0;}"
+       x-effect="!drawerOpen && ($el.scrollTop = 0)"
        x-transition:enter="transition-[clip-path] duration-700 ease-in-out"
        x-transition:enter-start="[clip-path:inset(0_0_0_100%)]"
        x-transition:enter-end="[clip-path:inset(0_0_0_0%)]"
