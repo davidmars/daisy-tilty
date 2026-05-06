@@ -9,19 +9,18 @@
 <div x-data="navScrolled">
 
   <header
-          x-bind:class="{
-              '-translate-y-full': isHidden,
-              'bg-base-100 shadow-sm text-base-content': scrolled,
-              'bg-transparent text-neutral-content': !scrolled
-          }"
-          class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out">
-    <div class="navbar container mx-auto px-4 transition-all duration-300"
-         x-bind:class="scrolled ? 'py-2' : 'py-4'">
+          x-bind:class="{ '-translate-y-full': isHidden }"
+          class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out bg-gradient-to-b from-black/50 to-transparent text-neutral-content">
+
+    <!-- Verre dépoli en dégradé -->
+    <div class="absolute inset-x-0 top-0 h-[200%] pointer-events-none backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_0%,black_30%,transparent_70%)]"></div>
+
+    <div class="navbar container mx-auto px-4 py-4 is-fixed-nav relative">
 
       <!-- Logo -->
       <div class="navbar-start">
         <a href="#"
-           class="flex items-center gap-3 hover:text-primary transition-colors">
+           class="flex items-center gap-3">
           <include file="@comp/icon.html" $icon="lucide/music.svg" $size="28" $color="currentColor" />
           <span class="h4 leading-none">Seven Nation Army</span>
         </a>
@@ -29,8 +28,7 @@
 
       <!-- Liens desktop -->
       <nav class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal gap-2 px-0"
-            x-bind:class="scrolled ? '[&_a]:hover:bg-base-200' : '[&_a]:hover:bg-neutral-content/10'">
+        <ul class="menu menu-horizontal gap-2 px-0 [&_a]:hover:bg-neutral-content/10">
           <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Programme</a></li>
           <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Artistes</a></li>
           <li><a href="#" class="px-4 py-2 rounded-btn font-medium transition-colors text-lg">Infos pratiques</a></li>
@@ -56,7 +54,6 @@
                x-bind:class="{
                    'is-opened': drawerOpen === true,
                    'is-closed': drawerOpen === false,
-                   'text-base-content': scrolled || drawerOpen,
                }"
                x-on:click="toggleDrawer()"
                role="button"

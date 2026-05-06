@@ -1,126 +1,149 @@
 <!---
   drawer-molecules-catalog.html — Panneau latéral des pages de test molécules
-  Déclenché par : <label for="drawer-molecules-catalog">
+  Autonome : inclut son propre bouton d'ouverture fixé à gauche de l'écran.
 -->
-<aside class="bg-base-200 text-base-content flex h-full w-80 md:w-96 flex-col p-6 shadow-xl overflow-y-auto" data-lenis-prevent>
 
-  <div class="mb-6 flex items-center justify-between">
-    <h2 class="h5">Style guide & Molécules</h2>
-    <label for="drawer-molecules-catalog" aria-label="Fermer" class="btn btn-ghost btn-sm btn-circle">
-      <include file="@comp/icon.html" $icon="lucide/x.svg" $size="18" $color="currentColor" />
+<div class="drawer z-[10000] pointer-events-none fixed inset-0">
+  <input id="drawer-molecules-catalog" type="checkbox" class="drawer-toggle" />
+
+  <!-- Bouton d'ouverture fixe à gauche -->
+  <div class="drawer-content pointer-events-auto fixed left-4 top-1/2 -translate-y-1/2">
+    <label for="drawer-molecules-catalog" aria-label="Ouvrir le catalogue" class="btn btn-primary btn-circle shadow-lg">
+      <include file="@comp/icon.html" $icon="lucide/blocks.svg" $size="24" $color="currentColor" />
     </label>
   </div>
 
-  <p class="legend mb-2 mt-4">Style guide</p>
-  <a href="style-guide-typo.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-    <include file="@comp/icon.html" $icon="lucide/case-sensitive.svg" $size="16" $color="currentColor" />
-    Typographie
-  </a>
-  <a href="style-guide-couleurs.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-    <include file="@comp/icon.html" $icon="lucide/paint-roller.svg" $size="16" $color="currentColor" />
-    Couleurs
-  </a>
-  <a href="icons-gallery.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-    <include file="@comp/icon.html" $icon="lucide/shapes.svg" $size="16" $color="currentColor" />
-    Icônes
-  </a>
+  <div class="drawer-side pointer-events-auto">
+    <label for="drawer-molecules-catalog" aria-label="Fermer" class="drawer-overlay"></label>
+    <aside class="bg-base-200 text-base-content flex h-full w-80 md:w-96 flex-col p-6 shadow-xl overflow-y-auto" data-lenis-prevent>
 
-  <nav class="flex flex-col gap-1">
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="h5">Style guide & Molécules</h2>
+        <label for="drawer-molecules-catalog" aria-label="Fermer" class="btn btn-ghost btn-sm btn-circle">
+          <include file="@comp/icon.html" $icon="lucide/x.svg" $size="18" $color="currentColor" />
+        </label>
+      </div>
 
-    <p class="legend mb-2 mt-4">Médias</p>
-    <a href="demo-molecules-media-grid.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/layout-grid.svg" $size="16" $color="currentColor" />
-      Grilles images
-    </a>
-    <a href="demo-molecules-swiper.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/gallery-horizontal.svg" $size="16" $color="currentColor" />
-      Swipers
-    </a>
-
-    <p class="legend mb-2 mt-4">Listes</p>
-    <a href="demo-molecules-list.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/list.svg" $size="16" $color="currentColor" />
-      Lists
-    </a>
-
-    <p class="legend mb-2 mt-4">Mise en page</p>
-    <a href="demo-molecules-heroes.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/sparkles.svg" $size="16" $color="currentColor" />
-      Héros
-    </a>
-    <a href="demo-molecules-cards.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/layers.svg" $size="16" $color="currentColor" />
-      Cards
-    </a>
-    <a href="demo-molecules-burger.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/align-justify.svg" $size="16" $color="currentColor" />
-      Burger buttons
-    </a>
-
-    <p class="legend mb-2 mt-4">Animations</p>
-    <a href="demo-reveal.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/sparkle.svg" $size="16" $color="currentColor" />
-      Reveal au scroll
-    </a>
-    <a href="demo-parallax.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
-      <include file="@comp/icon.html" $icon="lucide/layers-2.svg" $size="16" $color="currentColor" />
-      Parallaxe
-    </a>
-
-
-    <!--- navs -->
-
-    <div class="divider my-2"></div>
-    <p class="legend my-2">Navs</p>
-    <div class="mt-auto">
-      <p class="caption text-base-content/40">Démos de nav isolées — une seule nav active à la fois.</p>
-    </div>
-
-    <nav class="flex flex-col gap-1">
-
-      <a href="/demo-molecules-nav-seven-nation-army.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
-        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
-        <div class="text-left">
-          <div class="font-medium leading-none mb-0.5">Seven Nation Army</div>
-          <div class="text-xs text-base-content/60 font-normal">Smart Nav + drawer latéral</div>
-        </div>
+      <p class="legend mb-2 mt-4">Style guide</p>
+      <a href="style-guide-typo.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+        <include file="@comp/icon.html" $icon="lucide/case-sensitive.svg" $size="16" $color="currentColor" />
+        Typographie
+      </a>
+      <a href="style-guide-couleurs.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+        <include file="@comp/icon.html" $icon="lucide/paint-roller.svg" $size="16" $color="currentColor" />
+        Couleurs
+      </a>
+      <a href="https://daisyui.com/docs/colors/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm justify-start gap-2 font-normal text-base-content/60">
+        <include file="@comp/icon.html" $icon="lucide/external-link.svg" $size="16" $color="currentColor" />
+        Couleurs DaisyUI
+      </a>
+      <a href="icons-gallery.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+        <include file="@comp/icon.html" $icon="lucide/shapes.svg" $size="16" $color="currentColor" />
+        Icônes
+      </a>
+      <a href="https://lucide.dev/icons/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm justify-start gap-2 font-normal text-base-content/60">
+        <include file="@comp/icon.html" $icon="lucide/external-link.svg" $size="16" $color="currentColor" />
+        Catalogue Lucide
       </a>
 
-      <a href="/demo-molecules-nav-blue-orchid.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
-        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
-        <div class="text-left">
-          <div class="font-medium leading-none mb-0.5">Blue Orchid</div>
-          <div class="text-xs text-base-content/60 font-normal">
-            <span class="badge badge-xs badge-warning">à revoir</span>
-          </div>
-        </div>
-      </a>
+      <nav class="flex flex-col gap-1">
 
-      <a href="/demo-molecules-nav-hardest-button.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
-        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
-        <div class="text-left">
-          <div class="font-medium leading-none mb-0.5">Hardest Button</div>
-          <span class="badge badge-xs badge-warning">à revoir</span>
-          <div class="text-xs text-base-content/60 font-normal">Méga menu</div>
-        </div>
-      </a>
+        <p class="legend mb-2 mt-4">Médias</p>
+        <a href="demo-molecules-media-grid.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/layout-grid.svg" $size="16" $color="currentColor" />
+          Grilles images
+        </a>
+        <a href="demo-molecules-swiper.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/gallery-horizontal.svg" $size="16" $color="currentColor" />
+          Swipers
+        </a>
 
-      <a href="/demo-molecules-nav-fell-in-love.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
-        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
-        <div class="text-left">
-          <div class="font-medium leading-none mb-0.5">Fell In Love</div>
-          <div class="text-xs text-base-content/60 font-normal">Dégradé + rideau depuis la droite</div>
-        </div>
-      </a>
+        <p class="legend mb-2 mt-4">Listes</p>
+        <a href="demo-molecules-list.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/list.svg" $size="16" $color="currentColor" />
+          Lists
+        </a>
 
-      <a href="/demo-molecules-nav-dead-leaves.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
-        <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
-        <div class="text-left">
-          <div class="font-medium leading-none mb-0.5">Dead Leaves</div>
-          <div class="text-xs text-base-content/60 font-normal">Rideau plein écran</div>
-        </div>
-      </a>
+        <p class="legend mb-2 mt-4">Mise en page</p>
+        <a href="demo-molecules-heroes.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/sparkles.svg" $size="16" $color="currentColor" />
+          Héros
+        </a>
+        <a href="demo-molecules-cards.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/layers.svg" $size="16" $color="currentColor" />
+          Cards
+        </a>
+        <a href="demo-molecules-burger.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/align-justify.svg" $size="16" $color="currentColor" />
+          Burger buttons
+        </a>
 
-    </nav>
-  </nav>
-</aside>
+        <p class="legend mb-2 mt-4">Animations</p>
+        <a href="demo-reveal.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/sparkle.svg" $size="16" $color="currentColor" />
+          Reveal au scroll
+        </a>
+        <a href="demo-parallax.html" class="btn btn-ghost btn-sm justify-start gap-2 font-normal">
+          <include file="@comp/icon.html" $icon="lucide/layers-2.svg" $size="16" $color="currentColor" />
+          Parallaxe
+        </a>
+
+
+        <!--- navs -->
+
+        <div class="divider my-2"></div>
+        <p class="legend my-2">Navs</p>
+        <div class="mt-auto">
+          <p class="caption text-base-content/40">Démos de nav isolées — une seule nav active à la fois.</p>
+        </div>
+
+        <nav class="flex flex-col gap-1">
+
+          <a href="/demo-molecules-nav-seven-nation-army.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+            <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+            <div class="text-left">
+              <div class="font-medium leading-none mb-0.5">Seven Nation Army</div>
+              <div class="text-xs text-base-content/60 font-normal">Smart Nav + drawer latéral</div>
+            </div>
+          </a>
+
+          <a href="/demo-molecules-nav-blue-orchid.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+            <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+            <div class="text-left">
+              <div class="font-medium leading-none mb-0.5">Blue Orchid</div>
+              <div class="text-xs text-base-content/60 font-normal">
+                <span class="badge badge-xs badge-warning">à revoir</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="/demo-molecules-nav-hardest-button.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+            <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+            <div class="text-left">
+              <div class="font-medium leading-none mb-0.5">Hardest Button</div>
+              <span class="badge badge-xs badge-warning">à revoir</span>
+              <div class="text-xs text-base-content/60 font-normal">Méga menu</div>
+            </div>
+          </a>
+
+          <a href="/demo-molecules-nav-fell-in-love.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+            <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+            <div class="text-left">
+              <div class="font-medium leading-none mb-0.5">Fell In Love</div>
+              <div class="text-xs text-base-content/60 font-normal">Dégradé + rideau depuis la droite</div>
+            </div>
+          </a>
+
+          <a href="/demo-molecules-nav-dead-leaves.html" class="btn btn-ghost btn-sm justify-start gap-3 font-normal h-auto py-2">
+            <include file="@comp/icon.html" $icon="lucide/menu.svg" $size="16" $color="currentColor" />
+            <div class="text-left">
+              <div class="font-medium leading-none mb-0.5">Dead Leaves</div>
+              <div class="text-xs text-base-content/60 font-normal">Rideau plein écran</div>
+            </div>
+          </a>
+
+        </nav>
+      </nav>
+    </aside>
+  </div>
+</div>

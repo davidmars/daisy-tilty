@@ -14,6 +14,13 @@ export class NavScrolled {
         this.lastScroll = 0;
 
         /**
+         * Indique si la page contient un élément `.is-top-hero` (hero plein écran en haut de page).
+         * Permet aux navbars d'adapter leur apparence (transparente vs opaque) selon le contexte.
+         * @type {boolean}
+         */
+        this.hasTopHero = false;
+
+        /**
          * État du drawer mobile.
          * `null` = jamais ouvert (évite l'animation CSS au chargement),
          * `true` = ouvert, `false` = fermé.
@@ -30,10 +37,12 @@ export class NavScrolled {
      * @returns {void}
      */
     init() {
+        this.hasTopHero = !!document.querySelector('.is-top-hero');
+
         this._onScroll = () => {
             if (this.drawerOpen) return; // ne pas masquer la nav si le drawer est ouvert
             const currentScroll = window.scrollY;
-            this.scrolled = currentScroll > 20;
+            this.scrolled = currentScroll > 60;
 
             if (currentScroll > this.lastScroll && currentScroll > 80) {
                 this.isHidden = true;
