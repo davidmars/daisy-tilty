@@ -15,10 +15,10 @@ const PRESETS = {
     fadeDown:  { keyframes: { opacity: [0, 1], y: [-40, 0] },                                                             reset: { opacity: 0, y: -40 } },
     fadeLeft:  { keyframes: { opacity: [0, 1], x: [40, 0] },                                                              reset: { opacity: 0, x: 40 } },
     fadeRight: { keyframes: { opacity: [0, 1], x: [-40, 0] },                                                             reset: { opacity: 0, x: -40 } },
-    maskUp:    { keyframes: { clipPath: ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)'], y: [0, 0] },                     reset: { clipPath: 'inset(100% 0% 0% 0%)', y: 20 },  mask: true },
-    maskDown:  { keyframes: { clipPath: ['inset(0% 0% 100% 0%)', 'inset(0% 0% 0% 0%)'], y: [0, 0] },                    reset: { clipPath: 'inset(0% 0% 100% 0%)', y: -20 }, mask: true },
-    maskLeft:  { keyframes: { clipPath: ['inset(0% 0% 0% 100%)', 'inset(0% 0% 0% 0%)'], x: [0, 0] },                     reset: { clipPath: 'inset(0% 0% 0% 100%)', x: 20 },  mask: true },
-    maskRight: { keyframes: { clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'], x: [0, 0] },                    reset: { clipPath: 'inset(0% 100% 0% 0%)', x: -20 }, mask: true },
+    maskUp:    { keyframes: { clipPath: ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)'], y: [20, 0] },                     reset: { clipPath: 'inset(100% 0% 0% 0%)', y: 20 },  mask: true },
+    maskDown:  { keyframes: { clipPath: ['inset(0% 0% 100% 0%)', 'inset(0% 0% 0% 0%)'], y: [-20, 0] },                    reset: { clipPath: 'inset(0% 0% 100% 0%)', y: -20 }, mask: true },
+    maskLeft:  { keyframes: { clipPath: ['inset(0% 0% 0% 100%)', 'inset(0% 0% 0% 0%)'], x: [20, 0] },                     reset: { clipPath: 'inset(0% 0% 0% 100%)', x: 20 },  mask: true },
+    maskRight: { keyframes: { clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'], x: [-20, 0] },                    reset: { clipPath: 'inset(0% 100% 0% 0%)', x: -20 }, mask: true },
     zoomIn:    { keyframes: { opacity: [0, 1], scale: [0.85, 1] },                                                        reset: { opacity: 0, scale: 0.85 } },
     zoomOut:   { keyframes: { opacity: [0, 1], scale: [1.15, 1] },                                                        reset: { opacity: 0, scale: 1.15 } },
 };
@@ -148,7 +148,6 @@ export class RevealManager {
         });
     }
 }
-
 
 
 
