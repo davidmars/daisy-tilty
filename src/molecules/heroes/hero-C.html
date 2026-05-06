@@ -8,23 +8,24 @@
   <div class="container mx-auto flex min-h-[70vh] flex-col items-center justify-center gap-10 px-6 py-20 text-center">
 
     <!-- Badge décoratif -->
-    <div class="flex items-center gap-2 rounded-full border border-primary-content/25 bg-primary-content/10 px-4 py-1.5">
+    <div class="flex items-center gap-2 rounded-full border border-primary-content/25 bg-primary-content/10 px-4 py-1.5"
+         data-reveal="fadeDown" data-reveal-delay="0.1">
       <include file="@comp/icon.html" $icon="lucide/flame.svg" $size="14" $color="currentColor" />
       <span class="legend text-primary-content/80 normal-case tracking-normal">Ouverture des portes — 18 juillet</span>
     </div>
 
     <!-- Texte principal -->
     <div class="space-y-6 max-w-2xl">
-      <h1 class="h1 text-5xl md:text-6xl lg:text-7xl">
+      <h1 class="h1 text-5xl md:text-6xl lg:text-7xl" data-reveal="maskUp" data-reveal-delay="0.2" data-reveal-duration="0.9">
         Le son qui<br />fait vibrer la ville
       </h1>
-      <p class="lead text-primary-content/80 mx-auto max-w-lg">
+      <p class="lead text-primary-content/80 mx-auto max-w-lg" data-reveal="fadeUp" data-reveal-delay="0.45">
         Un événement unique, imprégné de culture locale, où chaque artiste apporte sa vision du monde.
       </p>
     </div>
 
     <!-- CTAs -->
-    <div class="flex flex-col items-center gap-4 sm:flex-row">
+    <div class="flex flex-col items-center gap-4 sm:flex-row" data-reveal="fadeUp" data-reveal-delay="0.65">
       <a href="#" class="btn btn-neutral btn-lg min-w-48 gap-2">
         Prendre mes billets
         <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="18" />
@@ -35,7 +36,8 @@
     </div>
 
     <!-- Métriques / chiffres clés -->
-    <div class="mt-4 grid grid-cols-3 gap-8 border-t border-primary-content/20 pt-10">
+    <div class="mt-4 grid grid-cols-3 gap-8 border-t border-primary-content/20 pt-10"
+         data-reveal="stagger" data-reveal-preset="fadeUp" data-reveal-stagger="0.15" data-reveal-delay="0.8">
       <div class="space-y-1 text-center">
         <p class="h2 text-4xl">40+</p>
         <p class="caption text-primary-content/70">Artistes</p>

@@ -9,7 +9,7 @@
   <div class="container mx-auto px-6 py-20 md:py-28">
 
     <!-- Ligne supérieure : label + date -->
-    <div class="mb-10 flex items-center gap-4">
+    <div class="mb-10 flex items-center gap-4" data-reveal="fade" data-reveal-delay="0.1">
       <span class="h-px flex-1 bg-base-content/15"></span>
       <p class="legend">programmation 2025</p>
       <span class="h-px flex-1 bg-base-content/15"></span>
@@ -17,24 +17,24 @@
 
     <!-- Titre très grand -->
     <div class="mx-auto max-w-4xl space-y-8 text-center">
-      <h1 class="h1 text-5xl leading-none md:text-7xl lg:text-8xl">
+      <h1 class="h1 text-5xl leading-none md:text-7xl lg:text-8xl" data-reveal="maskUp" data-reveal-delay="0.2" data-reveal-duration="1">
         Musique,<br />liberté, présence.
       </h1>
 
-      <p class="lead mx-auto max-w-xl">
+      <p class="lead mx-auto max-w-xl" data-reveal="fadeUp" data-reveal-delay="0.5">
         Un festival pensé pour ceux qui aiment les rencontres vraies, la musique sans filtre et les nuits qui durent.
       </p>
     </div>
 
     <!-- Séparateur décoratif -->
-    <div class="my-12 flex items-center justify-center gap-3 text-base-content/30">
+    <div class="my-12 flex items-center justify-center gap-3 text-base-content/30" data-reveal="fade" data-reveal-delay="0.65">
       <span class="h-px w-16 bg-current"></span>
       <include file="@comp/icon.html" $icon="lucide/heart.svg" $size="16" $color="currentColor" />
       <span class="h-px w-16 bg-current"></span>
     </div>
 
     <!-- CTA groupé + infos complémentaires -->
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-center gap-6" data-reveal="fadeUp" data-reveal-delay="0.75">
       <a href="#" class="btn btn-primary btn-lg gap-2 px-10">
         Découvrir l'édition 2025
         <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="18" />
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Quote éditoriale -->
-    <figure class="mx-auto mt-16 max-w-2xl border-l-4 border-primary pl-6">
+    <figure class="mx-auto mt-16 max-w-2xl border-l-4 border-primary pl-6" data-reveal="fadeRight" data-reveal-delay="0.2">
       <blockquote class="quote text-primary">
         « Le repos est la mère de la créativité. »
       </blockquote>

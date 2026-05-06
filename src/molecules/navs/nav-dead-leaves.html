@@ -14,13 +14,13 @@
               'bg-base-100 text-base-content': scrolled || drawerOpen || !hasTopHero,
               'bg-transparent text-neutral-content': !scrolled && !drawerOpen && hasTopHero
           }"
-          class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ease-in-out">
+          class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ease-in-out border-b border-accent-content/20">
 
     <!-- Verre dépoli en dégradé — visible uniquement par-dessus le hero -->
     <div class="absolute inset-x-0 top-0 h-[200%] pointer-events-none backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_0%,black_30%,transparent_70%)]"
          x-show="hasTopHero && !scrolled && !drawerOpen" x-cloak></div>
 
-    <div class="navbar container mx-auto px-4 transition-all duration-300 relative"
+    <div class="navbar container mx-auto px-4 transition-all duration-300 relative "
          x-bind:class="scrolled ? 'py-2' : 'py-4'">
       <!-- Logo -->
       <div class="navbar-start">

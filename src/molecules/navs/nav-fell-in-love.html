@@ -12,9 +12,17 @@
      x-effect="document.body.classList.toggle('overflow-hidden', drawerOpen === true)">
 
   <header
-    x-bind:class="drawerOpen ? 'bg-base-100 text-base-content border-b' : 'bg-gradient-to-b from-black/50 to-transparent text-white'"
-    class="fixed top-0 inset-x-0 z-[9999] transition-all duration-300">
-    <div class="navbar container mx-auto px-4">
+    x-bind:class="{
+      'bg-base-100 text-base-content border-b': drawerOpen || !hasTopHero,
+      'bg-white/60 text-base-content': !drawerOpen && hasTopHero
+    }"
+    class="fixed top-0 inset-x-0 z-[9999] transition-all duration-300 is-fixed-nav">
+
+    <!-- Verre dépoli uniforme — visible uniquement quand le rideau est fermé -->
+    <div class="absolute inset-x-0 top-0 h-full pointer-events-none backdrop-blur-sm"
+         x-show="!drawerOpen" x-cloak></div>
+
+    <div class="navbar container mx-auto px-4 relative z-10">
 
       <!-- Logo -->
       <div class="navbar-start">

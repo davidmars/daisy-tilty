@@ -4,9 +4,10 @@
   Variables : aucune (remplacer l'URL de la vidéo, l'image de poster et les textes directement)
   Usage : copier ce bloc et personnaliser titre, accroche, CTA, la vidéo et l'image de poster.
 -->
-<section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+<section id="hero-a" class="relative flex min-h-screen items-center justify-center overflow-hidden is-top-hero">
 
-  <!-- Vidéo de fond en boucle — remplacer src par l'URL de votre vidéo -->
+  <!-- Vidéo de fond en boucle — data-speed pour un léger parallaxe -->
+  <div data-speed="0.3" class="absolute inset-0 w-full h-[130%] -top-[15%]">
   <video
     class="absolute inset-0 h-full w-full object-cover"
     autoplay
@@ -25,6 +26,7 @@
       class="absolute inset-0 h-full w-full object-cover"
     />
   </video>
+  </div>
 
   <!-- Overlay sombre dégradé -->
   <div class="absolute inset-0 bg-gradient-to-b from-neutral/70 via-neutral/50 to-neutral/80"></div>
@@ -33,14 +35,14 @@
   <div class="relative z-10 mx-auto max-w-3xl space-y-8 px-6 py-20 text-center text-neutral-content">
 
     <div class="space-y-4">
-      <p class="legend tracking-widest text-neutral-content/70">festival · été 2025</p>
-      <h1 class="h1 text-5xl md:text-7xl">La scène prend vie ce soir</h1>
-      <p class="lead mx-auto max-w-xl text-neutral-content/85">
+      <p class="legend tracking-widest text-neutral-content/70" data-reveal="fadeDown" data-reveal-delay="0.1">festival · été 2025</p>
+      <h1 class="h1 text-5xl md:text-7xl" data-reveal="maskUp" data-reveal-delay="0.25" data-reveal-duration="0.9">La scène prend vie ce soir</h1>
+      <p class="lead mx-auto max-w-xl text-neutral-content/85" data-reveal="fadeUp" data-reveal-delay="0.5">
         Trois jours de musique, d'énergie brute et d'émotions collectives au cœur de la ville.
       </p>
     </div>
 
-    <div class="flex flex-wrap items-center justify-center gap-4">
+    <div class="flex flex-wrap items-center justify-center gap-4" data-reveal="fadeUp" data-reveal-delay="0.7">
       <a href="#" class="btn btn-primary btn-lg gap-2">
         Réserver ma place
         <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="18" />

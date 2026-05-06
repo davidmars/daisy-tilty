@@ -11,20 +11,20 @@
     <div class="flex flex-col justify-center space-y-8 px-8 py-16 md:px-12 lg:px-16">
 
       <div class="space-y-2">
-        <span class="badge badge-secondary gap-1.5">
+        <span class="badge badge-secondary gap-1.5" data-reveal="fadeDown" data-reveal-delay="0.1">
           <include file="@comp/icon.html" $icon="lucide/sparkles.svg" $size="12" />
           Nouvelle édition
         </span>
       </div>
 
       <div class="space-y-5">
-        <h1 class="h1">Chaque note raconte une histoire</h1>
-        <p class="lead max-w-md">
+        <h1 class="h1" data-reveal="maskUp" data-reveal-delay="0.2" data-reveal-duration="0.9">Chaque note raconte une histoire</h1>
+        <p class="lead max-w-md" data-reveal="fadeUp" data-reveal-delay="0.4">
           Du jazz intimiste aux riffs électriques, découvrez une programmation qui repousse les frontières du live.
         </p>
       </div>
 
-      <ul class="space-y-3">
+      <ul class="space-y-3" data-reveal="stagger" data-reveal-preset="fadeRight" data-reveal-stagger="0.1" data-reveal-delay="0.55">
         <li class="flex items-center gap-3 text-base-content/80">
           <include file="@comp/icon.html" $icon="lucide/circle-check-big.svg" $size="18" $color="var(--color-primary)" />
           <span class="p">Plus de 40 artistes sur 5 scènes</span>
@@ -39,7 +39,7 @@
         </li>
       </ul>
 
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap gap-4" data-reveal="fadeUp" data-reveal-delay="0.8">
         <a href="#" class="btn btn-primary gap-2">
           Découvrir le programme
           <include file="@comp/icon.html" $icon="lucide/arrow-right.svg" $size="16" />
@@ -49,8 +49,9 @@
 
     </div>
 
-    <!-- Colonne image -->
+    <!-- Colonne image — parallaxe sur l'image -->
     <div class="relative h-72 overflow-hidden md:h-full md:min-h-[80vh]">
+      <div data-speed="0.4" class="absolute inset-0 w-full h-[130%] -top-[15%]">
       <img
         src="https://picsum.photos/id/167/900/1200.webp"
         alt="Scène de concert en plein air"
@@ -58,6 +59,7 @@
         loading="lazy"
         decoding="async"
       />
+      </div>
     </div>
 
   </div>

@@ -10,10 +10,8 @@ Toutes les pages avec un hero en top devraient avoir une classe is-top-hero
 
 body{
   &:has(.is-fixed-nav){
-    border: 1px solid red;
     padding-top: var(--nav-height);
     &:has(.is-top-hero){
-      border: 1px dashed red;
       padding-top: 0;
     }
   }
