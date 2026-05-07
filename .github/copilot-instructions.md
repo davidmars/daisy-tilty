@@ -256,9 +256,38 @@ Exemple correct :
 <blockquote class="blockquote text-primary">…</blockquote>
 ```
 
-## HTML et images
-Quand tu génères du code HTML contenant des images d'exemple, de démonstration ou temporaires, utilise `https://picsum.photos/` pour les URLs d'images placeholder.
-Les URLs d'images `picsum.photos` doivent toujours se terminer par l'extension `.webp`.
+## HTML et images — médias de démonstration
+
+### Photos
+
+Pour toute image photo d'exemple ou de démonstration, utiliser `https://picsum.photos/`.
+Les URLs doivent toujours se terminer par l'extension `.webp`.
+
+```html
+<img src="https://picsum.photos/id/10/800/600.webp" alt="…" />
+```
+
+### Vidéos et logos
+
+Pour les vidéos et les logos de démonstration, utiliser **obligatoirement** l'API **media-gone-wild** décrite dans `.github/explain-media-gone-wild-to-agents.md`.
+
+| Besoin | URL à utiliser |
+|---|---|
+| Vidéo placeholder | `https://media-gone-wild.tilty.io/video` |
+| Logo placeholder | `https://media-gone-wild.tilty.io/logo` |
+| Photo placeholder | `https://picsum.photos/` *(ne pas utiliser media-gone-wild pour les photos)* |
+
+Pour un résultat stable, ajouter `?seed=nom-descriptif` :
+
+```html
+<!-- Vidéo de démo -->
+<video src="https://media-gone-wild.tilty.io/video?seed=demo" playsinline muted loop></video>
+
+<!-- Logo de démo -->
+<img src="https://media-gone-wild.tilty.io/logo?seed=demo" alt="Logo" />
+```
+
+Ne jamais utiliser picsum.photos pour les vidéos ou les logos — ces types de médias n'y existent pas.
 
 ## Alpine.js
 

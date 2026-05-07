@@ -4,36 +4,68 @@
   Usage : <include file="@mol/swiper/_all-swiper.html" />
 -->
 <!-- ─── swiper-photos ───────────────────────────────────────── -->
-<section class="space-y-4">
+<section id="swiper-photos" class="space-y-4">
   <h2 class="h3">swiper-photos</h2>
   <p class="caption text-base-content/60">Photos à défilement libre + taille libre + lightbox · <code class="code-inline">@mol/swiper/swiper-photos.html</code></p>
   <include file="swiper-photos.html" />
 </section>
 <div class="bg-base-content/10 my-10 h-px"></div>
 <!-- ─── swiper-slide ────────────────────────────────────────── -->
-<section class="space-y-4">
+<section id="swiper-slide" class="space-y-4">
   <h2 class="h3">swiper-slide</h2>
   <p class="caption text-base-content/60">Diaporama plein format avec flèches de navigation · <code class="code-inline">@mol/swiper/swiper-slide.html</code></p>
   <include file="swiper-slide.html" />
 </section>
 <div class="bg-base-content/10 my-10 h-px"></div>
 <!-- ─── swiper-video ────────────────────────────────────────── -->
-<section class="space-y-4">
+<section id="swiper-video" class="space-y-4">
   <h2 class="h3">swiper-video</h2>
   <p class="caption text-base-content/60">Diaporama mixte images + vidéos HTML5 embarquées, lecture/pause automatique · <code class="code-inline">@mol/swiper/swiper-video.html</code></p>
   <include file="swiper-video.html" />
 </section>
 <div class="bg-base-content/10 my-10 h-px"></div>
 <!-- ─── swiper-auto ─────────────────────────────────────────── -->
-<section class="space-y-4">
+<section id="swiper-auto" class="space-y-4">
   <h2 class="h3">swiper-auto</h2>
   <p class="caption text-base-content/60">Défilement automatique infini, pause au survol · <code class="code-inline">@mol/swiper/swiper-auto.html</code></p>
   <include file="swiper-auto.html" />
 </section>
 <div class="bg-base-content/10 my-10 h-px"></div>
 <!-- ─── swiper-logos ────────────────────────────────────────── -->
-<section class="space-y-4">
+<section id="swiper-logos" class="space-y-4">
   <h2 class="h3">swiper-logos</h2>
   <p class="caption text-base-content/60">Logos auto-infini, N&B → Couleur au hover · <code class="code-inline">@mol/swiper/swiper-logos.html</code></p>
   <include file="swiper-logos.html" />
+</section>
+<div class="bg-base-content/10 my-10 h-px"></div>
+<!-- ─── swiper-logos (20 logos) ─────────────────────────────── -->
+<section id="swiper-logos-20" class="space-y-4">
+  <h2 class="h3">swiper-logos — variante 20 logos</h2>
+  <p class="caption text-base-content/60">Logos auto-infini, N&B → Couleur au hover · <code class="code-inline">@mol/swiper/swiper-logos.html</code></p>
+  <div x-data="swiper({
+    centerInsufficientSlides: true,
+    loop: true, freeMode: true, slidesPerView: 'auto', spaceBetween: 64, speed: 4000, autoplay: { delay: 0, disableOnInteraction: true, pauseOnMouseEnter: true }})" class="swiper h-24">
+    <div class="swiper-wrapper items-center" style="transition-timing-function: linear;">
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-1" alt="Logo 1" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-2" alt="Logo 2" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-3" alt="Logo 3" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-4" alt="Logo 4" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-5" alt="Logo 5" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-6" alt="Logo 6" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-7" alt="Logo 7" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-8" alt="Logo 8" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-9" alt="Logo 9" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-10" alt="Logo 10" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-11" alt="Logo 11" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-12" alt="Logo 12" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-13" alt="Logo 13" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-14" alt="Logo 14" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-15" alt="Logo 15" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-16" alt="Logo 16" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-17" alt="Logo 17" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-18" alt="Logo 18" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-19" alt="Logo 19" loading="lazy" decoding="async" /></a></div>
+      <div class="swiper-slide !w-auto"><a href="#" class="block transition duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100"><img class="h-10 w-auto object-contain" src="https://media-gone-wild.tilty.io/logo?seed=logo-20" alt="Logo 20" loading="lazy" decoding="async" /></a></div>
+    </div>
+  </div>
 </section>
