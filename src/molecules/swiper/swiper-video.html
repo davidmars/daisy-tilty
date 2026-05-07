@@ -5,23 +5,25 @@
   Les <video> sont mis en pause et remis à zéro automatiquement sur les slides inactives.
   L'autoplay Swiper (si activé) se suspend pendant la lecture d'une vidéo et reprend à la fin.
 -->
-<div x-data="swiperVideo({ loop: false, slidesPerView: 1, spaceBetween: 0,
-  pagination: { el: '.swiper-pagination', type: 'progressbar' },
+<div x-data="swiperVideo({ loop: true, slidesPerView: 1, spaceBetween: 0,
+  pagination: { el: '.swiper-pagination', type: 'bullets', clickable: true },
   navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', addIcons: false } })"
-     class="swiper swiper--progress-bottom aspect-video w-full relative [--swiper-navigation-color:white]">
+     class="swiper aspect-video w-full relative [--swiper-navigation-color:white] [--swiper-pagination-color:white] [--swiper-pagination-bullet-inactive-color:white] [--swiper-pagination-bullet-inactive-opacity:0.5] [--swiper-pagination-bullet-size:10px]">
   <div class="swiper-wrapper">
 
-    <!-- Slide image -->
+    <!-- Slide vidéo -->
     <div class="swiper-slide relative">
-      <img class="h-full w-full object-cover" src="https://picsum.photos/id/10/1600/900.webp" alt="Photo 1" loading="lazy" decoding="async" />
-      <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la première photo</figcaption>
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline loop preload="metadata"
+             poster="https://picsum.photos/id/10/1600/900.webp">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      </video>
     </div>
 
     <!-- Slide vidéo -->
     <div class="swiper-slide relative">
-      <video class="absolute inset-0 w-full h-full object-cover" controls playsinline preload="metadata"
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline loop preload="metadata"
              poster="https://picsum.photos/id/20/1600/900.webp">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
       </video>
     </div>
 
@@ -31,12 +33,10 @@
       <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la troisième photo</figcaption>
     </div>
 
-    <!-- Slide vidéo -->
+    <!-- Slide image -->
     <div class="swiper-slide relative">
-      <video class="absolute inset-0 w-full h-full object-cover" controls playsinline preload="metadata"
-             poster="https://picsum.photos/id/40/1600/900.webp">
-        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
-      </video>
+      <img class="h-full w-full object-cover" src="https://picsum.photos/id/40/1600/900.webp" alt="Photo 4" loading="lazy" decoding="async" />
+      <figcaption class="caption absolute bottom-6 left-0 right-0 px-6 text-white drop-shadow">Légende de la quatrième photo</figcaption>
     </div>
 
   </div>
